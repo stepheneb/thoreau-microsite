@@ -10,13 +10,50 @@ html {
 }
 
 body {
+  margin: 30px 40px;
+  padding: 0;
+  background-color: white;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   color: black;
-  margin: 0;
-  padding: 0;
 }
 
 .content {
-  font-size: var(--content);
+  .left {
+    img {
+      width: 20%;
+    }
+    .title {
+      margin: 4vh 0;
+      font-size: var(--artifact-title);
+      color: var(--thoreau-blue);
+      line-height: 1em;
+      text-transform: capitalize;
+    }
+    hr {
+      width: 25%;
+    }
+    .description {
+      margin: 4vh 0;
+      width: 70%;
+      font-size: var(--artifact-description);
+      line-height: 2em;
+      color: black;
+    }
+  }
+  .right {
+    margin-top: 20vh;
+    .image-container {
+      display: flex;
+      align-items: center;
+      justify-content: space-around;
+      height: 70vh;
+      border: 1px solid var(--border-gray);
+      border-radius: 1vmin;
+      img {
+        width: 80%;
+        align-self: center;
+      }
+    }
+  }
 }
