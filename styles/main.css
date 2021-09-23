@@ -1,0 +1,27 @@
+/* color variables */
+/* https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
+:root {
+  --blue-background: #77bece;
+}
+
+/* font sizes */
+:root {
+  --content: 2em;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  font-size: var(--content);
+}
