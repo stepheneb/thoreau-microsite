@@ -1,12 +1,15 @@
 /* color variables */
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
 :root {
-  --blue-background: #77bece;
+  --thoreau-blue: #77bece;
+  --border-gray: gray;
 }
 
 /* font sizes */
 :root {
-  --content: 2em;
+  --content: 2rem;
+  --artifact-title: 4vmin;
+  --artifact-description: 2vmin;
 }
 
 * {
@@ -15,13 +18,46 @@
 }
 
 body {
+  margin: 30px 40px;
+  padding: 0;
+  background-color: white;
   font-family: "Open Sans", sans-serif;
   font-size: 16px;
   color: black;
-  margin: 0;
-  padding: 0;
 }
 
-.content {
-  font-size: var(--content);
+.content .left img {
+  width: 20%;
+}
+.content .left .title {
+  margin: 4vh 0;
+  font-size: var(--artifact-title);
+  color: var(--thoreau-blue);
+  line-height: 1em;
+  text-transform: capitalize;
+}
+.content .left hr {
+  width: 25%;
+}
+.content .left .description {
+  margin: 4vh 0;
+  width: 70%;
+  font-size: var(--artifact-description);
+  line-height: 2em;
+  color: black;
+}
+.content .right {
+  margin-top: 20vh;
+}
+.content .right .image-container {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  height: 70vh;
+  border: 1px solid var(--border-gray);
+  border-radius: 1vmin;
+}
+.content .right .image-container img {
+  width: 80%;
+  align-self: center;
 }
