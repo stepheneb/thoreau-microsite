@@ -3,7 +3,8 @@
   "version": "1.0.0-alpha.1",
   "description": "Explore Thoreau Artifacts",
   "scripts": {
-    "test": "jest"
+    "test": "jest",
+    "build": "gulp build"
   },
   "author": {
     "name": "Stephen Bannasch",
