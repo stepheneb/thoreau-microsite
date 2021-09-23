@@ -1,0 +1,22 @@
+@import "colors";
+@import "fonts";
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  font-size: 16px;
+  color: black;
+  margin: 0;
+  padding: 0;
+}
+
+.content {
+  font-size: var(--content);
+}
