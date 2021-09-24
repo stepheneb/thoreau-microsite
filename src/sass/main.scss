@@ -26,6 +26,7 @@ body {
     .title {
       margin: 4vh 0;
       font-size: var(--artifact-title);
+      font-weight: 600;
       color: var(--thoreau-blue);
       line-height: 1em;
       text-transform: capitalize;
@@ -49,7 +50,7 @@ body {
       justify-content: space-around;
       height: 70vh;
       border: 1px solid var(--border-gray);
-      border-radius: 1vmin;
+      border-radius: 0.5vmin;
       img {
         width: 80%;
         align-self: center;
