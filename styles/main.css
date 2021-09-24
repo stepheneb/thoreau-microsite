@@ -11,6 +11,12 @@
   --artifact-title: 4vmin;
   --artifact-description: 2vmin;
 }
+@media (max-width: 576px) {
+  :root {
+    --artifact-title: 5vmin;
+    --artifact-description: 3vmin;
+  }
+}
 
 * {
   margin: 0;
@@ -27,7 +33,7 @@ body {
 }
 @media (max-width: 576px) {
   body {
-    margin: 10px 20px;
+    margin: 10px 10px;
   }
 }
 
@@ -95,4 +101,9 @@ body {
   margin: 20% 0;
   width: 80%;
   align-self: center;
+}
+@media (max-width: 576px) {
+  .content .main .right .image-container img {
+    width: 90%;
+  }
 }
