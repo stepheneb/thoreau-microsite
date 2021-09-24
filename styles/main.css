@@ -25,11 +25,21 @@ body {
   font-size: 16px;
   color: black;
 }
-
-.content .left img {
-  width: 20%;
+@media (max-width: 576px) {
+  body {
+    margin: 10px 20px;
+  }
 }
-.content .left .title {
+
+@media (min-width: 576px) {
+  .content .main {
+    height: 90vh;
+  }
+}
+.content .main .left img {
+  width: 16%;
+}
+.content .main .left .title {
   margin: 4vh 0;
   font-size: var(--artifact-title);
   font-weight: 600;
@@ -37,28 +47,52 @@ body {
   line-height: 1em;
   text-transform: capitalize;
 }
-.content .left hr {
+@media (max-width: 576px) {
+  .content .main .left .title {
+    margin: 2vh 0;
+  }
+}
+.content .main .left hr {
+  display: none;
   width: 25%;
 }
-.content .left .description {
+@media (min-width: 576px) {
+  .content .main .left hr {
+    display: block;
+  }
+}
+.content .main .left .description {
   margin: 4vh 0;
-  width: 70%;
+  width: 65%;
   font-size: var(--artifact-description);
   line-height: 2em;
   color: black;
 }
-.content .right {
-  margin-top: 20vh;
+@media (max-width: 576px) {
+  .content .main .left .description {
+    margin: 2vh 0;
+  }
 }
-.content .right .image-container {
+.content .main .right {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+}
+@media (max-width: 576px) {
+  .content .main .right {
+    justify-content: flex-start;
+  }
+}
+.content .main .right .image-container {
+  height: 90%;
   display: flex;
   align-items: center;
   justify-content: space-around;
-  height: 70vh;
   border: 1px solid var(--border-gray);
   border-radius: 0.5vmin;
 }
-.content .right .image-container img {
+.content .main .right .image-container img {
+  margin: 20% 0;
   width: 80%;
   align-self: center;
 }
