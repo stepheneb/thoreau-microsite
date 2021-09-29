@@ -1,12 +1,26 @@
+// font-families loaded in index.html
+//
+// font-family: "Open Sans", sans-serif;
+// font-family: 'Libre Caslon Text', serif;
+// font-family: 'Nunito Sans', sans-serif;
+
 /* font sizes */
 
 :root {
   --content: 2rem;
   --artifact-title: 4vmin;
   --artifact-description: 2vmin;
+  --explore: 2.6vmin;
+  --explore-button: 2vmin;
+  --explore-content: 2.6vmin;
+  --explore-content-heading: 4.6vmin;
 
   @media (max-width: 576px), (max-height: 576px) {
     --artifact-title: 4.5vmin;
     --artifact-description: 2.8vmin;
+    --explore: 3.4vmin;
+    --explore-button: 2.8vmin;
+    --explore-content: 2.8vmin;
+    --explore-content-heading: 4.4vmin;
   }
 }
