@@ -138,9 +138,15 @@
   }
 }
 
-html[data-scroll="0"] img.spyglass-photo {
-  visibility: visible;
-  opacity: 1;
+html[data-scroll="0"] {
+  img.spyglass-photo {
+    visibility: visible;
+    opacity: 1;
+  }
+  .back-button {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 html[data-scroll="1"] {
