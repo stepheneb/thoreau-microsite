@@ -104,7 +104,7 @@ body {
           border-radius: 1em;
           background-color: lightgray;
           font-size: var(--explore);
-          *[type="button"] {
+          a.btn {
             font-size: var(--explore-button);
             border-radius: 1em;
             margin-left: 1em;
