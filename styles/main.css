@@ -33,7 +33,7 @@
 }
 
 :root {
-  --explore-images-timing: 1s;
+  --explore-images-timing: 2s 0.5s ease-in-out;
 }
 
 * {
@@ -198,7 +198,7 @@ body {
   background-color: transparent;
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.5s, visibility 0.5s 0s;
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
 }
 .explore-images .back-button a i {
   color: lightgray;
@@ -231,7 +231,7 @@ body {
 .explore-images .fixed-image-container img {
   visibility: hidden;
   opacity: 0;
-  transition: opacity 0.5s, visibility 0.5s 0s;
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
   margin: 20% 0;
   width: 80%;
   align-self: center;
@@ -344,7 +344,7 @@ html[data-scroll="5"] .explore-images:before {
 }
 .explore-content .absolute-content-container.animals {
   top: 220vh;
-  left: 15vw;
+  left: 10vw;
 }
 @media (max-width: 576px), (max-height: 576px) {
   .explore-content .absolute-content-container.animals {
@@ -353,7 +353,7 @@ html[data-scroll="5"] .explore-images:before {
 }
 .explore-content .absolute-content-container.trees1 {
   top: 320vh;
-  left: 15vw;
+  left: 10vw;
 }
 @media (max-width: 576px), (max-height: 576px) {
   .explore-content .absolute-content-container.trees1 {
@@ -372,7 +372,7 @@ html[data-scroll="5"] .explore-images:before {
   }
 }
 .explore-content .absolute-content-container.hawk {
-  top: 515vh;
+  top: 510vh;
   align-self: flex-end;
   max-width: 40vw;
   left: 40vw;
