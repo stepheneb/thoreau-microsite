@@ -1,0 +1,119 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+html {
+}
+
+body {
+  margin: 30px 40px;
+  @media (max-width: 576px) {
+    margin: 10px 10px;
+  }
+  @media (max-height: 576px) {
+    margin: 10px 20px;
+  }
+  padding: 0;
+  background-color: white;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  color: black;
+}
+
+.content {
+  .main {
+    @media (min-width: 576px) {
+      height: 90vh;
+    }
+    .left {
+      height: 100%;
+      img {
+        width: 16%;
+      }
+      .title {
+        margin: 4vh 0;
+        @media (max-width: 576px) {
+          margin: 2vh 0;
+        }
+        font-family: "Libre Caslon Text", serif;
+        font-size: var(--artifact-title);
+        font-weight: 600;
+        color: var(--thoreau-blue);
+        line-height: 1.1em;
+        text-transform: capitalize;
+      }
+      hr {
+        display: none;
+        width: 25%;
+        @media (max-width: 576px), (max-height: 576px) {
+          display: block;
+        }
+      }
+      .description {
+        margin: 4vh 0;
+        width: 65%;
+        @media (max-width: 576px), (max-height: 576px) {
+          width: 85%;
+        }
+        font-size: var(--artifact-description);
+        line-height: 2em;
+        color: black;
+        @media (max-width: 576px) {
+          margin: 2vh 0;
+        }
+      }
+    }
+    .right {
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      justify-content: flex-end;
+      @media (max-width: 576px) {
+        justify-content: flex-start;
+      }
+
+      .image-container {
+        height: 90%;
+        @media (max-width: 576px) {
+          height: 45vh;
+        }
+        @media (max-height: 576px) {
+          height: 80vh;
+        }
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: space-around;
+        border: 1px solid var(--border-gray);
+        border-radius: 0.5vmin;
+        img {
+          margin: 20% 0;
+          width: 80%;
+          align-self: center;
+          @media (max-width: 576px), (max-height: 576px) {
+            width: 90%;
+          }
+        }
+        .explore {
+          align-self: flex-start;
+          margin-top: 1em;
+          margin-left: calc(10% - 1.5em);
+          padding: 0.35em 2em 0.35em 1.5em;
+          border: 1px solid lightgray;
+          border-radius: 1em;
+          background-color: lightgray;
+          font-size: var(--explore);
+          *[type="button"] {
+            font-size: var(--explore-button);
+            border-radius: 1em;
+            margin-left: 1em;
+            padding: 0.25em 0.5em;
+            width: 2.2em;
+            height: 2em;
+          }
+        }
+      }
+    }
+  }
+}
