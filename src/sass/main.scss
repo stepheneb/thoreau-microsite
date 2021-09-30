@@ -152,7 +152,8 @@ body {
     background-color: transparent;
     visibility: hidden;
     opacity: 0;
-    transition: opacity 0.5s, visibility 0.5s 0s;
+    transition: opacity var(--explore-images-timing),
+      visibility var(--explore-images-timing);
     a {
       i {
         color: lightgray;
@@ -183,7 +184,8 @@ body {
     img {
       visibility: hidden;
       opacity: 0;
-      transition: opacity 0.5s, visibility 0.5s 0s;
+      transition: opacity var(--explore-images-timing),
+        visibility var(--explore-images-timing);
       margin: 20% 0;
       width: 80%;
       align-self: center;
@@ -303,14 +305,14 @@ html[data-scroll="5"] {
     }
     &.animals {
       top: 220vh;
-      left: 15vw;
+      left: 10vw;
       @media (max-width: 576px), (max-height: 576px) {
         left: 5vw;
       }
     }
     &.trees1 {
       top: 320vh;
-      left: 15vw;
+      left: 10vw;
       @media (max-width: 576px), (max-height: 576px) {
         left: 5vw;
       }
@@ -325,7 +327,7 @@ html[data-scroll="5"] {
       }
     }
     &.hawk {
-      top: 515vh;
+      top: 510vh;
       align-self: flex-end;
       max-width: 40vw;
       left: 40vw;
