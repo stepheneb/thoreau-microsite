@@ -162,7 +162,7 @@ body {
   background-color: lightgray;
   font-size: var(--explore);
 }
-.content .main .right .image-container .explore *[type=button] {
+.content .main .right .image-container .explore a.btn {
   font-size: var(--explore-button);
   border-radius: 1em;
   margin-left: 1em;
