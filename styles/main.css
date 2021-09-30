@@ -193,12 +193,18 @@ body {
 }
 .explore-images .back-button {
   position: relative;
-  top: 1vh;
+  top: 0.75vh;
   left: 1vw;
   background-color: transparent;
   visibility: hidden;
   opacity: 0;
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
+}
+@media (max-width: 576px) {
+  .explore-images .back-button {
+    top: 0.5vh;
+    left: 2.5vw;
+  }
 }
 .explore-images .back-button a i {
   color: lightgray;
@@ -278,9 +284,22 @@ body {
 .explore-images .fixed-image-container img.hawk {
   position: relative;
   top: -30vh;
-  left: 25vw;
+  left: 23vw;
   width: 10vw;
   align-self: flex-start;
+}
+@media (max-width: 576px) {
+  .explore-images .fixed-image-container img.hawk {
+    left: 20vw;
+    width: 20vw;
+  }
+}
+@media (max-height: 576px) {
+  .explore-images .fixed-image-container img.hawk {
+    top: -26vh;
+    left: 22vw;
+    width: 12vw;
+  }
 }
 
 html[data-scroll="0"] img.spyglass-photo {
@@ -377,4 +396,9 @@ html[data-scroll="5"] .explore-images:before {
   max-width: 40vw;
   left: 40vw;
   font-size: var(--explore-content-heading);
+}
+@media (max-width: 576px) {
+  .explore-content .absolute-content-container.hawk {
+    left: 50vw;
+  }
 }
