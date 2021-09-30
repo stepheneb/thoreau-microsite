@@ -1,5 +1,6 @@
 @import "colors";
 @import "fonts";
+@import "transitions";
 
 * {
   margin: 0;
@@ -129,7 +130,40 @@ body {
   width: 100vw;
   margin: 0;
   padding: 0;
-  background-color: var(--thoreau-blue);
+  background-color: unset;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 1;
+    background-color: var(--thoreau-blue);
+    transition: background-color var(--explore-images-timing),
+      background-image var(--explore-images-timing),
+      opacity var(--explore-images-timing);
+  }
+
+  .back-button {
+    position: relative;
+    top: 1vh;
+    left: 1vw;
+    background-color: transparent;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity 0.5s, visibility 0.5s 0s;
+    a {
+      i {
+        color: lightgray;
+        font-size: var(--back-button-size);
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+
   .fixed-image-container {
     position: absolute;
     top: 0%;
@@ -172,10 +206,22 @@ body {
     img.trees1 {
       width: 60%;
       align-self: center;
+      @media (max-width: 576px), (max-height: 576px) {
+        align-self: flex-end;
+        margin-right: 5%;
+        margin-block-end: auto;
+        margin-bottom: 10%;
+      }
     }
     img.trees2 {
       width: 60%;
       align-self: center;
+      @media (max-width: 576px), (max-height: 576px) {
+        align-self: flex-end;
+        margin-right: 5%;
+        margin-block-end: auto;
+        margin-bottom: 10%;
+      }
     }
     img.hawk {
       position: relative;
@@ -214,9 +260,11 @@ html[data-scroll="4"] {
   }
   .explore-images {
     // background-color: var(--thoreau-rgba-blue);
-    background-image: url("/images/shoreline-and-water-grayscale.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    &:before {
+      background-image: url("/images/shoreline-and-water-grayscale.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
   }
 }
 
@@ -225,11 +273,19 @@ html[data-scroll="5"] {
     visibility: visible;
     opacity: 1;
   }
+
+  .back-button {
+    visibility: visible;
+    opacity: 1;
+  }
+
   .explore-images {
-    background-color: unset;
-    background-image: url("/images/shoreline-and-water.jpg");
-    background-size: cover;
-    background-repeat: no-repeat;
+    &:before {
+      background-color: unset;
+      background-image: url("/images/shoreline-and-water.jpg");
+      background-size: cover;
+      background-repeat: no-repeat;
+    }
   }
 }
 
@@ -247,16 +303,26 @@ html[data-scroll="5"] {
     }
     &.animals {
       top: 220vh;
-      left: 20vw;
+      left: 15vw;
+      @media (max-width: 576px), (max-height: 576px) {
+        left: 5vw;
+      }
     }
     &.trees1 {
       top: 320vh;
-      left: 20vw;
+      left: 15vw;
+      @media (max-width: 576px), (max-height: 576px) {
+        left: 5vw;
+      }
     }
     &.trees2 {
       top: 460vh;
       align-self: flex-end;
       left: 35vw;
+      @media (max-width: 576px), (max-height: 576px) {
+        top: 430vh;
+        left: 5vw;
+      }
     }
     &.hawk {
       top: 515vh;

@@ -13,14 +13,20 @@
   --explore: 2.6vmin;
   --explore-button: 2vmin;
   --explore-content: 2.6vmin;
+  --explore-content-weight: 400;
   --explore-content-heading: 4.6vmin;
+  --explore-content-heading-weight: 500;
+
+  --back-button-size: 2em;
 
   @media (max-width: 576px), (max-height: 576px) {
     --artifact-title: 4.5vmin;
     --artifact-description: 2.8vmin;
     --explore: 3.4vmin;
     --explore-button: 2.8vmin;
-    --explore-content: 2.8vmin;
-    --explore-content-heading: 4.4vmin;
+    --explore-content: 3.6vmin;
+    --explore-content-weight: 600;
+    --explore-content-heading: 5vmin;
+    --explore-content-heading-weight: 600;
   }
 }
