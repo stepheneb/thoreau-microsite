@@ -33,7 +33,7 @@
 }
 
 :root {
-  --explore-images-timing: 2s 0.5s ease-in-out;
+  --explore-images-timing: 1.5s 0.25s ease-in-out;
 }
 
 * {
