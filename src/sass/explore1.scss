@@ -84,6 +84,13 @@
       margin-right: 5%;
       margin-block-end: auto;
       margin-bottom: 10%;
+      @media (max-width: 576px) {
+        width: 80%;
+      }
+      @media (max-height: 576px) {
+        width: 55%;
+        margin-bottom: 15%;
+      }
     }
     img.trees1 {
       width: 60%;
@@ -93,6 +100,9 @@
         margin-right: 5%;
         margin-block-end: auto;
         margin-bottom: 10%;
+      }
+      @media (max-width: 576px) {
+        width: 80%;
       }
     }
     img.trees2 {
@@ -104,6 +114,9 @@
         margin-block-end: auto;
         margin-bottom: 10%;
       }
+      @media (max-width: 576px) {
+        width: 80%;
+      }
     }
     img.hawk {
       position: relative;
@@ -112,11 +125,12 @@
       width: 10vw;
       align-self: flex-start;
       @media (max-width: 576px) {
-        left: 20vw;
-        width: 20vw;
+        top: -30vh;
+        left: 15vw;
+        width: 25vw;
       }
       @media (max-height: 576px) {
-        top: -26vh;
+        top: -25vh;
         left: 22vw;
         width: 12vw;
       }
@@ -129,23 +143,33 @@ html[data-scroll="0"] img.spyglass-photo {
   opacity: 1;
 }
 
-html[data-scroll="1"] img.spyglass-drawing {
-  visibility: visible;
-  opacity: 1;
+html[data-scroll="1"] {
+  img.spyglass-drawing,
+  .absolute-content-container.spyglass-drawing {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
-html[data-scroll="2"] img.animals {
-  visibility: visible;
-  opacity: 1;
+html[data-scroll="2"] {
+  img.animals,
+  .absolute-content-container.animals {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
-html[data-scroll="3"] img.trees1 {
-  visibility: visible;
-  opacity: 1;
+html[data-scroll="3"] {
+  img.trees1,
+  .absolute-content-container.trees1 {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 html[data-scroll="4"] {
-  img.trees2 {
+  img.trees2,
+  .absolute-content-container.trees2 {
     visibility: visible;
     opacity: 1;
   }
@@ -160,7 +184,8 @@ html[data-scroll="4"] {
 }
 
 html[data-scroll="5"] {
-  img.hawk {
+  img.hawk,
+  .absolute-content-container.hawk {
     visibility: visible;
     opacity: 1;
   }
@@ -186,44 +211,117 @@ html[data-scroll="5"] {
   color: white;
   .absolute-content-container {
     position: absolute;
+    visibility: hidden;
+    transition: opacity var(--explore-content-timing),
+      visibility var(--explore-content-timing);
+    opacity: 0;
     max-width: 30vw;
     font-size: var(--explore-content);
     &.spyglass-drawing {
       top: 120vh;
       left: 60vw;
+      @media (max-height: 576px) {
+        left: 55vw;
+        max-width: 35vw;
+      }
+      @media (max-width: 576px) {
+        left: 35vw;
+        max-width: 60vw;
+      }
     }
     &.animals {
-      top: 220vh;
+      top: 210vh;
       left: 10vw;
-      @media (max-width: 576px), (max-height: 576px) {
+      @media (max-height: 576px) {
+        left: 3vw;
+        max-width: 30vw;
+      }
+      @media (max-width: 576px) {
         left: 5vw;
+        max-width: 60vw;
       }
     }
     &.trees1 {
-      top: 320vh;
+      top: 310vh;
       left: 10vw;
-      @media (max-width: 576px), (max-height: 576px) {
-        left: 5vw;
+      @media (max-height: 576px) {
+        left: 3vw;
+        max-width: 30vw;
+      }
+      @media (max-width: 576px) {
+        left: 3vw;
+        max-width: 60vw;
       }
     }
     &.trees2 {
-      top: 460vh;
+      top: 410vh;
       align-self: flex-end;
       left: 35vw;
-      @media (max-width: 576px), (max-height: 576px) {
-        top: 430vh;
-        left: 5vw;
+      @media (max-height: 576px) {
+        left: 3vw;
+        max-width: 30vw;
+      }
+      @media (max-width: 576px) {
+        left: 24vw;
+        max-width: 60vw;
       }
     }
     &.hawk {
-      top: 514vh;
+      top: 510vh;
       align-self: flex-end;
       max-width: 40vw;
       left: 40vw;
       font-size: var(--explore-content-heading);
+      @media (max-height: 576px) {
+        top: 515vh;
+      }
       @media (max-width: 576px) {
         left: 50vw;
       }
     }
+  }
+}
+
+html[data-contentscroll="0"] {
+}
+
+html[data-contentscroll="1"] {
+  .absolute-content-container.spyglass-drawing {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+html[data-contentscroll="2"] {
+  .absolute-content-container.animals {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+html[data-contentscroll="3"] {
+  .absolute-content-container.trees1 {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+html[data-contentscroll="4"] {
+  img.trees2,
+  .absolute-content-container.trees2 {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+html[data-contentscroll="5"] {
+  .absolute-content-container.hawk {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .back-button {
+    visibility: visible;
+    opacity: 1;
   }
 }
