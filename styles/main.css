@@ -14,7 +14,10 @@
   --explore: 2.6vmin;
   --explore-button: 2vmin;
   --explore-content: 2.6vmin;
+  --explore-content-weight: 400;
   --explore-content-heading: 4.6vmin;
+  --explore-content-heading-weight: 500;
+  --back-button-size: 2em;
 }
 @media (max-width: 576px), (max-height: 576px) {
   :root {
@@ -22,9 +25,15 @@
     --artifact-description: 2.8vmin;
     --explore: 3.4vmin;
     --explore-button: 2.8vmin;
-    --explore-content: 2.8vmin;
-    --explore-content-heading: 4.4vmin;
+    --explore-content: 3.6vmin;
+    --explore-content-weight: 600;
+    --explore-content-heading: 5vmin;
+    --explore-content-heading-weight: 600;
   }
+}
+
+:root {
+  --explore-images-timing: 1s;
 }
 
 * {
@@ -169,7 +178,34 @@ body {
   width: 100vw;
   margin: 0;
   padding: 0;
+  background-color: unset;
+}
+.explore-images:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 1;
   background-color: var(--thoreau-blue);
+  transition: background-color var(--explore-images-timing), background-image var(--explore-images-timing), opacity var(--explore-images-timing);
+}
+.explore-images .back-button {
+  position: relative;
+  top: 1vh;
+  left: 1vw;
+  background-color: transparent;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity 0.5s, visibility 0.5s 0s;
+}
+.explore-images .back-button a i {
+  color: lightgray;
+  font-size: var(--back-button-size);
+}
+.explore-images .back-button a i:hover {
+  color: white;
 }
 .explore-images .fixed-image-container {
   position: absolute;
@@ -219,9 +255,25 @@ body {
   width: 60%;
   align-self: center;
 }
+@media (max-width: 576px), (max-height: 576px) {
+  .explore-images .fixed-image-container img.trees1 {
+    align-self: flex-end;
+    margin-right: 5%;
+    margin-block-end: auto;
+    margin-bottom: 10%;
+  }
+}
 .explore-images .fixed-image-container img.trees2 {
   width: 60%;
   align-self: center;
+}
+@media (max-width: 576px), (max-height: 576px) {
+  .explore-images .fixed-image-container img.trees2 {
+    align-self: flex-end;
+    margin-right: 5%;
+    margin-block-end: auto;
+    margin-bottom: 10%;
+  }
 }
 .explore-images .fixed-image-container img.hawk {
   position: relative;
@@ -255,7 +307,7 @@ html[data-scroll="4"] img.trees2 {
   visibility: visible;
   opacity: 1;
 }
-html[data-scroll="4"] .explore-images {
+html[data-scroll="4"] .explore-images:before {
   background-image: url("/images/shoreline-and-water-grayscale.jpg");
   background-size: cover;
   background-repeat: no-repeat;
@@ -265,7 +317,11 @@ html[data-scroll="5"] img.hawk {
   visibility: visible;
   opacity: 1;
 }
-html[data-scroll="5"] .explore-images {
+html[data-scroll="5"] .back-button {
+  visibility: visible;
+  opacity: 1;
+}
+html[data-scroll="5"] .explore-images:before {
   background-color: unset;
   background-image: url("/images/shoreline-and-water.jpg");
   background-size: cover;
@@ -288,16 +344,32 @@ html[data-scroll="5"] .explore-images {
 }
 .explore-content .absolute-content-container.animals {
   top: 220vh;
-  left: 20vw;
+  left: 15vw;
+}
+@media (max-width: 576px), (max-height: 576px) {
+  .explore-content .absolute-content-container.animals {
+    left: 5vw;
+  }
 }
 .explore-content .absolute-content-container.trees1 {
   top: 320vh;
-  left: 20vw;
+  left: 15vw;
+}
+@media (max-width: 576px), (max-height: 576px) {
+  .explore-content .absolute-content-container.trees1 {
+    left: 5vw;
+  }
 }
 .explore-content .absolute-content-container.trees2 {
   top: 460vh;
   align-self: flex-end;
   left: 35vw;
+}
+@media (max-width: 576px), (max-height: 576px) {
+  .explore-content .absolute-content-container.trees2 {
+    top: 430vh;
+    left: 5vw;
+  }
 }
 .explore-content .absolute-content-container.hawk {
   top: 515vh;
