@@ -308,7 +308,7 @@ html[data-scroll="4"] img.trees2 {
   opacity: 1;
 }
 html[data-scroll="4"] .explore-images:before {
-  background-image: url("/images/shoreline-and-water-grayscale.jpg");
+  background-image: url("../images/shoreline-and-water-grayscale.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
@@ -323,7 +323,7 @@ html[data-scroll="5"] .back-button {
 }
 html[data-scroll="5"] .explore-images:before {
   background-color: unset;
-  background-image: url("/images/shoreline-and-water.jpg");
+  background-image: url("../images/shoreline-and-water.jpg");
   background-size: cover;
   background-repeat: no-repeat;
 }
