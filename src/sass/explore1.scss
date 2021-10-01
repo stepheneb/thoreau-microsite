@@ -15,10 +15,14 @@
     bottom: 0px;
     left: 0px;
     opacity: 1;
-    background-color: var(--thoreau-blue);
-    transition: background-color var(--explore-images-timing),
-      background-image var(--explore-images-timing),
-      opacity var(--explore-images-timing);
+    background-color: var(--thoreau-rgba-blue);
+    background-image: url("../images/transparent.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    transition: opacity var(--explore-images-timing),
+      background-image var(--explore-images-timing);
   }
 
   .back-button {
@@ -180,11 +184,11 @@ html[data-scroll="4"] {
     opacity: 1;
   }
   .explore-images {
-    // background-color: var(--thoreau-rgba-blue);
     &:before {
       background-image: url("../images/shoreline-and-water-grayscale.jpg");
-      background-size: cover;
       background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
     }
   }
 }
@@ -203,10 +207,10 @@ html[data-scroll="5"] {
 
   .explore-images {
     &:before {
-      background-color: unset;
       background-image: url("../images/shoreline-and-water.jpg");
-      background-size: cover;
       background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
     }
   }
 }
