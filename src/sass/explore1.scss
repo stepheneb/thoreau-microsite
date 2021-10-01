@@ -154,8 +154,7 @@ html[data-scroll="0"] {
 }
 
 html[data-scroll="1"] {
-  img.spyglass-drawing,
-  .absolute-content-container.spyglass-drawing {
+  img.spyglass-drawing {
     visibility: visible;
     opacity: 1;
   }
