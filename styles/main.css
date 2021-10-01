@@ -499,7 +499,6 @@ html[data-contentscroll="3"] .absolute-content-container.trees1 {
   opacity: 1;
 }
 
-html[data-contentscroll="4"] img.trees2,
 html[data-contentscroll="4"] .absolute-content-container.trees2 {
   visibility: visible;
   opacity: 1;
