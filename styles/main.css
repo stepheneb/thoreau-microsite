@@ -342,8 +342,7 @@ html[data-scroll="0"] .back-button {
   opacity: 1;
 }
 
-html[data-scroll="1"] img.spyglass-drawing,
-html[data-scroll="1"] .absolute-content-container.spyglass-drawing {
+html[data-scroll="1"] img.spyglass-drawing {
   visibility: visible;
   opacity: 1;
 }
