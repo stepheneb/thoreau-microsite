@@ -2,7 +2,7 @@
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
 :root {
   --thoreau-blue: #77bece;
-  --thoreau-rgba-blue: rgba(119, 190, 206, 0.9);
+  --thoreau-rgba-blue: rgba(119, 190, 206, 1);
   --border-gray: gray;
 }
 
@@ -193,8 +193,12 @@ a[href="./explore-2.html"] {
   bottom: 0px;
   left: 0px;
   opacity: 1;
-  background-color: var(--thoreau-blue);
-  transition: background-color var(--explore-images-timing), background-image var(--explore-images-timing), opacity var(--explore-images-timing);
+  background-color: var(--thoreau-rgba-blue);
+  background-image: url("../images/transparent.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: opacity var(--explore-images-timing), background-image var(--explore-images-timing);
 }
 .explore-images .back-button {
   position: relative;
@@ -363,8 +367,9 @@ html[data-scroll="4"] .absolute-content-container.trees2 {
 }
 html[data-scroll="4"] .explore-images:before {
   background-image: url("../images/shoreline-and-water-grayscale.jpg");
-  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 html[data-scroll="5"] img.hawk,
@@ -377,10 +382,10 @@ html[data-scroll="5"] .back-button {
   opacity: 1;
 }
 html[data-scroll="5"] .explore-images:before {
-  background-color: unset;
   background-image: url("../images/shoreline-and-water.jpg");
-  background-size: cover;
   background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .explore-content {
