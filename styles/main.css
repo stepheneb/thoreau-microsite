@@ -4,13 +4,14 @@
   --thoreau-blue: #77bece;
   --thoreau-rgba-blue: rgba(119, 190, 206, 1);
   --border-gray: gray;
+  --border-light-gray: #ddd;
 }
 
 /* font sizes */
 :root {
   --content: 2rem;
-  --artifact-title: 4vmin;
-  --artifact-description: 2vmin;
+  --artifact-title: 3.2vmin;
+  --artifact-description: 1.95vmin;
   --explore: 2.6vmin;
   --explore-button: 2vmin;
   --explore-content: 2.6vmin;
@@ -21,8 +22,8 @@
 }
 @media (max-width: 576px), (max-height: 576px) {
   :root {
-    --artifact-title: 4.5vmin;
-    --artifact-description: 2.8vmin;
+    --artifact-title: 5vmin;
+    --artifact-description: 3vmin;
     --explore: 3.4vmin;
     --explore-button: 2.8vmin;
     --explore-content: 3.8vmin;
@@ -70,10 +71,23 @@ body {
   height: 100%;
 }
 .content .main .left img {
-  width: 16%;
+  width: 8vmax;
+  height: 8vmax;
+  padding: 0.7vmax;
+  border: 1px solid var(--border-light-gray);
+  border-radius: 4vmax;
+}
+@media (max-height: 576px), (max-width: 576px) {
+  .content .main .left img {
+    width: 6vmax;
+    height: 6vmax;
+    padding: 0.6vmax;
+    border: 1px solid var(--border-light-gray);
+    border-radius: 3vmax;
+  }
 }
 .content .main .left .title {
-  margin: 4vh 0;
+  margin: 6vh 0 4vh 0;
   font-family: "Libre Caslon Text", serif;
   font-size: var(--artifact-title);
   font-weight: 600;
@@ -81,14 +95,19 @@ body {
   line-height: 1.1em;
   text-transform: capitalize;
 }
+@media (max-height: 576px) {
+  .content .main .left .title {
+    margin: 4vh 0 4vh 0;
+  }
+}
 @media (max-width: 576px) {
   .content .main .left .title {
-    margin: 2vh 0;
+    margin: 3vh 0 3vh 0;
   }
 }
 .content .main .left hr {
-  display: none;
-  width: 25%;
+  display: block;
+  width: 50%;
 }
 @media (max-width: 576px), (max-height: 576px) {
   .content .main .left hr {
@@ -97,18 +116,19 @@ body {
 }
 .content .main .left .description {
   margin: 4vh 0;
-  width: 65%;
+  width: 100%;
   font-size: var(--artifact-description);
   line-height: 2em;
   color: black;
 }
-@media (max-width: 576px), (max-height: 576px) {
+@media (max-height: 576px) {
   .content .main .left .description {
-    width: 85%;
+    width: 95%;
   }
 }
 @media (max-width: 576px) {
   .content .main .left .description {
+    width: 65%;
     margin: 2vh 0;
   }
 }
@@ -117,10 +137,15 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
+  background-image: url("../images/watercolor-background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
 }
 @media (max-width: 576px) {
   .content .main .right {
     justify-content: flex-start;
+    padding: 0;
   }
 }
 .content .main .right .image-container {
@@ -129,12 +154,10 @@ body {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  border: 1px solid var(--border-gray);
-  border-radius: 0.5vmin;
 }
 @media (max-width: 576px) {
   .content .main .right .image-container {
-    height: 45vh;
+    height: 50vh;
   }
 }
 @media (max-height: 576px) {
@@ -143,13 +166,20 @@ body {
   }
 }
 .content .main .right .image-container img {
-  margin: 20% 0;
-  width: 80%;
+  margin: 25% 0 15% 0;
+  width: 70%;
   align-self: center;
 }
-@media (max-width: 576px), (max-height: 576px) {
+@media (max-width: 576px) {
   .content .main .right .image-container img {
-    width: 90%;
+    width: 80%;
+    margin: 35% 0 20% 0;
+  }
+}
+@media (max-height: 576px) {
+  .content .main .right .image-container img {
+    width: 75%;
+    margin: 15% 0 5% 0;
   }
 }
 .content .main .right .image-container .explore {
@@ -397,12 +427,23 @@ html[data-scroll="5"] .explore-images:before {
   visibility: hidden;
   transition: opacity var(--explore-content-timing), visibility var(--explore-content-timing);
   opacity: 0;
-  max-width: 30vw;
+  max-width: 40vw;
   font-size: var(--explore-content);
+}
+.explore-content .absolute-content-container hr {
+  width: 30%;
+  border-top: 2px solid black;
+}
+.explore-content .absolute-content-container .author {
+  font-size: var(--explore-content);
+  text-transform: uppercase;
+}
+.explore-content .absolute-content-container .author.thoreau {
+  color: black;
 }
 .explore-content .absolute-content-container.spyglass-drawing {
   top: 120vh;
-  left: 60vw;
+  left: 50vw;
 }
 @media (max-height: 576px) {
   .explore-content .absolute-content-container.spyglass-drawing {
@@ -474,7 +515,7 @@ html[data-scroll="5"] .explore-images:before {
 }
 @media (max-height: 576px) {
   .explore-content .absolute-content-container.hawk {
-    top: 515vh;
+    top: 510vh;
   }
 }
 @media (max-width: 576px) {

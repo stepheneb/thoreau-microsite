@@ -30,7 +30,7 @@ const debounce = (fn) => {
 // so we can use it in our stylesheets
 const storeScroll = () => {
   document.documentElement.dataset.scroll = Math.floor(window.scrollY / window.innerHeight + 0.75);
-  document.documentElement.dataset.contentscroll = Math.floor(window.scrollY / window.innerHeight + 0.85);
+  document.documentElement.dataset.contentscroll = Math.floor(window.scrollY / window.innerHeight + 0.90);
 };
 
 // Listen for new scroll events, here we debounce our `storeScroll` function
