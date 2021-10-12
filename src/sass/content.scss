@@ -29,12 +29,26 @@ body {
     .left {
       height: 100%;
       img {
-        width: 16%;
+        width: 8vmax;
+        height: 8vmax;
+        padding: 0.7vmax;
+        border: 1px solid var(--border-light-gray);
+        border-radius: 4vmax;
+        @media (max-height: 576px), (max-width: 576px) {
+          width: 6vmax;
+          height: 6vmax;
+          padding: 0.6vmax;
+          border: 1px solid var(--border-light-gray);
+          border-radius: 3vmax;
+        }
       }
       .title {
-        margin: 4vh 0;
+        margin: 6vh 0 4vh 0;
+        @media (max-height: 576px) {
+          margin: 4vh 0 4vh 0;
+        }
         @media (max-width: 576px) {
-          margin: 2vh 0;
+          margin: 3vh 0 3vh 0;
         }
         font-family: "Libre Caslon Text", serif;
         font-size: var(--artifact-title);
@@ -44,24 +58,25 @@ body {
         text-transform: capitalize;
       }
       hr {
-        display: none;
-        width: 25%;
+        display: block;
+        width: 50%;
         @media (max-width: 576px), (max-height: 576px) {
           display: block;
         }
       }
       .description {
         margin: 4vh 0;
-        width: 65%;
-        @media (max-width: 576px), (max-height: 576px) {
-          width: 85%;
+        width: 100%;
+        @media (max-height: 576px) {
+          width: 95%;
+        }
+        @media (max-width: 576px) {
+          width: 65%;
+          margin: 2vh 0;
         }
         font-size: var(--artifact-description);
         line-height: 2em;
         color: black;
-        @media (max-width: 576px) {
-          margin: 2vh 0;
-        }
       }
     }
     .right {
@@ -69,14 +84,19 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: flex-end;
+      background-image: url("../images/watercolor-background.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
       @media (max-width: 576px) {
         justify-content: flex-start;
+        padding: 0;
       }
 
       .image-container {
         height: 90%;
         @media (max-width: 576px) {
-          height: 45vh;
+          height: 50vh;
         }
         @media (max-height: 576px) {
           height: 80vh;
@@ -85,14 +105,24 @@ body {
         flex-direction: column;
         align-items: center;
         justify-content: space-around;
-        border: 1px solid var(--border-gray);
-        border-radius: 0.5vmin;
+        // background-image: url("../images/watercolor-background.png");
+        // background-repeat: no-repeat;
+        // background-position: center;
+        // background-size: contain;
+        // border: 1px solid var(--border-gray);
+        // border-radius: 0.5vmin;
         img {
-          margin: 20% 0;
-          width: 80%;
+          margin: 25% 0 15% 0;
+          width: 70%;
           align-self: center;
-          @media (max-width: 576px), (max-height: 576px) {
-            width: 90%;
+          @media (max-width: 576px) {
+            width: 80%;
+            margin: 35% 0 20% 0;
+          }
+
+          @media (max-height: 576px) {
+            width: 75%;
+            margin: 15% 0 5% 0;
           }
         }
         .explore {

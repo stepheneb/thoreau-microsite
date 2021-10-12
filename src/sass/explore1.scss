@@ -224,11 +224,22 @@ html[data-scroll="5"] {
     transition: opacity var(--explore-content-timing),
       visibility var(--explore-content-timing);
     opacity: 0;
-    max-width: 30vw;
+    max-width: 40vw;
     font-size: var(--explore-content);
+    hr {
+      width: 30%;
+      border-top: 2px solid black;
+    }
+    .author {
+      font-size: var(--explore-content);
+      text-transform: uppercase;
+      &.thoreau {
+        color: black;
+      }
+    }
     &.spyglass-drawing {
       top: 120vh;
-      left: 60vw;
+      left: 50vw;
       @media (max-height: 576px) {
         left: 55vw;
         max-width: 35vw;
@@ -282,7 +293,7 @@ html[data-scroll="5"] {
       left: 40vw;
       font-size: var(--explore-content-heading);
       @media (max-height: 576px) {
-        top: 515vh;
+        top: 510vh;
       }
       @media (max-width: 576px) {
         left: 50vw;
