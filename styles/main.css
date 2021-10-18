@@ -577,35 +577,12 @@ body {
   background-size: cover;
   transition: opacity var(--explore-images-timing), background-image var(--explore-images-timing);
 }
-.explore-animations .back-button {
-  position: relative;
-  z-index: 3;
-  top: 0.75vh;
-  left: 1vw;
-  background-color: transparent;
-  visibility: hidden;
-  opacity: 0;
-  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
-}
-@media (max-width: 576px) {
-  .explore-animations .back-button {
-    top: 0.5vh;
-    left: 2.5vw;
-  }
-}
-.explore-animations .back-button a i {
-  color: lightgray;
-  font-size: var(--back-button-size);
-}
-.explore-animations .back-button a i:hover {
-  color: white;
-}
 .explore-animations .animation-frame-container {
   position: absolute;
   top: 0%;
   left: 0%;
   width: 100%;
-  height: 90%;
+  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -631,6 +608,29 @@ body {
   .explore-animations .animation-frame-container img {
     width: 90%;
   }
+}
+.explore-animations .back-button {
+  position: relative;
+  z-index: 3;
+  top: 0.75vh;
+  left: 1vw;
+  background-color: transparent;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
+}
+@media (max-width: 576px) {
+  .explore-animations .back-button {
+    top: 0.5vh;
+    left: 2.5vw;
+  }
+}
+.explore-animations .back-button a i {
+  color: lightgray;
+  font-size: var(--back-button-size);
+}
+.explore-animations .back-button a i:hover {
+  color: white;
 }
 
 .explore-content {
@@ -732,7 +732,7 @@ body {
 }
 @media (max-height: 576px) {
   .explore-content .absolute-content-container.content4 {
-    top: 510vh;
+    top: 410vh;
   }
 }
 @media (max-width: 576px) {
