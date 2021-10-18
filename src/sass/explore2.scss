@@ -1,4 +1,4 @@
-.explore-images {
+.explore-animations {
   position: fixed;
   top: 0;
   left: 0;
@@ -27,6 +27,7 @@
 
   .back-button {
     position: relative;
+    z-index: 3;
     top: 0.75vh;
     left: 1vw;
     @media (max-width: 576px) {
@@ -49,7 +50,7 @@
     }
   }
 
-  .fixed-image-container {
+  .animation-frame-container {
     position: absolute;
     top: 0%;
     left: 0%;
@@ -66,160 +67,22 @@
     align-items: center;
     justify-content: space-around;
     img {
-      visibility: hidden;
-      opacity: 0;
       transition: opacity var(--explore-images-timing),
         visibility var(--explore-images-timing);
-      margin: 20% 0;
-      width: 80%;
+      margin: 5% 0;
+      width: 100%;
       align-self: center;
       @media (max-width: 576px), (max-height: 576px) {
         width: 90%;
       }
     }
-    img.spyglass-animation {
-      width: 90%;
-    }
-    img.spyglass-photo {
-      transform: rotate(-9deg);
-    }
-    img.spyglass-drawing {
-    }
-    img.animals {
-      width: 60%;
-      align-self: flex-end;
-      margin-right: 5%;
-      margin-block-end: auto;
-      margin-bottom: 10%;
-      @media (max-width: 576px) {
-        width: 80%;
-      }
-      @media (max-height: 576px) {
-        width: 55%;
-        margin-bottom: 15%;
-      }
-    }
-    img.trees1 {
-      width: 60%;
-      align-self: center;
-      @media (max-width: 576px), (max-height: 576px) {
-        align-self: flex-end;
-        margin-right: 5%;
-        margin-block-end: auto;
-        margin-bottom: 10%;
-      }
-      @media (max-width: 576px) {
-        width: 80%;
-      }
-    }
-    img.trees2 {
-      width: 60%;
-      align-self: center;
-      @media (max-width: 576px), (max-height: 576px) {
-        align-self: flex-end;
-        margin-right: 5%;
-        margin-block-end: auto;
-        margin-bottom: 10%;
-      }
-      @media (max-width: 576px) {
-        width: 80%;
-      }
-    }
-    img.hawk {
-      position: relative;
-      top: -26vh;
-      left: 23vw;
-      width: 10vw;
-      align-self: flex-start;
-      @media (max-width: 576px) {
-        top: -30vh;
-        left: 15vw;
-        width: 25vw;
-      }
-      @media (max-height: 576px) {
-        top: -25vh;
-        left: 22vw;
-        width: 12vw;
-      }
-    }
-  }
-}
-
-#explore-1[data-scroll="0"] {
-  img.spyglass-photo {
-    visibility: visible;
-    opacity: 1;
-  }
-  .back-button {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-#explore-1[data-scroll="1"] {
-  img.spyglass-drawing {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-#explore-1[data-scroll="2"] {
-  img.animals,
-  .absolute-content-container.animals {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-#explore-1[data-scroll="3"] {
-  img.trees1,
-  .absolute-content-container.trees1 {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-#explore-1[data-scroll="4"] {
-  img.trees2,
-  .absolute-content-container.trees2 {
-    visibility: visible;
-    opacity: 1;
-  }
-  .explore-images {
-    &:before {
-      background-image: url("../images/shoreline-and-water-grayscale.jpg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-}
-
-#explore-1[data-scroll="5"] {
-  img.hawk,
-  .absolute-content-container.hawk {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .back-button {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .explore-images {
-    &:before {
-      background-image: url("../images/shoreline-and-water.jpg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
   }
 }
 
 .explore-content {
+  z-index: 2;
   display: flex;
-  height: 600vh;
+  height: 500vh;
   color: white;
   .absolute-content-container {
     position: absolute;
@@ -240,8 +103,8 @@
         color: black;
       }
     }
-    &.spyglass-drawing {
-      top: 120vh;
+    &.content0 {
+      top: 30vh;
       left: 50vw;
       @media (max-height: 576px) {
         left: 55vw;
@@ -252,8 +115,8 @@
         max-width: 60vw;
       }
     }
-    &.animals {
-      top: 210vh;
+    &.content1 {
+      top: 110vh;
       left: 10vw;
       @media (max-height: 576px) {
         left: 3vw;
@@ -264,8 +127,8 @@
         max-width: 60vw;
       }
     }
-    &.trees1 {
-      top: 310vh;
+    &.content2 {
+      top: 210vh;
       left: 10vw;
       @media (max-height: 576px) {
         left: 3vw;
@@ -276,8 +139,8 @@
         max-width: 60vw;
       }
     }
-    &.trees2 {
-      top: 410vh;
+    &.content3 {
+      top: 310vh;
       align-self: flex-end;
       left: 35vw;
       @media (max-height: 576px) {
@@ -289,8 +152,8 @@
         max-width: 60vw;
       }
     }
-    &.hawk {
-      top: 510vh;
+    &.content4 {
+      top: 410vh;
       align-self: flex-end;
       max-width: 40vw;
       left: 40vw;
@@ -305,38 +168,50 @@
   }
 }
 
-#explore-1[data-contentscroll="0"] {
-}
-
-#explore-1[data-contentscroll="1"] {
-  .absolute-content-container.spyglass-drawing {
+#explore-2[data-contentscroll="0"] {
+  .absolute-content-container.content0 {
+    visibility: visible;
+    opacity: 1;
+  }
+  .back-button {
     visibility: visible;
     opacity: 1;
   }
 }
 
-#explore-1[data-contentscroll="2"] {
-  .absolute-content-container.animals {
+#explore-2[data-contentscroll="1"] {
+  .absolute-content-container.content1 {
     visibility: visible;
     opacity: 1;
   }
 }
 
-#explore-1[data-contentscroll="3"] {
-  .absolute-content-container.trees1 {
+#explore-2[data-contentscroll="2"] {
+  .absolute-content-container.content2 {
     visibility: visible;
     opacity: 1;
   }
 }
 
-#explore-1[data-contentscroll="4"] {
-  .absolute-content-container.trees2 {
+#explore-2[data-contentscroll="3"] {
+  .absolute-content-container.content3 {
     visibility: visible;
     opacity: 1;
   }
 }
 
-#explore-1[data-contentscroll="5"] {
+#explore-2[data-contentscroll="4"] {
+  .absolute-content-container.content4 {
+    visibility: visible;
+    opacity: 1;
+  }
+  .back-button {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#explore-2[data-contentscroll="5"] {
   .absolute-content-container.hawk {
     visibility: visible;
     opacity: 1;
