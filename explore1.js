@@ -26,11 +26,13 @@ const debounce = (fn) => {
   };
 };
 
+let container = document.getElementById('explore-1');
+
 // Reads out the scroll position and stores it in the data attribute
 // so we can use it in our stylesheets
 const storeScroll = () => {
-  document.documentElement.dataset.scroll = Math.floor(window.scrollY / window.innerHeight + 0.75);
-  document.documentElement.dataset.contentscroll = Math.floor(window.scrollY / window.innerHeight + 0.90);
+  container.dataset.scroll = Math.floor(window.scrollY / window.innerHeight + 0.75);
+  container.dataset.contentscroll = Math.floor(window.scrollY / window.innerHeight + 0.90);
 };
 
 // Listen for new scroll events, here we debounce our `storeScroll` function

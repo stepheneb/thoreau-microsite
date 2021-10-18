@@ -201,10 +201,6 @@ body {
   height: 2em;
 }
 
-a[href="./explore-2.html"] {
-  display: none;
-}
-
 .explore-images {
   position: fixed;
   top: 0;
@@ -286,6 +282,9 @@ a[href="./explore-2.html"] {
     width: 90%;
   }
 }
+.explore-images .fixed-image-container img.spyglass-animation {
+  width: 90%;
+}
 .explore-images .fixed-image-container img.spyglass-photo {
   transform: rotate(-9deg);
 }
@@ -363,54 +362,54 @@ a[href="./explore-2.html"] {
   }
 }
 
-html[data-scroll="0"] img.spyglass-photo {
+#explore-1[data-scroll="0"] img.spyglass-photo {
   visibility: visible;
   opacity: 1;
 }
-html[data-scroll="0"] .back-button {
-  visibility: visible;
-  opacity: 1;
-}
-
-html[data-scroll="1"] img.spyglass-drawing {
+#explore-1[data-scroll="0"] .back-button {
   visibility: visible;
   opacity: 1;
 }
 
-html[data-scroll="2"] img.animals,
-html[data-scroll="2"] .absolute-content-container.animals {
+#explore-1[data-scroll="1"] img.spyglass-drawing {
   visibility: visible;
   opacity: 1;
 }
 
-html[data-scroll="3"] img.trees1,
-html[data-scroll="3"] .absolute-content-container.trees1 {
+#explore-1[data-scroll="2"] img.animals,
+#explore-1[data-scroll="2"] .absolute-content-container.animals {
   visibility: visible;
   opacity: 1;
 }
 
-html[data-scroll="4"] img.trees2,
-html[data-scroll="4"] .absolute-content-container.trees2 {
+#explore-1[data-scroll="3"] img.trees1,
+#explore-1[data-scroll="3"] .absolute-content-container.trees1 {
   visibility: visible;
   opacity: 1;
 }
-html[data-scroll="4"] .explore-images:before {
+
+#explore-1[data-scroll="4"] img.trees2,
+#explore-1[data-scroll="4"] .absolute-content-container.trees2 {
+  visibility: visible;
+  opacity: 1;
+}
+#explore-1[data-scroll="4"] .explore-images:before {
   background-image: url("../images/shoreline-and-water-grayscale.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
 
-html[data-scroll="5"] img.hawk,
-html[data-scroll="5"] .absolute-content-container.hawk {
+#explore-1[data-scroll="5"] img.hawk,
+#explore-1[data-scroll="5"] .absolute-content-container.hawk {
   visibility: visible;
   opacity: 1;
 }
-html[data-scroll="5"] .back-button {
+#explore-1[data-scroll="5"] .back-button {
   visibility: visible;
   opacity: 1;
 }
-html[data-scroll="5"] .explore-images:before {
+#explore-1[data-scroll="5"] .explore-images:before {
   background-image: url("../images/shoreline-and-water.jpg");
   background-repeat: no-repeat;
   background-position: center;
@@ -524,31 +523,262 @@ html[data-scroll="5"] .explore-images:before {
   }
 }
 
-html[data-contentscroll="1"] .absolute-content-container.spyglass-drawing {
+#explore-1[data-contentscroll="1"] .absolute-content-container.spyglass-drawing {
   visibility: visible;
   opacity: 1;
 }
 
-html[data-contentscroll="2"] .absolute-content-container.animals {
+#explore-1[data-contentscroll="2"] .absolute-content-container.animals {
   visibility: visible;
   opacity: 1;
 }
 
-html[data-contentscroll="3"] .absolute-content-container.trees1 {
+#explore-1[data-contentscroll="3"] .absolute-content-container.trees1 {
   visibility: visible;
   opacity: 1;
 }
 
-html[data-contentscroll="4"] .absolute-content-container.trees2 {
+#explore-1[data-contentscroll="4"] .absolute-content-container.trees2 {
   visibility: visible;
   opacity: 1;
 }
 
-html[data-contentscroll="5"] .absolute-content-container.hawk {
+#explore-1[data-contentscroll="5"] .absolute-content-container.hawk {
   visibility: visible;
   opacity: 1;
 }
-html[data-contentscroll="5"] .back-button {
+#explore-1[data-contentscroll="5"] .back-button {
+  visibility: visible;
+  opacity: 1;
+}
+
+.explore-animations {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 100vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: unset;
+}
+.explore-animations:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 1;
+  background-color: var(--thoreau-rgba-blue);
+  background-image: url("../images/transparent.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: opacity var(--explore-images-timing), background-image var(--explore-images-timing);
+}
+.explore-animations .back-button {
+  position: relative;
+  z-index: 3;
+  top: 0.75vh;
+  left: 1vw;
+  background-color: transparent;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
+}
+@media (max-width: 576px) {
+  .explore-animations .back-button {
+    top: 0.5vh;
+    left: 2.5vw;
+  }
+}
+.explore-animations .back-button a i {
+  color: lightgray;
+  font-size: var(--back-button-size);
+}
+.explore-animations .back-button a i:hover {
+  color: white;
+}
+.explore-animations .animation-frame-container {
+  position: absolute;
+  top: 0%;
+  left: 0%;
+  width: 100%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+@media (max-width: 576px) {
+  .explore-animations .animation-frame-container {
+    height: 100vh;
+  }
+}
+@media (max-height: 576px) {
+  .explore-animations .animation-frame-container {
+    height: 90vh;
+  }
+}
+.explore-animations .animation-frame-container img {
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
+  margin: 5% 0;
+  width: 100%;
+  align-self: center;
+}
+@media (max-width: 576px), (max-height: 576px) {
+  .explore-animations .animation-frame-container img {
+    width: 90%;
+  }
+}
+
+.explore-content {
+  z-index: 2;
+  display: flex;
+  height: 500vh;
+  color: white;
+}
+.explore-content .absolute-content-container {
+  position: absolute;
+  visibility: hidden;
+  transition: opacity var(--explore-content-timing), visibility var(--explore-content-timing);
+  opacity: 0;
+  max-width: 40vw;
+  font-size: var(--explore-content);
+}
+.explore-content .absolute-content-container hr {
+  width: 30%;
+  border-top: 2px solid black;
+}
+.explore-content .absolute-content-container .author {
+  font-size: var(--explore-content);
+  text-transform: uppercase;
+}
+.explore-content .absolute-content-container .author.thoreau {
+  color: black;
+}
+.explore-content .absolute-content-container.content0 {
+  top: 30vh;
+  left: 50vw;
+}
+@media (max-height: 576px) {
+  .explore-content .absolute-content-container.content0 {
+    left: 55vw;
+    max-width: 35vw;
+  }
+}
+@media (max-width: 576px) {
+  .explore-content .absolute-content-container.content0 {
+    left: 35vw;
+    max-width: 60vw;
+  }
+}
+.explore-content .absolute-content-container.content1 {
+  top: 110vh;
+  left: 10vw;
+}
+@media (max-height: 576px) {
+  .explore-content .absolute-content-container.content1 {
+    left: 3vw;
+    max-width: 30vw;
+  }
+}
+@media (max-width: 576px) {
+  .explore-content .absolute-content-container.content1 {
+    left: 5vw;
+    max-width: 60vw;
+  }
+}
+.explore-content .absolute-content-container.content2 {
+  top: 210vh;
+  left: 10vw;
+}
+@media (max-height: 576px) {
+  .explore-content .absolute-content-container.content2 {
+    left: 3vw;
+    max-width: 30vw;
+  }
+}
+@media (max-width: 576px) {
+  .explore-content .absolute-content-container.content2 {
+    left: 3vw;
+    max-width: 60vw;
+  }
+}
+.explore-content .absolute-content-container.content3 {
+  top: 310vh;
+  align-self: flex-end;
+  left: 35vw;
+}
+@media (max-height: 576px) {
+  .explore-content .absolute-content-container.content3 {
+    left: 3vw;
+    max-width: 30vw;
+  }
+}
+@media (max-width: 576px) {
+  .explore-content .absolute-content-container.content3 {
+    left: 24vw;
+    max-width: 60vw;
+  }
+}
+.explore-content .absolute-content-container.content4 {
+  top: 410vh;
+  align-self: flex-end;
+  max-width: 40vw;
+  left: 40vw;
+  font-size: var(--explore-content-heading);
+}
+@media (max-height: 576px) {
+  .explore-content .absolute-content-container.content4 {
+    top: 510vh;
+  }
+}
+@media (max-width: 576px) {
+  .explore-content .absolute-content-container.content4 {
+    left: 50vw;
+  }
+}
+
+#explore-2[data-contentscroll="0"] .absolute-content-container.content0 {
+  visibility: visible;
+  opacity: 1;
+}
+#explore-2[data-contentscroll="0"] .back-button {
+  visibility: visible;
+  opacity: 1;
+}
+
+#explore-2[data-contentscroll="1"] .absolute-content-container.content1 {
+  visibility: visible;
+  opacity: 1;
+}
+
+#explore-2[data-contentscroll="2"] .absolute-content-container.content2 {
+  visibility: visible;
+  opacity: 1;
+}
+
+#explore-2[data-contentscroll="3"] .absolute-content-container.content3 {
+  visibility: visible;
+  opacity: 1;
+}
+
+#explore-2[data-contentscroll="4"] .absolute-content-container.content4 {
+  visibility: visible;
+  opacity: 1;
+}
+#explore-2[data-contentscroll="4"] .back-button {
+  visibility: visible;
+  opacity: 1;
+}
+
+#explore-2[data-contentscroll="5"] .absolute-content-container.hawk {
+  visibility: visible;
+  opacity: 1;
+}
+#explore-2[data-contentscroll="5"] .back-button {
   visibility: visible;
   opacity: 1;
 }
