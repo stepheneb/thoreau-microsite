@@ -416,12 +416,12 @@ body {
   background-size: cover;
 }
 
-.explore-content {
+.explore-images-content {
   display: flex;
   height: 600vh;
   color: white;
 }
-.explore-content .absolute-content-container {
+.explore-images-content .absolute-content-container {
   position: absolute;
   visibility: hidden;
   transition: opacity var(--explore-content-timing), visibility var(--explore-content-timing);
@@ -429,83 +429,83 @@ body {
   max-width: 40vw;
   font-size: var(--explore-content);
 }
-.explore-content .absolute-content-container hr {
+.explore-images-content .absolute-content-container hr {
   width: 30%;
   border-top: 2px solid black;
 }
-.explore-content .absolute-content-container .author {
+.explore-images-content .absolute-content-container .author {
   font-size: var(--explore-content);
   text-transform: uppercase;
 }
-.explore-content .absolute-content-container .author.thoreau {
+.explore-images-content .absolute-content-container .author.thoreau {
   color: black;
 }
-.explore-content .absolute-content-container.spyglass-drawing {
+.explore-images-content .absolute-content-container.spyglass-drawing {
   top: 120vh;
   left: 50vw;
 }
 @media (max-height: 576px) {
-  .explore-content .absolute-content-container.spyglass-drawing {
+  .explore-images-content .absolute-content-container.spyglass-drawing {
     left: 55vw;
     max-width: 35vw;
   }
 }
 @media (max-width: 576px) {
-  .explore-content .absolute-content-container.spyglass-drawing {
+  .explore-images-content .absolute-content-container.spyglass-drawing {
     left: 35vw;
     max-width: 60vw;
   }
 }
-.explore-content .absolute-content-container.animals {
+.explore-images-content .absolute-content-container.animals {
   top: 210vh;
   left: 10vw;
 }
 @media (max-height: 576px) {
-  .explore-content .absolute-content-container.animals {
+  .explore-images-content .absolute-content-container.animals {
     left: 3vw;
     max-width: 30vw;
   }
 }
 @media (max-width: 576px) {
-  .explore-content .absolute-content-container.animals {
+  .explore-images-content .absolute-content-container.animals {
     left: 5vw;
     max-width: 60vw;
   }
 }
-.explore-content .absolute-content-container.trees1 {
+.explore-images-content .absolute-content-container.trees1 {
   top: 310vh;
   left: 10vw;
 }
 @media (max-height: 576px) {
-  .explore-content .absolute-content-container.trees1 {
+  .explore-images-content .absolute-content-container.trees1 {
     left: 3vw;
     max-width: 30vw;
   }
 }
 @media (max-width: 576px) {
-  .explore-content .absolute-content-container.trees1 {
+  .explore-images-content .absolute-content-container.trees1 {
     left: 3vw;
     max-width: 60vw;
   }
 }
-.explore-content .absolute-content-container.trees2 {
+.explore-images-content .absolute-content-container.trees2 {
   top: 410vh;
   align-self: flex-end;
   left: 35vw;
 }
 @media (max-height: 576px) {
-  .explore-content .absolute-content-container.trees2 {
+  .explore-images-content .absolute-content-container.trees2 {
     left: 3vw;
     max-width: 30vw;
   }
 }
 @media (max-width: 576px) {
-  .explore-content .absolute-content-container.trees2 {
+  .explore-images-content .absolute-content-container.trees2 {
     left: 24vw;
     max-width: 60vw;
   }
 }
-.explore-content .absolute-content-container.hawk {
+.explore-images-content .absolute-content-container.hawk {
   top: 510vh;
   align-self: flex-end;
   max-width: 40vw;
@@ -513,12 +513,12 @@ body {
   font-size: var(--explore-content-heading);
 }
 @media (max-height: 576px) {
-  .explore-content .absolute-content-container.hawk {
+  .explore-images-content .absolute-content-container.hawk {
     top: 510vh;
   }
 }
 @media (max-width: 576px) {
-  .explore-content .absolute-content-container.hawk {
+  .explore-images-content .absolute-content-container.hawk {
     left: 50vw;
   }
 }
@@ -633,13 +633,13 @@ body {
   color: white;
 }
 
-.explore-content {
+.explore-animations-content {
   z-index: 2;
   display: flex;
   height: 400vh;
   color: white;
 }
-.explore-content .absolute-content-container {
+.explore-animations-content .absolute-content-container {
   position: absolute;
   visibility: hidden;
   transition: opacity var(--explore-content-timing), visibility var(--explore-content-timing);
@@ -647,66 +647,66 @@ body {
   max-width: 40vw;
   font-size: var(--explore-content);
 }
-.explore-content .absolute-content-container hr {
+.explore-animations-content .absolute-content-container hr {
   width: 30%;
   border-top: 2px solid black;
 }
-.explore-content .absolute-content-container .author {
+.explore-animations-content .absolute-content-container .author {
   font-size: var(--explore-content);
   text-transform: uppercase;
 }
-.explore-content .absolute-content-container .author.thoreau {
+.explore-animations-content .absolute-content-container .author.thoreau {
   color: black;
 }
-.explore-content .absolute-content-container.content0 {
+.explore-animations-content .absolute-content-container.content0 {
   top: 30vh;
   left: 50vw;
 }
 @media (max-height: 576px) {
-  .explore-content .absolute-content-container.content0 {
+  .explore-animations-content .absolute-content-container.content0 {
     left: 55vw;
     max-width: 35vw;
   }
 }
 @media (max-width: 576px) {
-  .explore-content .absolute-content-container.content0 {
+  .explore-animations-content .absolute-content-container.content0 {
     left: 35vw;
     max-width: 60vw;
   }
 }
-.explore-content .absolute-content-container.content1 {
+.explore-animations-content .absolute-content-container.content1 {
   top: 110vh;
   left: 10vw;
 }
 @media (max-height: 576px) {
-  .explore-content .absolute-content-container.content1 {
+  .explore-animations-content .absolute-content-container.content1 {
     left: 3vw;
     max-width: 30vw;
   }
 }
 @media (max-width: 576px) {
-  .explore-content .absolute-content-container.content1 {
+  .explore-animations-content .absolute-content-container.content1 {
     left: 5vw;
     max-width: 60vw;
   }
 }
-.explore-content .absolute-content-container.content2 {
+.explore-animations-content .absolute-content-container.content2 {
   top: 210vh;
   left: 10vw;
 }
 @media (max-height: 576px) {
-  .explore-content .absolute-content-container.content2 {
+  .explore-animations-content .absolute-content-container.content2 {
     left: 3vw;
     max-width: 30vw;
   }
 }
 @media (max-width: 576px) {
-  .explore-content .absolute-content-container.content2 {
+  .explore-animations-content .absolute-content-container.content2 {
     left: 3vw;
     max-width: 60vw;
   }
 }
-.explore-content .absolute-content-container.content3 {
+.explore-animations-content .absolute-content-container.content3 {
   top: 310vh;
   align-self: flex-end;
   max-width: 40vw;
@@ -714,12 +714,12 @@ body {
   font-size: var(--explore-content-heading);
 }
 @media (max-height: 576px) {
-  .explore-content .absolute-content-container.content3 {
+  .explore-animations-content .absolute-content-container.content3 {
     top: 310vh;
   }
 }
 @media (max-width: 576px) {
-  .explore-content .absolute-content-container.content3 {
+  .explore-animations-content .absolute-content-container.content3 {
     left: 50vw;
   }
 }
@@ -747,21 +747,7 @@ body {
   visibility: visible;
   opacity: 1;
 }
-
-#explore-2[data-contentscroll="4"] .absolute-content-container.content4 {
-  visibility: visible;
-  opacity: 1;
-}
-#explore-2[data-contentscroll="4"] .back-button {
-  visibility: visible;
-  opacity: 1;
-}
-
-#explore-2[data-contentscroll="5"] .absolute-content-container.hawk {
-  visibility: visible;
-  opacity: 1;
-}
-#explore-2[data-contentscroll="5"] .back-button {
+#explore-2[data-contentscroll="3"] .back-button {
   visibility: visible;
   opacity: 1;
 }
