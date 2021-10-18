@@ -79,7 +79,7 @@
   }
 }
 
-.explore-content {
+.explore-animations-content {
   z-index: 2;
   display: flex;
   height: 400vh;
@@ -185,25 +185,6 @@
     visibility: visible;
     opacity: 1;
   }
-}
-
-#explore-2[data-contentscroll="4"] {
-  .absolute-content-container.content4 {
-    visibility: visible;
-    opacity: 1;
-  }
-  .back-button {
-    visibility: visible;
-    opacity: 1;
-  }
-}
-
-#explore-2[data-contentscroll="5"] {
-  .absolute-content-container.hawk {
-    visibility: visible;
-    opacity: 1;
-  }
-
   .back-button {
     visibility: visible;
     opacity: 1;
