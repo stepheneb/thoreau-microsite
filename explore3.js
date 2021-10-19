@@ -42,7 +42,7 @@ const storeScroll = () => {
     animationFrameNum = Math.max(0, Math.min(animationCount, Math.floor((window.scrollY - startAnimation) / animationStepHeight)));
   }
   container.dataset.animationscroll = animationFrameNum;
-  container.dataset.contentscroll = Math.floor(window.scrollY / window.innerHeight + 0.90);
+  container.dataset.contentscroll = Math.floor(window.scrollY / window.innerHeight + 0.60);
 
   let paddedFrameNum = (animationFrameNum).toString().padStart(5, '0');
   let newSrc = `images/animations/spyglass/Spyglass_PNGSeq_01__${paddedFrameNum}.png`;
