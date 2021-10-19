@@ -26,13 +26,13 @@ const debounce = (fn) => {
   };
 };
 
-let container = document.getElementById('explore-3');
+let container = document.getElementById('explore3');
 let animationFrameImg = document.getElementById('animation-frame');
 
 // Reads out the scroll position and stores it in the data attribute
 // so we can use it in our stylesheets
 const storeScroll = () => {
-  let totalHeight = document.body.clientHeight;
+  let totalHeight = container.clientHeight;
   let startAnimation = window.innerHeight * 1;
   let scrollHeight = totalHeight - window.innerHeight * 3;
   let animationCount = 243;
