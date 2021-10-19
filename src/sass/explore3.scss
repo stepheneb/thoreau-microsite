@@ -55,7 +55,25 @@
       }
     }
     img.spyglass-photo {
+    }
+    img.spyglass-photo-rotated {
       transform: rotate(-9deg);
+    }
+    &.start {
+      left: 30%;
+      width: 70%;
+      margin-top: 5%;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      @media (max-width: 576px) {
+        justify-content: flex-start;
+        padding: 0;
+      }
+      visibility: visible;
+      opacity: 1;
+      transition: opacity var(--explore-images-timing),
+        visibility var(--explore-images-timing);
     }
   }
 
@@ -116,7 +134,7 @@
 .explore-animations2-content {
   z-index: 2;
   display: flex;
-  height: 500vh;
+  height: 600vh;
   color: white;
   .absolute-content-container {
     position: absolute;
@@ -137,8 +155,65 @@
         color: black;
       }
     }
+    &.content-start {
+      top: 5vh;
+      left: 5vw;
+      height: 100vh;
+      width: 22vw;
+      img {
+        width: 8vmax;
+        height: 8vmax;
+        padding: 0.7vmax;
+        border: 1px solid var(--border-light-gray);
+        border-radius: 4vmax;
+        @media (max-height: 576px), (max-width: 576px) {
+          width: 6vmax;
+          height: 6vmax;
+          padding: 0.6vmax;
+          border: 1px solid var(--border-light-gray);
+          border-radius: 3vmax;
+        }
+      }
+      .title {
+        margin: 6vh 0 4vh 0;
+        @media (max-height: 576px) {
+          margin: 4vh 0 4vh 0;
+        }
+        @media (max-width: 576px) {
+          margin: 3vh 0 3vh 0;
+        }
+        font-family: "Libre Caslon Text", serif;
+        font-size: var(--artifact-title);
+        font-weight: 600;
+        color: var(--thoreau-blue);
+        line-height: 1.1em;
+        text-transform: capitalize;
+      }
+      hr {
+        display: block;
+        width: 50%;
+        @media (max-width: 576px), (max-height: 576px) {
+          display: block;
+        }
+      }
+      .description {
+        margin: 4vh 0;
+        width: 100%;
+        @media (max-height: 576px) {
+          width: 95%;
+        }
+        @media (max-width: 576px) {
+          width: 65%;
+          margin: 2vh 0;
+        }
+        font-size: var(--artifact-description);
+        line-height: 2em;
+        color: black;
+      }
+    }
+
     &.content0 {
-      top: 130vh;
+      top: 230vh;
       left: 50vw;
       @media (max-height: 576px) {
         left: 55vw;
@@ -150,7 +225,7 @@
       }
     }
     &.content1 {
-      top: 210vh;
+      top: 310vh;
       left: 10vw;
       @media (max-height: 576px) {
         left: 3vw;
@@ -162,7 +237,7 @@
       }
     }
     &.content2 {
-      top: 310vh;
+      top: 410vh;
       left: 10vw;
       @media (max-height: 576px) {
         left: 3vw;
@@ -174,7 +249,7 @@
       }
     }
     &.content3 {
-      top: 410vh;
+      top: 510vh;
       align-self: flex-end;
       max-width: 40vw;
       left: 40vw;
@@ -190,14 +265,34 @@
 }
 
 #explore-3[data-contentscroll="0"] {
+  .absolute-content-container.content-start {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .fixed-image-container.start {
+    visibility: visible;
+    opacity: 1;
+    transition: opacity var(--explore-images-timing),
+      background-image var(--explore-images-timing);
+
+    background-image: url("../images/watercolor-background.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: contain;
+  }
+
   img.spyglass-photo {
     visibility: visible;
     opacity: 1;
   }
-  .back-button {
-    visibility: visible;
-    opacity: 1;
+
+  .explore-animations2 {
+    &:before {
+      background-color: white;
+    }
   }
+
   .back-button {
     visibility: visible;
     opacity: 1;
@@ -205,27 +300,34 @@
 }
 
 #explore-3[data-contentscroll="1"] {
-  .absolute-content-container.content0 {
+  img.spyglass-photo-rotated {
     visibility: visible;
     opacity: 1;
   }
 }
 
 #explore-3[data-contentscroll="2"] {
-  .absolute-content-container.content1 {
+  .absolute-content-container.content0 {
     visibility: visible;
     opacity: 1;
   }
 }
 
 #explore-3[data-contentscroll="3"] {
-  .absolute-content-container.content2 {
+  .absolute-content-container.content1 {
     visibility: visible;
     opacity: 1;
   }
 }
 
 #explore-3[data-contentscroll="4"] {
+  .absolute-content-container.content2 {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#explore-3[data-contentscroll="5"] {
   .absolute-content-container.content3 {
     visibility: visible;
     opacity: 1;

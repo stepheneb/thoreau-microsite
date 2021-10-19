@@ -33,10 +33,14 @@ let animationFrameImg = document.getElementById('animation-frame');
 // so we can use it in our stylesheets
 const storeScroll = () => {
   let totalHeight = document.body.clientHeight;
-  let scrollHeight = totalHeight - window.innerHeight * 2;
+  let startAnimation = window.innerHeight * 1;
+  let scrollHeight = totalHeight - window.innerHeight * 3;
   let animationCount = 253;
   let animationStepHeight = scrollHeight / animationCount;
-  let animationFrameNum = Math.min(animationCount, Math.floor(window.scrollY / animationStepHeight));
+  let animationFrameNum = 0;
+  if (window.scrollY > startAnimation) {
+    animationFrameNum = Math.max(0, Math.min(animationCount, Math.floor((window.scrollY - startAnimation) / animationStepHeight)));
+  }
   container.dataset.animationscroll = animationFrameNum;
   container.dataset.contentscroll = Math.floor(window.scrollY / window.innerHeight + 0.90);
 
