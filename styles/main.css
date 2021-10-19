@@ -897,7 +897,7 @@ body {
 .explore-animations2-content .absolute-content-container {
   position: absolute;
   visibility: hidden;
-  transition: opacity var(--explore-content-timing), visibility var(--explore-content-timing);
+  transition: opacity var(--explore-content-timing), visibility var(--explore-content-timing), position var(--explore-content-timing);
   opacity: 0;
   max-width: 40vw;
   font-size: var(--explore-content);
@@ -981,55 +981,58 @@ body {
     margin: 2vh 0;
   }
 }
-.explore-animations2-content .absolute-content-container.content0 {
-  top: 230vh;
+.explore-animations2-content .absolute-content-container.curious {
+  position: fixed;
+  top: 70vh;
   left: 50vw;
 }
 @media (max-height: 576px) {
-  .explore-animations2-content .absolute-content-container.content0 {
+  .explore-animations2-content .absolute-content-container.curious {
     left: 55vw;
     max-width: 35vw;
   }
 }
 @media (max-width: 576px) {
-  .explore-animations2-content .absolute-content-container.content0 {
+  .explore-animations2-content .absolute-content-container.curious {
     left: 35vw;
     max-width: 60vw;
   }
 }
-.explore-animations2-content .absolute-content-container.content1 {
-  top: 310vh;
+.explore-animations2-content .absolute-content-container.his-experiments {
+  position: fixed;
+  top: 5vh;
   left: 10vw;
 }
 @media (max-height: 576px) {
-  .explore-animations2-content .absolute-content-container.content1 {
+  .explore-animations2-content .absolute-content-container.his-experiments {
     left: 3vw;
     max-width: 30vw;
   }
 }
 @media (max-width: 576px) {
-  .explore-animations2-content .absolute-content-container.content1 {
+  .explore-animations2-content .absolute-content-container.his-experiments {
     left: 5vw;
     max-width: 60vw;
   }
 }
-.explore-animations2-content .absolute-content-container.content2 {
-  top: 410vh;
-  left: 10vw;
+.explore-animations2-content .absolute-content-container.some-scientific {
+  position: fixed;
+  top: 80vh;
+  left: 30vw;
 }
 @media (max-height: 576px) {
-  .explore-animations2-content .absolute-content-container.content2 {
+  .explore-animations2-content .absolute-content-container.some-scientific {
     left: 3vw;
     max-width: 30vw;
   }
 }
 @media (max-width: 576px) {
-  .explore-animations2-content .absolute-content-container.content2 {
+  .explore-animations2-content .absolute-content-container.some-scientific {
     left: 3vw;
     max-width: 60vw;
   }
 }
-.explore-animations2-content .absolute-content-container.content3 {
+.explore-animations2-content .absolute-content-container.would-it-not {
   top: 510vh;
   align-self: flex-end;
   max-width: 40vw;
@@ -1037,12 +1040,12 @@ body {
   font-size: var(--explore-content-heading);
 }
 @media (max-height: 576px) {
-  .explore-animations2-content .absolute-content-container.content3 {
+  .explore-animations2-content .absolute-content-container.would-it-not {
     top: 310vh;
   }
 }
 @media (max-width: 576px) {
-  .explore-animations2-content .absolute-content-container.content3 {
+  .explore-animations2-content .absolute-content-container.would-it-not {
     left: 50vw;
   }
 }
@@ -1077,24 +1080,28 @@ body {
   opacity: 1;
 }
 
-#explore-3[data-contentscroll="2"] .absolute-content-container.content0 {
+#explore-3[data-contentscroll="2"] .absolute-content-container.curious {
   visibility: visible;
   opacity: 1;
 }
 
-#explore-3[data-contentscroll="3"] .absolute-content-container.content1 {
+#explore-3[data-contentscroll="3"] .absolute-content-container.his-experiments {
   visibility: visible;
   opacity: 1;
 }
 
-#explore-3[data-contentscroll="4"] .absolute-content-container.content2 {
+#explore-3[data-contentscroll="4"] .absolute-content-container.some-scientific {
   visibility: visible;
   opacity: 1;
 }
 
-#explore-3[data-contentscroll="5"] .absolute-content-container.content3 {
+#explore-3[data-contentscroll="5"] .absolute-content-container.would-it-not {
   visibility: visible;
   opacity: 1;
+}
+#explore-3[data-contentscroll="5"] .animation2-frame-container {
+  visibility: hidden;
+  opacity: 0;
 }
 #explore-3[data-contentscroll="5"] .explore-animations2:before {
   background-image: url("../images/shoreline-and-water.jpg");
