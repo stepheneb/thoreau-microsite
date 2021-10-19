@@ -1,37 +1,89 @@
-.explore-animations2 {
-  position: fixed;
+#explore3 {
+  height: 600vh;
+  margin: 0;
+  padding: 0;
+}
+
+.explore3 {
+  position: absolute;
   top: 0;
   left: 0;
   height: 100vh;
-  width: 100vw;
+  width: 100%;
   margin: 0;
   padding: 0;
-  background-color: unset;
-  &:before {
-    content: "";
-    position: absolute;
-    top: 0px;
-    right: 0px;
-    bottom: 0px;
-    left: 0px;
-    opacity: 1;
-    background-color: var(--thoreau-rgba-blue);
-    background-image: url("../images/transparent.png");
-    background-repeat: no-repeat;
-    background-position: center;
-    background-size: cover;
 
-    transition: opacity var(--explore-images-timing),
-      background-image var(--explore-images-timing);
+  .animation-frame-container {
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+
+    @media (max-width: 576px) {
+      height: 100vh;
+    }
+    @media (max-height: 576px) {
+      height: 90vh;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    img {
+      transition: opacity var(--explore-images-timing),
+        visibility var(--explore-images-timing);
+      margin: 5% 0;
+      width: 100%;
+      align-self: center;
+      @media (max-width: 576px), (max-height: 576px) {
+        width: 90%;
+      }
+    }
+  }
+
+  .background-image-container {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    background-color: unset;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 1;
+      background-color: var(--thoreau-rgba-blue);
+      background-image: url("../images/transparent.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      transition: opacity var(--explore-images-timing),
+        background-image var(--explore-images-timing);
+    }
   }
 
   .fixed-image-container {
-    z-index: 2;
-    position: absolute;
-    top: 0%;
-    left: 0%;
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100vh;
     width: 100%;
-    height: 90%;
+    margin: 0;
+    padding: 0;
+
     @media (max-width: 576px) {
       height: 100vh;
     }
@@ -77,30 +129,139 @@
     }
   }
 
-  .animation2-frame-container {
-    position: absolute;
-    top: 0%;
-    left: 0%;
-    width: 100%;
-    height: 100%;
-    @media (max-width: 576px) {
-      height: 100vh;
-    }
-    @media (max-height: 576px) {
-      height: 90vh;
-    }
+  .content {
+    z-index: 1;
     display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: space-around;
-    img {
-      transition: opacity var(--explore-images-timing),
-        visibility var(--explore-images-timing);
-      margin: 5% 0;
-      width: 100%;
-      align-self: center;
-      @media (max-width: 576px), (max-height: 576px) {
-        width: 90%;
+    color: white;
+    background-color: transparent;
+    .absolute-content-container {
+      position: absolute;
+      visibility: hidden;
+      transition: opacity var(--explore-content-timing),
+        visibility var(--explore-content-timing),
+        position var(--explore-content-timing);
+      opacity: 0;
+      max-width: 40vw;
+      font-size: var(--explore-content);
+      hr {
+        width: 30%;
+        border-top: 2px solid black;
+      }
+      .author {
+        font-size: var(--explore-content);
+        text-transform: uppercase;
+        &.thoreau {
+          color: black;
+        }
+      }
+      &.start {
+        top: 5vh;
+        left: 5vw;
+        height: 100vh;
+        width: 22vw;
+        img {
+          width: 8vmax;
+          height: 8vmax;
+          padding: 0.7vmax;
+          border: 1px solid var(--border-light-gray);
+          border-radius: 4vmax;
+          @media (max-height: 576px), (max-width: 576px) {
+            width: 6vmax;
+            height: 6vmax;
+            padding: 0.6vmax;
+            border: 1px solid var(--border-light-gray);
+            border-radius: 3vmax;
+          }
+        }
+        .title {
+          margin: 6vh 0 4vh 0;
+          @media (max-height: 576px) {
+            margin: 4vh 0 4vh 0;
+          }
+          @media (max-width: 576px) {
+            margin: 3vh 0 3vh 0;
+          }
+          font-family: "Libre Caslon Text", serif;
+          font-size: var(--artifact-title);
+          font-weight: 600;
+          color: var(--thoreau-blue);
+          line-height: 1.1em;
+          text-transform: capitalize;
+        }
+        hr {
+          display: block;
+          width: 50%;
+          @media (max-width: 576px), (max-height: 576px) {
+            display: block;
+          }
+        }
+        .description {
+          margin: 4vh 0;
+          width: 100%;
+          @media (max-height: 576px) {
+            width: 95%;
+          }
+          @media (max-width: 576px) {
+            width: 65%;
+            margin: 2vh 0;
+          }
+          font-size: var(--artifact-description);
+          line-height: 2em;
+          color: black;
+        }
+      }
+
+      &.curious {
+        position: fixed;
+        top: 70vh;
+        left: 50vw;
+        @media (max-height: 576px) {
+          left: 55vw;
+          max-width: 35vw;
+        }
+        @media (max-width: 576px) {
+          left: 35vw;
+          max-width: 60vw;
+        }
+      }
+      &.his-experiments {
+        position: fixed;
+        top: 5vh;
+        left: 10vw;
+        @media (max-height: 576px) {
+          left: 3vw;
+          max-width: 30vw;
+        }
+        @media (max-width: 576px) {
+          left: 5vw;
+          max-width: 60vw;
+        }
+      }
+      &.some-scientific {
+        position: fixed;
+        top: 80vh;
+        left: 32vw;
+        @media (max-height: 576px) {
+          left: 3vw;
+          max-width: 30vw;
+        }
+        @media (max-width: 576px) {
+          left: 3vw;
+          max-width: 60vw;
+        }
+      }
+      &.would-it-not {
+        top: 505vh;
+        align-self: flex-end;
+        max-width: 40vw;
+        left: 40vw;
+        font-size: var(--explore-content-heading);
+        @media (max-height: 576px) {
+          top: 310vh;
+        }
+        @media (max-width: 576px) {
+          left: 50vw;
+        }
       }
     }
   }
@@ -131,145 +292,14 @@
   }
 }
 
-.explore-animations2-content {
-  z-index: 2;
-  display: flex;
-  height: 600vh;
-  color: white;
-  .absolute-content-container {
-    position: absolute;
-    visibility: hidden;
-    transition: opacity var(--explore-content-timing),
-      visibility var(--explore-content-timing),
-      position var(--explore-content-timing);
-    opacity: 0;
-    max-width: 40vw;
-    font-size: var(--explore-content);
-    hr {
-      width: 30%;
-      border-top: 2px solid black;
-    }
-    .author {
-      font-size: var(--explore-content);
-      text-transform: uppercase;
-      &.thoreau {
-        color: black;
-      }
-    }
-    &.content-start {
-      top: 5vh;
-      left: 5vw;
-      height: 100vh;
-      width: 22vw;
-      img {
-        width: 8vmax;
-        height: 8vmax;
-        padding: 0.7vmax;
-        border: 1px solid var(--border-light-gray);
-        border-radius: 4vmax;
-        @media (max-height: 576px), (max-width: 576px) {
-          width: 6vmax;
-          height: 6vmax;
-          padding: 0.6vmax;
-          border: 1px solid var(--border-light-gray);
-          border-radius: 3vmax;
-        }
-      }
-      .title {
-        margin: 6vh 0 4vh 0;
-        @media (max-height: 576px) {
-          margin: 4vh 0 4vh 0;
-        }
-        @media (max-width: 576px) {
-          margin: 3vh 0 3vh 0;
-        }
-        font-family: "Libre Caslon Text", serif;
-        font-size: var(--artifact-title);
-        font-weight: 600;
-        color: var(--thoreau-blue);
-        line-height: 1.1em;
-        text-transform: capitalize;
-      }
-      hr {
-        display: block;
-        width: 50%;
-        @media (max-width: 576px), (max-height: 576px) {
-          display: block;
-        }
-      }
-      .description {
-        margin: 4vh 0;
-        width: 100%;
-        @media (max-height: 576px) {
-          width: 95%;
-        }
-        @media (max-width: 576px) {
-          width: 65%;
-          margin: 2vh 0;
-        }
-        font-size: var(--artifact-description);
-        line-height: 2em;
-        color: black;
-      }
-    }
-
-    &.curious {
-      position: fixed;
-      top: 70vh;
-      left: 50vw;
-      @media (max-height: 576px) {
-        left: 55vw;
-        max-width: 35vw;
-      }
-      @media (max-width: 576px) {
-        left: 35vw;
-        max-width: 60vw;
-      }
-    }
-    &.his-experiments {
-      position: fixed;
-      top: 5vh;
-      left: 10vw;
-      @media (max-height: 576px) {
-        left: 3vw;
-        max-width: 30vw;
-      }
-      @media (max-width: 576px) {
-        left: 5vw;
-        max-width: 60vw;
-      }
-    }
-    &.some-scientific {
-      position: fixed;
-      top: 80vh;
-      left: 30vw;
-      @media (max-height: 576px) {
-        left: 3vw;
-        max-width: 30vw;
-      }
-      @media (max-width: 576px) {
-        left: 3vw;
-        max-width: 60vw;
-      }
-    }
-    &.would-it-not {
-      top: 510vh;
-      align-self: flex-end;
-      max-width: 40vw;
-      left: 40vw;
-      font-size: var(--explore-content-heading);
-      @media (max-height: 576px) {
-        top: 310vh;
-      }
-      @media (max-width: 576px) {
-        left: 50vw;
-      }
+#explore3[data-contentscroll="0"] {
+  .background-image-container {
+    &:before {
+      background-color: white;
     }
   }
-}
 
-#explore-3[data-contentscroll="0"] {
-  .absolute-content-container.content-start {
+  .absolute-content-container.start {
     visibility: visible;
     opacity: 1;
   }
@@ -291,56 +321,42 @@
     opacity: 1;
   }
 
-  .explore-animations2 {
-    &:before {
-      background-color: white;
-    }
-  }
-
   .back-button {
     visibility: visible;
     opacity: 1;
   }
 }
 
-#explore-3[data-contentscroll="1"] {
+#explore3[data-contentscroll="1"] {
   img.spyglass-photo-rotated {
     visibility: visible;
     opacity: 1;
   }
 }
 
-#explore-3[data-contentscroll="2"] {
+#explore3[data-contentscroll="2"] {
   .absolute-content-container.curious {
     visibility: visible;
     opacity: 1;
   }
 }
 
-#explore-3[data-contentscroll="3"] {
+#explore3[data-contentscroll="3"] {
   .absolute-content-container.his-experiments {
     visibility: visible;
     opacity: 1;
   }
 }
 
-#explore-3[data-contentscroll="4"] {
+#explore3[data-contentscroll="4"] {
   .absolute-content-container.some-scientific {
     visibility: visible;
     opacity: 1;
   }
 }
 
-#explore-3[data-contentscroll="5"] {
-  .absolute-content-container.would-it-not {
-    visibility: visible;
-    opacity: 1;
-  }
-  .animation2-frame-container {
-    visibility: hidden;
-    opacity: 0;
-  }
-  .explore-animations2 {
+#explore3[data-contentscroll="5"] {
+  .background-image-container {
     &:before {
       background-image: url("../images/shoreline-and-water.jpg");
       background-repeat: no-repeat;
@@ -349,6 +365,14 @@
     }
   }
 
+  .absolute-content-container.would-it-not {
+    visibility: visible;
+    opacity: 1;
+  }
+  .animation-frame-container {
+    visibility: hidden;
+    opacity: 0;
+  }
   .back-button {
     visibility: visible;
     opacity: 1;
