@@ -35,7 +35,7 @@ const storeScroll = () => {
   let totalHeight = document.body.clientHeight;
   let startAnimation = window.innerHeight * 1;
   let scrollHeight = totalHeight - window.innerHeight * 3;
-  let animationCount = 253;
+  let animationCount = 243;
   let animationStepHeight = scrollHeight / animationCount;
   let animationFrameNum = 0;
   if (window.scrollY > startAnimation) {

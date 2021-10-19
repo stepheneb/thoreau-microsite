@@ -140,7 +140,8 @@
     position: absolute;
     visibility: hidden;
     transition: opacity var(--explore-content-timing),
-      visibility var(--explore-content-timing);
+      visibility var(--explore-content-timing),
+      position var(--explore-content-timing);
     opacity: 0;
     max-width: 40vw;
     font-size: var(--explore-content);
@@ -212,8 +213,9 @@
       }
     }
 
-    &.content0 {
-      top: 230vh;
+    &.curious {
+      position: fixed;
+      top: 70vh;
       left: 50vw;
       @media (max-height: 576px) {
         left: 55vw;
@@ -224,8 +226,9 @@
         max-width: 60vw;
       }
     }
-    &.content1 {
-      top: 310vh;
+    &.his-experiments {
+      position: fixed;
+      top: 5vh;
       left: 10vw;
       @media (max-height: 576px) {
         left: 3vw;
@@ -236,9 +239,10 @@
         max-width: 60vw;
       }
     }
-    &.content2 {
-      top: 410vh;
-      left: 10vw;
+    &.some-scientific {
+      position: fixed;
+      top: 80vh;
+      left: 30vw;
       @media (max-height: 576px) {
         left: 3vw;
         max-width: 30vw;
@@ -248,7 +252,7 @@
         max-width: 60vw;
       }
     }
-    &.content3 {
+    &.would-it-not {
       top: 510vh;
       align-self: flex-end;
       max-width: 40vw;
@@ -307,30 +311,34 @@
 }
 
 #explore-3[data-contentscroll="2"] {
-  .absolute-content-container.content0 {
+  .absolute-content-container.curious {
     visibility: visible;
     opacity: 1;
   }
 }
 
 #explore-3[data-contentscroll="3"] {
-  .absolute-content-container.content1 {
+  .absolute-content-container.his-experiments {
     visibility: visible;
     opacity: 1;
   }
 }
 
 #explore-3[data-contentscroll="4"] {
-  .absolute-content-container.content2 {
+  .absolute-content-container.some-scientific {
     visibility: visible;
     opacity: 1;
   }
 }
 
 #explore-3[data-contentscroll="5"] {
-  .absolute-content-container.content3 {
+  .absolute-content-container.would-it-not {
     visibility: visible;
     opacity: 1;
+  }
+  .animation2-frame-container {
+    visibility: hidden;
+    opacity: 0;
   }
   .explore-animations2 {
     &:before {
