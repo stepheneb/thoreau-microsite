@@ -15,6 +15,8 @@
   --explore: 2.6vmin;
   --explore-button: 2vmin;
   --explore-content: 2.6vmin;
+  --explore-content-line-height: 170%;
+  --explore-content-author: 0.7em;
   --explore-content-weight: 400;
   --explore-content-heading: 4.6vmin;
   --explore-content-heading-weight: 500;
@@ -27,9 +29,12 @@
     --explore: 3.4vmin;
     --explore-button: 2.8vmin;
     --explore-content: 3.8vmin;
+    --explore-content-line-height: 150%;
+    --explore-content-author: 0.7em;
     --explore-content-weight: 600;
     --explore-content-heading: 5vmin;
     --explore-content-heading-weight: 600;
+    --back-button-size: 1.4em;
   }
 }
 
@@ -74,16 +79,12 @@ body {
   width: 8vmax;
   height: 8vmax;
   padding: 0.7vmax;
-  border: 1px solid var(--border-light-gray);
-  border-radius: 4vmax;
 }
 @media (max-height: 576px), (max-width: 576px) {
   .content .main .left img {
     width: 6vmax;
     height: 6vmax;
     padding: 0.6vmax;
-    border: 1px solid var(--border-light-gray);
-    border-radius: 3vmax;
   }
 }
 .content .main .left .title {
@@ -137,7 +138,7 @@ body {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  background-image: url("../images/watercolor-background.png");
+  background-image: url("../images/watercolor-background-blue.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -753,7 +754,7 @@ body {
 }
 
 #explore3 {
-  height: 600vh;
+  height: 700vh;
   margin: 0;
   padding: 0;
 }
@@ -860,9 +861,14 @@ body {
   width: 80%;
   align-self: center;
 }
-@media (max-width: 576px), (max-height: 576px) {
+@media (max-width: 576px) {
   .explore3 .fixed-image-container img {
-    width: 90%;
+    width: 80%;
+  }
+}
+@media (max-height: 576px) {
+  .explore3 .fixed-image-container img {
+    width: 70%;
   }
 }
 .explore3 .fixed-image-container img.spyglass-photo-rotated {
@@ -881,8 +887,18 @@ body {
 }
 @media (max-width: 576px) {
   .explore3 .fixed-image-container.start {
-    justify-content: flex-start;
+    left: 0;
+    width: 100%;
+    margin-top: 30%;
     padding: 0;
+  }
+  .explore3 .fixed-image-container.start img.spyglass-photo {
+    width: 80%;
+  }
+}
+@media (max-height: 576px) {
+  .explore3 .fixed-image-container.start img.spyglass-photo {
+    width: 60%;
   }
 }
 .explore3 .content {
@@ -897,6 +913,7 @@ body {
   transition: opacity var(--explore-content-timing), visibility var(--explore-content-timing), position var(--explore-content-timing);
   opacity: 0;
   max-width: 40vw;
+  line-height: var(--explore-content-line-height);
   font-size: var(--explore-content);
 }
 .explore3 .content .absolute-content-container hr {
@@ -904,7 +921,7 @@ body {
   border-top: 2px solid black;
 }
 .explore3 .content .absolute-content-container .author {
-  font-size: var(--explore-content);
+  font-size: var(--explore-content-author);
   text-transform: uppercase;
 }
 .explore3 .content .absolute-content-container .author.thoreau {
@@ -916,20 +933,28 @@ body {
   height: 100vh;
   width: 22vw;
 }
+@media (max-width: 576px) {
+  .explore3 .content .absolute-content-container.start {
+    width: 100vw;
+    max-width: 100vw;
+  }
+}
+@media (max-height: 576px) {
+  .explore3 .content .absolute-content-container.start {
+    width: 35vw;
+    max-width: 35vw;
+  }
+}
 .explore3 .content .absolute-content-container.start img {
   width: 8vmax;
   height: 8vmax;
   padding: 0.7vmax;
-  border: 1px solid var(--border-light-gray);
-  border-radius: 4vmax;
 }
 @media (max-height: 576px), (max-width: 576px) {
   .explore3 .content .absolute-content-container.start img {
     width: 6vmax;
     height: 6vmax;
     padding: 0.6vmax;
-    border: 1px solid var(--border-light-gray);
-    border-radius: 3vmax;
   }
 }
 .explore3 .content .absolute-content-container.start .title {
@@ -955,7 +980,12 @@ body {
   display: block;
   width: 50%;
 }
-@media (max-width: 576px), (max-height: 576px) {
+@media (max-width: 576px) {
+  .explore3 .content .absolute-content-container.start hr {
+    display: none;
+  }
+}
+@media (max-height: 576px) {
   .explore3 .content .absolute-content-container.start hr {
     display: block;
   }
@@ -974,31 +1004,35 @@ body {
 }
 @media (max-width: 576px) {
   .explore3 .content .absolute-content-container.start .description {
-    width: 65%;
+    width: 80%;
     margin: 2vh 0;
   }
 }
 .explore3 .content .absolute-content-container.curious {
   position: fixed;
-  top: 70vh;
+  top: 65vh;
   left: 50vw;
+  max-width: 30vw;
 }
 @media (max-height: 576px) {
   .explore3 .content .absolute-content-container.curious {
-    left: 55vw;
-    max-width: 35vw;
+    top: 62vh;
+    left: 45vw;
+    max-width: 45vw;
   }
 }
 @media (max-width: 576px) {
   .explore3 .content .absolute-content-container.curious {
+    top: 65vh;
     left: 35vw;
     max-width: 60vw;
   }
 }
 .explore3 .content .absolute-content-container.his-experiments {
   position: fixed;
-  top: 5vh;
-  left: 10vw;
+  top: 3em;
+  left: 4em;
+  max-width: 25vw;
 }
 @media (max-height: 576px) {
   .explore3 .content .absolute-content-container.his-experiments {
@@ -1008,29 +1042,33 @@ body {
 }
 @media (max-width: 576px) {
   .explore3 .content .absolute-content-container.his-experiments {
-    left: 5vw;
-    max-width: 60vw;
+    top: 10vh;
+    left: 10vw;
+    max-width: 70vw;
   }
 }
 .explore3 .content .absolute-content-container.some-scientific {
   position: fixed;
   top: 80vh;
   left: 32vw;
+  max-width: 30vw;
 }
 @media (max-height: 576px) {
   .explore3 .content .absolute-content-container.some-scientific {
-    left: 3vw;
+    top: 10vh;
+    left: 5vw;
     max-width: 30vw;
   }
 }
 @media (max-width: 576px) {
   .explore3 .content .absolute-content-container.some-scientific {
-    left: 3vw;
-    max-width: 60vw;
+    top: 65vh;
+    left: 15vw;
+    max-width: 70vw;
   }
 }
 .explore3 .content .absolute-content-container.would-it-not {
-  top: 505vh;
+  top: 605vh;
   align-self: flex-end;
   max-width: 40vw;
   left: 40vw;
@@ -1038,28 +1076,30 @@ body {
 }
 @media (max-height: 576px) {
   .explore3 .content .absolute-content-container.would-it-not {
-    top: 310vh;
+    top: 607vh;
+    left: 45vw;
   }
 }
 @media (max-width: 576px) {
   .explore3 .content .absolute-content-container.would-it-not {
-    left: 50vw;
+    left: 30vw;
+    max-width: 50vw;
   }
 }
 .explore3 .back-button {
   position: relative;
   z-index: 3;
   top: 0.75vh;
-  left: 1vw;
+  left: 0.75vw;
   background-color: transparent;
   visibility: hidden;
   opacity: 0;
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
 }
-@media (max-width: 576px) {
+@media (max-width: 576px), (max-height: 576px) {
   .explore3 .back-button {
     top: 0.5vh;
-    left: 2.5vw;
+    left: 0;
   }
 }
 .explore3 .back-button a i {
@@ -1081,7 +1121,7 @@ body {
   visibility: visible;
   opacity: 1;
   transition: opacity var(--explore-images-timing), background-image var(--explore-images-timing);
-  background-image: url("../images/watercolor-background.png");
+  background-image: url("../images/watercolor-background-blue.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -1110,26 +1150,26 @@ body {
   opacity: 1;
 }
 
-#explore3[data-contentscroll="4"] .absolute-content-container.some-scientific {
+#explore3[data-contentscroll="5"] .absolute-content-container.some-scientific {
   visibility: visible;
   opacity: 1;
 }
 
-#explore3[data-contentscroll="5"] .background-image-container:before {
+#explore3[data-contentscroll="6"] .background-image-container:before {
   background-image: url("../images/shoreline-and-water.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-#explore3[data-contentscroll="5"] .absolute-content-container.would-it-not {
+#explore3[data-contentscroll="6"] .absolute-content-container.would-it-not {
   visibility: visible;
   opacity: 1;
 }
-#explore3[data-contentscroll="5"] .animation-frame-container {
+#explore3[data-contentscroll="6"] .animation-frame-container {
   visibility: hidden;
   opacity: 0;
 }
-#explore3[data-contentscroll="5"] .back-button {
+#explore3[data-contentscroll="6"] .back-button {
   visibility: visible;
   opacity: 1;
 }

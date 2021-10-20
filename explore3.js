@@ -34,7 +34,7 @@ let animationFrameImg = document.getElementById('animation-frame');
 const storeScroll = () => {
   let totalHeight = container.clientHeight;
   let startAnimation = window.innerHeight * 1;
-  let scrollHeight = totalHeight - window.innerHeight * 3;
+  let scrollHeight = totalHeight - window.innerHeight * 4;
   let animationCount = 243;
   let animationStepHeight = scrollHeight / animationCount;
   let animationFrameNum = 0;
