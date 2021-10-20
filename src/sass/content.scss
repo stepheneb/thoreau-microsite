@@ -22,12 +22,30 @@ body {
 }
 
 .content {
+  margin: 0;
+  padding: 0.5em;
   .main {
-    @media (min-width: 576px) {
+    display: flex;
+    flex-direction: row;
+    height: 90vh;
+    @media (max-width: 576px) {
+      height: 90vh;
+      flex-direction: column;
+    }
+    @media (max-height: 576px) {
       height: 90vh;
     }
     .left {
+      width: 25%;
       height: 100%;
+      margin-left: 1%;
+      @media (max-height: 576px) {
+        width: 30%;
+      }
+      @media (max-width: 576px) {
+        width: 100%;
+        height: auto;
+      }
       img {
         width: 8vmax;
         height: 8vmax;
@@ -76,68 +94,73 @@ body {
       }
     }
     .right {
-      height: 100%;
+      width: 75%;
+      height: 90vh;
       display: flex;
       flex-direction: column;
-      justify-content: flex-end;
-      background-image: url("../images/watercolor-background-blue.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: contain;
+      justify-content: center;
+      @media (max-height: 576px) {
+        width: 70%;
+      }
       @media (max-width: 576px) {
-        justify-content: flex-start;
+        width: 100%;
+        height: auto;
+      }
+      @media (max-width: 576px) {
+        justify-content: center;
         padding: 0;
       }
 
       .image-container {
-        height: 90%;
-        @media (max-width: 576px) {
-          height: 50vh;
-        }
-        @media (max-height: 576px) {
-          height: 80vh;
-        }
+        height: 100%;
         display: flex;
         flex-direction: column;
         align-items: center;
+
+        background-image: url("../images/watercolor-background-blue.png");
+        background-repeat: no-repeat;
+        background-position: center;
+        background-size: contain;
+
         justify-content: space-around;
-        // background-image: url("../images/watercolor-background-blue.png");
-        // background-repeat: no-repeat;
-        // background-position: center;
-        // background-size: contain;
-        // border: 1px solid var(--border-gray);
-        // border-radius: 0.5vmin;
+
+        @media (max-width: 576px) {
+          height: 45vh;
+        }
+        @media (max-height: 576px) {
+          height: 100%;
+        }
         img {
-          margin: 25% 0 15% 0;
-          width: 70%;
-          align-self: center;
+          margin: 0;
+          width: 85%;
+
           @media (max-width: 576px) {
             width: 80%;
-            margin: 35% 0 20% 0;
+            margin: 10% 0;
           }
 
           @media (max-height: 576px) {
             width: 75%;
-            margin: 15% 0 5% 0;
+            margin: 10% 0;
           }
         }
-        .explore {
-          align-self: flex-start;
-          margin-top: 1em;
-          margin-left: calc(10% - 1.5em);
-          padding: 0.35em 2em 0.35em 1.5em;
-          border: 1px solid lightgray;
+      }
+      .explore {
+        align-self: flex-start;
+        margin-left: calc(10% - 1.5em);
+        margin-bottom: 1em;
+        padding: 0.35em 2em 0.35em 1.5em;
+        border: 1px solid lightgray;
+        border-radius: 1em;
+        background-color: lightgray;
+        font-size: var(--explore);
+        a.btn {
+          font-size: var(--explore-button);
           border-radius: 1em;
-          background-color: lightgray;
-          font-size: var(--explore);
-          a.btn {
-            font-size: var(--explore-button);
-            border-radius: 1em;
-            margin-left: 1em;
-            padding: 0.25em 0.5em;
-            width: 2.2em;
-            height: 2em;
-          }
+          margin-left: 1em;
+          padding: 0.25em 0.5em;
+          width: 2.2em;
+          height: 2em;
         }
       }
     }
