@@ -1087,19 +1087,25 @@ body {
   }
 }
 .explore3 .back-button {
-  position: relative;
+  position: fixed;
   z-index: 3;
+  visibility: hidden;
+  opacity: 0;
   top: 0.75vh;
   left: 0.75vw;
   background-color: transparent;
-  visibility: hidden;
-  opacity: 0;
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
 }
-@media (max-width: 576px), (max-height: 576px) {
+@media (max-width: 576px) {
   .explore3 .back-button {
-    top: 0.5vh;
-    left: 0;
+    top: 0vh;
+    left: 1vw;
+  }
+}
+@media (max-height: 576px) {
+  .explore3 .back-button {
+    top: 1vh;
+    left: 1vw;
   }
 }
 .explore3 .back-button a i {
