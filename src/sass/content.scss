@@ -8,10 +8,10 @@ html {
 
 body {
   margin: 30px 40px;
-  @media (max-width: 576px) {
+  @include mobile-portrait() {
     margin: 10px 10px;
   }
-  @media (max-height: 576px) {
+  @include mobile-landscape() {
     margin: 10px 20px;
   }
   padding: 0;
@@ -28,21 +28,21 @@ body {
     display: flex;
     flex-direction: row;
     height: 90vh;
-    @media (max-width: 576px) {
+    @include mobile-portrait() {
       height: 90vh;
       flex-direction: column;
     }
-    @media (max-height: 576px) {
+    @include mobile-landscape() {
       height: 90vh;
     }
     .left {
       width: 30%;
       height: 100%;
       margin-left: 1%;
-      @media (max-height: 576px) {
-        width: 30%;
+      @include mobile-landscape() {
+        width: 35%;
       }
-      @media (max-width: 576px) {
+      @include mobile-portrait() {
         width: 100%;
         height: auto;
       }
@@ -57,10 +57,10 @@ body {
       }
       .title {
         margin: 2rem 0 3rem 0;
-        @media (max-height: 576px) {
+        @include mobile-landscape() {
           margin: 4vh 0 4vh 0;
         }
-        @media (max-width: 576px) {
+        @include mobile-portrait() {
           margin: 3vh 0 3vh 0;
         }
         font-family: "Libre Caslon Text", serif;
@@ -73,17 +73,15 @@ body {
       hr {
         display: block;
         width: 50%;
-        @media (max-width: 576px), (max-height: 576px) {
-          display: block;
-        }
       }
       .description {
         margin: 2.8rem 0;
         width: 100%;
-        @media (max-height: 576px) {
+        @include mobile-landscape() {
+          margin: 1rem 0;
           width: 95%;
         }
-        @media (max-width: 576px) {
+        @include mobile-portrait() {
           width: 65%;
           margin: 2vh 0;
         }
@@ -103,14 +101,13 @@ body {
       display: flex;
       flex-direction: column;
       justify-content: center;
-      @media (max-height: 576px) {
-        width: 70%;
+      @include mobile-landscape() {
+        width: 65%;
       }
-      @media (max-width: 576px) {
+      @include mobile-portrait() {
+        margin-top: 0;
         width: 100%;
         height: auto;
-      }
-      @media (max-width: 576px) {
         justify-content: center;
         padding: 0;
       }
@@ -128,10 +125,10 @@ body {
 
         justify-content: space-around;
 
-        @media (max-width: 576px) {
+        @include mobile-portrait() {
           height: 45vh;
         }
-        @media (max-height: 576px) {
+        @include mobile-landscape() {
           height: 100%;
         }
         img {
@@ -140,12 +137,12 @@ body {
           align-self: flex-end;
           margin-right: 2em;
 
-          @media (max-width: 576px) {
+          @include mobile-portrait() {
             width: 80%;
             margin: 10% 0;
           }
 
-          @media (max-height: 576px) {
+          @include mobile-landscape() {
             width: 75%;
             margin: 10% 0;
           }
