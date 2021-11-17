@@ -5,13 +5,17 @@
   --thoreau-rgba-blue: rgba(119, 190, 206, 1);
   --border-gray: gray;
   --border-light-gray: #ddd;
+  --near-black: #25334b;
+  --medium-gray: #a7bbca;
 }
 
 /* font sizes */
 :root {
   --content: 2rem;
+  --main-title: 3.6rem;
+  --main-title-world: 8.6rem;
   --artifact-title: 2.4rem;
-  --artifact-description: 2.3vmin;
+  --artifact-description: 2.2vmin;
   --explore: 2.6vmin;
   --explore-button: 2vmin;
   --explore-content: 2.6vmin;
@@ -1715,4 +1719,240 @@ body {
 #explore4[data-contentscroll="6"] .back-button4 {
   visibility: visible;
   opacity: 1;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+}
+
+body.index {
+  margin: 0;
+  padding: 0;
+  oveerflow: hidden;
+  background-color: white;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: 16px;
+  color: black;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  body.index {
+    margin: 10px 10px;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  body.index {
+    margin: 10px 20px;
+  }
+}
+
+.content.index {
+  margin: 0;
+  padding: 0;
+  height: 95vh;
+}
+.content.index .main {
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .content.index .main {
+    height: 90vh;
+    flex-direction: column;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .content.index .main {
+    height: 90vh;
+  }
+}
+.content.index .main .header {
+  display: flex;
+  flex-direction: row;
+  align-items: baseline;
+  line-height: normal;
+  width: 82vw;
+  height: 24vh;
+  margin: 1vh 2vw 1vh 13vw;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .content.index .main .header {
+    width: 35%;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .content.index .main .header {
+    width: 100%;
+    height: auto;
+  }
+}
+.content.index .main .header .title {
+  margin: 0vh 0.4vw;
+  padding-bottom: 2vh;
+  font-family: "Libre Caslon Text", serif;
+  font-size: var(--main-title);
+  font-weight: 600;
+  color: var(--near-black);
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .content.index .main .header .title {
+    margin: 4vh 0 4vh 0;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .content.index .main .header .title {
+    margin: 3vh 0 3vh 0;
+  }
+}
+.content.index .main .header .title.world {
+  margin: 0 1vw 0 0;
+  font-family: "Libre Caslon Display", serif;
+  font-size: var(--main-title-world);
+  color: var(--medium-gray);
+  font-weight: 600;
+  padding-bottom: 0.5vh;
+}
+.content.index .main .header .vertcal.separator {
+  width: 2.25vw;
+  margin-left: 0.75vw;
+  margin-bottom: 0vh;
+  height: 14vh;
+  color: var(--near-black);
+  border-left: 1px solid;
+}
+.content.index .main .header img.pinetree {
+  width: 5.8em;
+  height: 5.8em;
+  vertical-align: bottom;
+}
+@media (max-height: 576px), (max-width: 576px) {
+  .content.index .main .header img.pinetree {
+    width: 6vmax;
+    height: 6vmax;
+    padding: 0.6vmax;
+  }
+}
+.content.index .main .header img.pinetree.noborder {
+  margin: 0 1vw 0 0.25vw;
+  height: 14vh;
+  width: auto;
+}
+.content.index .main .header .description {
+  align-self: center;
+  padding-bottom: 2vh;
+  width: 95%;
+  font-weight: 400;
+  font-size: var(--artifact-description);
+  line-height: 2em;
+  color: black;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .content.index .main .header .description {
+    margin: 1rem 0;
+    width: 95%;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .content.index .main .header .description {
+    width: 65%;
+    margin: 2vh 0;
+  }
+}
+.content.index .main .header .description span.heading {
+  font-weight: 700;
+}
+.content.index .main .gallery {
+  display: flex;
+  margin: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+  width: 95vw;
+  height: 65vh;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .content.index .main .gallery {
+    width: 65%;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .content.index .main .gallery {
+    margin-top: 0;
+    width: 100%;
+    height: auto;
+    justify-content: center;
+    padding: 0;
+  }
+}
+.content.index .main .gallery .image-container {
+  margin-top: 0;
+  height: 120%;
+  width: 60vw;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  object-fit: contain;
+  background-image: url("../images/main-menu-texture.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  justify-content: space-around;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .content.index .main .gallery .image-container {
+    height: 45vh;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .content.index .main .gallery .image-container {
+    height: 100%;
+  }
+}
+.content.index .main .gallery .image-container img {
+  margin: 0;
+  padding: 0;
+  align-items: baseline;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .content.index .main .gallery .image-container img {
+    width: 80%;
+    margin: 10% 0;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .content.index .main .gallery .image-container img {
+    width: 75%;
+    margin: 10% 0;
+  }
+}
+.content.index .main .gallery .select {
+  margin: 0;
+  width: 12vw;
+  height: 20vh;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: flex-end;
+}
+.content.index .main .gallery .select .circle {
+  width: 7vw;
+  height: 7vw;
+  border: 1px solid var(--medium-gray);
+  border-radius: 50%;
+}
+.content.index .main .gallery .select .circle img {
+  margin-top: 1.25vw;
+  margin-left: 1.75vw;
+  width: 2.5vw;
+  height: auto;
+}
+.content.index .main .gallery .select.right {
+  justify-content: flex-start;
+}
+.content.index .main .gallery .select.right .circle img {
+  margin-left: 2.25vw;
+  transform: rotate(180deg);
 }
