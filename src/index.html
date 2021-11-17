@@ -22,7 +22,7 @@
 
 </head>
 
-<body>
+<body class='index'>
   <div id="content" class="content index">
     <div class="main">
       <div class="header">
@@ -40,20 +40,23 @@
         </div>
       </div>
       <div class="gallery">
+        <div class='select'>
+          <div id='select-left' class='circle'><img src='images/select-left.png'></img></div>
+        </div>
         <div class='image-container'>
-          <div class='select'>
-            <div class='circle'><img src='images/select-left.png'></img></div>
-          </div>
-          <img src='images/thoreau-snowshoes-close.png'></img>
-          <div class='select right'>
-            <div class='circle'><img src='images/select-left.png'></img></div>
-          </div>
+          <img id='selected-image' src='images/thoreau-snowshoes-close.png'></img>
+        </div>
+        <div class='select right'>
+          <div id='select-right' class='circle'><img src='images/select-left.png'></img></div>
         </div>
       </div>
     </div>
   </div>
 
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
+
+  <script src="index.js"></script>
+
 
 </body>
 
