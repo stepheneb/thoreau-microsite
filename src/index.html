@@ -16,50 +16,38 @@
 
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&display=swap" rel="stylesheet">
-
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Text:ital,wght@0,400;0,700;1,400&family=Nunito+Sans:ital,wght@0,200;0,300;0,400;0,600;0,700;1,200;1,300;1,400;1,600;1,700&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Libre+Caslon+Display&family=Libre+Caslon+Text&family=Nunito+Sans:wght@200;300;400;600;700&display=swap" rel="stylesheet">
 
   <link href="./styles/main.css" rel="stylesheet" type="text/css">
 
 </head>
 
 <body>
-  <div id="content" class="content">
+  <div id="content" class="content index">
     <div class="main">
-      <div class="left">
-        <img src='images/pinetree-with-border.png'></img>
+      <div class="header">
         <div class='title'>
-          Thoreau's Spyglass
+          Thoreau’s
         </div>
-        <hr>
+        <div class='title world'>
+          World
+        </div>
+        <div class='vertcal separator'></div>
+        <img class='pinetree noborder' src='images/pinetree.png'>
         <div class='description'>
-          <span class='heading'>
-            Thoreau preferred to observe nature 
-            with the naked eye, not through a lens. 
-          </span>
-          It was after much internal debate 
-          that he decided to spend $8.00
-          <br>--a rare splurge--<br>
-           on this spyglass in the spring of 1854.<br>
-           He was delighted<br>
-          with his enhanced ability<br>
-          to study bird behaviors<br>
-          and other natural phenomena.
+          Explore the world as Thoreau experienced it.<br>
+          <span class='heading'>Select an object from the Concord Museum's collection to begin.</span>
         </div>
       </div>
-      <div class="right">
-        <div class=image-container>
-          <img src='images/spyglass.png'></img>
-        </div>
-        <div class='explore'>
-          Explore:
-          <a href="./explore-1.html" class="btn btn-secondary">1</a>
-          <a href="./explore-2.html" class="btn btn-secondary">2</a>
-          <a href="./explore-3.html" class="btn btn-secondary">3</a>
-          <a href="./explore-4.html" class="btn btn-secondary">4</a>
+      <div class="gallery">
+        <div class='image-container'>
+          <div class='select'>
+            <div class='circle'><img src='images/select-left.png'></img></div>
+          </div>
+          <img src='images/thoreau-snowshoes-close.png'></img>
+          <div class='select right'>
+            <div class='circle'><img src='images/select-left.png'></img></div>
+          </div>
         </div>
       </div>
     </div>
