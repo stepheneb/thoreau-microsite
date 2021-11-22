@@ -2398,7 +2398,7 @@ body.index {
 .content.index .main .gallery .image-container img {
   margin: 0;
   padding: 0;
-  filter: grayscale(100%) brightness(150%) contrast(125%);
+  filter: grayscale(100%) brightness(150%) contrast(125%) opacity(75%);
 }
 .content.index .main .gallery .image-container img.enabled {
   filter: none;
