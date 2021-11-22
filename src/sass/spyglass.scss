@@ -285,6 +285,53 @@
           opacity: 1;
           transition: opacity var(--explore-images-timing),
             visibility var(--explore-images-timing);
+
+          .zoom-controls {
+            position: absolute;
+            right: 0%;
+            bottom: 10%;
+            height: 1.8em;
+
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+
+            padding: 0em 0.5em;
+            border: 1px solid lightgray;
+            border-radius: 1em;
+            background-color: black;
+
+            @include mobile-portrait() {
+              top: 0vh;
+              left: 1vw;
+            }
+            @include mobile-landscape() {
+              top: 1vh;
+              left: 1vw;
+            }
+            button {
+              padding: 0;
+              margin: 0.1em 0.25em;
+              width: 0.6em;
+              font-size: 1.8em;
+              color: lightgray;
+              background-color: transparent;
+              border: none;
+              box-sizing: border-box;
+              display: inline-flex;
+              align-items: center;
+              justify-content: center;
+              img {
+                width: 0.4em;
+                height: auto;
+              }
+            }
+            .v-divide {
+              width: 0.15em;
+              background-color: white;
+              height: auto;
+            }
+          }
         }
       }
 
