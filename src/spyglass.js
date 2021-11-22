@@ -62,6 +62,7 @@ let zoomPlus = document.getElementById('zoom-plus');
 let artifactImage = document.getElementById('artifact-image');
 let artifactImageScale = 1;
 let artifactMaxImageScale = 3;
+let artifactZoomIncrement = 1.1;
 
 let rescaleArtifactImage = () => {
   artifactImage.style.transform = `scale(${artifactImageScale})`;
@@ -84,11 +85,11 @@ let manageZoomButtons = () => {
 }
 
 zoomMinus.addEventListener('click', () => {
-  artifactImageScale /= 1.05;
+  artifactImageScale /= artifactZoomIncrement;
   manageZoomButtons();
 })
 
 zoomPlus.addEventListener('click', () => {
-  artifactImageScale *= 1.05;
+  artifactImageScale *= artifactZoomIncrement;
   manageZoomButtons();
 })
