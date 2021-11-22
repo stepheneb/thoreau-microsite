@@ -1721,6 +1721,490 @@ body {
   opacity: 1;
 }
 
+:root {
+  --100vh: 100vh;
+  --100vw: 100vw;
+}
+
+#spyglass {
+  height: 700vh;
+  margin: 0;
+  padding: 0;
+}
+
+.spyglass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--100vh);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+}
+.spyglass .animation-frame-container-spyglass {
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: var(--100vh);
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .animation-frame-container-spyglass {
+    height: var(--100vh);
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .animation-frame-container-spyglass {
+    height: 90vh;
+  }
+}
+.spyglass .animation-frame-container-spyglass img {
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
+  margin: 0;
+  width: 90%;
+  height: auto;
+  aspect-ratio: attr(width)/attr(height);
+  align-self: center;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .animation-frame-container-spyglass img {
+    width: 100%;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .animation-frame-container-spyglass img {
+    width: 100%;
+  }
+}
+.spyglass .background-image-container-spyglass {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: var(--100vh);
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: unset;
+}
+.spyglass .background-image-container-spyglass:before {
+  content: "";
+  position: absolute;
+  top: 0px;
+  right: 0px;
+  bottom: 0px;
+  left: 0px;
+  opacity: 1;
+  background-color: var(--thoreau-rgba-blue);
+  background-image: url("../images/transparent.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+  transition: opacity var(--explore-images-timing), background-image var(--explore-images-timing);
+}
+.spyglass .fixed-image-container-spyglass {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 90vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .fixed-image-container-spyglass {
+    height: var(--100vh);
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .fixed-image-container-spyglass {
+    height: 90vh;
+  }
+}
+.spyglass .fixed-image-container-spyglass img {
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
+  margin: 20% 0;
+  width: 80%;
+  align-self: center;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .fixed-image-container-spyglass img {
+    width: 80%;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .fixed-image-container-spyglass img {
+    width: 70%;
+  }
+}
+.spyglass .fixed-image-container-spyglass img.spyglass-photo-rotated {
+  transform: rotate(-9deg);
+}
+.spyglass .content-spyglass {
+  z-index: 1;
+  margin: 0;
+  padding: 0;
+  color: white;
+  background-color: transparent;
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass {
+  position: relative;
+  visibility: hidden;
+  transition: opacity var(--explore-content-timing), visibility var(--explore-content-timing), position var(--explore-content-timing);
+  opacity: 0;
+  max-width: 40vw;
+  line-height: var(--explore-content-line-height);
+  font-size: var(--explore-content);
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass hr {
+  width: 30%;
+  border-top: 2px solid black;
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass .author {
+  font-size: var(--explore-content-author);
+  text-transform: uppercase;
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass .author.thoreau {
+  color: black;
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass.start {
+  height: 200vh;
+  max-width: 90vw;
+  display: flex;
+  flex-direction: row;
+  top: 5vh;
+  left: 5vw;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start {
+    left: 8vw;
+  }
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container {
+  width: 22vw;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container {
+    margin-left: 8vw;
+    width: 80vw;
+    max-width: 80vw;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container {
+    width: 35vw;
+    max-width: 35vw;
+  }
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container img {
+  width: 8vmax;
+  height: 8vmax;
+  padding: 0.7vmax;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container img {
+    width: 6vmax;
+    height: 6vmax;
+    padding: 0.6vmax;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container img {
+    width: 6vmax;
+    height: 6vmax;
+    padding: 0.6vmax;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container img {
+    width: 6vmax;
+    height: 6vmax;
+    padding: 0.6vmax;
+  }
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .title {
+  margin: 6vh 0 4vh 0;
+  font-family: "Libre Caslon Text", serif;
+  font-size: var(--artifact-title);
+  font-weight: 600;
+  color: var(--thoreau-blue);
+  line-height: 1.1em;
+  text-transform: capitalize;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .title {
+    margin: 4vh 0 4vh 0;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .title {
+    margin: 3vh 0 3vh 0;
+  }
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container hr {
+  display: block;
+  width: 50%;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container hr {
+    display: none;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container hr {
+    display: block;
+  }
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .description {
+  margin: 4vh 0;
+  width: 100%;
+  font-size: var(--artifact-description);
+  line-height: 2em;
+  color: black;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .description {
+    width: 95%;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .description {
+    width: 80%;
+    margin: 2vh 0;
+  }
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container {
+  position: sticky;
+  top: 5vh;
+  height: 90vh;
+  left: 30%;
+  width: 70%;
+  margin-top: 5%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  visibility: visible;
+  opacity: 1;
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container {
+    top: 30vh;
+    height: 90vw;
+    left: 0;
+    width: 100%;
+    margin-top: 0;
+    padding: 0;
+  }
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container img.spyglass-photo {
+    width: 80%;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container {
+    width: 60vw;
+    margin-top: 0;
+  }
+  .spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container img.spyglass-photo {
+    width: 60%;
+  }
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass.curious {
+  position: sticky;
+  top: 8vh;
+  left: 50vw;
+  max-width: 30vw;
+  height: 110vh;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.curious {
+    left: 45vw;
+    max-width: 45vw;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.curious {
+    top: 12vh;
+    left: 35vw;
+    max-width: 60vw;
+  }
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass.his-experiments {
+  position: sticky;
+  top: 3em;
+  left: 4em;
+  max-width: 25vw;
+  height: 225vh;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.his-experiments {
+    left: 10vw;
+    max-width: 30vw;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.his-experiments {
+    top: 10vh;
+    left: 14vw;
+    max-width: 70vw;
+  }
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass.some-scientific {
+  position: sticky;
+  top: 78vh;
+  left: 32vw;
+  max-width: 30vw;
+  height: 75vh;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.some-scientific {
+    top: 10vh;
+    left: 10vw;
+    max-width: 30vw;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.some-scientific {
+    top: 65vh;
+    left: 15vw;
+    max-width: 70vw;
+  }
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass.would-it-not {
+  height: 96vh;
+  max-width: 40vw;
+  left: 40vw;
+  font-size: var(--explore-content-heading);
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.would-it-not {
+    left: 45vw;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .content-spyglass .absolute-content-container-spyglass.would-it-not {
+    left: 30vw;
+    max-width: 50vw;
+  }
+}
+.spyglass .back-button4 {
+  position: fixed;
+  z-index: 3;
+  visibility: hidden;
+  opacity: 0;
+  top: 0.75vh;
+  left: 0.75vw;
+  background-color: transparent;
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  .spyglass .back-button4 {
+    top: 0vh;
+    left: 1vw;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  .spyglass .back-button4 {
+    top: 1vh;
+    left: 1vw;
+  }
+}
+.spyglass .back-button4 a i {
+  color: lightgray;
+  font-size: var(--back-button-size);
+}
+.spyglass .back-button4 a i:hover {
+  color: white;
+}
+
+#spyglass[data-contentscroll="0"] .background-image-container-spyglass:before {
+  background-color: white;
+}
+#spyglass[data-contentscroll="0"] .absolute-content-container-spyglass.start {
+  visibility: visible;
+  opacity: 1;
+}
+#spyglass[data-contentscroll="0"] .absolute-content-container-spyglass.start .image-container {
+  transition: opacity var(--explore-images-timing), background-image var(--explore-images-timing);
+  background-image: url("../images/watercolor-background-blue.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+#spyglass[data-contentscroll="0"] .back-button4 {
+  visibility: visible;
+  opacity: 1;
+}
+#spyglass[data-contentscroll="0"] img.spyglass-photo {
+  visibility: visible;
+  opacity: 1;
+}
+
+#spyglass[data-contentscroll="1"] img.spyglass-photo-rotated {
+  visibility: visible;
+  opacity: 1;
+}
+
+#spyglass[data-contentscroll="2"] .absolute-content-container-spyglass.curious {
+  position: sticky;
+  margin-top: 18vh;
+  visibility: visible;
+  opacity: 1;
+}
+
+#spyglass[data-contentscroll="3"] .absolute-content-container-spyglass.his-experiments {
+  visibility: visible;
+  opacity: 1;
+}
+
+#spyglass[data-contentscroll="5"] .absolute-content-container-spyglass.some-scientific {
+  visibility: visible;
+  opacity: 1;
+}
+
+#spyglass[data-contentscroll="6"] .background-image-container-spyglass:before {
+  background-image: url("../images/shoreline-and-water.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#spyglass[data-contentscroll="6"] .absolute-content-container-spyglass.would-it-not {
+  visibility: visible;
+  opacity: 1;
+}
+#spyglass[data-contentscroll="6"] .animation-frame-container-spyglass {
+  visibility: hidden;
+  opacity: 0;
+}
+#spyglass[data-contentscroll="6"] .back-button4 {
+  visibility: visible;
+  opacity: 1;
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -1914,7 +2398,10 @@ body.index {
 .content.index .main .gallery .image-container img {
   margin: 0;
   padding: 0;
-  align-items: baseline;
+  filter: grayscale(100%) brightness(150%) contrast(125%);
+}
+.content.index .main .gallery .image-container img.enabled {
+  filter: none;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   .content.index .main .gallery .image-container img {
