@@ -391,12 +391,14 @@
       }
     }
   }
+
+  .arrow-scroll-down {
     position: fixed;
     z-index: 3;
     visibility: hidden;
     opacity: 0;
-    top: 0.75vh;
-    left: 0.75vw;
+    top: 94vh;
+    left: 45vw;
     @include mobile-portrait() {
       top: 0vh;
       left: 1vw;
@@ -451,10 +453,19 @@
     visibility: visible;
     opacity: 1;
   }
+
+  .arrow-scroll-down {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 #spyglass[data-contentscroll="1"] {
   img.spyglass-photo-rotated {
+    visibility: visible;
+    opacity: 1;
+  }
+  .arrow-scroll-down {
     visibility: visible;
     opacity: 1;
   }
@@ -467,6 +478,10 @@
     visibility: visible;
     opacity: 1;
   }
+  .arrow-scroll-down {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 #spyglass[data-contentscroll="3"] {
@@ -474,13 +489,25 @@
     visibility: visible;
     opacity: 1;
   }
+  .arrow-scroll-down {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 #spyglass[data-contentscroll="4"] {
+  .arrow-scroll-down {
+    visibility: visible;
+    opacity: 1;
+  }
 }
 
 #spyglass[data-contentscroll="5"] {
   .absolute-content-container-spyglass.some-scientific {
+    visibility: visible;
+    opacity: 1;
+  }
+  .arrow-scroll-down {
     visibility: visible;
     opacity: 1;
   }
@@ -502,9 +529,5 @@
   .animation-frame-container-spyglass {
     visibility: hidden;
     opacity: 0;
-  }
-  .back-button4 {
-    visibility: visible;
-    opacity: 1;
   }
 }
