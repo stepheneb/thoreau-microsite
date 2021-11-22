@@ -42,12 +42,12 @@ let pageIndex = 0;
 let selectedPage = pages[pageIndex];
 
 let updateSelectedPage = () => {
-  selectedImage.src = selectedPage.src;
   if (selectedPage.enabled) {
     selectedImage.classList.add('enabled');
   } else {
     selectedImage.classList.remove('enabled');
   }
+  selectedImage.src = selectedPage.src;
 }
 
 let nextPage = () => {
