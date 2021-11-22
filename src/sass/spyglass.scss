@@ -357,7 +357,40 @@
     }
   }
 
-  .back-button4 {
+  .explore-another-object {
+    position: fixed;
+    z-index: 3;
+    visibility: hidden;
+    opacity: 0;
+    top: 5vh;
+    right: 10vw;
+    @include mobile-portrait() {
+      top: 0vh;
+      left: 1vw;
+    }
+    @include mobile-landscape() {
+      top: 1vh;
+      left: 1vw;
+    }
+    background-color: transparent;
+    transition: opacity var(--explore-images-timing),
+      visibility var(--explore-images-timing);
+
+    padding: 0em 0.5em;
+    border: 1px solid lightgray;
+    border-radius: 1em;
+    background-color: black;
+    font-size: var(--explore);
+    a {
+      font-size: 0.75em;
+      text-decoration: none;
+      color: white;
+      img {
+        margin-left: 0.5em;
+        height: 0.7em;
+      }
+    }
+  }
     position: fixed;
     z-index: 3;
     visibility: hidden;
@@ -409,7 +442,7 @@
     }
   }
 
-  .back-button4 {
+  .explore-another-object {
     visibility: visible;
     opacity: 1;
   }
