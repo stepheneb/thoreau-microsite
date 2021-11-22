@@ -1,0 +1,477 @@
+:root {
+  --100vh: 100vh;
+  --100vw: 100vw;
+}
+
+#spyglass {
+  height: 700vh;
+  margin: 0;
+  padding: 0;
+}
+
+.spyglass {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--100vh);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  .animation-frame-container-spyglass {
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: var(--100vh);
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+
+    @include mobile-portrait() {
+      height: var(--100vh);
+    }
+    @include mobile-landscape() {
+      height: 90vh;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    img {
+      transition: opacity var(--explore-images-timing),
+        visibility var(--explore-images-timing);
+      margin: 0;
+      width: 90%;
+      height: auto;
+      aspect-ratio: attr(width) / attr(height);
+      align-self: center;
+      @include mobile-landscape() {
+        width: 100%;
+      }
+      @include mobile-portrait() {
+        width: 100%;
+      }
+    }
+  }
+
+  .background-image-container-spyglass {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: var(--100vh);
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: unset;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 1;
+      background-color: var(--thoreau-rgba-blue);
+      background-image: url("../images/transparent.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      transition: opacity var(--explore-images-timing),
+        background-image var(--explore-images-timing);
+    }
+  }
+
+  .fixed-image-container-spyglass {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 90vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+
+    @include mobile-portrait() {
+      height: var(--100vh);
+    }
+    @include mobile-landscape() {
+      height: 90vh;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    img {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity var(--explore-images-timing),
+        visibility var(--explore-images-timing);
+      margin: 20% 0;
+      width: 80%;
+      align-self: center;
+      @include mobile-portrait() {
+        width: 80%;
+      }
+      @include mobile-landscape() {
+        width: 70%;
+      }
+    }
+    img.spyglass-photo {
+    }
+    img.spyglass-photo-rotated {
+      transform: rotate(-9deg);
+    }
+  }
+
+  .content-spyglass {
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    // min-height: 100vh;
+    // min-width: 100vw;
+    color: white;
+    background-color: transparent;
+    .absolute-content-container-spyglass {
+      position: relative;
+      visibility: hidden;
+      transition: opacity var(--explore-content-timing),
+        visibility var(--explore-content-timing),
+        position var(--explore-content-timing);
+      opacity: 0;
+      max-width: 40vw;
+      line-height: var(--explore-content-line-height);
+      font-size: var(--explore-content);
+      hr {
+        width: 30%;
+        border-top: 2px solid black;
+      }
+      .author {
+        font-size: var(--explore-content-author);
+        text-transform: uppercase;
+        &.thoreau {
+          color: black;
+        }
+      }
+
+      &.start {
+        height: 200vh;
+        max-width: 90vw;
+        display: flex;
+        flex-direction: row;
+        top: 5vh;
+        left: 5vw;
+
+        @include mobile-portrait() {
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+
+        @include mobile-landscape() {
+          left: 8vw;
+        }
+
+        .about-container {
+          width: 22vw;
+          @include mobile-portrait() {
+            margin-left: 8vw;
+            width: 80vw;
+            max-width: 80vw;
+          }
+          @include mobile-landscape() {
+            width: 35vw;
+            max-width: 35vw;
+          }
+
+          img {
+            width: 8vmax;
+            height: 8vmax;
+            padding: 0.7vmax;
+            @include mobile-landscape() {
+              width: 6vmax;
+              height: 6vmax;
+              padding: 0.6vmax;
+            }
+            @include mobile-landscape() {
+              width: 6vmax;
+              height: 6vmax;
+              padding: 0.6vmax;
+            }
+            @include mobile-portrait() {
+              width: 6vmax;
+              height: 6vmax;
+              padding: 0.6vmax;
+            }
+          }
+          .title {
+            margin: 6vh 0 4vh 0;
+            @include mobile-landscape() {
+              margin: 4vh 0 4vh 0;
+            }
+            @include mobile-portrait() {
+              margin: 3vh 0 3vh 0;
+            }
+            font-family: "Libre Caslon Text", serif;
+            font-size: var(--artifact-title);
+            font-weight: 600;
+            color: var(--thoreau-blue);
+            line-height: 1.1em;
+            text-transform: capitalize;
+          }
+          hr {
+            display: block;
+            width: 50%;
+            @include mobile-portrait() {
+              display: none;
+            }
+            @include mobile-landscape() {
+              display: block;
+            }
+          }
+          .description {
+            margin: 4vh 0;
+            width: 100%;
+            @include mobile-landscape() {
+              width: 95%;
+            }
+            @include mobile-portrait() {
+              width: 80%;
+              margin: 2vh 0;
+            }
+            font-size: var(--artifact-description);
+            line-height: 2em;
+            color: black;
+          }
+        }
+
+        .image-container {
+          position: sticky;
+          top: 5vh;
+          height: 90vh;
+          left: 30%;
+          width: 70%;
+          margin-top: 5%;
+
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          align-items: center;
+
+          @include mobile-portrait() {
+            top: 30vh;
+            height: 90vw;
+            left: 0;
+            width: 100%;
+            margin-top: 0;
+            padding: 0;
+            img.spyglass-photo {
+              width: 80%;
+            }
+          }
+          @include mobile-landscape() {
+            width: 60vw;
+            margin-top: 0;
+            img.spyglass-photo {
+              width: 60%;
+            }
+          }
+
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          visibility: visible;
+          opacity: 1;
+          transition: opacity var(--explore-images-timing),
+            visibility var(--explore-images-timing);
+        }
+      }
+
+      &.curious {
+        position: sticky;
+        top: 8vh;
+        left: 50vw;
+        max-width: 30vw;
+        height: 110vh;
+        @include mobile-landscape() {
+          left: 45vw;
+          max-width: 45vw;
+        }
+        @include mobile-portrait() {
+          top: 12vh;
+          left: 35vw;
+          max-width: 60vw;
+        }
+      }
+
+      &.his-experiments {
+        position: sticky;
+        top: 3em;
+        left: 4em;
+        max-width: 25vw;
+        height: 225vh;
+        @include mobile-landscape() {
+          left: 10vw;
+          max-width: 30vw;
+        }
+        @include mobile-portrait() {
+          top: 10vh;
+          left: 14vw;
+          max-width: 70vw;
+        }
+      }
+
+      &.some-scientific {
+        position: sticky;
+        top: 78vh;
+        left: 32vw;
+        max-width: 30vw;
+        height: 75vh;
+        @include mobile-landscape() {
+          top: 10vh;
+          left: 10vw;
+          max-width: 30vw;
+        }
+        @include mobile-portrait() {
+          top: 65vh;
+          left: 15vw;
+          max-width: 70vw;
+        }
+      }
+
+      &.would-it-not {
+        height: 96vh;
+        // align-self: flex-end;
+        max-width: 40vw;
+        left: 40vw;
+        font-size: var(--explore-content-heading);
+        @include mobile-landscape() {
+          left: 45vw;
+        }
+        @include mobile-portrait() {
+          left: 30vw;
+          max-width: 50vw;
+        }
+      }
+    }
+  }
+
+  .back-button4 {
+    position: fixed;
+    z-index: 3;
+    visibility: hidden;
+    opacity: 0;
+    top: 0.75vh;
+    left: 0.75vw;
+    @include mobile-portrait() {
+      top: 0vh;
+      left: 1vw;
+    }
+    @include mobile-landscape() {
+      top: 1vh;
+      left: 1vw;
+    }
+    background-color: transparent;
+    transition: opacity var(--explore-images-timing),
+      visibility var(--explore-images-timing);
+    a {
+      i {
+        color: lightgray;
+        font-size: var(--back-button-size);
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+}
+
+#spyglass[data-contentscroll="0"] {
+  .background-image-container-spyglass {
+    &:before {
+      background-color: white;
+    }
+  }
+
+  .absolute-content-container-spyglass.start {
+    visibility: visible;
+    opacity: 1;
+
+    .image-container {
+      transition: opacity var(--explore-images-timing),
+        background-image var(--explore-images-timing);
+
+      background-image: url("../images/watercolor-background-blue.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+
+  .back-button4 {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  img.spyglass-photo {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#spyglass[data-contentscroll="1"] {
+  img.spyglass-photo-rotated {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#spyglass[data-contentscroll="2"] {
+  .absolute-content-container-spyglass.curious {
+    position: sticky;
+    margin-top: 18vh;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#spyglass[data-contentscroll="3"] {
+  .absolute-content-container-spyglass.his-experiments {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#spyglass[data-contentscroll="4"] {
+}
+
+#spyglass[data-contentscroll="5"] {
+  .absolute-content-container-spyglass.some-scientific {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#spyglass[data-contentscroll="6"] {
+  .background-image-container-spyglass {
+    &:before {
+      background-image: url("../images/shoreline-and-water.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  .absolute-content-container-spyglass.would-it-not {
+    visibility: visible;
+    opacity: 1;
+  }
+  .animation-frame-container-spyglass {
+    visibility: hidden;
+    opacity: 0;
+  }
+  .back-button4 {
+    visibility: visible;
+    opacity: 1;
+  }
+}

@@ -164,7 +164,10 @@ body.index {
         img {
           margin: 0;
           padding: 0;
-          align-items: baseline;
+          filter: grayscale(100%) brightness(150%) contrast(125%) opacity(75%);
+          &.enabled {
+            filter: none;
+          }
 
           @include mobile-portrait() {
             width: 80%;
