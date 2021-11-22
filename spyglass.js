@@ -56,3 +56,39 @@ document.addEventListener('scroll', debounce(storeScroll), { passive: true });
 
 // Update scroll position for first time
 storeScroll();
+
+let zoomMinus = document.getElementById('zoom-minus');
+let zoomPlus = document.getElementById('zoom-plus');
+let artifactImage = document.getElementById('artifact-image');
+let artifactImageScale = 1;
+let artifactMaxImageScale = 2;
+
+let rescaleArtifactImage = () => {
+  artifactImage.style.transform = `scale(${artifactImageScale})`;
+}
+
+let manageZoomButtons = () => {
+  if (artifactImageScale > artifactMaxImageScale) {
+    artifactImageScale = artifactMaxImageScale;
+    zoomPlus.setAttribute("disabled", "disabled");
+  } else {
+    zoomPlus.removeAttribute("disabled");
+  }
+  if (artifactImageScale < 1) {
+    artifactImageScale = 1;
+    zoomMinus.setAttribute("disabled", "disabled");
+  } else {
+    zoomMinus.removeAttribute("disabled");
+  }
+  rescaleArtifactImage();
+}
+
+zoomMinus.addEventListener('click', () => {
+  artifactImageScale /= 1.05;
+  manageZoomButtons();
+})
+
+zoomPlus.addEventListener('click', () => {
+  artifactImageScale *= 1.05;
+  manageZoomButtons();
+})
