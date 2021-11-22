@@ -61,7 +61,7 @@ let zoomMinus = document.getElementById('zoom-minus');
 let zoomPlus = document.getElementById('zoom-plus');
 let artifactImage = document.getElementById('artifact-image');
 let artifactImageScale = 1;
-let artifactMaxImageScale = 2;
+let artifactMaxImageScale = 3;
 
 let rescaleArtifactImage = () => {
   artifactImage.style.transform = `scale(${artifactImageScale})`;
