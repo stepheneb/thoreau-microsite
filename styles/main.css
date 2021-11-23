@@ -22,6 +22,7 @@
   --explore-content: 2.6vmin;
   --explore-content-line-height: 170%;
   --explore-content-author: 0.7em;
+  --explore-content-mute-button: 0.7em;
   --explore-content-weight: 400;
   --explore-content-heading: 4.6vmin;
   --explore-content-heading-weight: 500;
@@ -1877,7 +1878,9 @@ body {
 }
 .spyglass .content-spyglass .absolute-content-container-spyglass .author {
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
+  align-items: baseline;
+  justify-content: space-between;
 }
 .spyglass .content-spyglass .absolute-content-container-spyglass .author .name {
   font-size: var(--explore-content-author);
@@ -1887,8 +1890,38 @@ body {
   color: black;
 }
 .spyglass .content-spyglass .absolute-content-container-spyglass .author audio {
-  visibility: hidden;
+  display: none;
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass .author .mute-button {
   margin-top: 0.3em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+  font-size: var(--explore-content-mute-button);
+  text-transform: uppercase;
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass .author .mute-button svg {
+  height: 1.5em;
+  width: auto;
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass .author .mute-button svg.off {
+  display: block;
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass .author .mute-button svg.on {
+  display: none;
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass .author .mute-button span {
+  margin-right: 0.2em;
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass .author .mute-button span.off {
+  display: block;
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass .author .mute-button span.on {
+  display: none;
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass .author .mute-button svg + span {
+  margin-left: -0.5em;
 }
 .spyglass .content-spyglass .absolute-content-container-spyglass.start {
   height: 200vh;
