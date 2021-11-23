@@ -51,8 +51,11 @@ const paths = {
   images: {
     src: 'src/images/**/*.{png,gif,jpg}',
     dest: `${dest}/images/`
+  },
+  audio: {
+    src: 'src/audio/**/*.mp3',
+    dest: `${dest}/audio/`
   }
-
 };
 
 export const clean = async () => {
@@ -69,6 +72,12 @@ export function images() {
   return gulp
     .src(paths.images.src)
     .pipe(gulp.dest(paths.images.dest));
+}
+
+export function audio() {
+  return gulp
+    .src(paths.audio.src)
+    .pipe(gulp.dest(paths.audio.dest));
 }
 
 export function styles() {
@@ -100,6 +109,7 @@ export const build = (cb) => {
   clean();
   html();
   images();
+  audio();
   styles();
   scripts();
   cb();
@@ -110,6 +120,7 @@ const watch = () => {
   gulp.watch(paths.styles.src, gulp.series(styles, reload));
   gulp.watch(paths.html.src, gulp.series(html, reload));
   gulp.watch(paths.images.src, gulp.series(images, reload));
+  gulp.watch(paths.audio.src, gulp.series(audio, reload));
 };
 
 export const watchTests = () => {
