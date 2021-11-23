@@ -150,7 +150,9 @@
       }
       .author {
         display: flex;
-        flex-direction: column;
+        flex-direction: row;
+        align-items: baseline;
+        justify-content: space-between;
         .name {
           font-size: var(--explore-content-author);
           text-transform: uppercase;
@@ -159,8 +161,38 @@
           }
         }
         audio {
-          visibility: hidden;
+          display: none;
+        }
+        .mute-button {
           margin-top: 0.3em;
+          display: flex;
+          flex-direction: row;
+          justify-content: space-around;
+          align-items: center;
+          font-size: var(--explore-content-mute-button);
+          text-transform: uppercase;
+          svg {
+            height: 1.5em;
+            width: auto;
+            &.off {
+              display: block;
+            }
+            &.on {
+              display: none;
+            }
+          }
+          span {
+            margin-right: 0.2em;
+            &.off {
+              display: block;
+            }
+            &.on {
+              display: none;
+            }
+          }
+          svg + span {
+            margin-left: -0.5em;
+          }
         }
       }
 

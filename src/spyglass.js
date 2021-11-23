@@ -127,65 +127,99 @@ document.querySelectorAll('audio').forEach((audioPlayer) => {
   })
 })
 
-soundOnOffButton.addEventListener('click', () => {
-  let onChildren = soundOnOffButton.querySelectorAll('*.on');
-  let offChildren = soundOnOffButton.querySelectorAll('*.off');
-  let currentState = soundOnOffButton.dataset.sound;
-  if (currentState == 'off') {
-    soundOnOff = 'on';
-    soundOnOffButton.dataset.sound = soundOnOff;
-    onChildren.forEach((el) => {
-      el.style.display = 'block';
-    })
-    // audioCollection.forEach((item) => {
-    //   item.audioPlayer.style.display = 'block';
-    // })
-    offChildren.forEach((el) => {
-      el.style.display = 'none';
-    })
-  } else if (currentState == 'on') {
-    soundOnOff = 'off';
-    soundOnOffButton.dataset.sound = soundOnOff;
-    onChildren.forEach((el) => {
-      el.style.display = 'none';
-    })
-    audioCollection.forEach((item) => {
-      item.audioPlayer.style.display = 'none';
-    })
-    offChildren.forEach((el) => {
-      el.style.display = 'block';
-    })
+let updateAudioCollection = () => {
+  let visibilityChanged = (item) => {
+    return item.computedStyle.visibility !== item.visibility;
   }
-});
+  let isVisible = (item) => {
+    return item.visibility == 'visible';
+  }
+  let stop = (item) => {
+    console.log('stop');
+    item.audioPlayer.pause();
+    item.audioPlayer.currentTime = 0;
+  }
+  let play = (item) => {
+    console.log('play');
+    // item.audioPlayer.currentTime = 0;
+    item.audioPlayer.play();
+  }
+
+  let updateAudio = (item) => {
+    if (isVisible(item)) {
+      if (soundOnOff == 'on') {
+        if (item.audioPlayer.paused) {
+          item.audioPlayer.currentTime = 0;
+          console.log('start playing:', item.audioPlayer.id);
+          play(item);
+        }
+      } else {
+        console.log('visible but stop playing:', item.audioPlayer.id);
+        stop(item);
+      }
+    } else {
+      console.log('not visible, stop playing:', item.audioPlayer.id);
+      stop(item);
+    }
+  }
+  audioCollection.forEach((item) => {
+    if (visibilityChanged(item)) {
+      console.log('visibility changed from:', item.visibility, 'to:', item.computedStyle.visibility);
+      item.visibility = item.computedStyle.visibility;
+    }
+    updateAudio(item);
+  })
+}
+
+let muteButtons = document.querySelectorAll('.mute-button');
+
+let processSoundControls = () => {
+  let currentState = soundOnOffButton.dataset.sound;
+  let updateSoundControl = (el) => {
+    let onChildren = el.querySelectorAll('*.on');
+    let offChildren = el.querySelectorAll('*.off');
+    if (currentState == 'off') {
+      soundOnOff = 'on';
+      soundOnOffButton.dataset.sound = soundOnOff;
+      onChildren.forEach((el) => {
+        el.style.display = 'block';
+      })
+      offChildren.forEach((el) => {
+        el.style.display = 'none';
+      })
+    } else if (currentState == 'on') {
+      soundOnOff = 'off';
+      soundOnOffButton.dataset.sound = soundOnOff;
+      onChildren.forEach((el) => {
+        el.style.display = 'none';
+      })
+      offChildren.forEach((el) => {
+        el.style.display = 'block';
+      })
+    }
+  }
+  updateSoundControl(soundOnOffButton);
+  muteButtons.forEach((muteButton) => updateSoundControl(muteButton));
+  updateAudioCollection();
+}
+
+soundOnOffButton.addEventListener('click', () => processSoundControls());
+
+muteButtons.forEach((muteButton) => {
+  muteButton.addEventListener('click', () => processSoundControls(muteButton));
+})
+
+document.addEventListener('scroll', debounce(updateAudioCollection), { passive: true });
 
 const startup = () => {
 
-  let start, previousTimeStamp;
-
-  function step(timestamp) {
-    if (start === undefined)
-      start = timestamp;
-
-    if (previousTimeStamp !== timestamp) {
-      audioCollection.forEach((item) => {
-        if (item.computedStyle.visibility !== item.visibility) {
-          console.log('visibility changed from:', item.visibility, 'to:', item.computedStyle.visibility);
-          item.visibility = item.computedStyle.visibility;
-          if (item.visibility == 'visible') {
-            if (soundOnOff == 'on') {
-              if (item.audioPlayer.paused) item.audioPlayer.play();
-            }
-          } else {
-            item.audioPlayer.pause();
-            item.audioPlayer.currentTime = 0
-          }
-        }
-      })
-    }
-    previousTimeStamp = timestamp
-    window.requestAnimationFrame(step);
-  }
-  window.requestAnimationFrame(step);
+  // Listen for new scroll events, here we debounce our `storeScroll` and updateAudioCollection functions
+  // document.addEventListener('scroll', () => {
+  //   debounce(() => {
+  //     // storeScroll();
+  //     updateAudioCollection();
+  //   }, { passive: true });
+  // });
 }
 
 windowReady(startup);
