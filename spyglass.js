@@ -1,5 +1,22 @@
 /*jshint esversion: 8 */
 
+// const domReady = (callBack) => {
+//   if (document.readyState === "loading") {
+//     document.addEventListener('DOMContentLoaded', callBack);
+//   }
+//   else {
+//     callBack();
+//   }
+// }
+
+const windowReady = (callBack) => {
+  if (document.readyState === 'complete') {
+    callBack();
+  } else {
+    window.addEventListener('load', callBack);
+  }
+}
+
 window.app = {};
 
 // The debounce function receives our function as a parameter
@@ -93,3 +110,82 @@ zoomPlus.addEventListener('click', () => {
   artifactImageScale *= artifactZoomIncrement;
   manageZoomButtons();
 })
+
+let soundOnOff = 'off';
+let soundOnOffButton = document.getElementById('sound-on-off');
+
+let audioCollection = [];
+document.querySelectorAll('audio').forEach((audioPlayer) => {
+  let container = audioPlayer.parentElement;
+  let computedStyle = getComputedStyle(container);
+  let visibility = computedStyle.visibility;
+  audioCollection.push({
+    audioPlayer: audioPlayer,
+    container: container,
+    computedStyle: computedStyle,
+    visibility: visibility
+  })
+})
+
+soundOnOffButton.addEventListener('click', () => {
+  let onChildren = soundOnOffButton.querySelectorAll('*.on');
+  let offChildren = soundOnOffButton.querySelectorAll('*.off');
+  let currentState = soundOnOffButton.dataset.sound;
+  if (currentState == 'off') {
+    soundOnOff = 'on';
+    soundOnOffButton.dataset.sound = soundOnOff;
+    onChildren.forEach((el) => {
+      el.style.display = 'block';
+    })
+    // audioCollection.forEach((item) => {
+    //   item.audioPlayer.style.display = 'block';
+    // })
+    offChildren.forEach((el) => {
+      el.style.display = 'none';
+    })
+  } else if (currentState == 'on') {
+    soundOnOff = 'off';
+    soundOnOffButton.dataset.sound = soundOnOff;
+    onChildren.forEach((el) => {
+      el.style.display = 'none';
+    })
+    audioCollection.forEach((item) => {
+      item.audioPlayer.style.display = 'none';
+    })
+    offChildren.forEach((el) => {
+      el.style.display = 'block';
+    })
+  }
+});
+
+const startup = () => {
+
+  let start, previousTimeStamp;
+
+  function step(timestamp) {
+    if (start === undefined)
+      start = timestamp;
+
+    if (previousTimeStamp !== timestamp) {
+      audioCollection.forEach((item) => {
+        if (item.computedStyle.visibility !== item.visibility) {
+          console.log('visibility changed from:', item.visibility, 'to:', item.computedStyle.visibility);
+          item.visibility = item.computedStyle.visibility;
+          if (item.visibility == 'visible') {
+            if (soundOnOff == 'on') {
+              if (item.audioPlayer.paused) item.audioPlayer.play();
+            }
+          } else {
+            item.audioPlayer.pause();
+            item.audioPlayer.currentTime = 0
+          }
+        }
+      })
+    }
+    previousTimeStamp = timestamp
+    window.requestAnimationFrame(step);
+  }
+  window.requestAnimationFrame(step);
+}
+
+windowReady(startup);

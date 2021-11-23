@@ -1876,11 +1876,19 @@ body {
   border-top: 2px solid black;
 }
 .spyglass .content-spyglass .absolute-content-container-spyglass .author {
+  display: flex;
+  flex-direction: column;
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass .author .name {
   font-size: var(--explore-content-author);
   text-transform: uppercase;
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass .author.thoreau {
+.spyglass .content-spyglass .absolute-content-container-spyglass .author .name.thoreau {
   color: black;
+}
+.spyglass .content-spyglass .absolute-content-container-spyglass .author audio {
+  visibility: hidden;
+  margin-top: 0.3em;
 }
 .spyglass .content-spyglass .absolute-content-container-spyglass.start {
   height: 200vh;
@@ -2195,6 +2203,43 @@ body {
   margin-left: 0.5em;
   height: 0.7em;
 }
+.spyglass button.turn-sound-on {
+  position: fixed;
+  z-index: 3;
+  visibility: hidden;
+  opacity: 0;
+  top: 88vh;
+  left: 41vw;
+  width: 11em;
+  padding: 0.1em 0.5em;
+  font-size: 1em;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  align-items: center;
+}
+.spyglass button.turn-sound-on svg {
+  height: 1.5em;
+  width: auto;
+}
+.spyglass button.turn-sound-on svg.off {
+  display: block;
+}
+.spyglass button.turn-sound-on svg.on {
+  display: none;
+}
+.spyglass button.turn-sound-on span {
+  margin-right: 0.2em;
+}
+.spyglass button.turn-sound-on span.off {
+  display: block;
+}
+.spyglass button.turn-sound-on span.on {
+  display: none;
+}
+.spyglass button.turn-sound-on svg + span {
+  margin-left: -0.5em;
+}
 .spyglass .arrow-scroll-down {
   position: fixed;
   z-index: 3;
@@ -2260,6 +2305,10 @@ body {
 }
 
 #spyglass[data-contentscroll="1"] img.spyglass-photo-rotated {
+  visibility: visible;
+  opacity: 1;
+}
+#spyglass[data-contentscroll="1"] .turn-sound-on {
   visibility: visible;
   opacity: 1;
 }
