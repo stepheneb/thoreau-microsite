@@ -123,7 +123,8 @@ document.querySelectorAll('audio').forEach((audioPlayer) => {
     audioPlayer: audioPlayer,
     container: container,
     computedStyle: computedStyle,
-    visibility: visibility
+    visibility: visibility,
+    played: false
   })
 })
 
@@ -134,6 +135,9 @@ let updateAudioCollection = () => {
   let isVisible = (item) => {
     return item.visibility == 'visible';
   }
+  let isNotVisible = (item) => {
+    return !isVisible(item);
+  }
   let stop = (item) => {
     console.log('stop');
     item.audioPlayer.pause();
@@ -143,12 +147,12 @@ let updateAudioCollection = () => {
     console.log('play');
     // item.audioPlayer.currentTime = 0;
     item.audioPlayer.play();
+    item.played = true;
   }
-
   let updateAudio = (item) => {
     if (isVisible(item)) {
       if (soundOnOff == 'on') {
-        if (item.audioPlayer.paused) {
+        if (item.audioPlayer.paused && !item.played) {
           item.audioPlayer.currentTime = 0;
           console.log('start playing:', item.audioPlayer.id);
           play(item);
@@ -166,6 +170,7 @@ let updateAudioCollection = () => {
     if (visibilityChanged(item)) {
       console.log('visibility changed from:', item.visibility, 'to:', item.computedStyle.visibility);
       item.visibility = item.computedStyle.visibility;
+      if (isNotVisible(item)) item.played = false;
     }
     updateAudio(item);
   })
