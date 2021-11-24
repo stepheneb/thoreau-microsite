@@ -1,23 +1,10 @@
 /*jshint esversion: 8 */
-
-// const domReady = (callBack) => {
-//   if (document.readyState === "loading") {
-//     document.addEventListener('DOMContentLoaded', callBack);
-//   }
-//   else {
-//     callBack();
-//   }
-// }
-
-const windowReady = (callBack) => {
-  if (document.readyState === 'complete') {
-    callBack();
-  } else {
-    window.addEventListener('load', callBack);
-  }
-}
+/*global domReady  */
 
 window.app = {};
+
+let muteButtons, soundOnOffButton, container, animationFrameImg,
+  zoomMinus, zoomPlus, artifactImage;
 
 // The debounce function receives our function as a parameter
 const debounce = (fn) => {
@@ -43,9 +30,6 @@ const debounce = (fn) => {
   };
 };
 
-let container = document.getElementById('spyglass');
-let animationFrameImg = document.getElementById('animation-frame');
-
 // Reads out the scroll position and stores it in the data attribute
 // so we can use it in our stylesheets
 const storeScroll = () => {
@@ -68,15 +52,6 @@ const storeScroll = () => {
   }
 };
 
-// Listen for new scroll events, here we debounce our `storeScroll` function
-document.addEventListener('scroll', debounce(storeScroll), { passive: true });
-
-// Update scroll position for first time
-storeScroll();
-
-let zoomMinus = document.getElementById('zoom-minus');
-let zoomPlus = document.getElementById('zoom-plus');
-let artifactImage = document.getElementById('artifact-image');
 let artifactImageScale = 1;
 let artifactMaxImageScale = 3;
 let artifactZoomIncrement = 1.1;
@@ -101,18 +76,9 @@ let manageZoomButtons = () => {
   rescaleArtifactImage();
 }
 
-zoomMinus.addEventListener('click', () => {
-  artifactImageScale /= artifactZoomIncrement;
-  manageZoomButtons();
-})
-
-zoomPlus.addEventListener('click', () => {
-  artifactImageScale *= artifactZoomIncrement;
-  manageZoomButtons();
-})
-
 let soundOnOff = 'off';
-let soundOnOffButton = document.getElementById('sound-on-off');
+
+let soundIsOn = () => soundOnOff == 'on';
 
 let audioCollection = [];
 document.querySelectorAll('audio').forEach((audioPlayer) => {
@@ -176,8 +142,6 @@ let updateAudioCollection = () => {
   })
 }
 
-let muteButtons = document.querySelectorAll('.mute-button');
-
 let processSoundControls = () => {
   let currentState = soundOnOffButton.dataset.sound;
   let updateSoundControl = (el) => {
@@ -202,29 +166,59 @@ let processSoundControls = () => {
         el.style.display = 'block';
       })
     }
+    console.log('sound:', soundOnOff);
   }
   updateSoundControl(soundOnOffButton);
   muteButtons.forEach((muteButton) => updateSoundControl(muteButton));
   updateAudioCollection();
 }
 
-soundOnOffButton.addEventListener('click', () => processSoundControls());
-
-muteButtons.forEach((muteButton) => {
-  muteButton.addEventListener('click', () => processSoundControls(muteButton));
-})
-
-document.addEventListener('scroll', debounce(updateAudioCollection), { passive: true });
-
 const startup = () => {
 
-  // Listen for new scroll events, here we debounce our `storeScroll` and updateAudioCollection functions
-  // document.addEventListener('scroll', () => {
-  //   debounce(() => {
-  //     // storeScroll();
-  //     updateAudioCollection();
-  //   }, { passive: true });
-  // });
+  container = document.getElementById('spyglass');
+  animationFrameImg = document.getElementById('animation-frame');
+
+  // Listen for new scroll events, here we debounce our `storeScroll` function
+  document.addEventListener('scroll', debounce(storeScroll), { passive: true });
+
+  // Update scroll position for first time
+  storeScroll();
+
+  zoomMinus = document.getElementById('zoom-minus');
+  zoomPlus = document.getElementById('zoom-plus');
+  artifactImage = document.getElementById('artifact-image');
+
+  zoomMinus.addEventListener('click', () => {
+    artifactImageScale /= artifactZoomIncrement;
+    manageZoomButtons();
+  })
+
+  zoomPlus.addEventListener('click', () => {
+    artifactImageScale *= artifactZoomIncrement;
+    manageZoomButtons();
+  })
+
+  soundOnOffButton = document.getElementById('sound-on-off');
+
+  soundOnOffButton.addEventListener('click', (e) => {
+    console.log('sound-on-off clicked');
+    let unmuteFooter = e.target.parentElement;
+    processSoundControls();
+    if (soundIsOn()) {
+      unmuteFooter.classList.add('on');
+    } else {
+      unmuteFooter.classList.remove('on');
+    }
+  });
+
+  muteButtons = document.querySelectorAll('.mute-button.secondary');
+
+  muteButtons.forEach((muteButton) => {
+    muteButton.addEventListener('click', () => processSoundControls(muteButton));
+  })
+
+  document.addEventListener('scroll', debounce(updateAudioCollection), { passive: true });
+
 }
 
-windowReady(startup);
+domReady(startup);
