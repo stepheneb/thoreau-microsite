@@ -1,4 +1,5 @@
 /*jshint esversion: 8 */
+/*global  app */
 
 let selectRight = document.getElementById('select-right');
 let selectLeft = document.getElementById('select-left');
@@ -85,7 +86,7 @@ carouselImageContainer.addEventListener('click', () => {
   }
 })
 
-domReady(() => {
+app.domReady(() => {
   let hash = window.location.hash.slice(1);
   let index;
   // let changed = false;
