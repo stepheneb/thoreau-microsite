@@ -1,13 +1,5 @@
 /*jshint esversion: 8 */
 
-const domReady = (callBack) => {
-  if (document.readyState === "loading") {
-    document.addEventListener('DOMContentLoaded', callBack);
-  } else {
-    callBack();
-  }
-}
-
 let selectRight = document.getElementById('select-right');
 let selectLeft = document.getElementById('select-left');
 let selectedImage = document.getElementById('selected-image');
