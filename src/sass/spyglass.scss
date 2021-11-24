@@ -151,7 +151,7 @@
       }
       .author {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
         align-items: baseline;
         justify-content: space-between;
         .name {
@@ -165,13 +165,23 @@
           display: none;
         }
         .mute-button {
-          margin-top: 0.3em;
+          height: 2em;
           display: flex;
           flex-direction: row;
           justify-content: space-around;
           align-items: center;
           font-size: var(--explore-content-mute-button);
           text-transform: uppercase;
+          div {
+            margin-right: 0.2em;
+            margin-bottom: -0.1em;
+            &.off {
+              display: block;
+            }
+            &.on {
+              display: none;
+            }
+          }
           svg {
             height: 1.5em;
             width: auto;
@@ -179,20 +189,15 @@
               display: block;
             }
             &.on {
+              margin-left: 0.4em;
               display: none;
             }
           }
-          span {
-            margin-right: 0.2em;
-            &.off {
-              display: block;
-            }
-            &.on {
-              display: none;
-            }
-          }
-          svg + span {
-            margin-left: -0.5em;
+          svg + div {
+            display: block;
+            margin-left: -0.2em;
+            padding-bottom: 0.1em;
+            text-transform: none;
           }
         }
       }
