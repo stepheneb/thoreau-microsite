@@ -1,11 +1,7 @@
 /*jshint esversion: 8 */
 /*global  app */
 
-let selectRight = document.getElementById('select-right');
-let selectLeft = document.getElementById('select-left');
-let selectedImage = document.getElementById('selected-image');
-
-let carouselImageContainer = document.getElementById('carousel-image-container');
+let selectRight, selectLeft, selectedImage, carouselImageContainer;
 
 let pages = [{
     id: 'snowshoes',
@@ -49,12 +45,10 @@ let pageIndex = 0;
 let selectedPage = pages[pageIndex];
 
 let updateSelectedPage = () => {
-  if (selectedPage.enabled) {
-    selectedImage.classList.add('enabled');
-  } else {
-    selectedImage.classList.remove('enabled');
-  }
-  selectedImage.src = selectedPage.src;
+  selectedImage.classList.remove('selected');
+  selectedPage = pages[pageIndex];
+  selectedImage = selectedPage.element;
+  selectedImage.classList.add('selected');
   window.location.hash = selectedPage.id;
 }
 
@@ -72,31 +66,52 @@ let previousPage = () => {
   updateSelectedPage();
 }
 
-selectRight.addEventListener('click', () => {
-  nextPage();
-})
-
-selectLeft.addEventListener('click', () => {
-  previousPage();
-})
-
-carouselImageContainer.addEventListener('click', () => {
-  if (selectedPage.enabled) {
-    location = selectedPage.location;
-  }
-})
+let generateCarouselImgElements = () => {
+  pages.forEach((page, index) => {
+    let img = document.createElement("img");
+    img.classList.add(page.id);
+    img.src = page.src;
+    if (page.enabled) img.classList.add('enabled');
+    if (index == pageIndex) {
+      img.classList.add('selected');
+      selectedImage = img;
+    }
+    carouselImageContainer.append(img);
+    page.element = img;
+  })
+};
 
 app.domReady(() => {
+  selectRight = document.getElementById('select-right');
+  selectLeft = document.getElementById('select-left');
+  carouselImageContainer = document.getElementById('carousel-image-container');
+
   let hash = window.location.hash.slice(1);
   let index;
-  // let changed = false;
   if (hash.length > 0) {
     index = pages.findIndex((p) => p.id == hash);
     if (index >= 0) {
-      // if (pageIndex !== index) changed = true;
       pageIndex = index;
     }
   }
+  generateCarouselImgElements();
   selectedPage = pages[pageIndex];
+
+  // loadCarouselImages();
+
+  selectRight.addEventListener('click', () => {
+    nextPage();
+  })
+
+  selectLeft.addEventListener('click', () => {
+    previousPage();
+  })
+
+  carouselImageContainer.addEventListener('click', () => {
+    if (selectedPage.enabled) {
+      location = selectedPage.location;
+    }
+  })
+
   updateSelectedPage();
 });

@@ -7,6 +7,7 @@ html {
 }
 
 body.index {
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   oveerflow: hidden;
@@ -162,11 +163,20 @@ body.index {
           height: 100%;
         }
         img {
+          transition: all var(--gallery-carousel-timing);
+
           margin: 0;
           padding: 0;
+          position: absolute;
           filter: grayscale(100%) brightness(150%) contrast(125%) opacity(75%);
+          visibility: hidden;
+          opacity: 0;
           &.enabled {
             filter: none;
+          }
+          &.selected {
+            visibility: visible;
+            opacity: 1;
           }
 
           @include mobile-portrait() {
