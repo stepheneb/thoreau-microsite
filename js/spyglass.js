@@ -77,8 +77,9 @@ let manageZoomButtons = () => {
 }
 
 let soundOnOff = 'off';
-
 let soundIsOn = () => soundOnOff == 'on';
+
+let startPlayDelay = 500;
 
 let audioCollection = [];
 document.querySelectorAll('audio').forEach((audioPlayer) => {
@@ -90,11 +91,12 @@ document.querySelectorAll('audio').forEach((audioPlayer) => {
     container: container,
     computedStyle: computedStyle,
     visibility: visibility,
-    played: false
+    played: false,
+    startPlayTimeoutID: null
   })
 })
 
-let updateAudioCollection = () => {
+let updateAudioCollection = (muteStateChanged = false) => {
   let visibilityChanged = (item) => {
     return item.computedStyle.visibility !== item.visibility;
   }
@@ -108,12 +110,14 @@ let updateAudioCollection = () => {
     console.log('stop');
     item.audioPlayer.pause();
     item.audioPlayer.currentTime = 0;
+    window.clearTimeout(item.startPlayTimeoutID);
   }
   let play = (item) => {
     console.log('play');
-    // item.audioPlayer.currentTime = 0;
-    item.audioPlayer.play();
-    item.played = true;
+    item.startPlayTimeoutID = setTimeout(() => {
+      item.audioPlayer.play();
+      item.played = true;
+    }, startPlayDelay);
   }
   let updateAudio = (item) => {
     if (isVisible(item)) {
@@ -138,8 +142,9 @@ let updateAudioCollection = () => {
       item.visibility = item.computedStyle.visibility;
       if (isNotVisible(item)) item.played = false;
     }
-    updateAudio(item);
+    if (muteStateChanged) item.played = false;
   })
+  audioCollection.forEach((item) => updateAudio(item));
 }
 
 let processSoundControls = () => {
@@ -170,7 +175,7 @@ let processSoundControls = () => {
   }
   updateSoundControl(soundOnOffButton);
   muteButtons.forEach((muteButton) => updateSoundControl(muteButton));
-  updateAudioCollection();
+  updateAudioCollection(true);
 }
 
 const startup = () => {
