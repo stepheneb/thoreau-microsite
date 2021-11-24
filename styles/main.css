@@ -47,6 +47,7 @@
 :root {
   --explore-images-timing: 1s 0s ease-in-out;
   --explore-content-timing: 0.75s 0s ease-in-out;
+  --gallery-carousel-timing: 0.5s;
 }
 
 * {
@@ -1735,7 +1736,7 @@ body {
   overflow-x: hidden;
 }
 
-.spyglass {
+div.spyglass {
   position: absolute;
   top: 0;
   left: 0;
@@ -1744,7 +1745,7 @@ body {
   margin: 0;
   padding: 0;
 }
-.spyglass .animation-frame-container-spyglass {
+div.spyglass .animation-frame-container-spyglass {
   z-index: 0;
   position: fixed;
   top: 0;
@@ -1759,16 +1760,16 @@ body {
   justify-content: space-around;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .animation-frame-container-spyglass {
+  div.spyglass .animation-frame-container-spyglass {
     height: var(--100vh);
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .animation-frame-container-spyglass {
+  div.spyglass .animation-frame-container-spyglass {
     height: 90vh;
   }
 }
-.spyglass .animation-frame-container-spyglass img {
+div.spyglass .animation-frame-container-spyglass img {
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
   margin: 0;
   width: 90%;
@@ -1777,16 +1778,16 @@ body {
   align-self: center;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .animation-frame-container-spyglass img {
+  div.spyglass .animation-frame-container-spyglass img {
     width: 100%;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .animation-frame-container-spyglass img {
+  div.spyglass .animation-frame-container-spyglass img {
     width: 100%;
   }
 }
-.spyglass .background-image-container-spyglass {
+div.spyglass .background-image-container-spyglass {
   position: fixed;
   z-index: -1;
   top: 0;
@@ -1797,7 +1798,7 @@ body {
   padding: 0;
   background-color: unset;
 }
-.spyglass .background-image-container-spyglass:before {
+div.spyglass .background-image-container-spyglass:before {
   content: "";
   position: absolute;
   top: 0px;
@@ -1812,7 +1813,7 @@ body {
   background-size: cover;
   transition: opacity var(--explore-images-timing), background-image var(--explore-images-timing);
 }
-.spyglass .fixed-image-container-spyglass {
+div.spyglass .fixed-image-container-spyglass {
   z-index: -1;
   position: fixed;
   top: 0;
@@ -1827,16 +1828,16 @@ body {
   justify-content: space-around;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .fixed-image-container-spyglass {
+  div.spyglass .fixed-image-container-spyglass {
     height: var(--100vh);
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .fixed-image-container-spyglass {
+  div.spyglass .fixed-image-container-spyglass {
     height: 90vh;
   }
 }
-.spyglass .fixed-image-container-spyglass img {
+div.spyglass .fixed-image-container-spyglass img {
   visibility: hidden;
   opacity: 0;
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
@@ -1845,26 +1846,26 @@ body {
   align-self: center;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .fixed-image-container-spyglass img {
+  div.spyglass .fixed-image-container-spyglass img {
     width: 80%;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .fixed-image-container-spyglass img {
+  div.spyglass .fixed-image-container-spyglass img {
     width: 70%;
   }
 }
-.spyglass .fixed-image-container-spyglass img.spyglass-photo-rotated {
+div.spyglass .fixed-image-container-spyglass img.spyglass-photo-rotated {
   transform: rotate(-9deg);
 }
-.spyglass .content-spyglass {
+div.spyglass .content-spyglass {
   z-index: 1;
   margin: 0;
   padding: 0;
   color: white;
   background-color: transparent;
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass {
+div.spyglass .content-spyglass .absolute-content-container-spyglass {
   position: relative;
   visibility: hidden;
   transition: opacity var(--explore-content-timing), visibility var(--explore-content-timing), position var(--explore-content-timing);
@@ -1873,27 +1874,27 @@ body {
   line-height: var(--explore-content-line-height);
   font-size: var(--explore-content);
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass hr {
+div.spyglass .content-spyglass .absolute-content-container-spyglass hr {
   width: 30%;
   border-top: 2px solid black;
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass .author {
+div.spyglass .content-spyglass .absolute-content-container-spyglass .author {
   display: flex;
   flex-direction: column;
   align-items: baseline;
   justify-content: space-between;
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass .author .name {
+div.spyglass .content-spyglass .absolute-content-container-spyglass .author .name {
   font-size: var(--explore-content-author);
   text-transform: uppercase;
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass .author .name.thoreau {
+div.spyglass .content-spyglass .absolute-content-container-spyglass .author .name.thoreau {
   color: black;
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass .author audio {
+div.spyglass .content-spyglass .absolute-content-container-spyglass .author audio {
   display: none;
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.start {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.start {
   height: 200vh;
   max-width: 90vw;
   display: flex;
@@ -1902,59 +1903,59 @@ body {
   left: 5vw;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start {
     flex-direction: column;
     justify-content: flex-start;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start {
     left: 8vw;
   }
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container {
   width: 24vw;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container {
     margin-left: 8vw;
     width: 80vw;
     max-width: 80vw;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container {
     width: 35vw;
     max-width: 35vw;
   }
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container img {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container img {
   width: 8vmax;
   height: 8vmax;
   padding: 0.7vmax;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container img {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container img {
     width: 6vmax;
     height: 6vmax;
     padding: 0.6vmax;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container img {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container img {
     width: 6vmax;
     height: 6vmax;
     padding: 0.6vmax;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container img {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container img {
     width: 6vmax;
     height: 6vmax;
     padding: 0.6vmax;
   }
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .title {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .title {
   margin: 6vh 0 4vh 0;
   font-family: "Libre Caslon Text", serif;
   font-size: var(--artifact-title);
@@ -1964,30 +1965,30 @@ body {
   text-transform: capitalize;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .title {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .title {
     margin: 4vh 0 4vh 0;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .title {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .title {
     margin: 3vh 0 3vh 0;
   }
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container hr {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container hr {
   display: block;
   width: 50%;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container hr {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container hr {
     display: none;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container hr {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container hr {
     display: block;
   }
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .description {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .description {
   margin: 4vh 0;
   width: 100%;
   font-size: var(--artifact-description);
@@ -1995,17 +1996,17 @@ body {
   color: black;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .description {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .description {
     width: 95%;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .description {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .about-container .description {
     width: 80%;
     margin: 2vh 0;
   }
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container {
   position: sticky;
   top: 5vh;
   height: 90vh;
@@ -2024,7 +2025,7 @@ body {
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container {
     top: 30vh;
     height: 90vw;
     left: 0;
@@ -2032,20 +2033,20 @@ body {
     margin-top: 0;
     padding: 0;
   }
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container img.spyglass-photo {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container img.spyglass-photo {
     width: 80%;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container {
     width: 60vw;
     margin-top: 0;
   }
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container img.spyglass-photo {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container img.spyglass-photo {
     width: 60%;
   }
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container .zoom-controls {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container .zoom-controls {
   position: absolute;
   right: 0%;
   bottom: 10%;
@@ -2059,18 +2060,18 @@ body {
   background-color: black;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container .zoom-controls {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container .zoom-controls {
     top: 0vh;
     left: 1vw;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container .zoom-controls {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container .zoom-controls {
     top: 1vh;
     left: 1vw;
   }
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container .zoom-controls button {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container .zoom-controls button {
   padding: 0;
   margin: 0.1em 0.25em;
   width: 0.6em;
@@ -2083,16 +2084,16 @@ body {
   align-items: center;
   justify-content: center;
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container .zoom-controls button img {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container .zoom-controls button img {
   width: 0.4em;
   height: auto;
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container .zoom-controls .v-divide {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.start .image-container .zoom-controls .v-divide {
   width: 0.15em;
   background-color: white;
   height: auto;
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.curious {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.curious {
   position: sticky;
   top: 8vh;
   left: 50vw;
@@ -2100,19 +2101,19 @@ body {
   height: 110vh;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.curious {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.curious {
     left: 45vw;
     max-width: 45vw;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.curious {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.curious {
     top: 12vh;
     left: 35vw;
     max-width: 60vw;
   }
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.his-experiments {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.his-experiments {
   position: sticky;
   top: 3em;
   left: 4em;
@@ -2120,19 +2121,19 @@ body {
   height: 225vh;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.his-experiments {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.his-experiments {
     left: 10vw;
     max-width: 30vw;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.his-experiments {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.his-experiments {
     top: 10vh;
     left: 14vw;
     max-width: 70vw;
   }
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.some-scientific {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.some-scientific {
   position: sticky;
   top: 78vh;
   left: 32vw;
@@ -2140,37 +2141,37 @@ body {
   height: 75vh;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.some-scientific {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.some-scientific {
     top: 10vh;
     left: 10vw;
     max-width: 30vw;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.some-scientific {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.some-scientific {
     top: 65vh;
     left: 15vw;
     max-width: 70vw;
   }
 }
-.spyglass .content-spyglass .absolute-content-container-spyglass.would-it-not {
+div.spyglass .content-spyglass .absolute-content-container-spyglass.would-it-not {
   height: 96vh;
   max-width: 40vw;
   left: 40vw;
   font-size: var(--explore-content-heading);
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.would-it-not {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.would-it-not {
     left: 45vw;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .content-spyglass .absolute-content-container-spyglass.would-it-not {
+  div.spyglass .content-spyglass .absolute-content-container-spyglass.would-it-not {
     left: 30vw;
     max-width: 50vw;
   }
 }
-.spyglass .explore-another-object {
+div.spyglass .explore-another-object {
   position: fixed;
   z-index: 3;
   visibility: hidden;
@@ -2186,27 +2187,27 @@ body {
   font-size: var(--explore);
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .explore-another-object {
+  div.spyglass .explore-another-object {
     top: 0vh;
     left: 1vw;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .explore-another-object {
+  div.spyglass .explore-another-object {
     top: 1vh;
     left: 1vw;
   }
 }
-.spyglass .explore-another-object a {
+div.spyglass .explore-another-object a {
   font-size: 0.75em;
   text-decoration: none;
   color: white;
 }
-.spyglass .explore-another-object a img {
+div.spyglass .explore-another-object a img {
   margin-left: 0.5em;
   height: 0.7em;
 }
-.spyglass .arrow-scroll-down {
+div.spyglass .arrow-scroll-down {
   position: fixed;
   z-index: 3;
   visibility: hidden;
@@ -2217,25 +2218,25 @@ body {
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  .spyglass .arrow-scroll-down {
+  div.spyglass .arrow-scroll-down {
     top: 0vh;
     left: 1vw;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  .spyglass .arrow-scroll-down {
+  div.spyglass .arrow-scroll-down {
     top: 1vh;
     left: 1vw;
   }
 }
-.spyglass .arrow-scroll-down a i {
+div.spyglass .arrow-scroll-down a i {
   color: lightgray;
   font-size: var(--back-button-size);
 }
-.spyglass .arrow-scroll-down a i:hover {
+div.spyglass .arrow-scroll-down a i:hover {
   color: white;
 }
-.spyglass .mute-button {
+div.spyglass .mute-button {
   height: 2em;
   display: flex;
   flex-direction: row;
@@ -2244,37 +2245,37 @@ body {
   font-size: var(--explore-content-mute-button);
   text-transform: uppercase;
 }
-.spyglass .mute-button div {
+div.spyglass .mute-button div {
   margin-right: 0.2em;
   margin-bottom: -0.1em;
 }
-.spyglass .mute-button div.off {
+div.spyglass .mute-button div.off {
   display: block;
 }
-.spyglass .mute-button div.on {
+div.spyglass .mute-button div.on {
   display: none;
 }
-.spyglass .mute-button svg {
+div.spyglass .mute-button svg {
   height: 1.5em;
   width: auto;
 }
-.spyglass .mute-button svg.off {
+div.spyglass .mute-button svg.off {
   display: block;
 }
-.spyglass .mute-button svg.on {
+div.spyglass .mute-button svg.on {
   margin-left: 0.4em;
   display: none;
 }
-.spyglass .mute-button svg + div {
+div.spyglass .mute-button svg + div {
   display: block;
   margin-left: -0.2em;
   padding-bottom: 0.1em;
   text-transform: none;
 }
-.spyglass .mute-button > * {
+div.spyglass .mute-button > * {
   pointer-events: none;
 }
-.spyglass .unmute-footer {
+div.spyglass .unmute-footer {
   position: fixed;
   z-index: 3;
   opacity: 0.9;
@@ -2290,16 +2291,16 @@ body {
   justify-content: flex-end;
   align-items: center;
 }
-.spyglass .unmute-footer .label {
+div.spyglass .unmute-footer .label {
   margin-right: 1.5vw;
   color: var(--near-black);
 }
-.spyglass .unmute-footer .mute-button {
+div.spyglass .unmute-footer .mute-button {
   font-size: 105%;
   margin-right: 10vw;
   color: white;
 }
-.spyglass .unmute-footer.on .label {
+div.spyglass .unmute-footer.on .label {
   display: none;
 }
 
@@ -2403,6 +2404,7 @@ body {
 }
 
 body.index {
+  overflow-x: hidden;
   margin: 0;
   padding: 0;
   oveerflow: hidden;
@@ -2588,12 +2590,20 @@ body.index {
   }
 }
 .content.index .main .gallery .image-container img {
+  transition: all var(--gallery-carousel-timing);
   margin: 0;
   padding: 0;
+  position: absolute;
   filter: grayscale(100%) brightness(150%) contrast(125%) opacity(75%);
+  visibility: hidden;
+  opacity: 0;
 }
 .content.index .main .gallery .image-container img.enabled {
   filter: none;
+}
+.content.index .main .gallery .image-container img.selected {
+  visibility: visible;
+  opacity: 1;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   .content.index .main .gallery .image-container img {
