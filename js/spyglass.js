@@ -1,9 +1,9 @@
 /*jshint esversion: 8 */
-/*global domReady  */
+/*global  app */
 
-window.app = {};
+// app.dev = true;
 
-let muteButtons, soundOnOffButton, container, animationFrameImg,
+let muteButtons, unmuteFooter, soundOnOffButton, container, animationFrameImg,
   zoomMinus, zoomPlus, artifactImage;
 
 // The debounce function receives our function as a parameter
@@ -78,19 +78,24 @@ let manageZoomButtons = () => {
 
 let soundOnOff = 'off';
 let soundIsOn = () => soundOnOff == 'on';
+// let soundIsOff = () => !soundIsOn();
 
 let startPlayDelay = 500;
 
 let audioCollection = [];
 document.querySelectorAll('audio').forEach((audioPlayer) => {
   let container = audioPlayer.parentElement;
+  let id = audioPlayer.parentElement.parentElement.id;
   let computedStyle = getComputedStyle(container);
   let visibility = computedStyle.visibility;
+  let opacity = computedStyle.opacity;
   audioCollection.push({
+    id: id,
     audioPlayer: audioPlayer,
     container: container,
     computedStyle: computedStyle,
     visibility: visibility,
+    opacity: opacity,
     played: false,
     startPlayTimeoutID: null
   })
@@ -98,22 +103,27 @@ document.querySelectorAll('audio').forEach((audioPlayer) => {
 
 let updateAudioCollection = (muteStateChanged = false) => {
   let visibilityChanged = (item) => {
-    return item.computedStyle.visibility !== item.visibility;
+    item.computedStyle = getComputedStyle(item.container);
+    return item.computedStyle.visibility !== item.visibility || item.computedStyle.opacity !== item.opacity;
   }
   let isVisible = (item) => {
-    return item.visibility == 'visible';
+    return item.visibility == 'visible' && item.opacity == 1.0;
   }
   let isNotVisible = (item) => {
     return !isVisible(item);
   }
   let stop = (item) => {
-    console.log('stop');
+    app.logger('stop', item.audioPlayer.id);
     item.audioPlayer.pause();
     item.audioPlayer.currentTime = 0;
     window.clearTimeout(item.startPlayTimeoutID);
   }
+  let stopAll = () => {
+    audioCollection.forEach((item) => stop(item));
+  }
   let play = (item) => {
-    console.log('play');
+    stopAll();
+    app.logger('play', item.audioPlayer.id);
     item.startPlayTimeoutID = setTimeout(() => {
       item.audioPlayer.play();
       item.played = true;
@@ -124,28 +134,35 @@ let updateAudioCollection = (muteStateChanged = false) => {
       if (soundOnOff == 'on') {
         if (item.audioPlayer.paused && !item.played) {
           item.audioPlayer.currentTime = 0;
-          console.log('start playing:', item.audioPlayer.id);
+          // app.logger('start playing:', item.audioPlayer.id);
           play(item);
         }
       } else {
-        console.log('visible but stop playing:', item.audioPlayer.id);
+        // app.logger('visible but stop playing:', item.audioPlayer.id);
         stop(item);
       }
     } else {
-      console.log('not visible, stop playing:', item.audioPlayer.id);
+      // app.logger('not visible, stop playing:', item.audioPlayer.id);
       stop(item);
     }
   }
+  app.logger('.');
   audioCollection.forEach((item) => {
     if (visibilityChanged(item)) {
-      console.log('visibility changed from:', item.visibility, 'to:', item.computedStyle.visibility);
+      app.logger(item.id, '=========>', item.computedStyle.visibility);
       item.visibility = item.computedStyle.visibility;
       if (isNotVisible(item)) item.played = false;
+    } else {
+      app.logger(item.id, ':', item.computedStyle.visibility);
     }
     if (muteStateChanged) item.played = false;
   })
-  audioCollection.forEach((item) => updateAudio(item));
+  if (soundIsOn() || muteStateChanged) {
+    audioCollection.forEach((item) => updateAudio(item));
+  }
 }
+
+let updateAudioCollectionListener = () => { updateAudioCollection() };
 
 let processSoundControls = () => {
   let currentState = soundOnOffButton.dataset.sound;
@@ -171,9 +188,14 @@ let processSoundControls = () => {
         el.style.display = 'block';
       })
     }
-    console.log('sound:', soundOnOff);
+    app.logger('sound:', soundOnOff);
   }
   updateSoundControl(soundOnOffButton);
+  if (soundIsOn()) {
+    unmuteFooter.classList.add('on');
+  } else {
+    unmuteFooter.classList.remove('on');
+  }
   muteButtons.forEach((muteButton) => updateSoundControl(muteButton));
   updateAudioCollection(true);
 }
@@ -204,16 +226,11 @@ const startup = () => {
   })
 
   soundOnOffButton = document.getElementById('sound-on-off');
+  unmuteFooter = document.getElementById('unmute-footer');
 
-  soundOnOffButton.addEventListener('click', (e) => {
-    console.log('sound-on-off clicked');
-    let unmuteFooter = e.target.parentElement;
+  soundOnOffButton.addEventListener('click', () => {
+    app.logger('sound-on-off clicked');
     processSoundControls();
-    if (soundIsOn()) {
-      unmuteFooter.classList.add('on');
-    } else {
-      unmuteFooter.classList.remove('on');
-    }
   });
 
   muteButtons = document.querySelectorAll('.mute-button.secondary');
@@ -222,8 +239,8 @@ const startup = () => {
     muteButton.addEventListener('click', () => processSoundControls(muteButton));
   })
 
-  document.addEventListener('scroll', debounce(updateAudioCollection), { passive: true });
+  document.addEventListener('scroll', debounce(updateAudioCollectionListener), { passive: true });
 
 }
 
-domReady(startup);
+app.domReady(startup);
