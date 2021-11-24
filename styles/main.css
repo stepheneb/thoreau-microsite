@@ -2315,6 +2315,8 @@ body {
   opacity: 1;
 }
 #spyglass[data-contentscroll="0"] .absolute-content-container-spyglass.start .image-container {
+  -webkit-clip-path: inset(0% 0% 0% 0%);
+  clip-path: inset(0% 0% 0% 0%);
   transition: opacity var(--explore-images-timing), background-image var(--explore-images-timing);
   background-image: url(../images/watercolor-background-blue.png);
   background-repeat: no-repeat;
