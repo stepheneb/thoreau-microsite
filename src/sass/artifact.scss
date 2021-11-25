@@ -1,0 +1,452 @@
+:root {
+  --100vh: 100vh;
+  --100vw: 100vw;
+}
+
+div.artifact {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: var(--100vh);
+  width: 100%;
+  margin: 0;
+  padding: 0;
+
+  .animation-frame-container {
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: var(--100vh);
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+
+    @include mobile-portrait() {
+      height: var(--100vh);
+    }
+    @include mobile-landscape() {
+      height: 90vh;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    img {
+      transition: opacity var(--explore-images-timing),
+        visibility var(--explore-images-timing);
+      margin: 0;
+      width: 90%;
+      height: auto;
+      aspect-ratio: attr(width) / attr(height);
+      align-self: center;
+      @include mobile-landscape() {
+        width: 100%;
+      }
+      @include mobile-portrait() {
+        width: 100%;
+      }
+    }
+  }
+
+  .background-image-container {
+    position: fixed;
+    z-index: -1;
+    top: 0;
+    left: 0;
+    height: var(--100vh);
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    background-color: unset;
+    &:before {
+      content: "";
+      position: absolute;
+      top: 0px;
+      right: 0px;
+      bottom: 0px;
+      left: 0px;
+      opacity: 1;
+      background-color: var(--thoreau-rgba-blue);
+      background-image: url("../images/transparent.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+
+      transition: opacity var(--explore-images-timing),
+        background-image var(--explore-images-timing);
+    }
+  }
+
+  .fixed-image-container {
+    z-index: -1;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 90vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+
+    @include mobile-portrait() {
+      height: var(--100vh);
+    }
+    @include mobile-landscape() {
+      height: 90vh;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    img {
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity var(--explore-images-timing),
+        visibility var(--explore-images-timing);
+      margin: 20% 0;
+      width: 80%;
+      align-self: center;
+      @include mobile-portrait() {
+        width: 80%;
+      }
+      @include mobile-landscape() {
+        width: 70%;
+      }
+    }
+  }
+
+  .content {
+    z-index: 1;
+    margin: 0;
+    padding: 0;
+    // min-height: 100vh;
+    // min-width: 100vw;
+    color: white;
+    background-color: transparent;
+    .absolute-content-container {
+      position: relative;
+      visibility: hidden;
+      transition: opacity var(--explore-content-timing),
+        visibility var(--explore-content-timing),
+        position var(--explore-content-timing);
+      opacity: 0;
+      max-width: 40vw;
+      line-height: var(--explore-content-line-height);
+      font-size: var(--explore-content);
+      hr {
+        width: 30%;
+        border-top: 2px solid black;
+      }
+      .author {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        justify-content: space-between;
+        .name {
+          font-size: var(--explore-content-author);
+          text-transform: uppercase;
+          &.thoreau {
+            color: black;
+          }
+        }
+        audio {
+          display: none;
+        }
+      }
+      .about-container {
+        width: 24vw;
+        @include mobile-portrait() {
+          margin-left: 8vw;
+          width: 80vw;
+          max-width: 80vw;
+        }
+        @include mobile-landscape() {
+          width: 35vw;
+          max-width: 35vw;
+        }
+
+        img {
+          width: 8vmax;
+          height: 8vmax;
+          padding: 0.7vmax;
+          @include mobile-landscape() {
+            width: 6vmax;
+            height: 6vmax;
+            padding: 0.6vmax;
+          }
+          @include mobile-landscape() {
+            width: 6vmax;
+            height: 6vmax;
+            padding: 0.6vmax;
+          }
+          @include mobile-portrait() {
+            width: 6vmax;
+            height: 6vmax;
+            padding: 0.6vmax;
+          }
+        }
+        .title {
+          margin: 6vh 0 4vh 0;
+          @include mobile-landscape() {
+            margin: 4vh 0 4vh 0;
+          }
+          @include mobile-portrait() {
+            margin: 3vh 0 3vh 0;
+          }
+          font-family: "Libre Caslon Text", serif;
+          font-size: var(--artifact-title);
+          font-weight: 600;
+          color: var(--thoreau-blue);
+          line-height: 1.1em;
+          text-transform: capitalize;
+        }
+        hr {
+          display: block;
+          width: 50%;
+          @include mobile-portrait() {
+            display: none;
+          }
+          @include mobile-landscape() {
+            display: block;
+          }
+        }
+        .description {
+          margin: 4vh 0;
+          width: 100%;
+          @include mobile-landscape() {
+            width: 95%;
+          }
+          @include mobile-portrait() {
+            width: 80%;
+            margin: 2vh 0;
+          }
+          font-size: var(--artifact-description);
+          line-height: 2em;
+          color: black;
+        }
+      }
+
+      .image-container {
+        position: sticky;
+        top: 5vh;
+        height: 90vh;
+        left: 30%;
+        width: 70%;
+        margin-top: 5%;
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        @include mobile-portrait() {
+          top: 30vh;
+          height: 90vw;
+          left: 0;
+          width: 100%;
+          margin-top: 0;
+          padding: 0;
+          img {
+            width: 80%;
+          }
+        }
+        @include mobile-landscape() {
+          width: 60vw;
+          margin-top: 0;
+          img {
+            width: 60%;
+          }
+        }
+
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        visibility: visible;
+        opacity: 1;
+        transition: opacity var(--explore-images-timing),
+          visibility var(--explore-images-timing);
+
+        .zoom-controls {
+          position: absolute;
+          right: 0%;
+          bottom: 10%;
+          height: 1.8em;
+
+          display: flex;
+          flex-direction: row;
+          justify-content: center;
+
+          padding: 0em 0.5em;
+          border: 1px solid lightgray;
+          border-radius: 1em;
+          background-color: black;
+
+          @include mobile-portrait() {
+            top: 0vh;
+            left: 1vw;
+          }
+          @include mobile-landscape() {
+            top: 1vh;
+            left: 1vw;
+          }
+          button {
+            padding: 0;
+            margin: 0.1em 0.25em;
+            width: 0.6em;
+            font-size: 1.8em;
+            color: lightgray;
+            background-color: transparent;
+            border: none;
+            box-sizing: border-box;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            img {
+              width: 0.4em;
+              height: auto;
+            }
+          }
+          .v-divide {
+            width: 0.15em;
+            background-color: white;
+            height: auto;
+          }
+        }
+      }
+    }
+  }
+
+  .explore-another-object {
+    position: fixed;
+    z-index: 3;
+    visibility: hidden;
+    opacity: 0;
+    top: 5vh;
+    right: 10vw;
+    @include mobile-portrait() {
+      top: 0vh;
+      left: 1vw;
+    }
+    @include mobile-landscape() {
+      top: 1vh;
+      left: 1vw;
+    }
+    background-color: transparent;
+    transition: opacity var(--explore-images-timing),
+      visibility var(--explore-images-timing);
+
+    padding: 0em 0.5em;
+    border: 1px solid lightgray;
+    border-radius: 1em;
+    background-color: black;
+    font-size: var(--explore);
+    a {
+      font-size: 0.75em;
+      text-decoration: none;
+      color: white;
+      img {
+        margin-left: 0.5em;
+        height: 0.7em;
+      }
+    }
+  }
+
+  .arrow-scroll-down {
+    position: fixed;
+    z-index: 3;
+    visibility: hidden;
+    opacity: 0;
+    top: 94vh;
+    left: 45vw;
+    @include mobile-portrait() {
+      top: 0vh;
+      left: 1vw;
+    }
+    @include mobile-landscape() {
+      top: 1vh;
+      left: 1vw;
+    }
+    background-color: transparent;
+    transition: opacity var(--explore-images-timing),
+      visibility var(--explore-images-timing);
+    a {
+      i {
+        color: lightgray;
+        font-size: var(--back-button-size);
+        &:hover {
+          color: white;
+        }
+      }
+    }
+  }
+
+  .mute-button {
+    height: 2em;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    font-size: var(--explore-content-mute-button);
+    text-transform: uppercase;
+    div {
+      margin-right: 0.2em;
+      margin-bottom: -0.1em;
+      &.off {
+        display: block;
+      }
+      &.on {
+        display: none;
+      }
+    }
+    svg {
+      height: 1.5em;
+      width: auto;
+      &.off {
+        display: block;
+      }
+      &.on {
+        margin-left: 0.4em;
+        display: none;
+      }
+    }
+    svg + div {
+      display: block;
+      margin-left: -0.2em;
+      padding-bottom: 0.1em;
+      text-transform: none;
+    }
+    > * {
+      pointer-events: none;
+    }
+  }
+
+  .unmute-footer {
+    position: fixed;
+    z-index: 3;
+    opacity: 0.9;
+    background-color: var(--medium-gray);
+    bottom: 0;
+    left: 0;
+    width: 100vw;
+    height: 4vh;
+    padding: 0;
+    font-size: 0.5em;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    align-items: center;
+    .label {
+      margin-right: 1.5vw;
+      color: var(--near-black);
+    }
+    .mute-button {
+      font-size: 105%;
+      margin-right: 10vw;
+      color: white;
+    }
+    &.on {
+      .label {
+        display: none;
+      }
+    }
+  }
+}
