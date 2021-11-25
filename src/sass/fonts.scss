@@ -12,17 +12,17 @@
   --main-title-world: 8.6rem;
   --artifact-title: 2.4rem;
   // --artifact-description: 1.35rem;
-  --artifact-description: 2.2vmin;
+  --artifact-description: 2.4vmin;
   --explore: 2.6vmin;
   --explore-another: 1.8vmin;
   --explore-button: 2vmin;
   --explore-content: 2.6vmin;
-  --explore-content-line-height: 170%;
-  --explore-content-author: 0.7em;
+  --explore-content-line-height: 160%;
+  --explore-content-author: 1rem;
   --explore-content-mute-button: 0.7em;
   --explore-content-weight: 400;
-  --explore-content-heading: 4.6vmin;
-  --explore-content-heading-weight: 500;
+  --explore-content-heading: 4vmin;
+  --explore-content-heading-weight: 600;
   --back-button-size: 2em;
 
   @media (max-width: 576px), (max-height: 576px) {

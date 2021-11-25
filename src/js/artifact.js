@@ -32,20 +32,22 @@ const debounce = (fn) => {
 // Reads out the scroll position and stores it in the data attribute
 // so we can use it in our stylesheets
 const storeScroll = (callback, animationFrameImg, animationCount) => {
-  let totalHeight = container.clientHeight;
-  let startAnimation = window.innerHeight * 1;
-  let scrollHeight = totalHeight - window.innerHeight * 4;
-  // let animationCount = 243;
-  let animationStepHeight = scrollHeight / animationCount;
-  let animationFrameNum = 0;
-  if (window.scrollY > startAnimation) {
-    animationFrameNum = Math.max(0, Math.min(animationCount, Math.floor((window.scrollY - startAnimation) / animationStepHeight)));
-  }
-  container.dataset.animationscroll = animationFrameNum;
-  container.dataset.contentscroll = Math.floor(window.scrollY / window.innerHeight + 0.60);
   if (callback) {
-    callback(animationFrameNum, animationFrameImg);
+    let totalHeight = container.clientHeight;
+    let startAnimation = window.innerHeight * 1;
+    let scrollHeight = totalHeight - window.innerHeight * 4;
+    // let animationCount = 243;
+    let animationStepHeight = scrollHeight / animationCount;
+    let animationFrameNum = 0;
+    if (window.scrollY > startAnimation) {
+      animationFrameNum = Math.max(0, Math.min(animationCount, Math.floor((window.scrollY - startAnimation) / animationStepHeight)));
+    }
+    container.dataset.animationscroll = animationFrameNum;
+    if (callback) {
+      callback(animationFrameNum, animationFrameImg);
+    }
   }
+  container.dataset.contentscroll = Math.floor(window.scrollY / window.innerHeight + 0.60);
 };
 
 const storeScrollListener = (e, ...args) => {

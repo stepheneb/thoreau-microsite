@@ -134,16 +134,19 @@ div.artifact {
       line-height: var(--explore-content-line-height);
       font-size: var(--explore-content);
       hr {
-        width: 30%;
-        border-top: 2px solid black;
+        width: 25%;
+        border-top: 1px solid black;
+        opacity: 1;
       }
       .author {
         display: flex;
         flex-direction: column;
         align-items: baseline;
         justify-content: space-between;
+        font-family: "Nunito Sans", sans-serif;
+        font-size: var(--explore-content-author);
+        opacity: 1;
         .name {
-          font-size: var(--explore-content-author);
           text-transform: uppercase;
           &.thoreau {
             color: black;
@@ -154,7 +157,7 @@ div.artifact {
         }
       }
       .about-container {
-        width: 24vw;
+        width: 22vw;
         @include mobile-portrait() {
           margin-left: 8vw;
           width: 80vw;
@@ -186,7 +189,8 @@ div.artifact {
           }
         }
         .title {
-          margin: 6vh 0 4vh 0;
+          width: 30vw;
+          margin: 4vh 0 5vh 0;
           @include mobile-landscape() {
             margin: 4vh 0 4vh 0;
           }
@@ -202,7 +206,8 @@ div.artifact {
         }
         hr {
           display: block;
-          width: 50%;
+          width: 12vw;
+          height: 1px;
           @include mobile-portrait() {
             display: none;
           }
@@ -213,6 +218,13 @@ div.artifact {
         .description {
           margin: 4vh 0;
           width: 100%;
+          font-size: var(--artifact-description);
+          line-height: 2.1em;
+          letter-spacing: 1px;
+          color: black;
+          span.first-line {
+            font-weight: 600;
+          }
           @include mobile-landscape() {
             width: 95%;
           }
@@ -220,9 +232,6 @@ div.artifact {
             width: 80%;
             margin: 2vh 0;
           }
-          font-size: var(--artifact-description);
-          line-height: 2em;
-          color: black;
         }
       }
 

@@ -1,0 +1,167 @@
+//
+// Specific artifact content section
+//
+
+div.artifact.snowshoes {
+  .fixed-image-container.snowshoes {
+    img.snowshoes-photo-rotated {
+      transform: rotate(-9deg);
+    }
+  }
+
+  .background-image-container.snowshoes {
+    &:before {
+      background-color: var(--thoreau-rgba-blue);
+    }
+  }
+
+  .content.snowshoes {
+    .image-container {
+      @include mobile-portrait() {
+        img.snowshoes-photo {
+          width: 80%;
+        }
+      }
+      @include mobile-landscape() {
+        img.snowshoes-photo {
+          width: 60%;
+        }
+      }
+    }
+
+    .absolute-content-container.snowshoes {
+      hr {
+        border-top: 1px solid white;
+      }
+      &.start {
+        height: 200vh;
+        max-width: 90vw;
+        display: flex;
+        flex-direction: row;
+        top: 4vh;
+        left: 5vw;
+
+        @include mobile-portrait() {
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+
+        @include mobile-landscape() {
+          left: 8vw;
+        }
+        .about-container {
+          width: 28vw;
+          .title {
+            color: var(--snowshoe-brown);
+          }
+        }
+      }
+
+      &.a-healthy-man {
+        height: 50vh;
+        margin-top: 30vh;
+        max-width: 40vw;
+        left: 30vw;
+        color: var(--near-black);
+        font-size: var(--explore-content-heading);
+        font-weight: var(--explore-content-heading-weight);
+        font-family: "Libre Caslon Text", serif;
+        @include mobile-landscape() {
+          left: 45vw;
+        }
+        @include mobile-portrait() {
+          left: 30vw;
+          max-width: 50vw;
+        }
+      }
+    }
+  }
+}
+
+#snowshoes {
+  height: 300vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+#snowshoes[data-contentscroll="0"] {
+  .background-image-container.snowshoes {
+    &:before {
+      background-color: white;
+      background-image: url("../images/thoreau_handwriting_dark_background.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  .absolute-content-container.snowshoes.start {
+    visibility: visible;
+    opacity: 1;
+
+    .image-container {
+      -webkit-clip-path: inset(0% 0% 0% 0%);
+      clip-path: inset(0% 0% 0% 0%);
+      transition: opacity var(--explore-images-timing),
+        background-image var(--explore-images-timing);
+
+      img {
+        transform: scale(1);
+      }
+
+      background-image: url(../images/watercolor-background-blue.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+
+  .explore-another-object {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  img.snowshoes-photo {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .arrow-scroll-down {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#snowshoes[data-contentscroll="1"] {
+  .background-image-container.snowshoes {
+    &:before {
+      background-color: var(--snowshoe-writing-mask);
+      background-image: url("../images/th26a-thoreau-snowshoes-background.png"),
+        url("../images/thoreau_handwriting_blue_background.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  .arrow-scroll-down {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#snowshoes[data-contentscroll="2"] {
+  .background-image-container.snowshoes {
+    &:before {
+      background-color: var(--snowshoe-writing-mask);
+      background-image: url("../images/snowshoes-snowflakes.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  .absolute-content-container.snowshoes.a-healthy-man {
+    visibility: visible;
+    opacity: 1;
+  }
+}
