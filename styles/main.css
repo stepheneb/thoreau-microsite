@@ -23,11 +23,11 @@
   --explore-button: 2vmin;
   --explore-content: 2.6vmin;
   --explore-content-line-height: 160%;
-  --explore-content-author: 0.7em;
+  --explore-content-author: 1rem;
   --explore-content-mute-button: 0.7em;
   --explore-content-weight: 400;
-  --explore-content-heading: 4.6vmin;
-  --explore-content-heading-weight: 500;
+  --explore-content-heading: 4vmin;
+  --explore-content-heading-weight: 600;
   --back-button-size: 2em;
 }
 @media (max-width: 576px), (max-height: 576px) {
@@ -193,17 +193,20 @@ div.artifact .content .absolute-content-container {
   font-size: var(--explore-content);
 }
 div.artifact .content .absolute-content-container hr {
-  width: 30%;
-  border-top: 2px solid black;
+  width: 25%;
+  border-top: 1px solid black;
+  opacity: 1;
 }
 div.artifact .content .absolute-content-container .author {
   display: flex;
   flex-direction: column;
   align-items: baseline;
   justify-content: space-between;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: var(--explore-content-author);
+  opacity: 1;
 }
 div.artifact .content .absolute-content-container .author .name {
-  font-size: var(--explore-content-author);
   text-transform: uppercase;
 }
 div.artifact .content .absolute-content-container .author .name.thoreau {
@@ -762,6 +765,9 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
     width: 60%;
   }
 }
+div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes hr {
+  border-top: 1px solid white;
+}
 div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.start {
   height: 200vh;
   max-width: 90vw;
@@ -788,11 +794,13 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
   color: var(--snowshoe-brown);
 }
 div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.a-healthy-man {
-  height: 84vh;
+  height: 50vh;
+  margin-top: 30vh;
   max-width: 40vw;
   left: 30vw;
   color: var(--near-black);
   font-size: var(--explore-content-heading);
+  font-weight: var(--explore-content-heading-weight);
   font-family: "Libre Caslon Text", serif;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
@@ -870,17 +878,6 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
   background-size: cover;
 }
 #snowshoes[data-contentscroll="2"] .absolute-content-container.snowshoes.a-healthy-man {
-  position: sticky;
-  margin-top: 48vh;
-  visibility: visible;
-  opacity: 1;
-}
-
-#snowshoes[data-contentscroll="3"] .absolute-content-container.snowshoes.his-experiments {
-  visibility: visible;
-  opacity: 1;
-}
-#snowshoes[data-contentscroll="3"] .arrow-scroll-down {
   visibility: visible;
   opacity: 1;
 }
