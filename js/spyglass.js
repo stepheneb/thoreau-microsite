@@ -6,7 +6,7 @@
 
 const animationFrameCallback = (animationFrameNum, animationFrameImg) => {
   let paddedFrameNum = (animationFrameNum).toString().padStart(5, '0');
-  let newSrc = `images/animations/spyglass/Spyglass_PNGSeq_01__${paddedFrameNum}.png`;
+  let newSrc = `media/images/animations/spyglass/Spyglass_PNGSeq_01__${paddedFrameNum}.png`;
   if (animationFrameImg.src !== newSrc) {
     animationFrameImg.src = newSrc;
   }

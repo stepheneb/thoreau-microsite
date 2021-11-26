@@ -6,6 +6,7 @@
   --border-gray: gray;
   --border-light-gray: #ddd;
   --near-black: #25334b;
+  --almost-white: #ddd;
   --medium-gray: #a7bbca;
   --snowshoe-brown: #704b46;
   --snowshoe-writing-mask: #cdd7e0;
@@ -128,7 +129,7 @@ div.artifact .background-image-container:before {
   left: 0px;
   opacity: 1;
   background-color: var(--thoreau-rgba-blue);
-  background-image: url("../images/transparent.png");
+  background-image: url("../media/images/transparent.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -533,6 +534,61 @@ div.artifact .unmute-footer .mute-button {
 div.artifact .unmute-footer.on .label {
   display: none;
 }
+div.artifact .fixed-video-container {
+  z-index: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 90vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  visibility: hidden;
+  opacity: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  div.artifact .fixed-video-container {
+    height: var(--100vh);
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  div.artifact .fixed-video-container {
+    height: 90vh;
+  }
+}
+div.artifact .fixed-video-container .video-wrapper {
+  position: relative;
+}
+div.artifact .fixed-video-container .video-wrapper .mute-button {
+  position: absolute;
+  z-index: 1;
+  top: 10px;
+  right: 10px;
+  color: var(--almost-white);
+}
+div.artifact .fixed-video-container .video-wrapper .mute-button svg {
+  color: var(--almost-white);
+}
+div.artifact .fixed-video-container .video-wrapper video {
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
+  width: 100%;
+  height: auto;
+  align-self: center;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  div.artifact .fixed-video-container .video-wrapper video {
+    width: 80%;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
+  div.artifact .fixed-video-container .video-wrapper video {
+    width: 70%;
+  }
+}
 
 div.artifact.spyglass .fixed-image-container.spyglass img.spyglass-photo-rotated {
   transform: rotate(-9deg);
@@ -657,7 +713,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
 
 #spyglass[data-contentscroll="0"] .background-image-container.spyglass:before {
   background-color: white;
-  background-image: url("../images/thoreau_handwriting_dark_background.png");
+  background-image: url("../media/images/thoreau_handwriting_dark_background.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -670,7 +726,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
   -webkit-clip-path: inset(0% 0% 0% 0%);
   clip-path: inset(0% 0% 0% 0%);
   transition: opacity var(--explore-images-timing), background-image var(--explore-images-timing);
-  background-image: url(../images/watercolor-background-blue.png);
+  background-image: url(../media/images/watercolor-background-blue.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -735,7 +791,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
 }
 
 #spyglass[data-contentscroll="6"] .background-image-container.spyglass:before {
-  background-image: url("../images/shoreline-and-water.jpg");
+  background-image: url("../media/images/shoreline-and-water.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -794,11 +850,12 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
   color: var(--snowshoe-brown);
 }
 div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.a-healthy-man {
+  pointer-events: none;
   height: 50vh;
-  margin-top: 30vh;
+  margin-top: 26vh;
   max-width: 40vw;
   left: 30vw;
-  color: var(--near-black);
+  color: var(--almost-white);
   font-size: var(--explore-content-heading);
   font-weight: var(--explore-content-heading-weight);
   font-family: "Libre Caslon Text", serif;
@@ -824,7 +881,7 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
 
 #snowshoes[data-contentscroll="0"] .background-image-container.snowshoes:before {
   background-color: white;
-  background-image: url("../images/thoreau_handwriting_dark_background.png");
+  background-image: url("../media/images/thoreau_handwriting_dark_background.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -837,7 +894,7 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
   -webkit-clip-path: inset(0% 0% 0% 0%);
   clip-path: inset(0% 0% 0% 0%);
   transition: opacity var(--explore-images-timing), background-image var(--explore-images-timing);
-  background-image: url(../images/watercolor-background-blue.png);
+  background-image: url(../media/images/watercolor-background-blue.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -860,7 +917,7 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
 
 #snowshoes[data-contentscroll="1"] .background-image-container.snowshoes:before {
   background-color: var(--snowshoe-writing-mask);
-  background-image: url("../images/th26a-thoreau-snowshoes-background.png"), url("../images/thoreau_handwriting_blue_background.png");
+  background-image: url("../media/images/th26a-thoreau-snowshoes-background.png"), url("../media/images/thoreau_handwriting_blue_background.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -872,10 +929,14 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
 
 #snowshoes[data-contentscroll="2"] .background-image-container.snowshoes:before {
   background-color: var(--snowshoe-writing-mask);
-  background-image: url("../images/snowshoes-snowflakes.png");
+  background-image: url("../media/images/snowshoes-snowflakes.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+#snowshoes[data-contentscroll="2"] #a-healthy-man-video {
+  visibility: visible;
+  opacity: 1;
 }
 #snowshoes[data-contentscroll="2"] .absolute-content-container.snowshoes.a-healthy-man {
   visibility: visible;
@@ -1057,7 +1118,7 @@ body.index {
   flex-direction: row;
   align-items: center;
   object-fit: contain;
-  background-image: url("../images/main-menu-texture.png");
+  background-image: url("../media/images/main-menu-texture.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
