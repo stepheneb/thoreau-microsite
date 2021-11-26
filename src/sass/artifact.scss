@@ -458,4 +458,55 @@ div.artifact {
       }
     }
   }
+
+  .fixed-video-container {
+    z-index: 0;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 90vh;
+    width: 100vw;
+    margin: 0;
+    padding: 0;
+    visibility: hidden;
+    opacity: 0;
+    @include mobile-portrait() {
+      height: var(--100vh);
+    }
+    @include mobile-landscape() {
+      height: 90vh;
+    }
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+
+    .video-wrapper {
+      position: relative;
+      .mute-button {
+        position: absolute;
+        z-index: 1;
+        top: 10px;
+        right: 10px;
+        color: var(--almost-white);
+        svg {
+          color: var(--almost-white);
+        }
+      }
+
+      video {
+        transition: opacity var(--explore-images-timing),
+          visibility var(--explore-images-timing);
+        width: 100%;
+        height: auto;
+        align-self: center;
+        @include mobile-portrait() {
+          width: 80%;
+        }
+        @include mobile-landscape() {
+          width: 70%;
+        }
+      }
+    }
+  }
 }
