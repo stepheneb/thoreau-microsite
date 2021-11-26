@@ -14,8 +14,6 @@ const sass = gulpSass(dartSass);
 
 const dest = 'public';
 
-// BrowserSync Server
-
 const server = browserSync.create();
 
 function reload(done) {
@@ -49,12 +47,16 @@ const paths = {
     dest: `${dest}`
   },
   images: {
-    src: 'src/images/**/*.{png,gif,jpg}',
-    dest: `${dest}/images/`
+    src: 'src/media/images/**/*.{png,gif,jpg}',
+    dest: `${dest}/media/images/`
   },
   audio: {
-    src: 'src/audio/**/*.mp3',
-    dest: `${dest}/audio/`
+    src: 'src/media/audio/**/*.mp3',
+    dest: `${dest}/media/audio/`
+  },
+  video: {
+    src: 'src/media/video/**/*.{mp4,webm}',
+    dest: `${dest}/media/video/`
   }
 };
 
@@ -78,6 +80,12 @@ export function audio() {
   return gulp
     .src(paths.audio.src)
     .pipe(gulp.dest(paths.audio.dest));
+}
+
+export function video() {
+  return gulp
+    .src(paths.video.src)
+    .pipe(gulp.dest(paths.video.dest));
 }
 
 export function styles() {
@@ -110,6 +118,7 @@ export const build = (cb) => {
   html();
   images();
   audio();
+  video();
   styles();
   scripts();
   cb();
@@ -121,6 +130,7 @@ const watch = () => {
   gulp.watch(paths.html.src, gulp.series(html, reload));
   gulp.watch(paths.images.src, gulp.series(images, reload));
   gulp.watch(paths.audio.src, gulp.series(audio, reload));
+  gulp.watch(paths.video.src, gulp.series(video, reload));
 };
 
 export const watchTests = () => {

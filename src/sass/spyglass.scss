@@ -1,5 +1,5 @@
 //
-// Specific artifact content section
+// Spyglass specific artifact styles
 //
 
 div.artifact.spyglass {
@@ -129,7 +129,7 @@ div.artifact.spyglass {
   .background-image-container.spyglass {
     &:before {
       background-color: white;
-      background-image: url("../images/thoreau_handwriting_dark_background.png");
+      background-image: url("../media/images/thoreau_handwriting_dark_background.png");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -150,7 +150,7 @@ div.artifact.spyglass {
         transform: scale(1);
       }
 
-      background-image: url(../images/watercolor-background-blue.png);
+      background-image: url(../media/images/watercolor-background-blue.png);
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
@@ -229,7 +229,7 @@ div.artifact.spyglass {
 #spyglass[data-contentscroll="6"] {
   .background-image-container.spyglass {
     &:before {
-      background-image: url("../images/shoreline-and-water.jpg");
+      background-image: url("../media/images/shoreline-and-water.jpg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;

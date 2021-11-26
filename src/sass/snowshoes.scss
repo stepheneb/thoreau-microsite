@@ -1,11 +1,16 @@
 //
-// Specific artifact content section
+// Snowshoes specific artifact styles
 //
 
 div.artifact.snowshoes {
   .fixed-image-container.snowshoes {
     img.snowshoes-photo-rotated {
       transform: rotate(-9deg);
+    }
+  }
+
+  .fixed-video-container.snowshoes {
+    video.a-healthy-man {
     }
   }
 
@@ -58,11 +63,12 @@ div.artifact.snowshoes {
       }
 
       &.a-healthy-man {
+        pointer-events: none;
         height: 50vh;
-        margin-top: 30vh;
+        margin-top: 26vh;
         max-width: 40vw;
         left: 30vw;
-        color: var(--near-black);
+        color: var(--almost-white);
         font-size: var(--explore-content-heading);
         font-weight: var(--explore-content-heading-weight);
         font-family: "Libre Caslon Text", serif;
@@ -89,7 +95,7 @@ div.artifact.snowshoes {
   .background-image-container.snowshoes {
     &:before {
       background-color: white;
-      background-image: url("../images/thoreau_handwriting_dark_background.png");
+      background-image: url("../media/images/thoreau_handwriting_dark_background.png");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -110,7 +116,7 @@ div.artifact.snowshoes {
         transform: scale(1);
       }
 
-      background-image: url(../images/watercolor-background-blue.png);
+      background-image: url(../media/images/watercolor-background-blue.png);
       background-repeat: no-repeat;
       background-position: center;
       background-size: contain;
@@ -137,8 +143,8 @@ div.artifact.snowshoes {
   .background-image-container.snowshoes {
     &:before {
       background-color: var(--snowshoe-writing-mask);
-      background-image: url("../images/th26a-thoreau-snowshoes-background.png"),
-        url("../images/thoreau_handwriting_blue_background.png");
+      background-image: url("../media/images/th26a-thoreau-snowshoes-background.png"),
+        url("../media/images/thoreau_handwriting_blue_background.png");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
@@ -154,12 +160,17 @@ div.artifact.snowshoes {
   .background-image-container.snowshoes {
     &:before {
       background-color: var(--snowshoe-writing-mask);
-      background-image: url("../images/snowshoes-snowflakes.png");
+      background-image: url("../media/images/snowshoes-snowflakes.png");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
     }
   }
+  video.a-healthy-man {
+    visibility: visible;
+    opacity: 1;
+  }
+
   .absolute-content-container.snowshoes.a-healthy-man {
     visibility: visible;
     opacity: 1;
