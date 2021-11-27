@@ -590,6 +590,7 @@ div.artifact .fixed-video-container {
   padding: 0;
   visibility: hidden;
   opacity: 0;
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -619,7 +620,6 @@ div.artifact .fixed-video-container .video-wrapper .mute-button svg {
   color: var(--almost-white);
 }
 div.artifact .fixed-video-container .video-wrapper video {
-  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
   width: 100%;
   height: auto;
   align-self: center;
@@ -979,7 +979,7 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
   background-position: center;
   background-size: cover;
 }
-#snowshoes[data-contentscroll="2"] #a-healthy-man-video {
+#snowshoes[data-contentscroll="2"] .fixed-video-container.snowshoes.a-healthy-man-video {
   visibility: visible;
   opacity: 1;
 }
