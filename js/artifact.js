@@ -122,15 +122,17 @@ let updatemediaCollection = (muteStateChanged = false) => {
   let isAudioItem = (item) => {
     return isAudio(item.mediaPlayer);
   }
-  let visibilityChanged = (item) => {
-    item.computedStyle = getComputedStyle(item.container);
-    return item.computedStyle.visibility !== item.visibility || item.computedStyle.opacity !== item.opacity;
-  }
   let isVisible = (item) => {
     return item.visibility == 'visible';
   }
   let isNotVisible = (item) => {
-    return !isVisible(item);
+    return item.visibility == 'hidden' || item.opacity < 1;
+  }
+  let visibilityChanged = (item) => {
+    item.computedStyle = getComputedStyle(item.container);
+    let changed = false;
+    changed = item.computedStyle.visibility !== item.visibility || item.computedStyle.opacity !== item.opacity;
+    return changed;
   }
   let stopAudio = (item) => {
     app.logger('stopAudio', item.mediaPlayer.id);
@@ -158,8 +160,6 @@ let updatemediaCollection = (muteStateChanged = false) => {
         item.mediaPlayer.play();
       }, startPlayDelay);
     } else if (isVideoItem(item)) {
-      item.mediaPlayer.removeAttribute("muted");
-      item.mediaPlayer.muted = false;
       item.startPlayTimeoutID = setTimeout(() => {
         item.mediaPlayer.play();
       }, startPlayDelay);
@@ -181,16 +181,22 @@ let updatemediaCollection = (muteStateChanged = false) => {
         stopAudio(item);
       }
     } else {
-      // app.logger('not visible, stop playing:', item.mediaPlayer.id);
+      app.logger('not visible, stop playing:', item.mediaPlayer.id);
       stopAudio(item);
     }
   }
-  app.logger('.');
   mediaCollection.forEach((item) => {
     if (visibilityChanged(item)) {
       app.logger(item.id, '=========>', item.computedStyle.visibility);
       item.visibility = item.computedStyle.visibility;
       if (isNotVisible(item)) item.played = false;
+      if (isVideoItem(item)) {
+        if (isVisible(item)) {
+          play(item);
+        } else {
+          stopAudio(item);
+        }
+      }
     } else {
       app.logger(item.id, ':', item.computedStyle.visibility);
     }
@@ -201,7 +207,11 @@ let updatemediaCollection = (muteStateChanged = false) => {
   }
 }
 
-let updatemediaCollectionListener = () => { updatemediaCollection() };
+let updatemediaCollectionListener = () => {
+  app.logger('.');
+  app.logger('updatemediaCollectionListener');
+  updatemediaCollection();
+}
 
 let processSoundControls = () => {
   let currentState = soundOnOffButton.dataset.sound;
@@ -281,6 +291,9 @@ const startup = (id, callback, count) => {
       muteButton.addEventListener('click', () => processSoundControls(muteButton));
     })
     document.addEventListener('scroll', debounce(updatemediaCollectionListener), { passive: true });
-  }
 
+    mediaCollection.forEach((item) => {
+      item.container.addEventListener('transitionend', updatemediaCollectionListener)
+    })
+  }
 }

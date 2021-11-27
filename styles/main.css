@@ -48,7 +48,7 @@
 }
 
 :root {
-  --explore-images-timing: 1s 0s ease-in-out;
+  --explore-images-timing: 0.5s 0s ease-in-out;
   --explore-content-timing: 0.75s 0s ease-in-out;
   --gallery-carousel-timing: 0.5s;
   --explore-menu-timing: 0.5s 0s ease-in-out;
@@ -186,6 +186,7 @@ div.artifact .content {
   background-color: transparent;
 }
 div.artifact .content .absolute-content-container {
+  pointer-events: none;
   position: relative;
   visibility: hidden;
   transition: opacity var(--explore-content-timing), visibility var(--explore-content-timing), position var(--explore-content-timing);
@@ -357,6 +358,7 @@ div.artifact .content .absolute-content-container .image-container {
   }
 }
 div.artifact .content .absolute-content-container .image-container .zoom-controls {
+  pointer-events: auto;
   position: absolute;
   right: 0%;
   bottom: 10%;
@@ -404,6 +406,7 @@ div.artifact .content .absolute-content-container .image-container .zoom-control
   height: auto;
 }
 div.artifact .dropdown.explore-another-object {
+  pointer-events: auto;
   position: fixed;
   z-index: 3;
   visibility: hidden;
@@ -513,6 +516,7 @@ div.artifact .arrow-scroll-down a i:hover {
   color: white;
 }
 div.artifact .mute-button {
+  pointer-events: auto;
   height: 2em;
   display: flex;
   flex-direction: row;
@@ -552,6 +556,7 @@ div.artifact .mute-button > * {
   pointer-events: none;
 }
 div.artifact .unmute-footer {
+  pointer-events: auto;
   position: fixed;
   z-index: 3;
   opacity: 0.9;
@@ -611,13 +616,20 @@ div.artifact .fixed-video-container .video-wrapper {
 }
 div.artifact .fixed-video-container .video-wrapper .mute-button {
   position: absolute;
-  z-index: 1;
+  z-index: 2;
   top: 10px;
   right: 10px;
+  padding: 0.2em 0.4em;
   color: var(--almost-white);
 }
 div.artifact .fixed-video-container .video-wrapper .mute-button svg {
   color: var(--almost-white);
+}
+div.artifact .fixed-video-container .video-wrapper .mute-button:hover {
+  color: white;
+}
+div.artifact .fixed-video-container .video-wrapper .mute-button:hover svg {
+  color: white;
 }
 div.artifact .fixed-video-container .video-wrapper video {
   width: 100%;
