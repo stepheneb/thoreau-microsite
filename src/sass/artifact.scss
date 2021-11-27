@@ -324,7 +324,7 @@ div.artifact {
     }
   }
 
-  .explore-another-object {
+  .dropdown.explore-another-object {
     position: fixed;
     z-index: 3;
     visibility: hidden;
@@ -342,19 +342,67 @@ div.artifact {
     background-color: transparent;
     transition: opacity var(--explore-images-timing),
       visibility var(--explore-images-timing);
+    button {
+      padding: 0.35em 1.5em;
+      border: none;
+      border-radius: 1.25em;
+      background-color: black;
+      font-size: var(--explore-button);
+      &:focus {
+        box-shadow: none;
+      }
+      &::after {
+        display: inline-block;
+        margin-left: 0.255em;
+        vertical-align: 0em;
+        border: none;
+        content: url("../media/images/explore_another_down_arrow.png");
+      }
+    }
+    ul.dropdown-menu {
+      padding-top: 0.1em;
+      background-color: transparent;
+      border: none;
+      display: block;
+      visibility: hidden;
+      opacity: 0;
+      transition: opacity var(--explore-menu-timing),
+        visibility var(--explore-menu-timing);
+      li {
+        a.dropdown-item {
+          visibility: hidden;
+          opacity: 0;
+        }
+      }
 
-    padding: 0em 0.5em;
-    border: 1px solid lightgray;
-    border-radius: 1em;
-    background-color: black;
-    font-size: var(--explore);
-    a {
-      font-size: 0.75em;
-      text-decoration: none;
-      color: white;
-      img {
-        margin-left: 0.5em;
-        height: 0.7em;
+      &.show {
+        visibility: visible;
+        opacity: 1;
+        transition: opacity var(--explore-menu-timing),
+          visibility var(--explore-menu-timing);
+        padding-top: 0.1em;
+        background-color: transparent;
+        border: none;
+        li {
+          margin-left: 1em;
+          padding: 0.2em 0em;
+          background-color: transparent;
+          a.dropdown-item {
+            visibility: visible;
+            opacity: 1;
+            padding: 0.35em 1.5em;
+            border: none;
+            border-radius: 1.25em;
+            background-color: var(--near-black);
+            color: var(--almost-white);
+            font-size: var(--explore-button);
+            text-decoration: none;
+            &:hover {
+              background-color: black;
+              color: white;
+            }
+          }
+        }
       }
     }
   }
