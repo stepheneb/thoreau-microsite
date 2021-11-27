@@ -51,6 +51,7 @@
   --explore-images-timing: 1s 0s ease-in-out;
   --explore-content-timing: 0.75s 0s ease-in-out;
   --gallery-carousel-timing: 0.5s;
+  --explore-menu-timing: 0.5s 0s ease-in-out;
 }
 
 :root {
@@ -441,7 +442,23 @@ div.artifact .dropdown.explore-another-object button::after {
   border: none;
   content: url("../media/images/explore_another_down_arrow.png");
 }
+div.artifact .dropdown.explore-another-object ul.dropdown-menu {
+  padding-top: 0.1em;
+  background-color: transparent;
+  border: none;
+  display: block;
+  visibility: hidden;
+  opacity: 0;
+  transition: opacity var(--explore-menu-timing), visibility var(--explore-menu-timing);
+}
+div.artifact .dropdown.explore-another-object ul.dropdown-menu li a.dropdown-item {
+  visibility: hidden;
+  opacity: 0;
+}
 div.artifact .dropdown.explore-another-object ul.dropdown-menu.show {
+  visibility: visible;
+  opacity: 1;
+  transition: opacity var(--explore-menu-timing), visibility var(--explore-menu-timing);
   padding-top: 0.1em;
   background-color: transparent;
   border: none;
@@ -452,6 +469,8 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li {
   background-color: transparent;
 }
 div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdown-item {
+  visibility: visible;
+  opacity: 1;
   padding: 0.35em 1.5em;
   border: none;
   border-radius: 1.25em;
