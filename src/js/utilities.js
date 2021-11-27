@@ -6,6 +6,8 @@ if (window.app === undefined) {
   window.app = {};
 }
 
+// app.dev = true;
+
 // eslint-disable-next-line no-unused-vars
 app.domReady = (callBack) => {
   if (document.readyState === "loading") {
@@ -38,6 +40,6 @@ app.reflow = (element) => {
 // eslint-disable-next-line no-unused-vars
 app.logger = (...args) => {
   if (app.dev) {
-    console.log(args);
+    console.log(...args);
   }
 }
