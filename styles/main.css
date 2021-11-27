@@ -21,7 +21,7 @@
   --artifact-description: 2.4vmin;
   --explore: 2.6vmin;
   --explore-another: 1.8vmin;
-  --explore-button: 2vmin;
+  --explore-button: 1em;
   --explore-content: 2.6vmin;
   --explore-content-line-height: 160%;
   --explore-content-author: 1rem;
@@ -402,7 +402,7 @@ div.artifact .content .absolute-content-container .image-container .zoom-control
   background-color: white;
   height: auto;
 }
-div.artifact .explore-another-object {
+div.artifact .dropdown.explore-another-object {
   position: fixed;
   z-index: 3;
   visibility: hidden;
@@ -411,32 +411,58 @@ div.artifact .explore-another-object {
   right: 10vw;
   background-color: transparent;
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
-  padding: 0em 0.5em;
-  border: 1px solid lightgray;
-  border-radius: 1em;
-  background-color: black;
-  font-size: var(--explore);
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  div.artifact .explore-another-object {
+  div.artifact .dropdown.explore-another-object {
     top: 0vh;
     left: 1vw;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 812px) and (orientation: landscape) {
-  div.artifact .explore-another-object {
+  div.artifact .dropdown.explore-another-object {
     top: 1vh;
     left: 1vw;
   }
 }
-div.artifact .explore-another-object a {
-  font-size: 0.75em;
-  text-decoration: none;
-  color: white;
+div.artifact .dropdown.explore-another-object button {
+  padding: 0.35em 1.5em;
+  border: none;
+  border-radius: 1.25em;
+  background-color: black;
+  font-size: var(--explore-button);
 }
-div.artifact .explore-another-object a img {
-  margin-left: 0.5em;
-  height: 0.7em;
+div.artifact .dropdown.explore-another-object button:focus {
+  box-shadow: none;
+}
+div.artifact .dropdown.explore-another-object button::after {
+  display: inline-block;
+  margin-left: 0.255em;
+  vertical-align: 0em;
+  border: none;
+  content: url("../media/images/explore_another_down_arrow.png");
+}
+div.artifact .dropdown.explore-another-object ul.dropdown-menu.show {
+  padding-top: 0.1em;
+  background-color: transparent;
+  border: none;
+}
+div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li {
+  margin-left: 1em;
+  padding: 0.2em 0em;
+  background-color: transparent;
+}
+div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdown-item {
+  padding: 0.35em 1.5em;
+  border: none;
+  border-radius: 1.25em;
+  background-color: var(--near-black);
+  color: var(--almost-white);
+  font-size: var(--explore-button);
+  text-decoration: none;
+}
+div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdown-item:hover {
+  background-color: black;
+  color: white;
 }
 div.artifact .arrow-scroll-down {
   position: fixed;
