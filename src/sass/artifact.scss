@@ -518,6 +518,8 @@ div.artifact {
     padding: 0;
     visibility: hidden;
     opacity: 0;
+    transition: opacity var(--explore-images-timing),
+      visibility var(--explore-images-timing);
     @include mobile-portrait() {
       height: var(--100vh);
     }
@@ -543,8 +545,6 @@ div.artifact {
       }
 
       video {
-        transition: opacity var(--explore-images-timing),
-          visibility var(--explore-images-timing);
         width: 100%;
         height: auto;
         align-self: center;
