@@ -7,26 +7,32 @@ html {
 }
 
 body.index {
-  overflow-x: hidden;
   margin: 0;
   padding: 0;
-  oveerflow: hidden;
+  width: 100%;
+  overflow: hidden;
   @include mobile-portrait() {
-    margin: 10px 10px;
+    margin: 10px 0px;
   }
   @include mobile-landscape() {
-    margin: 10px 20px;
+    margin: px 10px;
   }
-  background-color: white;
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;
   color: black;
+
+  background-color: white;
+  background-image: url("../media/images/thoreau_handwriting_dark_background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 
 .content.index {
   margin: 0;
   padding: 0;
-  height: 95vh;
+  height: 100vh;
+
   .main {
     margin: 0;
     padding: 0;
@@ -34,110 +40,131 @@ body.index {
     flex-direction: column;
     @include mobile-portrait() {
       height: 90vh;
-      flex-direction: column;
     }
     @include mobile-landscape() {
-      height: 90vh;
+      height: 100vh;
     }
     .header {
       display: flex;
       flex-direction: row;
-      align-items: baseline;
+      align-self: center;
+      align-items: center;
+      justify-content: center;
+      padding: 0 0;
       line-height: normal;
-      width: 82vw;
+      width: 90vw;
       height: 24vh;
-      margin: 1vh 2vw 1vh 13vw;
-      @include mobile-landscape() {
-        width: 35%;
-      }
+      margin: 1vh 2vw;
       @include mobile-portrait() {
         width: 100%;
         height: auto;
+        margin: 1vh 2vw 1vh 2vw;
+        flex-direction: column;
+      }
+      @include mobile-landscape() {
       }
       .title {
+        flex: none;
         margin: 0vh 0.4vw;
         padding-bottom: 2vh;
-        @include mobile-landscape() {
-          margin: 4vh 0 4vh 0;
-        }
-        @include mobile-portrait() {
-          margin: 3vh 0 3vh 0;
-        }
         font-family: "Libre Caslon Text", serif;
         font-size: var(--main-title);
         font-weight: 600;
         color: var(--near-black);
-        &.world {
+        .world {
           margin: 0 1vw 0 0;
+          padding: 0;
           font-family: "Libre Caslon Display", serif;
           font-size: var(--main-title-world);
           color: var(--medium-gray);
           font-weight: 600;
           padding-bottom: 0.5vh;
         }
+        @include mobile-portrait() {
+          margin: 3vh 0 3vh 0;
+          padding-bottom: 0;
+          .world {
+          }
+        }
+        @include mobile-landscape() {
+          margin: 4vh 0 4vh 0;
+        }
       }
-      .vertcal.separator {
+      .separator {
         width: 2.25vw;
+        height: 50%;
         margin-left: 0.75vw;
         margin-bottom: 0vh;
-        height: 14vh;
         color: var(--near-black);
         border-left: 1px solid;
+        @include mobile-portrait() {
+          width: 50%;
+          height: 1vh;
+          color: var(--medium-gray);
+          border-left: none;
+          border-top: 1px solid;
+        }
+        @include mobile-landscape() {
+          margin-left: 0.5vw;
+          width: 1.5vw;
+          height: 50%;
+        }
       }
       img.pinetree {
         width: 5.8em;
         height: 5.8em;
-        vertical-align: bottom;
-        @media (max-height: 576px), (max-width: 576px) {
+        @include mobile-portrait() {
+          display: none;
           width: 6vmax;
           height: 6vmax;
           padding: 0.6vmax;
         }
         &.noborder {
-          margin: 0 1vw 0 0.25vw;
+          margin: 0 1vw 2vh 0.25vw;
           height: 14vh;
           width: auto;
         }
       }
       .description {
-        align-self: center;
-        padding-bottom: 2vh;
-        width: 95%;
-        font-weight: 400;
-        font-size: var(--artifact-description);
-        @include mobile-landscape() {
-          margin: 1rem 0;
-          width: 95%;
+        width: 40vw;
+        font-weight: 300;
+        font-size: var(--main-description);
+        color: black;
+        .heading {
+          font-weight: 600;
         }
         @include mobile-portrait() {
-          width: 65%;
+          width: 80%;
           margin: 2vh 0;
+          div {
+            display: contents;
+            &.heading {
+              font-weight: inherit;
+            }
+          }
         }
-        line-height: 2em;
-        color: black;
-        span.heading {
-          font-weight: 700;
+        @media only screen and (max-device-width: 570px) and (orientation: landscape) {
+          width: 100%;
         }
       }
     }
     .gallery {
-      display: flex;
-      margin: 0;
+      position: relative;
       display: flex;
       flex-direction: row;
       align-items: center;
       justify-content: space-around;
+      margin: 0;
       width: 95vw;
       height: 65vh;
-      @include mobile-landscape() {
-        width: 65%;
-      }
       @include mobile-portrait() {
+        width: 100vw;
         margin-top: 0;
-        width: 100%;
+        padding: 0;
         height: auto;
         justify-content: center;
-        padding: 0;
+      }
+      @include mobile-landscape() {
       }
 
       .image-container {
@@ -163,30 +190,22 @@ body.index {
           height: 100%;
         }
         img {
-          transition: all var(--gallery-carousel-timing);
-
+          position: absolute;
           margin: 0;
           padding: 0;
-          position: absolute;
-          filter: grayscale(100%) brightness(150%) contrast(125%) opacity(75%);
+          height: inherit;
+          width: inherit;
+          object-fit: contain;
           visibility: hidden;
           opacity: 0;
+          transition: all var(--gallery-carousel-timing);
+          filter: grayscale(100%) brightness(150%) contrast(125%) opacity(75%);
           &.enabled {
             filter: none;
           }
           &.selected {
             visibility: visible;
             opacity: 1;
-          }
-
-          @include mobile-portrait() {
-            width: 80%;
-            margin: 10% 0;
-          }
-
-          @include mobile-landscape() {
-            width: 75%;
-            margin: 10% 0;
           }
         }
       }
@@ -211,13 +230,37 @@ body.index {
             height: auto;
           }
         }
+        @include mobile-portrait() {
+          justify-content: flex-start;
+          .circle {
+            width: 14vw;
+            height: 14vw;
+            margin-left: -10vw;
+            img {
+              margin-top: 4.5vw;
+              margin-left: 8vw;
+            }
+          }
+        }
+        @include mobile-landscape() {
+          justify-content: center;
+        }
       }
       .select.right {
-        justify-content: flex-start;
+        justify-content: flex-end;
         .circle {
           img {
             margin-left: 2.25vw;
             transform: rotate(180deg);
+          }
+        }
+        @include mobile-portrait() {
+          .circle {
+            margin-right: -10vw;
+            img {
+              margin-left: 3vw;
+              transform: rotate(180deg);
+            }
           }
         }
       }

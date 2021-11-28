@@ -10,6 +10,8 @@
   --content: 2rem;
   --main-title: 3.6rem;
   --main-title-world: 8.6rem;
+  --main-description: 1.2rem;
+
   --artifact-title: 2.4rem;
   // --artifact-description: 1.35rem;
   --artifact-description: 2.4vmin;
@@ -25,7 +27,10 @@
   --explore-content-heading-weight: 600;
   --back-button-size: 2em;
 
-  @media (max-width: 576px), (max-height: 576px) {
+  @media (max-width: 851px), (max-height: 851px) {
+    --main-title: 2.4rem;
+    --main-title-world: 2.8rem;
+    --main-description: 0.8rem;
     --artifact-title: 4.5vmin;
     --artifact-description: 3vmin;
     --explore: 3.4vmin;
