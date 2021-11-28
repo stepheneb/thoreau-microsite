@@ -59,6 +59,10 @@
   --100vw: 100vw;
 }
 
+a {
+  pointer-events: all;
+}
+
 div.artifact {
   position: absolute;
   top: 0;
