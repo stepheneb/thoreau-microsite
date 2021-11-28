@@ -3,6 +3,10 @@
   --100vw: 100vw;
 }
 
+a {
+  pointer-events: all;
+}
+
 div.artifact {
   position: absolute;
   top: 0;
@@ -124,6 +128,7 @@ div.artifact {
     color: white;
     background-color: transparent;
     .absolute-content-container {
+      pointer-events: none;
       position: relative;
       visibility: hidden;
       transition: opacity var(--explore-content-timing),
@@ -275,6 +280,7 @@ div.artifact {
           visibility var(--explore-images-timing);
 
         .zoom-controls {
+          pointer-events: auto;
           position: absolute;
           right: 0%;
           bottom: 10%;
@@ -325,6 +331,7 @@ div.artifact {
   }
 
   .dropdown.explore-another-object {
+    pointer-events: auto;
     position: fixed;
     z-index: 3;
     visibility: hidden;
@@ -437,6 +444,7 @@ div.artifact {
   }
 
   .mute-button {
+    pointer-events: auto;
     height: 2em;
     display: flex;
     flex-direction: row;
@@ -477,6 +485,7 @@ div.artifact {
   }
 
   .unmute-footer {
+    pointer-events: auto;
     position: fixed;
     z-index: 3;
     opacity: 0.9;
@@ -535,12 +544,19 @@ div.artifact {
       position: relative;
       .mute-button {
         position: absolute;
-        z-index: 1;
+        z-index: 2;
         top: 10px;
         right: 10px;
+        padding: 0.2em 0.4em;
         color: var(--almost-white);
         svg {
           color: var(--almost-white);
+        }
+        &:hover {
+          color: white;
+          svg {
+            color: white;
+          }
         }
       }
 
