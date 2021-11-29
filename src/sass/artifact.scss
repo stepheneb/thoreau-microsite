@@ -253,6 +253,10 @@ div.artifact {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+        img {
+          width: inherit;
+          height: auto;
+        }
         @include mobile-portrait() {
           top: 30vh;
           height: 90vw;
