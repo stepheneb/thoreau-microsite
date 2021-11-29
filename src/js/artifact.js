@@ -47,7 +47,8 @@ const storeScroll = (callback, animationFrameImg, animationCount) => {
       callback(animationFrameNum, animationFrameImg);
     }
   }
-  container.dataset.contentscroll = Math.floor(window.scrollY / window.innerHeight + 0.60);
+  let contentScroll = Math.floor(window.scrollY / window.innerHeight + 0.60);
+  container.dataset.contentscroll = Math.min(app.maxContentScroll, contentScroll);
 };
 
 const storeScrollListener = (e, ...args) => {
