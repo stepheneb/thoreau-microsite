@@ -31,6 +31,7 @@
   --explore-content-heading: 4vmin;
   --explore-content-heading-weight: 600;
   --back-button-size: 2em;
+  --unmute-footer: 0.6em;
 }
 @media (max-width: 851px), (max-height: 851px) {
   :root {
@@ -44,10 +45,12 @@
     --explore-content: 3.8vmin;
     --explore-content-line-height: 150%;
     --explore-content-author: 0.7em;
+    --explore-content-mute-button: 1em;
     --explore-content-weight: 600;
-    --explore-content-heading: 5vmin;
+    --explore-content-heading: 4.5vmin;
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
+    --unmute-footer: 0.7em;
   }
 }
 
@@ -208,6 +211,15 @@ div.artifact .content .absolute-content-container hr {
   border-top: 1px solid black;
   opacity: 1;
 }
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container {
+    flex-direction: column;
+    justify-content: flex-start;
+    width: 100vw;
+    top: 0vh;
+    left: 0vw;
+  }
+}
 div.artifact .content .absolute-content-container .author {
   display: flex;
   flex-direction: column;
@@ -231,9 +243,8 @@ div.artifact .content .absolute-content-container .about-container {
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .about-container {
-    margin-left: 8vw;
-    width: 80vw;
-    max-width: 80vw;
+    margin: 0 5vw;
+    width: 90%;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 915px) and (orientation: landscape) {
@@ -247,24 +258,13 @@ div.artifact .content .absolute-content-container .about-container img {
   height: 8vmax;
   padding: 0.7vmax;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 915px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container .about-container img {
-    width: 6vmax;
-    height: 6vmax;
-    padding: 0.6vmax;
-  }
-}
-@media only screen and (min-device-width: 320px) and (max-device-width: 915px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container .about-container img {
-    width: 6vmax;
-    height: 6vmax;
-    padding: 0.6vmax;
-  }
-}
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .about-container img {
-    width: 6vmax;
-    height: 6vmax;
+    padding: 0.6vmax;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 915px) and (orientation: landscape) {
+  div.artifact .content .absolute-content-container .about-container img {
     padding: 0.6vmax;
   }
 }
@@ -286,6 +286,7 @@ div.artifact .content .absolute-content-container .about-container .title {
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .about-container .title {
     margin: 3vh 0 3vh 0;
+    width: 70vw;
   }
 }
 div.artifact .content .absolute-content-container .about-container hr {
@@ -411,6 +412,17 @@ div.artifact .dropdown.explore-another-object {
   right: 10vw;
   background-color: transparent;
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 915px) and (orientation: landscape) {
+  div.artifact .dropdown.explore-another-object {
+    width: 95%;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  div.artifact .dropdown.explore-another-object {
+    top: 2vh;
+    right: 2vw;
+  }
 }
 div.artifact .dropdown.explore-another-object button {
   padding: 0.35em 1.5em;
@@ -543,7 +555,7 @@ div.artifact .unmute-footer {
   width: 100vw;
   height: 4vh;
   padding: 0;
-  font-size: 0.5em;
+  font-size: var(--unmute-footer);
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
@@ -551,7 +563,8 @@ div.artifact .unmute-footer {
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   div.artifact .unmute-footer {
-    height: 4vh;
+    height: 5vh;
+    font-size: var(--unmute-footer);
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 915px) and (orientation: landscape) {
@@ -561,6 +574,7 @@ div.artifact .unmute-footer {
 }
 div.artifact .unmute-footer .label {
   margin-right: 1.5vw;
+  font-style: italic;
   color: var(--near-black);
 }
 div.artifact .unmute-footer .mute-button {
@@ -631,7 +645,7 @@ div.artifact .fixed-video-container .video-wrapper .mute-button:hover svg {
   color: white;
 }
 div.artifact .fixed-video-container .video-wrapper video {
-  width: 100%;
+  width: 90vw;
   height: auto;
   align-self: center;
   object-fit: contain;
@@ -895,6 +909,9 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
   div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.start {
     flex-direction: column;
     justify-content: flex-start;
+    width: 100vw;
+    top: 0vh;
+    left: 0vw;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 915px) and (orientation: landscape) {
@@ -924,8 +941,8 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.a-healthy-man {
     height: 98vh;
-    left: 30vw;
-    max-width: 50vw;
+    left: 10vw;
+    max-width: 80vw;
     color: var(--near-black);
   }
 }
