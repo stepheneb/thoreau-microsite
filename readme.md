@@ -67,7 +67,54 @@ The instructions for macOS suggest using the Node Version Manager **`nvm`** to i
 $ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 $ nvm install --lts
 ```
-
 Updating to a newer lts/Fermium version of Node.js and migrate any globally installed npm packagees.
 
 nvm install node --reinstall-packages-from=node
+
+**Generating `webm` from `mp4` with `ffmpeg`**
+
+Reference: see: https://trac.ffmpeg.org/wiki/Encode/VP9
+
+Equivalent to original quality:
+```
+$ cd src/media/video/winter-stream/
+$ ../../../../bin/mp4-to-webm.sh winter-stream-960x540.mp4
+...
+$ ls -lh winter-stream-960x540.*
+-rw-r--r--  1 stephen  staff    24M Nov 26 18:20 winter-stream-960x540.mp4
+-rw-r--r--  1 stephen  staff    21M Nov 29 13:29 winter-stream-960x540.webm
+```
+
+Generating webm and mp4 copies **while** limiting the average bit rate:
+
+Average bit rate: 2M
+```
+$ ../../../../bin/mp4-to-webm.sh winter-stream-960x540.mp4 2M
+...
+$ ls -lh winter-stream-960x540-2M.*
+-rw-r--r--  1 stephen  staff   9.0M Nov 29 15:03 winter-stream-960x540-2M.mp4
+-rw-r--r--  1 stephen  staff   8.8M Nov 29 15:02 winter-stream-960x540-2M.webm
+```
+
+Average bit rate: 1M
+```
+$ ../../../../bin/mp4-to-webm.sh winter-stream-960x540.mp4 1M
+...
+$ ls -lh winter-stream-960x540-1M.*
+-rw-r--r--  1 stephen  staff   4.8M Nov 29 15:00 winter-stream-960x540-1M.mp4
+-rw-r--r--  1 stephen  staff   4.5M Nov 29 15:00 winter-stream-960x540-1M.webm
+```
+Working with a smaller portrait clip of the same video.
+
+```
+$ ../../../../bin/mp4-to-webm.sh winter-stream-304x540.mp4
+$ ../../../../bin/mp4-to-webm.sh winter-stream-304x540.mp4 500k
+$ ../../../../bin/mp4-to-webm.sh winter-stream-304x540.mp4 250k
+$ ls -lSh winter-stream-304x540*
+-rw-r--r--  1 stephen  staff   7.4M Nov 29 15:18 winter-stream-304x540.webm
+-rw-r--r--  1 stephen  staff   6.6M Nov 26 18:20 winter-stream-304x540.mp4
+-rw-r--r--  1 stephen  staff   2.7M Nov 29 15:14 winter-stream-304x540-500k.mp4
+-rw-r--r--  1 stephen  staff   2.4M Nov 29 15:14 winter-stream-304x540-500k.webm
+-rw-r--r--  1 stephen  staff   1.6M Nov 29 15:16 winter-stream-304x540-250k.mp4
+-rw-r--r--  1 stephen  staff   1.4M Nov 29 15:15 winter-stream-304x540-250k.webm
+```

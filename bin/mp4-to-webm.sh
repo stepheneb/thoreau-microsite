@@ -24,14 +24,16 @@ fi
 MP4=$1
 NAME=${1%.*}
 
-BITRATE="2M"
-if [ $# -eq 2 ]
-then
+BITRATE=""
+if [ $# -eq 2 ]; then
   BITRATE=$2
-  WEBM="$1-$BITRATE.webm"
+  BITRATE_DESC=", average bitrate conversion to $BITRATE"
+  BITRATE_FLAG=true
+  WEBM_OUTPUT="$NAME-$BITRATE.webm"
 else
   BITRATE="0"
-  WEBM="$1.webm"
+  BITRATE_DESC=""
+  WEBM_OUTPUT="$NAME.webm"
 fi
 
 SPEEDUP="-threads 8 -speed 4 -row-mt 1"
@@ -40,7 +42,9 @@ SPEEDUP="-threads 8 -speed 4 -row-mt 1"
 # For two-pass targeting an average bitrate, the target bitrate is
 # specified with the -b:v switch:
 #
-# see: https://trac.ffmpeg.org/wiki/Encode/VP9
+# see:
+# - https://trac.ffmpeg.org/wiki/Encode/VP9
+# - https://trac.ffmpeg.org/wiki/Encode/H.264
 
 # ffmpeg -i $MP4 -c:v libvpx-vp9 -b:v $BITRATE -crf 30  -pass 1  -an -f null /dev/null && \
 # ffmpeg -i $MP4 -c:v libvpx-vp9 -b:v $BITRATE -crf 30  -pass 2 -c:a libopus -y $WEBM
@@ -48,14 +52,24 @@ SPEEDUP="-threads 8 -speed 4 -row-mt 1"
 # -threads 8 -speed 4 -row-mt 1
 
 CMD="ffmpeg -i $MP4 -c:v libvpx-vp9 -b:v $BITRATE -crf 30  -pass 1  -an -f null /dev/null &&
-ffmpeg -i $MP4 -c:v libvpx-vp9 -b:v $BITRATE -crf 30  -pass 2 -c:a libopus $SPEEDUP -y $WEBM"
+ffmpeg -i $MP4 -c:v libvpx-vp9 -b:v $BITRATE -crf 30  -pass 2 -c:a libopus $SPEEDUP -y $WEBM_OUTPUT"
 
 echo ""
+echo "Command: 2-pass MP4 to WEBM$BITRATE_DESC"
 echo $CMD
 echo ""
 
 eval "$CMD"
 
-if [ -f ffmpeg2pass*.log ]; then
-  rm -f ffmpeg2pass*.log
+if [ "$BITRATE_FLAG" = "true" ]; then
+  MP4_OUTPUT="$NAME-$BITRATE.mp4"
+  MP4_CMD="ffmpeg -i $MP4 -c:v libx264 -b:v $BITRATE -pass 1 -an -f null /dev/null &&
+  ffmpeg -i $MP4 -c:v libx264 -b:v $BITRATE -pass 2 -c:a aac -b:a 128k $SPEEDUP -y $MP4_OUTPUT"
+  echo ""
+  echo "Command: 2-pass MP4$BITRATE_DESC"
+  echo $MP4_CMD
+  echo ""
+  eval "$MP4_CMD"
 fi
+
+rm -f -- ffmpeg2pass*.log*
