@@ -26,6 +26,7 @@
   --explore-content-heading: 4vmin;
   --explore-content-heading-weight: 600;
   --back-button-size: 2em;
+  --unmute-footer: 0.6em;
 
   @media (max-width: 851px), (max-height: 851px) {
     --main-title: 2.4rem;
@@ -38,9 +39,11 @@
     --explore-content: 3.8vmin;
     --explore-content-line-height: 150%;
     --explore-content-author: 0.7em;
+    --explore-content-mute-button: 1em;
     --explore-content-weight: 600;
-    --explore-content-heading: 5vmin;
+    --explore-content-heading: 4.5vmin;
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
+    --unmute-footer: 0.7em;
   }
 }

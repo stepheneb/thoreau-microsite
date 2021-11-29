@@ -127,6 +127,7 @@ div.artifact {
     // min-width: 100vw;
     color: white;
     background-color: transparent;
+
     .absolute-content-container {
       pointer-events: none;
       position: relative;
@@ -143,6 +144,15 @@ div.artifact {
         border-top: 1px solid black;
         opacity: 1;
       }
+
+      @include mobile-portrait() {
+        flex-direction: column;
+        justify-content: flex-start;
+        width: 100vw;
+        top: 0vh;
+        left: 0vw;
+      }
+
       .author {
         display: flex;
         flex-direction: column;
@@ -164,9 +174,8 @@ div.artifact {
       .about-container {
         width: 22vw;
         @include mobile-portrait() {
-          margin-left: 8vw;
-          width: 80vw;
-          max-width: 80vw;
+          margin: 0 5vw;
+          width: 90%;
         }
         @include mobile-landscape() {
           width: 35vw;
@@ -177,19 +186,10 @@ div.artifact {
           width: 8vmax;
           height: 8vmax;
           padding: 0.7vmax;
-          @include mobile-landscape() {
-            width: 6vmax;
-            height: 6vmax;
-            padding: 0.6vmax;
-          }
-          @include mobile-landscape() {
-            width: 6vmax;
-            height: 6vmax;
-            padding: 0.6vmax;
-          }
           @include mobile-portrait() {
-            width: 6vmax;
-            height: 6vmax;
+            padding: 0.6vmax;
+          }
+          @include mobile-landscape() {
             padding: 0.6vmax;
           }
         }
@@ -201,6 +201,7 @@ div.artifact {
           }
           @include mobile-portrait() {
             margin: 3vh 0 3vh 0;
+            width: 70vw;
           }
           font-family: "Libre Caslon Text", serif;
           font-size: var(--artifact-title);
@@ -333,6 +334,15 @@ div.artifact {
     background-color: transparent;
     transition: opacity var(--explore-images-timing),
       visibility var(--explore-images-timing);
+
+    @include mobile-landscape() {
+      width: 95%;
+    }
+    @include mobile-portrait() {
+      top: 2vh;
+      right: 2vw;
+    }
+
     button {
       padding: 0.35em 1.5em;
       border: none;
@@ -476,9 +486,10 @@ div.artifact {
     width: 100vw;
     height: 4vh;
     padding: 0;
-    font-size: 0.5em;
+    font-size: var(--unmute-footer);
     @include mobile-portrait() {
-      height: 4vh;
+      height: 5vh;
+      font-size: var(--unmute-footer);
     }
     @include mobile-landscape() {
       height: 6vh;
@@ -490,6 +501,7 @@ div.artifact {
     align-items: center;
     .label {
       margin-right: 1.5vw;
+      font-style: italic;
       color: var(--near-black);
     }
     .mute-button {
@@ -558,7 +570,7 @@ div.artifact {
       }
 
       video {
-        width: 100%;
+        width: 90vw;
         height: auto;
         align-self: center;
         object-fit: contain;

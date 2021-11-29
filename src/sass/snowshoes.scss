@@ -49,6 +49,9 @@ div.artifact.snowshoes {
         @include mobile-portrait() {
           flex-direction: column;
           justify-content: flex-start;
+          width: 100vw;
+          top: 0vh;
+          left: 0vw;
         }
 
         @include mobile-landscape() {
@@ -76,8 +79,8 @@ div.artifact.snowshoes {
         }
         @include mobile-portrait() {
           height: 98vh;
-          left: 30vw;
-          max-width: 50vw;
+          left: 10vw;
+          max-width: 80vw;
           color: var(--near-black);
         }
       }
