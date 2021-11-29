@@ -1,10 +1,13 @@
 /*jshint esversion: 8 */
 /*global  app */
 
-// app.dev = true;
+app.dev = true;
+
+app.firstUserSoundOnRequest = true;
 
 let muteButtons, unmuteFooter, soundOnOffButton, container, animationFrameImg,
-  zoomMinus, zoomPlus, artifactImage, afCallback, aCount, storeScrollArguments;
+  zoomMinus, zoomPlus, artifactImage, afCallback, aCount, storeScrollArguments,
+  audioElement;
 
 // The debounce function receives our function as a parameter
 const debounce = (fn) => {
@@ -129,6 +132,16 @@ let updatemediaCollection = (muteStateChanged = false) => {
   let isNotVisible = (item) => {
     return item.visibility == 'hidden' || item.opacity < 1;
   }
+  let paused = (item) => {
+    let p = item.mediaPlayer.paused || audioElement.paused;
+    app.logger('paused', item.mediaPlayer.id, p);
+    return p;
+  }
+  // let reset = (item) => {
+  //   app.logger('reset', item.mediaPlayer.id);
+  //   item.mediaPlayer.currentTime = 0;
+  //   audioElement.currentTime = 0;
+  // }
   let visibilityChanged = (item) => {
     item.computedStyle = getComputedStyle(item.container);
     let changed = false;
@@ -138,8 +151,11 @@ let updatemediaCollection = (muteStateChanged = false) => {
   let stopAudio = (item) => {
     app.logger('stopAudio', item.mediaPlayer.id);
     if (isAudioItem(item)) {
-      item.mediaPlayer.pause();
       item.mediaPlayer.currentTime = 0;
+      if (item.mediaPlayer.src == audioElement.src) {
+        audioElement.pause();
+        audioElement.currentTime = 0;
+      }
       window.clearTimeout(item.startPlayTimeoutID);
     } else if (isVideoItem(item)) {
       item.mediaPlayer.setAttribute('muted', 'muted')
@@ -149,16 +165,24 @@ let updatemediaCollection = (muteStateChanged = false) => {
       console.error('unknow media type:', item.mediaPlayer);
     }
   }
-  let stopAll = () => {
-    mediaCollection.forEach((item) => stopAudio(item));
+  // let stopAll = () => {
+  //   mediaCollection.forEach((item) => stopAudio(item));
+  // }
+  let stopOthers = (item) => {
+    mediaCollection.forEach((i) => {
+      if (i.id !== item.id) {
+        stopAudio(i);
+      }
+    })
   }
-
   let play = (item) => {
     app.logger('play', item.mediaPlayer.id);
     if (isAudioItem(item)) {
-      stopAll();
+      stopOthers(item);
       item.startPlayTimeoutID = setTimeout(() => {
-        item.mediaPlayer.play();
+        audioElement.src = item.mediaPlayer.src;
+        audioElement.play();
+        // item.mediaPlayer.play();
       }, startPlayDelay);
     } else if (isVideoItem(item)) {
       item.startPlayTimeoutID = setTimeout(() => {
@@ -170,8 +194,8 @@ let updatemediaCollection = (muteStateChanged = false) => {
   let updateMedia = (item) => {
     if (isVisible(item)) {
       if (soundOnOff == 'on') {
-        if (isAudioItem(item) && item.mediaPlayer.paused && !item.played) {
-          item.mediaPlayer.currentTime = 0;
+        if (isAudioItem(item) && paused(item) && !item.played) {
+          // reset(item);
           play(item);
         } else if (isVideoItem(item)) {
           item.mediaPlayer.removeAttribute("muted");
@@ -215,6 +239,11 @@ let updatemediaCollectionListener = () => {
 }
 
 let processSoundControls = () => {
+  if (app.firstUserSoundOnRequest) {
+    audioElement.removeAttribute('muted');
+    audioElement.play();
+    app.firstUserSoundOnRequest = false;
+  }
   let currentState = soundOnOffButton.dataset.sound;
   let updateSoundControl = (el) => {
     let onChildren = el.querySelectorAll('*.on');
@@ -250,9 +279,23 @@ let processSoundControls = () => {
   updatemediaCollection(true);
 }
 
+let silentSrc = './media/audio/silence-0.01s.mp3';
+
+let createSilentAudioClip = () => {
+  audioElement = document.createElement('audio');
+  audioElement.id = 'audio';
+  audioElement.src = silentSrc;
+  audioElement.type = 'audio/mpeg';
+  // audioElement.muted = 'muted';
+  container.appendChild(audioElement);
+};
+
 // eslint-disable-next-line no-unused-vars
 const startup = (id, callback, count) => {
+
   container = document.getElementById(id);
+  createSilentAudioClip();
+
   afCallback = callback;
   animationFrameImg = document.getElementById('animation-frame');
   aCount = count;
@@ -284,12 +327,17 @@ const startup = (id, callback, count) => {
   if (soundOnOffButton) {
     soundOnOffButton.addEventListener('click', () => {
       app.logger('sound-on-off clicked');
+      if (audioElement.src == silentSrc) {
+        audioElement.play();
+      }
       processSoundControls();
     });
     muteButtons = document.querySelectorAll('.mute-button.secondary');
 
     muteButtons.forEach((muteButton) => {
-      muteButton.addEventListener('click', () => processSoundControls(muteButton));
+      muteButton.addEventListener('click', () => {
+        processSoundControls(muteButton);
+      })
     })
     document.addEventListener('scroll', debounce(updatemediaCollectionListener), { passive: true });
 
