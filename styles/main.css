@@ -1,8 +1,10 @@
 /* color variables */
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
 :root {
-  --thoreau-blue: #77bece;
-  --thoreau-rgba-blue: rgba(119, 190, 206, 1);
+  --thoreau-blue-old: #77bece;
+  --thoreau-blue: #5dc0d0;
+  --thoreau-rgba-blue-old: rgba(119, 190, 206, 1);
+  --thoreau-rgba-blue: rgba(93, 192, 208, 1);
   --border-gray: gray;
   --border-light-gray: #ddd;
   --near-black: #25334b;
@@ -18,15 +20,16 @@
   --main-title: 3.6rem;
   --main-title-world: 8.6rem;
   --main-description: 1.2rem;
-  --artifact-title: 2.4rem;
-  --artifact-description: 2.4vmin;
+  --artifact-title: 2.3rem;
+  --artifact-description: 1.3rem;
+  --artifact-description-line-height: 2.9rem;
   --explore: 2.6vmin;
   --explore-another: 1.8vmin;
-  --explore-button: 1em;
-  --explore-content: 2.6vmin;
+  --explore-button: 0.9rem;
+  --explore-content: 1.35rem;
   --explore-content-line-height: 160%;
   --explore-content-author: 1rem;
-  --explore-content-mute-button: 0.7em;
+  --explore-content-mute-button: 0.8rem;
   --explore-content-weight: 400;
   --explore-content-heading: 4vmin;
   --explore-content-heading-weight: 600;
@@ -39,7 +42,7 @@
     --main-title-world: 2.8rem;
     --main-description: 0.8rem;
     --artifact-title: 4.5vmin;
-    --artifact-description: 3vmin;
+    --artifact-description: 0.5rem;
     --explore: 3.4vmin;
     --explore-button: 2.8vmin;
     --explore-content: 3.8vmin;
@@ -53,6 +56,18 @@
     --unmute-footer: 0.7em;
   }
 }
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  :root {
+    --artifact-description: 0.8rem;
+    --artifact-description-line-height: 1.4rem;
+  }
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 915px) and (orientation: landscape) {
+  :root {
+    --artifact-description: 0.8rem;
+    --artifact-description-line-height: 1.4rem;
+  }
+}
 
 :root {
   --explore-images-timing: 0.5s 0s ease-in-out;
@@ -64,6 +79,10 @@
 :root {
   --100vh: 100vh;
   --100vw: 100vw;
+}
+
+body {
+  font-size: calc(10px + 16 * (100vw - 300px) / 1300);
 }
 
 a {
@@ -199,12 +218,15 @@ div.artifact .content {
 div.artifact .content .absolute-content-container {
   pointer-events: none;
   position: relative;
+  top: 4vh;
+  left: 5vw;
   visibility: hidden;
   transition: opacity var(--explore-content-timing), visibility var(--explore-content-timing), position var(--explore-content-timing);
   opacity: 0;
   max-width: 40vw;
   line-height: var(--explore-content-line-height);
   font-size: var(--explore-content);
+  font-weight: 300;
 }
 div.artifact .content .absolute-content-container hr {
   width: 25%;
@@ -220,26 +242,8 @@ div.artifact .content .absolute-content-container hr {
     left: 0vw;
   }
 }
-div.artifact .content .absolute-content-container .author {
-  display: flex;
-  flex-direction: column;
-  align-items: baseline;
-  justify-content: space-between;
-  font-family: "Nunito Sans", sans-serif;
-  font-size: var(--explore-content-author);
-  opacity: 1;
-}
-div.artifact .content .absolute-content-container .author .name {
-  text-transform: uppercase;
-}
-div.artifact .content .absolute-content-container .author .name.thoreau {
-  color: black;
-}
-div.artifact .content .absolute-content-container .author audio {
-  display: none;
-}
 div.artifact .content .absolute-content-container .about-container {
-  width: 22vw;
+  width: 28vw;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .about-container {
@@ -253,24 +257,34 @@ div.artifact .content .absolute-content-container .about-container {
     max-width: 35vw;
   }
 }
-div.artifact .content .absolute-content-container .about-container img {
-  width: 8vmax;
-  height: 8vmax;
-  padding: 0.7vmax;
+@media only screen and (min-device-width: 320px) and (max-device-width: 915px) and (orientation: landscape) {
+  div.artifact .content .absolute-content-container .about-container .header {
+    display: flex;
+    align-items: flex-end;
+  }
+}
+div.artifact .content .absolute-content-container .about-container .header img.pine-tree-border-icon {
+  width: 7rem;
+  height: 7rem;
+  padding: 0.5rem;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container .about-container img {
-    padding: 0.6vmax;
+  div.artifact .content .absolute-content-container .about-container .header img.pine-tree-border-icon {
+    width: 5rem;
+    height: 5rem;
+    padding: 0.5rem;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 915px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container .about-container img {
-    padding: 0.6vmax;
+  div.artifact .content .absolute-content-container .about-container .header img.pine-tree-border-icon {
+    width: 4rem;
+    height: 4rem;
+    padding: 0.5rem;
   }
 }
-div.artifact .content .absolute-content-container .about-container .title {
+div.artifact .content .absolute-content-container .about-container .header .title {
   width: 30vw;
-  margin: 4vh 0 5vh 0;
+  margin: 4.5vh 0 5.5vh 0;
   font-family: "Libre Caslon Text", serif;
   font-size: var(--artifact-title);
   font-weight: 600;
@@ -279,19 +293,19 @@ div.artifact .content .absolute-content-container .about-container .title {
   text-transform: capitalize;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 915px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container .about-container .title {
+  div.artifact .content .absolute-content-container .about-container .header .title {
     margin: 4vh 0 4vh 0;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container .about-container .title {
+  div.artifact .content .absolute-content-container .about-container .header .title {
     margin: 3vh 0 3vh 0;
     width: 70vw;
   }
 }
 div.artifact .content .absolute-content-container .about-container hr {
   display: block;
-  width: 12vw;
+  width: 10vw;
   height: 1px;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
@@ -305,10 +319,11 @@ div.artifact .content .absolute-content-container .about-container hr {
   }
 }
 div.artifact .content .absolute-content-container .about-container .description {
-  margin: 4vh 0;
+  margin: 4.5vh 0;
   width: 100%;
   font-size: var(--artifact-description);
-  line-height: 2.1em;
+  line-height: var(--artifact-description-line-height);
+  font-weight: 300;
   letter-spacing: 1px;
   color: black;
 }
@@ -322,7 +337,7 @@ div.artifact .content .absolute-content-container .about-container .description 
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .about-container .description {
-    width: 80%;
+    width: 100%;
     margin: 2vh 0;
   }
 }
@@ -375,7 +390,7 @@ div.artifact .content .absolute-content-container .image-container .zoom-control
   position: absolute;
   right: 0%;
   bottom: 10%;
-  height: 1.8em;
+  height: 1.9rem;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -384,12 +399,15 @@ div.artifact .content .absolute-content-container .image-container .zoom-control
   border-radius: 1em;
   background-color: black;
 }
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container .image-container .zoom-controls {
+    bottom: 2%;
+  }
+}
 div.artifact .content .absolute-content-container .image-container .zoom-controls button {
   padding: 0;
-  margin: 0.1em 0.25em;
-  width: 0.6em;
-  font-size: 1.8em;
-  color: lightgray;
+  margin: 0.1rem 0.35rem;
+  width: 0.8rem;
   background-color: transparent;
   border: none;
   box-sizing: border-box;
@@ -398,13 +416,32 @@ div.artifact .content .absolute-content-container .image-container .zoom-control
   justify-content: center;
 }
 div.artifact .content .absolute-content-container .image-container .zoom-controls button img {
-  width: 0.4em;
+  width: 1rem;
   height: auto;
+  margin: 0 0.4rem;
 }
 div.artifact .content .absolute-content-container .image-container .zoom-controls .v-divide {
-  width: 0.15em;
+  width: 0.1rem;
   background-color: white;
   height: auto;
+}
+div.artifact .content .absolute-content-container .author {
+  display: flex;
+  flex-direction: column;
+  align-items: baseline;
+  justify-content: space-between;
+  font-family: "Nunito Sans", sans-serif;
+  font-size: var(--explore-content-author);
+  opacity: 1;
+}
+div.artifact .content .absolute-content-container .author .name {
+  text-transform: uppercase;
+}
+div.artifact .content .absolute-content-container .author .name.thoreau {
+  color: black;
+}
+div.artifact .content .absolute-content-container .author audio {
+  display: none;
 }
 div.artifact .dropdown.explore-another-object {
   pointer-events: auto;
@@ -413,7 +450,7 @@ div.artifact .dropdown.explore-another-object {
   visibility: hidden;
   opacity: 0;
   top: 5vh;
-  right: 10vw;
+  right: 5vw;
   background-color: transparent;
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
 }
@@ -434,6 +471,8 @@ div.artifact .dropdown.explore-another-object button {
   border-radius: 1.25em;
   background-color: black;
   font-size: var(--explore-button);
+  color: var(--almost-white);
+  font-weight: 300;
 }
 div.artifact .dropdown.explore-another-object button:focus {
   box-shadow: none;
@@ -488,11 +527,13 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
 }
 div.artifact .arrow-scroll-down {
   position: fixed;
+  top: 94vh;
   z-index: 3;
   visibility: hidden;
   opacity: 0;
-  top: 94vh;
-  left: 45vw;
+  width: 100%;
+  display: flex;
+  justify-content: center;
   background-color: transparent;
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
 }
@@ -509,14 +550,19 @@ div.artifact .arrow-scroll-down a i:hover {
   color: white;
 }
 div.artifact .mute-button {
+  font-size: var(--explore-content-mute-button);
+  text-transform: uppercase;
   pointer-events: auto;
   height: 2em;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
-  font-size: var(--explore-content-mute-button);
-  text-transform: uppercase;
+}
+div.artifact .mute-button.secondary {
+  position: fixed;
+  bottom: 3vh;
+  right: 5vw;
 }
 div.artifact .mute-button div {
   margin-right: 0.2em;
@@ -542,7 +588,7 @@ div.artifact .mute-button svg.on {
 div.artifact .mute-button svg + div {
   display: block;
   margin-left: -0.2em;
-  padding-bottom: 0.1em;
+  padding-bottom: 0.2em;
   text-transform: none;
 }
 div.artifact .mute-button > * {
@@ -688,8 +734,6 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.sta
   max-width: 90vw;
   display: flex;
   flex-direction: row;
-  top: 5vh;
-  left: 5vw;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.start {
@@ -788,9 +832,12 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
   overflow-x: hidden;
 }
 
+#spyglass[data-contentscroll="0"] .arrow-scroll-down img {
+  content: url("../media/images/arrow-scroll-down.png");
+}
 #spyglass[data-contentscroll="0"] .background-image-container.spyglass:before {
   background-color: white;
-  background-image: url("../media/images/thoreau_handwriting_dark_background.png");
+  background-image: url("../media/images/thoreau-handwriting-dark-background.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -824,6 +871,13 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
   opacity: 1;
 }
 
+#spyglass[data-contentscroll="1"] .background-image-container.spyglass:before {
+  background-color: var(--thoreau-rgba-blue);
+  background-image: url("../media/images/thoreau-handwriting-light-background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
 #spyglass[data-contentscroll="1"] img.spyglass-photo-rotated {
   visibility: visible;
   opacity: 1;
@@ -836,8 +890,16 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
 #spyglass[data-contentscroll="2"] .absolute-content-container.spyglass.curious {
   position: sticky;
   margin-top: 18vh;
+  width: 26vw;
+  left: 68vw;
   visibility: visible;
   opacity: 1;
+}
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+  #spyglass[data-contentscroll="2"] .absolute-content-container.spyglass.curious {
+    width: 50vw;
+    left: 40vw;
+  }
 }
 #spyglass[data-contentscroll="2"] .arrow-scroll-down {
   visibility: visible;
@@ -960,7 +1022,7 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
 
 #snowshoes[data-contentscroll="0"] .background-image-container.snowshoes:before {
   background-color: white;
-  background-image: url("../media/images/thoreau_handwriting_dark_background.png");
+  background-image: url("../media/images/thoreau-handwriting-dark-background.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
@@ -1036,7 +1098,7 @@ body.index {
   font-size: 16px;
   color: black;
   background-color: white;
-  background-image: url("../media/images/thoreau_handwriting_dark_background.png");
+  background-image: url("../media/images/thoreau-handwriting-dark-background.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
