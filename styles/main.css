@@ -456,7 +456,8 @@ div.artifact .dropdown.explore-another-object {
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 915px) and (orientation: landscape) {
   div.artifact .dropdown.explore-another-object {
-    width: 95%;
+    top: 2vh;
+    right: 2vw;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
