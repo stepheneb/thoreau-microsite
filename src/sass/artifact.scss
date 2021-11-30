@@ -360,7 +360,8 @@ div.artifact {
       visibility var(--explore-images-timing);
 
     @include mobile-landscape() {
-      width: 95%;
+      top: 2vh;
+      right: 2vw;
     }
     @include mobile-portrait() {
       top: 2vh;
