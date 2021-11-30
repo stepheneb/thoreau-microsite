@@ -12,16 +12,19 @@
   --main-title-world: 8.6rem;
   --main-description: 1.2rem;
 
-  --artifact-title: 2.4rem;
+  --artifact-title: 2.3rem;
+
   // --artifact-description: 1.35rem;
-  --artifact-description: 2.4vmin;
+  --artifact-description: 1.3rem;
+  --artifact-description-line-height: 2.9rem;
+
   --explore: 2.6vmin;
   --explore-another: 1.8vmin;
-  --explore-button: 1em;
-  --explore-content: 2.6vmin;
+  --explore-button: 0.9rem;
+  --explore-content: 1.35rem;
   --explore-content-line-height: 160%;
   --explore-content-author: 1rem;
-  --explore-content-mute-button: 0.7em;
+  --explore-content-mute-button: 0.8rem;
   --explore-content-weight: 400;
   --explore-content-heading: 4vmin;
   --explore-content-heading-weight: 600;
@@ -33,7 +36,7 @@
     --main-title-world: 2.8rem;
     --main-description: 0.8rem;
     --artifact-title: 4.5vmin;
-    --artifact-description: 3vmin;
+    --artifact-description: 0.5rem;
     --explore: 3.4vmin;
     --explore-button: 2.8vmin;
     --explore-content: 3.8vmin;
@@ -45,5 +48,13 @@
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
     --unmute-footer: 0.7em;
+  }
+  @include mobile-portrait() {
+    --artifact-description: 0.8rem;
+    --artifact-description-line-height: 1.4rem;
+  }
+  @include mobile-landscape() {
+    --artifact-description: 0.8rem;
+    --artifact-description-line-height: 1.4rem;
   }
 }

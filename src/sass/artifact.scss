@@ -3,6 +3,10 @@
   --100vw: 100vw;
 }
 
+body {
+  font-size: calc(10px + (26 - 10) * ((100vw - 300px) / (1600 - 300)));
+}
+
 a {
   pointer-events: all;
 }
@@ -123,14 +127,14 @@ div.artifact {
     z-index: 1;
     margin: 0;
     padding: 0;
-    // min-height: 100vh;
-    // min-width: 100vw;
     color: white;
     background-color: transparent;
 
     .absolute-content-container {
       pointer-events: none;
       position: relative;
+      top: 4vh;
+      left: 5vw;
       visibility: hidden;
       transition: opacity var(--explore-content-timing),
         visibility var(--explore-content-timing),
@@ -139,6 +143,7 @@ div.artifact {
       max-width: 40vw;
       line-height: var(--explore-content-line-height);
       font-size: var(--explore-content);
+      font-weight: 300;
       hr {
         width: 25%;
         border-top: 1px solid black;
@@ -153,26 +158,8 @@ div.artifact {
         left: 0vw;
       }
 
-      .author {
-        display: flex;
-        flex-direction: column;
-        align-items: baseline;
-        justify-content: space-between;
-        font-family: "Nunito Sans", sans-serif;
-        font-size: var(--explore-content-author);
-        opacity: 1;
-        .name {
-          text-transform: uppercase;
-          &.thoreau {
-            color: black;
-          }
-        }
-        audio {
-          display: none;
-        }
-      }
       .about-container {
-        width: 22vw;
+        width: 28vw;
         @include mobile-portrait() {
           margin: 0 5vw;
           width: 90%;
@@ -182,37 +169,47 @@ div.artifact {
           max-width: 35vw;
         }
 
-        img {
-          width: 8vmax;
-          height: 8vmax;
-          padding: 0.7vmax;
-          @include mobile-portrait() {
-            padding: 0.6vmax;
-          }
+        .header {
           @include mobile-landscape() {
-            padding: 0.6vmax;
+            display: flex;
+            align-items: flex-end;
           }
-        }
-        .title {
-          width: 30vw;
-          margin: 4vh 0 5vh 0;
-          @include mobile-landscape() {
-            margin: 4vh 0 4vh 0;
+          img.pine-tree-border-icon {
+            width: 7rem;
+            height: 7rem;
+            padding: 0.5rem;
+            @include mobile-portrait() {
+              width: 5rem;
+              height: 5rem;
+              padding: 0.5rem;
+            }
+            @include mobile-landscape() {
+              width: 4rem;
+              height: 4rem;
+              padding: 0.5rem;
+            }
           }
-          @include mobile-portrait() {
-            margin: 3vh 0 3vh 0;
-            width: 70vw;
+          .title {
+            width: 30vw;
+            margin: 4.5vh 0 5.5vh 0;
+            @include mobile-landscape() {
+              margin: 4vh 0 4vh 0;
+            }
+            @include mobile-portrait() {
+              margin: 3vh 0 3vh 0;
+              width: 70vw;
+            }
+            font-family: "Libre Caslon Text", serif;
+            font-size: var(--artifact-title);
+            font-weight: 600;
+            color: var(--thoreau-blue);
+            line-height: 1.1em;
+            text-transform: capitalize;
           }
-          font-family: "Libre Caslon Text", serif;
-          font-size: var(--artifact-title);
-          font-weight: 600;
-          color: var(--thoreau-blue);
-          line-height: 1.1em;
-          text-transform: capitalize;
         }
         hr {
           display: block;
-          width: 12vw;
+          width: 10vw;
           height: 1px;
           @include mobile-portrait() {
             display: none;
@@ -222,10 +219,11 @@ div.artifact {
           }
         }
         .description {
-          margin: 4vh 0;
+          margin: 4.5vh 0;
           width: 100%;
           font-size: var(--artifact-description);
-          line-height: 2.1em;
+          line-height: var(--artifact-description-line-height);
+          font-weight: 300;
           letter-spacing: 1px;
           color: black;
           span.first-line {
@@ -235,7 +233,7 @@ div.artifact {
             width: 95%;
           }
           @include mobile-portrait() {
-            width: 80%;
+            width: 100%;
             margin: 2vh 0;
           }
         }
@@ -289,7 +287,12 @@ div.artifact {
           position: absolute;
           right: 0%;
           bottom: 10%;
-          height: 1.8em;
+          height: 1.9rem;
+          @include mobile-portrait() {
+            bottom: 2%;
+          }
+          @include mobile-landscape() {
+          }
 
           display: flex;
           flex-direction: row;
@@ -302,10 +305,8 @@ div.artifact {
 
           button {
             padding: 0;
-            margin: 0.1em 0.25em;
-            width: 0.6em;
-            font-size: 1.8em;
-            color: lightgray;
+            margin: 0.1rem 0.35rem;
+            width: 0.8rem;
             background-color: transparent;
             border: none;
             box-sizing: border-box;
@@ -313,15 +314,34 @@ div.artifact {
             align-items: center;
             justify-content: center;
             img {
-              width: 0.4em;
+              width: 1rem;
               height: auto;
+              margin: 0 0.4rem;
             }
           }
           .v-divide {
-            width: 0.15em;
+            width: 0.1rem;
             background-color: white;
             height: auto;
           }
+        }
+      }
+      .author {
+        display: flex;
+        flex-direction: column;
+        align-items: baseline;
+        justify-content: space-between;
+        font-family: "Nunito Sans", sans-serif;
+        font-size: var(--explore-content-author);
+        opacity: 1;
+        .name {
+          text-transform: uppercase;
+          &.thoreau {
+            color: black;
+          }
+        }
+        audio {
+          display: none;
         }
       }
     }
@@ -334,7 +354,7 @@ div.artifact {
     visibility: hidden;
     opacity: 0;
     top: 5vh;
-    right: 10vw;
+    right: 5vw;
     background-color: transparent;
     transition: opacity var(--explore-images-timing),
       visibility var(--explore-images-timing);
@@ -353,6 +373,8 @@ div.artifact {
       border-radius: 1.25em;
       background-color: black;
       font-size: var(--explore-button);
+      color: var(--almost-white);
+      font-weight: 300;
       &:focus {
         box-shadow: none;
       }
@@ -414,11 +436,13 @@ div.artifact {
 
   .arrow-scroll-down {
     position: fixed;
+    top: 94vh;
     z-index: 3;
     visibility: hidden;
     opacity: 0;
-    top: 94vh;
-    left: 45vw;
+    width: 100%;
+    display: flex;
+    justify-content: center;
     @include mobile-portrait() {
     }
     @include mobile-landscape() {
@@ -439,14 +463,19 @@ div.artifact {
   }
 
   .mute-button {
+    font-size: var(--explore-content-mute-button);
+    text-transform: uppercase;
+    &.secondary {
+      position: fixed;
+      bottom: 3vh;
+      right: 5vw;
+    }
     pointer-events: auto;
     height: 2em;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
     align-items: center;
-    font-size: var(--explore-content-mute-button);
-    text-transform: uppercase;
     div {
       margin-right: 0.2em;
       margin-bottom: -0.1em;
@@ -471,7 +500,7 @@ div.artifact {
     svg + div {
       display: block;
       margin-left: -0.2em;
-      padding-bottom: 0.1em;
+      padding-bottom: 0.2em;
       text-transform: none;
     }
     > * {

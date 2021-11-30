@@ -2,8 +2,10 @@
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
 
 :root {
-  --thoreau-blue: #77bece;
-  --thoreau-rgba-blue: rgba(119, 190, 206, 1);
+  --thoreau-blue-old: #77bece;
+  --thoreau-blue: #5dc0d0;
+  --thoreau-rgba-blue-old: rgba(119, 190, 206, 1);
+  --thoreau-rgba-blue: rgba(93, 192, 208, 1);
   --border-gray: gray;
   --border-light-gray: #ddd;
   --near-black: #25334b;
