@@ -16,9 +16,11 @@ const animationFrameCallback = (animationFrameNum, animationFrameImg) => {
 
 let animation = {
   callback: animationFrameCallback,
-  start: 46,
-  count: 243 - 45
+  startFrame: 46,
+  countFrames: 244 - 46,
+  startScroll: 1.55,
+  scrollLength: 2
 }
-app.maxContentScroll = 6;
+app.maxContentScroll = 8;
 
 app.domReady(startup('spyglass', animation));
