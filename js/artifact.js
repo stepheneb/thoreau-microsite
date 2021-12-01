@@ -55,7 +55,7 @@ const storeScroll = (callback, animationFrameImg, animationCount, animationStart
 
     }
   }
-  let contentScroll = Math.floor(window.scrollY / window.innerHeight + 0.60);
+  let contentScroll = Math.floor(window.scrollY / window.innerHeight + 0.40);
   container.dataset.contentscroll = Math.min(app.maxContentScroll, contentScroll);
 };
 
@@ -301,9 +301,13 @@ const startup = (id, animation) => {
   container = document.getElementById(id);
   createSilentAudioClip();
 
-  afCallback = animation.callback;
-  afStart = animation.start;
-  afCount = animation.count;
+  if (animation == undefined) {
+    afCallback = null;
+  } else {
+    afCallback = animation.callback;
+    afStart = animation.start;
+    afCount = animation.count;
+  }
   animationFrameImg = document.getElementById('animation-frame');
 
   storeScrollArguments = [afCallback, animationFrameImg, afCount, afStart];
