@@ -36,7 +36,7 @@
   --back-button-size: 2em;
   --unmute-footer: 0.6em;
 }
-@media (min-aspect-ratio: 2/1) and (min-width: 1280px) {
+@media (min-aspect-ratio: 5/2) and (min-width: 1280px) {
   :root {
     --artifact-title: 2rem;
     --artifact-description: 1.2rem;
@@ -181,7 +181,7 @@ div.artifact .content .absolute-content-container .about-container {
     align-items: flex-end;
   }
 }
-@media (min-aspect-ratio: 2/1) and (min-width: 1280px) {
+@media (min-aspect-ratio: 5/2) and (min-width: 1280px) {
   div.artifact .content .absolute-content-container .about-container .header {
     display: flex;
     align-items: flex-end;
@@ -220,7 +220,7 @@ div.artifact .content .absolute-content-container .about-container .header img {
     margin: 0.5rem 0.5rem 0.5rem 0;
   }
 }
-@media (min-aspect-ratio: 2/1) and (min-width: 1280px) {
+@media (min-aspect-ratio: 5/2) and (min-width: 1280px) {
   div.artifact .content .absolute-content-container .about-container .header img {
     width: 6rem;
     height: 6rem;
@@ -829,7 +829,7 @@ div.artifact .fixed-video-container .video-wrapper video {
 }
 
 body#spyglass {
-  height: 710vh;
+  height: 810vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -855,7 +855,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.cur
   width: 26vw;
   max-width: 30vw;
   margin-top: 18vh;
-  height: 110vh;
+  height: 200vh;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.curious {
@@ -871,7 +871,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
   top: 3em;
   left: 4em;
   max-width: 25vw;
-  height: 225vh;
+  height: 200vh;
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
@@ -1045,7 +1045,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   opacity: 1;
 }
 
-#spyglass[data-contentscroll="3"] .absolute-content-container.spyglass.his-experiments {
+#spyglass[data-contentscroll="3"] .absolute-content-container.spyglass.curious {
   visibility: visible;
   opacity: 1;
 }
@@ -1054,12 +1054,16 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   opacity: 1;
 }
 
+#spyglass[data-contentscroll="4"] .absolute-content-container.spyglass.his-experiments {
+  visibility: visible;
+  opacity: 1;
+}
 #spyglass[data-contentscroll="4"] .arrow-scroll-down {
   visibility: visible;
   opacity: 1;
 }
 
-#spyglass[data-contentscroll="5"] .absolute-content-container.spyglass.some-scientific {
+#spyglass[data-contentscroll="5"] .absolute-content-container.spyglass.his-experiments {
   visibility: visible;
   opacity: 1;
 }
@@ -1068,21 +1072,30 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   opacity: 1;
 }
 
-#spyglass[data-contentscroll="6"] .background-image-container.spyglass:before {
+#spyglass[data-contentscroll="6"] .absolute-content-container.spyglass.some-scientific {
+  visibility: visible;
+  opacity: 1;
+}
+#spyglass[data-contentscroll="6"] .arrow-scroll-down {
+  visibility: visible;
+  opacity: 1;
+}
+
+#spyglass[data-contentscroll="7"] .background-image-container.spyglass:before {
   background-image: url("../media/images/shoreline-and-water.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-#spyglass[data-contentscroll="6"] .absolute-content-container.spyglass.would-it-not {
+#spyglass[data-contentscroll="7"] .absolute-content-container.spyglass.would-it-not {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-contentscroll="6"] .fixed-image-container.spyglass.hawk {
+#spyglass[data-contentscroll="7"] .fixed-image-container.spyglass.hawk {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-contentscroll="6"] .animation-frame-container.spyglass {
+#spyglass[data-contentscroll="7"] .animation-frame-container.spyglass {
   visibility: hidden;
   opacity: 0;
 }

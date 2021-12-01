@@ -6,8 +6,8 @@ app.dev = true;
 app.firstUserSoundOnRequest = true;
 
 let muteButtons, unmuteFooter, soundOnOffButton, container, animationFrameImg,
-  zoomMinus, zoomPlus, artifactImage, audioElement,
-  afCallback, afStart, afCount, storeScrollArguments;
+  zoomMinus, zoomPlus, artifactImage, audioElement, storeScrollArguments,
+  afCallback, afStart, afCount, afStartScroll, afScrollLength;
 
 // The debounce function receives our function as a parameter
 const debounce = (fn) => {
@@ -37,8 +37,8 @@ const debounce = (fn) => {
 const storeScroll = (callback, animationFrameImg, animationCount, animationStart) => {
   if (callback) {
     let totalHeight = container.clientHeight;
-    let startAnimation = window.innerHeight * 1.3;
-    let scrollHeight = totalHeight - window.innerHeight * 4;
+    let startAnimation = window.innerHeight * afStartScroll;
+    let scrollHeight = totalHeight - window.innerHeight * afScrollLength;
     // let animationCount = 243;
     let animationStepHeight = scrollHeight / animationCount;
     let animationFrameNum = animationStart;
@@ -295,6 +295,10 @@ let createSilentAudioClip = () => {
   container.appendChild(audioElement);
 };
 
+//
+// startup() called when dom-ready
+//
+
 // eslint-disable-next-line no-unused-vars
 const startup = (id, animation) => {
 
@@ -305,8 +309,10 @@ const startup = (id, animation) => {
     afCallback = null;
   } else {
     afCallback = animation.callback;
-    afStart = animation.start;
-    afCount = animation.count;
+    afStart = animation.startFrame;
+    afCount = animation.countFrames;
+    afStartScroll = animation.startScroll;
+    afScrollLength = animation.endScroll;
   }
   animationFrameImg = document.getElementById('animation-frame');
 
