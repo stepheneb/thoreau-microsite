@@ -836,7 +836,7 @@ body#spyglass {
 }
 
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.start {
-  height: 200vh;
+  height: 230vh;
   width: 100%;
   max-width: 100vw;
   display: flex;
@@ -849,7 +849,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.sta
   }
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.curious {
-  height: 200vh;
+  height: 230vh;
   position: sticky;
   top: 8vh;
   left: 68vw;
@@ -867,7 +867,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.cur
   }
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
-  height: 200vh;
+  height: 240vh;
   position: sticky;
   top: 3em;
   left: 4em;
@@ -887,9 +887,9 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
   }
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.some-scientific {
-  height: 200vh;
+  height: 150vh;
   position: sticky;
-  top: 20vh;
+  top: 18vh;
   left: 10vw;
   max-width: 30vw;
 }
