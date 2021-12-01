@@ -17,9 +17,9 @@ const animationFrameCallback = (animationFrameNum, animationFrameImg) => {
 let animation = {
   callback: animationFrameCallback,
   startFrame: 46,
-  countFrames: 243 - 45,
+  countFrames: 244 - 46,
   startScroll: 1.55,
-  endScroll: 4
+  scrollLength: 2
 }
 app.maxContentScroll = 8;
 

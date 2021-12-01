@@ -38,7 +38,8 @@ const storeScroll = (callback, animationFrameImg, animationCount, animationStart
   if (callback) {
     let totalHeight = container.clientHeight;
     let startAnimation = window.innerHeight * afStartScroll;
-    let scrollHeight = totalHeight - window.innerHeight * afScrollLength;
+    let scrollHeight = startAnimation + afScrollLength * window.innerHeight;
+    // let scrollHeight = totalHeight - startAnimation * afScrollLength;
     // let animationCount = 243;
     let animationStepHeight = scrollHeight / animationCount;
     let animationFrameNum = animationStart;
@@ -312,7 +313,7 @@ const startup = (id, animation) => {
     afStart = animation.startFrame;
     afCount = animation.countFrames;
     afStartScroll = animation.startScroll;
-    afScrollLength = animation.endScroll;
+    afScrollLength = animation.scrollLength;
   }
   animationFrameImg = document.getElementById('animation-frame');
 
