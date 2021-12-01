@@ -6,8 +6,8 @@ app.dev = true;
 app.firstUserSoundOnRequest = true;
 
 let muteButtons, unmuteFooter, soundOnOffButton, container, animationFrameImg,
-  zoomMinus, zoomPlus, artifactImage, afCallback, aCount, storeScrollArguments,
-  audioElement;
+  zoomMinus, zoomPlus, artifactImage, audioElement,
+  afCallback, afStart, afCount, storeScrollArguments;
 
 // The debounce function receives our function as a parameter
 const debounce = (fn) => {
@@ -34,20 +34,25 @@ const debounce = (fn) => {
 
 // Reads out the scroll position and stores it in the data attribute
 // so we can use it in our stylesheets
-const storeScroll = (callback, animationFrameImg, animationCount) => {
+const storeScroll = (callback, animationFrameImg, animationCount, animationStart) => {
   if (callback) {
     let totalHeight = container.clientHeight;
-    let startAnimation = window.innerHeight * 1;
+    let startAnimation = window.innerHeight * 1.3;
     let scrollHeight = totalHeight - window.innerHeight * 4;
     // let animationCount = 243;
     let animationStepHeight = scrollHeight / animationCount;
-    let animationFrameNum = 0;
+    let animationFrameNum = animationStart;
     if (window.scrollY > startAnimation) {
-      animationFrameNum = Math.max(0, Math.min(animationCount, Math.floor((window.scrollY - startAnimation) / animationStepHeight)));
-    }
-    container.dataset.animationscroll = animationFrameNum;
-    if (callback) {
-      callback(animationFrameNum, animationFrameImg);
+      let anum = Math.floor((window.scrollY - startAnimation) / animationStepHeight);
+      animationFrameNum = animationStart + Math.max(0, Math.min(animationCount, anum));
+      container.dataset.animationscroll = animationFrameNum;
+      if (callback) {
+        callback(animationFrameNum, animationFrameImg);
+      }
+    } else {
+      container.dataset.animationscroll = 0;
+      callback(0, animationFrameImg);
+
     }
   }
   let contentScroll = Math.floor(window.scrollY / window.innerHeight + 0.60);
@@ -291,21 +296,22 @@ let createSilentAudioClip = () => {
 };
 
 // eslint-disable-next-line no-unused-vars
-const startup = (id, callback, count) => {
+const startup = (id, animation) => {
 
   container = document.getElementById(id);
   createSilentAudioClip();
 
-  afCallback = callback;
+  afCallback = animation.callback;
+  afStart = animation.start;
+  afCount = animation.count;
   animationFrameImg = document.getElementById('animation-frame');
-  aCount = count;
 
-  storeScrollArguments = [afCallback, animationFrameImg, aCount];
+  storeScrollArguments = [afCallback, animationFrameImg, afCount, afStart];
   document.addEventListener('scroll',
     debounce(storeScrollListener), { passive: true });
 
   // Update scroll position for first time
-  storeScroll(afCallback, animationFrameImg, aCount);
+  storeScroll(afCallback, animationFrameImg, afCount, afStart);
 
   zoomMinus = document.getElementById('zoom-minus');
   zoomPlus = document.getElementById('zoom-plus');

@@ -13,8 +13,6 @@
   --main-description: 1.2rem;
 
   --artifact-title: 2.3rem;
-
-  // --artifact-description: 1.35rem;
   --artifact-description: 1.3rem;
   --artifact-description-line-height: 2.9rem;
 
@@ -49,12 +47,71 @@
   //   --back-button-size: 1.4em;
   //   --unmute-footer: 0.7em;
   // }
+
+  // @include mobile() {
+  // --main-title: 2.4rem;
+  // --main-title-world: 2.8rem;
+  // --main-description: 0.8rem;
+  //
+  // --explore: 3.4vmin;
+  // --explore-button: 2.8vmin;
+  // --explore-content: 3.8vmin;
+  // --explore-content-line-height: 150%;
+  // --explore-content-author: 0.7em;
+  // --explore-content-mute-button: 1em;
+  // --explore-content-weight: 600;
+  // --explore-content-heading: 4.5vmin;
+  // --explore-content-heading-weight: 600;
+  // --back-button-size: 1.4em;
+  // --unmute-footer: 0.7em;
+  // }
+
+  @include desktop-strong-landscape() {
+    --artifact-title: 2rem;
+    --artifact-description: 1.2rem;
+    --artifact-description-line-height: 2.2rem;
+  }
+
   @include mobile-portrait() {
+    --main-title: 2.4rem;
+    --main-title-world: 2.8rem;
+    --main-description: 0.8rem;
+
+    --artifact-title: 1rem;
     --artifact-description: 0.8rem;
     --artifact-description-line-height: 1.4rem;
+
+    --explore: 3.4vmin;
+    --explore-button: 2.8vmin;
+    --explore-content: 3.8vmin;
+    --explore-content-line-height: 150%;
+    --explore-content-author: 0.7em;
+    --explore-content-mute-button: 1em;
+    --explore-content-weight: 600;
+    --explore-content-heading: 4.5vmin;
+    --explore-content-heading-weight: 600;
+    --back-button-size: 1.4em;
+    --unmute-footer: 0.7em;
   }
   @include mobile-landscape() {
+    --main-title: 2.4rem;
+    --main-title-world: 2.8rem;
+    --main-description: 0.8rem;
+
+    --artifact-title: 1rem;
     --artifact-description: 0.8rem;
     --artifact-description-line-height: 1.4rem;
+
+    --explore: 3.4vmin;
+    --explore-button: 2.8vmin;
+    --explore-content: 3.8vmin;
+    --explore-content-line-height: 150%;
+    --explore-content-author: 0.7em;
+    --explore-content-mute-button: 1em;
+    --explore-content-weight: 600;
+    --explore-content-heading: 4.5vmin;
+    --explore-content-heading-weight: 600;
+    --back-button-size: 1.4em;
+    --unmute-footer: 0.7em;
   }
 }

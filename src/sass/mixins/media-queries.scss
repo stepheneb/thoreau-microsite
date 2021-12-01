@@ -15,3 +15,15 @@
 //     @content;
 //   }
 // }
+
+@mixin desktop-strong-landscape() {
+  @media (min-aspect-ratio: 2/1) {
+    @content;
+  }
+}
+
+@mixin desktop-portrait() {
+  @media (max-aspect-ratio: 1/1) {
+    @content;
+  }
+}

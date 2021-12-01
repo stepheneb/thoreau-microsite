@@ -70,7 +70,7 @@ body.index {
         font-family: "Libre Caslon Text", serif;
         font-size: var(--main-title);
         font-weight: 600;
-        color: var(--near-black);
+        color: var(--navy-blue);
         .world {
           margin: 0 1vw 0 0;
           padding: 0;
@@ -95,7 +95,7 @@ body.index {
         height: 50%;
         margin-left: 0.75vw;
         margin-bottom: 0vh;
-        color: var(--near-black);
+        color: var(--navy-blue);
         border-left: 1px solid;
         @include mobile-portrait() {
           width: 50%;
