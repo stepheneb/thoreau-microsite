@@ -7,7 +7,7 @@
   --thoreau-rgba-blue: rgba(93, 192, 208, 1);
   --border-gray: gray;
   --border-light-gray: #ddd;
-  --near-black: #25334b;
+  --navy-blue: #25334b;
   --almost-white: #ddd;
   --medium-gray: #a7bbca;
   --snowshoe-brown: #704b46;
@@ -36,16 +36,53 @@
   --back-button-size: 2em;
   --unmute-footer: 0.6em;
 }
+@media (min-aspect-ratio: 2/1) {
+  :root {
+    --artifact-title: 2rem;
+    --artifact-description: 1.2rem;
+    --artifact-description-line-height: 2.2rem;
+  }
+}
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   :root {
+    --main-title: 2.4rem;
+    --main-title-world: 2.8rem;
+    --main-description: 0.8rem;
+    --artifact-title: 1rem;
     --artifact-description: 0.8rem;
     --artifact-description-line-height: 1.4rem;
+    --explore: 3.4vmin;
+    --explore-button: 2.8vmin;
+    --explore-content: 3.8vmin;
+    --explore-content-line-height: 150%;
+    --explore-content-author: 0.7em;
+    --explore-content-mute-button: 1em;
+    --explore-content-weight: 600;
+    --explore-content-heading: 4.5vmin;
+    --explore-content-heading-weight: 600;
+    --back-button-size: 1.4em;
+    --unmute-footer: 0.7em;
   }
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 915px) and (orientation: landscape) {
   :root {
+    --main-title: 2.4rem;
+    --main-title-world: 2.8rem;
+    --main-description: 0.8rem;
+    --artifact-title: 1rem;
     --artifact-description: 0.8rem;
     --artifact-description-line-height: 1.4rem;
+    --explore: 3.4vmin;
+    --explore-button: 2.8vmin;
+    --explore-content: 3.8vmin;
+    --explore-content-line-height: 150%;
+    --explore-content-author: 0.7em;
+    --explore-content-mute-button: 1em;
+    --explore-content-weight: 600;
+    --explore-content-heading: 4.5vmin;
+    --explore-content-heading-weight: 600;
+    --back-button-size: 1.4em;
+    --unmute-footer: 0.7em;
   }
 }
 
@@ -210,7 +247,7 @@ div.artifact .content .absolute-content-container {
 }
 div.artifact .content .absolute-content-container hr {
   width: 25%;
-  border-top: 1px solid black;
+  border-top: 1px solid var(--navy-blue);
   opacity: 1;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
@@ -243,6 +280,12 @@ div.artifact .content .absolute-content-container .about-container {
     align-items: flex-end;
   }
 }
+@media (min-aspect-ratio: 2/1) {
+  div.artifact .content .absolute-content-container .about-container .header {
+    display: flex;
+    align-items: flex-end;
+  }
+}
 div.artifact .content .absolute-content-container .about-container .header img.pine-tree-border-icon {
   width: 7rem;
   height: 7rem;
@@ -259,6 +302,13 @@ div.artifact .content .absolute-content-container .about-container .header img.p
   div.artifact .content .absolute-content-container .about-container .header img.pine-tree-border-icon {
     width: 4rem;
     height: 4rem;
+    padding: 0.5rem;
+  }
+}
+@media (min-aspect-ratio: 2/1) {
+  div.artifact .content .absolute-content-container .about-container .header img.pine-tree-border-icon {
+    width: 6rem;
+    height: 6rem;
     padding: 0.5rem;
   }
 }
@@ -305,7 +355,7 @@ div.artifact .content .absolute-content-container .about-container .description 
   line-height: var(--artifact-description-line-height);
   font-weight: 300;
   letter-spacing: 1px;
-  color: black;
+  color: var(--navy-blue);
 }
 div.artifact .content .absolute-content-container .about-container .description span.first-line {
   font-weight: 600;
@@ -369,7 +419,7 @@ div.artifact .content .absolute-content-container .image-container .zoom-control
   pointer-events: auto;
   position: absolute;
   right: 0%;
-  bottom: 10%;
+  bottom: 5%;
   height: 1.9rem;
   display: flex;
   flex-direction: row;
@@ -377,7 +427,7 @@ div.artifact .content .absolute-content-container .image-container .zoom-control
   padding: 0em 0.5em;
   border: 1px solid lightgray;
   border-radius: 1em;
-  background-color: black;
+  background-color: var(--navy-blue);
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .image-container .zoom-controls {
@@ -416,6 +466,7 @@ div.artifact .content .absolute-content-container .author {
 }
 div.artifact .content .absolute-content-container .author .name {
   text-transform: uppercase;
+  font-weight: 600;
 }
 div.artifact .content .absolute-content-container .author .name.thoreau {
   color: black;
@@ -429,7 +480,7 @@ div.artifact .dropdown.explore-another-object {
   z-index: 3;
   visibility: hidden;
   opacity: 0;
-  top: 5vh;
+  top: 3vh;
   right: 5vw;
   background-color: transparent;
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
@@ -450,7 +501,7 @@ div.artifact .dropdown.explore-another-object button {
   padding: 0.35em 1.5em;
   border: none;
   border-radius: 1.25em;
-  background-color: black;
+  background-color: var(--navy-blue);
   font-size: var(--explore-button);
   color: var(--almost-white);
   font-weight: 300;
@@ -497,16 +548,17 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
   padding: 0.35em 1.5em;
   border: none;
   border-radius: 1.25em;
-  background-color: var(--near-black);
+  background-color: var(--navy-blue);
   color: var(--almost-white);
   font-size: var(--explore-button);
   text-decoration: none;
 }
 div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdown-item:hover {
-  background-color: black;
+  background-color: var(--navy-blue);
   color: white;
 }
 div.artifact .arrow-scroll-down {
+  pointer-events: none;
   position: fixed;
   top: 94vh;
   z-index: 3;
@@ -576,6 +628,11 @@ div.artifact .mute-button > * {
   pointer-events: none;
 }
 div.artifact .unmute-footer {
+  display: flex;
+  display: none;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
   pointer-events: auto;
   position: fixed;
   z-index: 3;
@@ -587,10 +644,6 @@ div.artifact .unmute-footer {
   height: 4vh;
   padding: 0;
   font-size: var(--unmute-footer);
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-end;
-  align-items: center;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   div.artifact .unmute-footer {
@@ -606,7 +659,7 @@ div.artifact .unmute-footer {
 div.artifact .unmute-footer .label {
   margin-right: 1.5vw;
   font-style: italic;
-  color: var(--near-black);
+  color: var(--navy-blue);
 }
 div.artifact .unmute-footer .mute-button {
   font-size: 105%;
@@ -769,8 +822,8 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.some-scientific {
   position: sticky;
-  top: 78vh;
-  left: 32vw;
+  top: 6em;
+  left: 6em;
   max-width: 30vw;
   height: 75vh;
 }
@@ -789,10 +842,18 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.som
   }
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
-  height: 96vh;
+  height: 92vh;
   max-width: 40vw;
-  left: 40vw;
+  margin-left: auto;
+  margin-right: auto;
   font-size: var(--explore-content-heading);
+  font-family: "Libre Caslon Text", serif;
+  text-indent: -1rem;
+}
+div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not img {
+  position: absolute;
+  margin-left: -13vw;
+  top: 2vh;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 915px) and (orientation: landscape) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
@@ -920,6 +981,18 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
   visibility: visible;
   opacity: 1;
 }
+#spyglass[data-contentscroll="6"] .fixed-image-container.spyglass.hawk {
+  visibility: visible;
+  opacity: 1;
+}
+#spyglass[data-contentscroll="6"] .fixed-image-container.spyglass.hawk img.spyglass.hawk {
+  visibility: visible;
+  opacity: 1;
+  width: 10vw;
+  height: auto;
+  top: 0;
+  left: 0;
+}
 #spyglass[data-contentscroll="6"] .animation-frame-container.spyglass {
   visibility: hidden;
   opacity: 0;
@@ -990,7 +1063,7 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
     height: 98vh;
     left: 10vw;
     max-width: 80vw;
-    color: var(--near-black);
+    color: var(--navy-blue);
   }
 }
 
@@ -1143,7 +1216,7 @@ body.index {
   font-family: "Libre Caslon Text", serif;
   font-size: var(--main-title);
   font-weight: 600;
-  color: var(--near-black);
+  color: var(--navy-blue);
 }
 .content.index .main .header .title .world {
   margin: 0 1vw 0 0;
@@ -1170,7 +1243,7 @@ body.index {
   height: 50%;
   margin-left: 0.75vw;
   margin-bottom: 0vh;
-  color: var(--near-black);
+  color: var(--navy-blue);
   border-left: 1px solid;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
