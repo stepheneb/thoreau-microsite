@@ -3,7 +3,7 @@
 
 let selectRight, selectLeft, selectedImage, carouselImageContainer;
 
-let pageIndex = 0;
+let pageIndex = 1;
 let selectedPage = pages[pageIndex];
 
 let updateSelectedPage = () => {
