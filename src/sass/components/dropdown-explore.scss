@@ -1,0 +1,87 @@
+.dropdown.explore-another-object {
+  pointer-events: auto;
+  position: fixed;
+  z-index: 3;
+  visibility: hidden;
+  opacity: 0;
+  top: 4vh;
+  right: 6vw;
+  background-color: transparent;
+  transition: opacity var(--explore-images-timing),
+    visibility var(--explore-images-timing);
+
+  @include mobile-landscape() {
+    top: 3vh;
+    right: 2vw;
+  }
+  @include mobile-portrait() {
+    top: 2vh;
+    right: 2vw;
+  }
+
+  button {
+    padding: 0.35em 1.5em;
+    border: none;
+    border-radius: 1.25em;
+    background-color: var(--navy-blue);
+    font-size: var(--explore-button);
+    color: var(--almost-white);
+    font-weight: 300;
+    &:focus {
+      box-shadow: none;
+    }
+    &::after {
+      display: inline-block;
+      margin-left: 0.255em;
+      vertical-align: 0em;
+      border: none;
+      content: url("../media/images/explore_another_down_arrow.png");
+    }
+  }
+  ul.dropdown-menu {
+    padding-top: 0.1em;
+    background-color: transparent;
+    border: none;
+    display: block;
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--explore-menu-timing),
+      visibility var(--explore-menu-timing);
+    li {
+      a.dropdown-item {
+        visibility: hidden;
+        opacity: 0;
+      }
+    }
+
+    &.show {
+      visibility: visible;
+      opacity: 1;
+      transition: opacity var(--explore-menu-timing),
+        visibility var(--explore-menu-timing);
+      padding-top: 0.1em;
+      background-color: transparent;
+      border: none;
+      li {
+        margin-left: 1em;
+        padding: 0.2em 0em;
+        background-color: transparent;
+        a.dropdown-item {
+          visibility: visible;
+          opacity: 1;
+          padding: 0.35em 1.5em;
+          border: none;
+          border-radius: 1.25em;
+          background-color: var(--navy-blue);
+          color: var(--almost-white);
+          font-size: var(--explore-button);
+          text-decoration: none;
+          &:hover {
+            background-color: var(--navy-blue);
+            color: white;
+          }
+        }
+      }
+    }
+  }
+}

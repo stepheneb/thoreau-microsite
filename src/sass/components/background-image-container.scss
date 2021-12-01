@@ -1,0 +1,28 @@
+.background-image-container {
+  position: fixed;
+  z-index: -1;
+  top: 0;
+  left: 0;
+  height: var(--100vh);
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+  background-color: unset;
+  &:before {
+    content: "";
+    position: absolute;
+    top: 0px;
+    right: 0px;
+    bottom: 0px;
+    left: 0px;
+    opacity: 1;
+    background-color: var(--thoreau-rgba-blue);
+    background-image: url("../media/images/transparent.png");
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+
+    transition: opacity var(--explore-images-timing),
+      background-image var(--explore-images-timing);
+  }
+}

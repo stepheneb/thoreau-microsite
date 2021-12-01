@@ -93,6 +93,13 @@
     --back-button-size: 1.4em;
     --unmute-footer: 0.7em;
   }
+
+  @include mobile-portrait-small() {
+    --artifact-title: 1rem;
+    --artifact-description: 0.7rem;
+    --artifact-description-line-height: 1rem;
+  }
+
   @include mobile-landscape() {
     --main-title: 2.4rem;
     --main-title-world: 2.8rem;
@@ -113,5 +120,10 @@
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
     --unmute-footer: 0.7em;
+  }
+  @include mobile-landscape-small() {
+    --artifact-title: 0.9rem;
+    --artifact-description: 0.75rem;
+    --artifact-description-line-height: 1.15rem;
   }
 }

@@ -1,0 +1,37 @@
+.animation-frame-container {
+  z-index: 0;
+  position: fixed;
+  pointer-events: none;
+  top: 0;
+  left: 0;
+  height: var(--100vh);
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+
+  @include mobile-portrait() {
+    height: var(--100vh);
+  }
+  @include mobile-landscape() {
+    height: 90vh;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  img {
+    transition: opacity var(--explore-images-timing),
+      visibility var(--explore-images-timing);
+    margin: 0;
+    width: 90%;
+    height: auto;
+    aspect-ratio: attr(width) / attr(height);
+    align-self: center;
+    @include mobile-landscape() {
+      width: 100%;
+    }
+    @include mobile-portrait() {
+      width: 100%;
+    }
+  }
+}

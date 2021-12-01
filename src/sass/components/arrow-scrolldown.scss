@@ -1,0 +1,28 @@
+.arrow-scroll-down {
+  pointer-events: none;
+  position: fixed;
+  bottom: 2.5vh;
+  z-index: 3;
+  visibility: hidden;
+  opacity: 0;
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  @include mobile-portrait() {
+  }
+  @include mobile-landscape() {
+    bottom: 3vh;
+    img {
+      transform: scale(0.8);
+    }
+  }
+  @include mobile-landscape-small() {
+    bottom: 2vh;
+    img {
+      transform: scale(0.7);
+    }
+  }
+  background-color: transparent;
+  transition: opacity var(--explore-images-timing),
+    visibility var(--explore-images-timing);
+}

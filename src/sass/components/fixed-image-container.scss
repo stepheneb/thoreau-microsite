@@ -1,0 +1,36 @@
+.fixed-image-container {
+  z-index: -1;
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 90vh;
+  width: 100vw;
+  margin: 0;
+  padding: 0;
+
+  @include mobile-portrait() {
+    height: var(--100vh);
+  }
+  @include mobile-landscape() {
+    height: 90vh;
+  }
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-around;
+  img {
+    visibility: hidden;
+    opacity: 0;
+    transition: opacity var(--explore-images-timing),
+      visibility var(--explore-images-timing);
+    margin: 20% 0;
+    width: 80%;
+    align-self: center;
+    @include mobile-portrait() {
+      width: 80%;
+    }
+    @include mobile-landscape() {
+      width: 70%;
+    }
+  }
+}

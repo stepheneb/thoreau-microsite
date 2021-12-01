@@ -1,0 +1,41 @@
+.unmute-footer {
+  display: flex;
+  display: none;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  pointer-events: auto;
+  position: fixed;
+  z-index: 3;
+  opacity: 0.9;
+  background-color: var(--medium-gray);
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: 4vh;
+  padding: 0;
+  font-size: var(--unmute-footer);
+  @include mobile-portrait() {
+    height: 5vh;
+    font-size: var(--unmute-footer);
+  }
+  @include mobile-landscape() {
+    height: 6vh;
+  }
+
+  .label {
+    margin-right: 1.5vw;
+    font-style: italic;
+    color: var(--navy-blue);
+  }
+  .mute-button {
+    font-size: 105%;
+    margin-right: 10vw;
+    color: white;
+  }
+  &.on {
+    .label {
+      display: none;
+    }
+  }
+}
