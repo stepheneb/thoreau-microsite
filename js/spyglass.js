@@ -21,6 +21,6 @@ let animation = {
   startScroll: 1.55,
   endScroll: 4
 }
-app.maxContentScroll = 6;
+app.maxContentScroll = 8;
 
 app.domReady(startup('spyglass', animation));
