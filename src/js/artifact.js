@@ -6,8 +6,7 @@ app.dev = true;
 app.firstUserSoundOnRequest = true;
 
 let muteButtons, unmuteFooter, soundOnOffButton, container, animationFrameImg,
-  zoomMinus, zoomPlus, artifactImage, audioElement, storeScrollArguments,
-  afCallback, afStart, afCount, afStartScroll, afScrollLength;
+  zoomMinus, zoomPlus, artifactImage, audioElement, storeScrollArguments;
 
 // The debounce function receives our function as a parameter
 const debounce = (fn) => {
@@ -34,30 +33,49 @@ const debounce = (fn) => {
 
 // Reads out the scroll position and stores it in the data attribute
 // so we can use it in our stylesheets
-const storeScroll = (callback, animationFrameImg, animationCount, animationStart) => {
-  if (callback) {
-    let totalHeight = container.clientHeight;
-    let startAnimation = window.innerHeight * afStartScroll;
-    let scrollHeight = startAnimation + afScrollLength * window.innerHeight;
-    // let scrollHeight = totalHeight - startAnimation * afScrollLength;
-    // let animationCount = 243;
-    let animationStepHeight = scrollHeight / animationCount;
-    let animationFrameNum = animationStart;
-    if (window.scrollY > startAnimation) {
-      let anum = Math.floor((window.scrollY - startAnimation) / animationStepHeight);
-      animationFrameNum = animationStart + Math.max(0, Math.min(animationCount, anum));
-      container.dataset.animationscroll = animationFrameNum;
-      if (callback) {
-        callback(animationFrameNum, animationFrameImg);
-      }
-    } else {
-      container.dataset.animationscroll = 0;
-      callback(0, animationFrameImg);
 
+const storeScroll = (animations, animationFrameImg) => {
+  const contentViewportOffset = 0.4;
+  let contentScrollFLoat = window.scrollY / window.innerHeight + contentViewportOffset;
+  let contentScroll = Math.floor(contentScrollFLoat);
+  let animation, afCallback, afStart, afCount, afStartScroll, afEndScroll;
+
+  let inScope = (animations) => {
+    animation = false;
+    if (animations !== undefined) {
+      animations.forEach((a) => {
+        if (contentScrollFLoat >= a.startScroll && contentScrollFLoat < a.endScroll) {
+          animation = a;
+          afCallback = a.callback;
+          afStart = a.startFrame;
+          afCount = a.endFrame - animation.startFrame;
+          afStartScroll = a.startScroll;
+          afEndScroll = a.endScroll;
+        }
+      })
     }
+    return animation;
   }
-  let contentScroll = Math.floor(window.scrollY / window.innerHeight + 0.40);
-  container.dataset.contentscroll = Math.min(app.maxContentScroll, contentScroll);
+
+  animation = inScope(animations);
+  if (animation) {
+    let scrollExtent = afEndScroll - afStartScroll;
+    let animationStepHeight = scrollExtent / afCount;
+    let currentScrollHeight = contentScrollFLoat - afStartScroll;
+    let animationFrameNum = Math.round(currentScrollHeight / animationStepHeight) + afStart;
+    container.dataset.animationscroll = animationFrameNum;
+    container.dataset.animationFrameNum = animationFrameNum;
+    afCallback(animationFrameNum, animationFrameImg);
+  } else {
+    container.dataset.animationscroll = 0;
+    // animationCallback(0, animationFrameImg);
+
+  }
+  contentScrollFLoat = Math.min(app.maxContentScroll, contentScrollFLoat);
+  container.dataset.contentScrollFloat = contentScrollFLoat;
+  container.dataset.contentScroll = Math.floor(contentScroll);
+  container.dataset.scrollY = window.scrollY;
+  container.dataset.innerHeight = window.innerHeight;
 };
 
 const storeScrollListener = (e, ...args) => {
@@ -301,28 +319,19 @@ let createSilentAudioClip = () => {
 //
 
 // eslint-disable-next-line no-unused-vars
-const startup = (id, animation) => {
+const startup = (id, animations) => {
 
   container = document.getElementById(id);
   createSilentAudioClip();
 
-  if (animation == undefined) {
-    afCallback = null;
-  } else {
-    afCallback = animation.callback;
-    afStart = animation.startFrame;
-    afCount = animation.countFrames;
-    afStartScroll = animation.startScroll;
-    afScrollLength = animation.scrollLength;
-  }
   animationFrameImg = document.getElementById('animation-frame');
 
-  storeScrollArguments = [afCallback, animationFrameImg, afCount, afStart];
+  storeScrollArguments = [animations, animationFrameImg];
   document.addEventListener('scroll',
     debounce(storeScrollListener), { passive: true });
 
   // Update scroll position for first time
-  storeScroll(afCallback, animationFrameImg, afCount, afStart);
+  storeScroll(animations, animationFrameImg);
 
   zoomMinus = document.getElementById('zoom-minus');
   zoomPlus = document.getElementById('zoom-plus');

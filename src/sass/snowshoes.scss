@@ -95,7 +95,7 @@ div.artifact.snowshoes {
   overflow-x: hidden;
 }
 
-#snowshoes[data-contentscroll="0"] {
+#snowshoes[data-content-scroll="0"] {
   .background-image-container.snowshoes {
     &:before {
       background-color: white;
@@ -143,7 +143,7 @@ div.artifact.snowshoes {
   }
 }
 
-#snowshoes[data-contentscroll="1"] {
+#snowshoes[data-content-scroll="1"] {
   .background-image-container.snowshoes {
     &:before {
       background-color: var(--snowshoe-writing-mask);
@@ -160,7 +160,7 @@ div.artifact.snowshoes {
   }
 }
 
-#snowshoes[data-contentscroll="2"] {
+#snowshoes[data-content-scroll="2"] {
   .background-image-container.snowshoes {
     &:before {
       background-color: var(--snowshoe-writing-mask);

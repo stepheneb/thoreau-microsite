@@ -70,9 +70,9 @@ div.artifact.spyglass {
       &.some-scientific {
         height: 200vh;
         position: sticky;
-        top: 20vh;
-        left: 10vw;
-        max-width: 30vw;
+        top: 16vh;
+        left: 4em;
+        max-width: 22vw;
         @include mobile-landscape() {
           top: 15vh;
           left: 5vw;
@@ -166,7 +166,7 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-contentscroll="0"] {
+#spyglass[data-content-scroll="0"] {
   .arrow-scroll-down {
     img {
       content: url("../media/images/arrow-scroll-down.png");
@@ -220,7 +220,7 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-contentscroll="1"] {
+#spyglass[data-content-scroll="1"] {
   .background-image-container.spyglass {
     &:before {
       background-color: var(--thoreau-rgba-blue);
@@ -241,7 +241,7 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-contentscroll="2"] {
+#spyglass[data-content-scroll="2"] {
   .absolute-content-container.spyglass.curious {
     visibility: visible;
     opacity: 1;
@@ -252,7 +252,7 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-contentscroll="3"] {
+#spyglass[data-content-scroll="3"] {
   .absolute-content-container.spyglass.curious {
     visibility: visible;
     opacity: 1;
@@ -263,7 +263,7 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-contentscroll="4"] {
+#spyglass[data-content-scroll="4"] {
   .absolute-content-container.spyglass.his-experiments {
     visibility: visible;
     opacity: 1;
@@ -274,7 +274,7 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-contentscroll="5"] {
+#spyglass[data-content-scroll="5"] {
   .absolute-content-container.spyglass.his-experiments {
     visibility: visible;
     opacity: 1;
@@ -285,7 +285,7 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-contentscroll="6"] {
+#spyglass[data-content-scroll="6"] {
   .absolute-content-container.spyglass.some-scientific {
     visibility: visible;
     opacity: 1;
@@ -296,7 +296,7 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-contentscroll="7"] {
+#spyglass[data-content-scroll="7"] {
   .absolute-content-container.spyglass.some-scientific {
     visibility: visible;
     opacity: 1;
@@ -307,7 +307,7 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-contentscroll="8"] {
+#spyglass[data-content-scroll="8"] {
   .background-image-container.spyglass {
     &:before {
       background-image: url("../media/images/shoreline-and-water.jpg");

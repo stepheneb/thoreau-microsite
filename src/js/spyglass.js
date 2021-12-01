@@ -14,13 +14,22 @@ const animationFrameCallback = (animationFrameNum, animationFrameImg) => {
   }
 }
 
-let animation = {
-  callback: animationFrameCallback,
-  startFrame: 46,
-  countFrames: 244 - 46,
-  startScroll: 1.55,
-  scrollLength: 2
-}
+let animations = [{
+    callback: animationFrameCallback,
+    startFrame: 46,
+    endFrame: 152,
+    startScroll: 1.95,
+    endScroll: 3.5,
+  },
+  {
+    callback: animationFrameCallback,
+    startFrame: 152,
+    endFrame: 243,
+    startScroll: 4.0,
+    endScroll: 5.5,
+  }
+];
+
 app.maxContentScroll = 8;
 
-app.domReady(startup('spyglass', animation));
+app.domReady(startup('spyglass', animations));
