@@ -4,13 +4,19 @@
 // move these to spyglass.js
 //
 
-const animationFrameCallback = (animationFrameNum, animationFrameImg) => {
-  if (animationFrameNum >= 0) {
-    let paddedFrameNum = (animationFrameNum).toString().padStart(5, '0');
-    let newSrc = `media/images/animations/spyglass/Spyglass_PNGSeq_01__${paddedFrameNum}.png`;
+const animationFrameCallback = (animationFrameNum, animationFrameImg, isVisible = true) => {
+  let updateSrc = (newSrc) => {
     if (animationFrameImg.src !== newSrc) {
       animationFrameImg.src = newSrc;
     }
+
+  }
+  if (animationFrameNum >= 0 && isVisible) {
+    let paddedFrameNum = (animationFrameNum).toString().padStart(5, '0');
+    updateSrc(`./media/images/animations/spyglass/Spyglass_PNGSeq_01__${paddedFrameNum}.png`);
+  }
+  if (!isVisible) {
+    updateSrc('./media/images/transparent.png');
   }
 }
 
@@ -44,6 +50,8 @@ let animations = [{
     callback: animationFrameCallback,
     startFrame: 46,
     endFrame: 152,
+    startPage: 1,
+    endPage: 3,
     startScroll: 1.95,
     endScroll: 3.5
   },
@@ -51,6 +59,8 @@ let animations = [{
     callback: animationFrameCallback,
     startFrame: 152,
     endFrame: 243,
+    startPage: 4,
+    endPage: 5,
     startScroll: 4.0,
     endScroll: 5.5
   }

@@ -36,42 +36,68 @@ const storeScroll = (animations, animationFrameImg) => {
   const contentViewportOffset = 0.4;
   let contentScrollFLoat = window.scrollY / window.innerHeight + contentViewportOffset;
   let contentScroll = Math.floor(contentScrollFLoat);
-  let animation, afCallback, afStart, afCount, afStartScroll, afEndScroll;
+  let result, animation;
 
   let inScope = (animations) => {
-    animation = false;
+    let result = {
+      animation: false,
+      frameNum: 0,
+      visible: false
+    }
+
+    let calcFrameNum = (a) => {
+      let extent = a.endScroll - a.startScroll;
+      let stepHeight = extent / (a.endFrame - a.startFrame);
+      let currentScrollHeight = contentScrollFLoat - a.startScroll;
+      return Math.round(currentScrollHeight / stepHeight) + a.startFrame;
+    }
+
+    let inPageScopeBefore = (a) => {
+      return contentScroll >= a.startPage && contentScrollFLoat < a.startScroll;
+    }
+
+    let inScrollScope = (a) => {
+      return contentScrollFLoat >= a.startScroll && contentScrollFLoat < a.endScroll;
+    }
+
+    let inPageScopeAfter = (a) => {
+      return contentScrollFLoat >= a.endScroll && contentScroll <= a.endPage;
+    }
+
     if (animations !== undefined) {
       animations.forEach((a) => {
-        if (contentScrollFLoat >= a.startScroll && contentScrollFLoat < a.endScroll) {
-          animation = a;
-          afCallback = a.callback;
-          afStart = a.startFrame;
-          afCount = a.endFrame - animation.startFrame;
-          afStartScroll = a.startScroll;
-          afEndScroll = a.endScroll;
+        if (inPageScopeBefore(a)) {
+          result = {
+            animation: a,
+            frameNum: 0,
+            visible: false
+          }
+        } else if (inScrollScope(a)) {
+          result = {
+            animation: a,
+            frameNum: calcFrameNum(a),
+            visible: true
+          }
+        } else if (inPageScopeAfter(a)) {
+          result = {
+            animation: a,
+            frameNum: a.endFrame,
+            visible: true
+          }
         }
       })
     }
-    return animation;
+    return result;
   }
 
-  animation = inScope(animations);
+  result = inScope(animations);
+  animation = result.animation;
   if (animation) {
-    let scrollExtent = afEndScroll - afStartScroll;
-    let animationStepHeight = scrollExtent / afCount;
-    let currentScrollHeight = contentScrollFLoat - afStartScroll;
-    let animationFrameNum = Math.round(currentScrollHeight / animationStepHeight) + afStart;
-    container.dataset.animationscroll = animationFrameNum;
-    container.dataset.animationFrameNum = animationFrameNum;
-    afCallback(animationFrameNum, animationFrameImg);
-  } else {
-    container.dataset.animationscroll = 0;
-    // animationCallback(0, animationFrameImg);
-
+    animation.callback(result.frameNum, animationFrameImg, result.visible);
   }
   contentScrollFLoat = Math.min(app.maxContentScroll, contentScrollFLoat);
   container.dataset.contentScrollFloat = contentScrollFLoat;
-  container.dataset.contentScroll = Math.floor(contentScroll);
+  container.dataset.contentScroll = contentScroll;
   container.dataset.scrollY = window.scrollY;
   container.dataset.innerHeight = window.innerHeight;
 };
