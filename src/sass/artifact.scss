@@ -162,6 +162,7 @@ div.artifact {
         position: sticky;
         top: 5vh;
         height: 90vh;
+        margin-left: 1vw;
         left: 30%;
         width: 75%;
         margin-top: 5%;
@@ -170,6 +171,7 @@ div.artifact {
         flex-direction: column;
         justify-content: center;
         align-items: center;
+
         img {
           width: inherit;
           height: auto;
