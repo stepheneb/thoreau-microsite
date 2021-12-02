@@ -309,6 +309,7 @@ div.artifact .content .absolute-content-container .image-container {
   position: sticky;
   top: 5vh;
   height: 90vh;
+  margin-left: 1vw;
   left: 30%;
   width: 75%;
   margin-top: 5%;
