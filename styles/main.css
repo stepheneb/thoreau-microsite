@@ -984,6 +984,10 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 #spyglass[data-content-scroll="0"] .arrow-scroll-down img {
   content: url("../media/images/arrow-scroll-down.png");
 }
+#spyglass[data-content-scroll="0"] .animation-frame-container.spyglass {
+  visibility: hidden;
+  opacity: 0;
+}
 #spyglass[data-content-scroll="0"] .background-image-container.spyglass:before {
   background-color: white;
   background-image: url("../media/images/thoreau-handwriting-dark-background.png");
