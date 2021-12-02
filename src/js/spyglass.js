@@ -53,7 +53,7 @@ let animations = [{
     startPage: 1,
     endPage: 3,
     startScroll: 1.95,
-    endScroll: 3.5
+    endScroll: 3.25
   },
   {
     callback: animationFrameCallback,
