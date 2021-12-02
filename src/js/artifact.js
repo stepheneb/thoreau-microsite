@@ -398,5 +398,10 @@ const startup = (id, audios, animations) => {
       }
       item.container.addEventListener('transitionend', updatemediaCollectionListener)
     })
+
+    window.setInterval(() => {
+      updatemediaCollectionListener
+    }, 250)
+
   }
 }
