@@ -14,22 +14,48 @@ const animationFrameCallback = (animationFrameNum, animationFrameImg) => {
   }
 }
 
+let audios = [{
+    id: 'curious',
+    src: './media/audio/spyglass/2-thoreau-did-have-a-curious-mind.mp3',
+    fadeInStart: 2.0,
+    fadeInEnd: 2.25,
+    fadeOutStart: 3.5,
+    fadeOutEnd: 4.0
+  },
+  {
+    id: 'his-experiments',
+    src: './media/audio/spyglass/3-his-experiments-his-observations.mp3',
+    fadeInStart: 4.0,
+    fadeInEnd: 4.25,
+    fadeOutStart: 5.5,
+    fadeOutEnd: 6.0
+  },
+  {
+    id: 'some-scientific',
+    src: './media/audio/spyglass/5-some-scientific-work.mp3',
+    fadeInStart: 6.0,
+    fadeInEnd: 6.25,
+    fadeOutStart: 7.5,
+    fadeOutEnd: 8.0
+  }
+];
+
 let animations = [{
     callback: animationFrameCallback,
     startFrame: 46,
     endFrame: 152,
     startScroll: 1.95,
-    endScroll: 3.5,
+    endScroll: 3.5
   },
   {
     callback: animationFrameCallback,
     startFrame: 152,
     endFrame: 243,
     startScroll: 4.0,
-    endScroll: 5.5,
+    endScroll: 5.5
   }
 ];
 
 app.maxContentScroll = 8;
 
-app.domReady(startup('spyglass', animations));
+app.domReady(startup('spyglass', audios, animations));

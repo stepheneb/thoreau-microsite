@@ -144,6 +144,10 @@ document.querySelectorAll('audio, video').forEach((mediaPlayer) => {
 })
 
 let updatemediaCollection = (muteStateChanged = false) => {
+  let contentFloatScroll = document.body.dataset.contentScrollFloat;
+  if (contentFloatScroll) {
+    contentFloatScroll = +contentFloatScroll;
+  }
   let isVideoItem = (item) => {
     return isVideo(item.mediaPlayer);
   }
@@ -206,6 +210,7 @@ let updatemediaCollection = (muteStateChanged = false) => {
       item.startPlayTimeoutID = setTimeout(() => {
         audioElement.src = item.mediaPlayer.src;
         audioElement.play();
+        audioElement.volume = 1;
         // item.mediaPlayer.play();
       }, startPlayDelay);
     } else if (isVideoItem(item)) {
@@ -226,6 +231,7 @@ let updatemediaCollection = (muteStateChanged = false) => {
           item.mediaPlayer.muted = false;
           play(item);
         }
+
       } else {
         stopAudio(item);
       }
@@ -250,6 +256,22 @@ let updatemediaCollection = (muteStateChanged = false) => {
       app.logger(item.id, ':', item.computedStyle.visibility);
     }
     if (muteStateChanged) item.played = false;
+    if (isAudioItem(item)) {
+      if (item.fadeOutStart) {
+        if (item.fadeOutStart <= contentFloatScroll && item.fadeOutEnd > contentFloatScroll) {
+          let extent = item.fadeOutEnd - item.fadeOutStart
+          let volume = (item.fadeOutEnd - contentFloatScroll) / extent;
+          audioElement.volume = volume;
+        }
+      }
+      if (item.fadeInStart) {
+        if (item.fadeInStart <= contentFloatScroll && item.fadeInEnd > contentFloatScroll) {
+          let extent = item.fadeInEnd - item.fadeInStart
+          let volume = (contentFloatScroll - item.fadeInStart) / extent;
+          audioElement.volume = volume;
+        }
+      }
+    }
   })
   if (soundIsOn() || muteStateChanged) {
     mediaCollection.forEach((item) => updateMedia(item));
@@ -319,8 +341,7 @@ let createSilentAudioClip = () => {
 //
 
 // eslint-disable-next-line no-unused-vars
-const startup = (id, animations) => {
-
+const startup = (id, audios, animations) => {
   container = document.getElementById(id);
   createSilentAudioClip();
 
@@ -368,6 +389,13 @@ const startup = (id, animations) => {
     document.addEventListener('scroll', debounce(updatemediaCollectionListener), { passive: true });
 
     mediaCollection.forEach((item) => {
+      if (audios) {
+        let audio = audios.find((a) => a.id == item.id);
+        if (audio) {
+          item.fadeOutStart = audio.fadeOutStart;
+          item.fadeOutEnd = audio.fadeOutEnd;
+        }
+      }
       item.container.addEventListener('transitionend', updatemediaCollectionListener)
     })
   }
