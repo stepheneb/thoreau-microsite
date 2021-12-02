@@ -173,6 +173,11 @@ div.artifact.spyglass {
     }
   }
 
+  .animation-frame-container.spyglass {
+    visibility: hidden;
+    opacity: 0;
+  }
+
   .background-image-container.spyglass {
     &:before {
       background-color: white;
