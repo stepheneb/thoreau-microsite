@@ -58,4 +58,6 @@ let animations = [{
 
 app.maxContentScroll = 8;
 
+// app.dev = true;
+
 app.domReady(startup('spyglass', audios, animations));

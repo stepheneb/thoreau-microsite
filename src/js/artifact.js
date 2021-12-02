@@ -1,8 +1,6 @@
 /*jshint esversion: 8 */
 /*global  app */
 
-app.dev = true;
-
 app.firstUserSoundOnRequest = true;
 
 let muteButtons, unmuteFooter, soundOnOffButton, container, animationFrameImg,
