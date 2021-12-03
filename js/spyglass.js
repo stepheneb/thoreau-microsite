@@ -25,48 +25,48 @@ let audios = [{
     src: './media/audio/spyglass/2-thoreau-did-have-a-curious-mind.mp3',
     fadeInStart: 2.0,
     fadeInEnd: 2.25,
-    fadeOutStart: 3.5,
-    fadeOutEnd: 4.0
+    fadeOutStart: 4.5,
+    fadeOutEnd: 5.0
   },
   {
     id: 'his-experiments',
     src: './media/audio/spyglass/3-his-experiments-his-observations.mp3',
-    fadeInStart: 4.0,
-    fadeInEnd: 4.25,
-    fadeOutStart: 5.5,
-    fadeOutEnd: 6.0
+    fadeInStart: 5.0,
+    fadeInEnd: 5.25,
+    fadeOutStart: 8.5,
+    fadeOutEnd: 9.0
   },
   {
     id: 'some-scientific',
     src: './media/audio/spyglass/5-some-scientific-work.mp3',
-    fadeInStart: 6.0,
-    fadeInEnd: 6.25,
-    fadeOutStart: 7.5,
-    fadeOutEnd: 8.0
+    fadeInStart: 9.0,
+    fadeInEnd: 9.25,
+    fadeOutStart: 10.5,
+    fadeOutEnd: 11.0
   }
 ];
 
 let animations = [{
     callback: animationFrameCallback,
     startFrame: 46,
-    endFrame: 152,
+    endFrame: 160,
     startPage: 1,
-    endPage: 3,
+    endPage: 4,
     startScroll: 1.95,
-    endScroll: 3.25
+    endScroll: 4.5
   },
   {
     callback: animationFrameCallback,
-    startFrame: 152,
+    startFrame: 161,
     endFrame: 243,
-    startPage: 4,
-    endPage: 5,
-    startScroll: 4.0,
-    endScroll: 5.5
+    startPage: 5,
+    endPage: 10,
+    startScroll: 5.0,
+    endScroll: 8.5
   }
 ];
 
-app.maxContentScroll = 8;
+app.maxContentScroll = 12;
 
 // app.dev = true;
 
