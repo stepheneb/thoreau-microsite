@@ -42,8 +42,7 @@ div.artifact {
       width: 100%;
       max-width: 100vw;
       transition: opacity var(--explore-content-timing),
-        visibility var(--explore-content-timing),
-        position var(--explore-content-timing);
+        visibility var(--explore-content-timing);
 
       .about-container {
         width: 28vw;
