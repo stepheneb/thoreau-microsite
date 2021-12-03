@@ -5,7 +5,7 @@
 let pages = [{
     id: 'snowshoes',
     location: "snowshoes.html",
-    enabled: true,
+    enabled: false,
     src: "media/images/thoreau-snowshoes-close.png"
   },
   {
