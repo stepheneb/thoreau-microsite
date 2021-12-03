@@ -910,12 +910,10 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.som
   }
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
-  height: 90vh;
-  position: sticky;
-  top: 3em;
+  height: 88vh;
   max-width: 40vw;
-  margin-left: auto;
-  margin-right: auto;
+  margin-left: 35%;
+  color: var(--medium-gray);
   font-size: var(--explore-content-heading);
   font-family: "Libre Caslon Text", serif;
   text-indent: -0.9rem;
@@ -1088,7 +1086,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   opacity: 1;
 }
 #spyglass[data-content-scroll="11"] .background-image-container.spyglass:before {
-  background-image: url("../media/images/shoreline-and-water.jpg");
+  background-image: url("../media/images/pond-and-fog-986727760-170667a.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
