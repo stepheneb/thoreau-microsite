@@ -160,6 +160,11 @@ div.artifact.spyglass {
     }
   }
 
+  .animation-frame-container.spyglass {
+    padding: 0 0 1vh 0;
+    justify-content: flex-end;
+  }
+
   .background-image-container.spyglass {
     &:before {
       background-color: var(--thoreau-rgba-blue);
