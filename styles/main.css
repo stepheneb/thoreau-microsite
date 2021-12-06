@@ -445,11 +445,11 @@ div.artifact .animation-frame-container {
   height: var(--100vh);
   width: 100vw;
   margin: 0;
-  padding: 0 0 1vh 0;
+  padding: 0;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: space-around;
 }
 @media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
   div.artifact .animation-frame-container {
@@ -913,13 +913,19 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
   height: 88vh;
   max-width: 40vw;
   margin-left: 35%;
-  color: var(--medium-gray);
+  color: var(--navy-blue);
   font-size: var(--explore-content-heading);
   font-family: "Libre Caslon Text", serif;
   text-indent: -0.9rem;
 }
+div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not hr {
+  border-color: var(--medium-gray);
+}
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not .author {
   text-indent: 0;
+}
+div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not .author .mute-button {
+  color: var(--navy-blue);
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not img.spyglass.hawk {
   position: absolute;
@@ -978,6 +984,10 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
 }
 div.artifact.spyglass .fixed-image-container.spyglass img.spyglass-photo-rotated {
   transform: rotate(-9deg);
+}
+div.artifact.spyglass .animation-frame-container.spyglass {
+  padding: 0 0 1vh 0;
+  justify-content: flex-end;
 }
 div.artifact.spyglass .background-image-container.spyglass:before {
   background-color: var(--thoreau-rgba-blue);
