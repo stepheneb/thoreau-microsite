@@ -90,12 +90,18 @@ div.artifact.spyglass {
         height: 88vh;
         max-width: 40vw;
         margin-left: 35%;
-        color: var(--medium-gray);
+        color: var(--navy-blue);
         font-size: var(--explore-content-heading);
         font-family: "Libre Caslon Text", serif;
         text-indent: -0.9rem;
+        hr {
+          border-color: var(--medium-gray);
+        }
         .author {
           text-indent: 0;
+          .mute-button {
+            color: var(--navy-blue);
+          }
         }
 
         img.spyglass.hawk {
