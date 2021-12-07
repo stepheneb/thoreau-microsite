@@ -378,6 +378,9 @@ const startup = (id, audios, animations) => {
   document.addEventListener('scroll',
     debounce(storeScrollListener), { passive: true });
 
+  window.addEventListener('resize',
+    debounce(storeScrollListener), { passive: true });
+
   // Update scroll position for first time
   storeScroll(animations, animationFrameImg);
 
