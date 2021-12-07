@@ -36,6 +36,7 @@ const storeScroll = (animations, animationFrameImg) => {
   const contentViewportOffset = 0.4;
   let contentScrollFLoat = window.scrollY / window.innerHeight + contentViewportOffset;
   let contentScroll = Math.floor(contentScrollFLoat);
+  let aspectRatio = window.innerWidth / window.innerHeight;
   let result, animation;
 
   let inScope = (animations) => {
@@ -100,6 +101,8 @@ const storeScroll = (animations, animationFrameImg) => {
   container.dataset.contentScroll = contentScroll;
   container.dataset.scrollY = window.scrollY;
   container.dataset.innerHeight = window.innerHeight;
+  container.dataset.innerWidth = window.innerWidth;
+  container.dataset.aspectRatio = aspectRatio;
 };
 
 const storeScrollListener = (e, ...args) => {
@@ -373,6 +376,9 @@ const startup = (id, audios, animations) => {
 
   storeScrollArguments = [animations, animationFrameImg];
   document.addEventListener('scroll',
+    debounce(storeScrollListener), { passive: true });
+
+  window.addEventListener('resize',
     debounce(storeScrollListener), { passive: true });
 
   // Update scroll position for first time

@@ -20,45 +20,45 @@
   --main-title: 3.6rem;
   --main-title-world: 8.6rem;
   --main-description: 1.2rem;
-  --artifact-title: 2.3rem;
-  --artifact-description: 1.3rem;
-  --artifact-description-line-height: 2.9rem;
-  --explore: 2.6vmin;
-  --explore-another: 1.8vmin;
-  --explore-button: 0.9rem;
+  --artifact-title: 2.25rem;
+  --artifact-title-line-height: 2.4rem;
+  --artifact-description: 1.25rem;
+  --artifact-description-letter-spacing: calc(clamp(0px, (0.4vh - 2.6px), 2px));
+  --artifact-description-line-height: calc(clamp(30px, (8vh - 26px), 60px));
+  --zoom-button-size: 1.25rem;
+  --explore-button: 0.8rem;
   --explore-content: 1.35rem;
   --explore-content-line-height: 160%;
   --explore-content-author: 1rem;
   --explore-content-mute-button: 0.8rem;
   --explore-content-weight: 400;
-  --explore-content-heading: 4vmin;
+  --explore-content-heading: 2.1rem;
   --explore-content-heading-weight: 600;
   --back-button-size: 2em;
   --unmute-footer: 0.6em;
 }
-@media (min-aspect-ratio: 5/2) and (min-width: 1280px) {
+@media only screen and (min-aspect-ratio: 5/2) and (min-width: 1280px) {
   :root {
     --artifact-title: 2rem;
     --artifact-description: 1.2rem;
     --artifact-description-line-height: 2.2rem;
   }
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   :root {
-    --main-title: 2.4rem;
-    --main-title-world: 2.8rem;
-    --main-description: 0.8rem;
-    --artifact-title: 1rem;
-    --artifact-description: 0.8rem;
-    --artifact-description-line-height: 1.4rem;
-    --explore: 3.4vmin;
-    --explore-button: 2.8vmin;
-    --explore-content: 3.8vmin;
+    --main-title: 2rem;
+    --main-title-world: 4.2rem;
+    --main-description: 1.4rem;
+    --artifact-title: 1.4rem;
+    --artifact-description: 1.1rem;
+    --artifact-description-line-height: 1.7rem;
+    --explore-button: 0.7rem;
+    --explore-content: 1.2rem;
     --explore-content-line-height: 150%;
-    --explore-content-author: 0.7em;
-    --explore-content-mute-button: 1em;
+    --explore-content-author: 0.8em;
+    --explore-content-mute-button: 1rem;
     --explore-content-weight: 600;
-    --explore-content-heading: 4.5vmin;
+    --explore-content-heading: 1.6rem;
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
     --unmute-footer: 0.7em;
@@ -66,27 +66,37 @@
 }
 @media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
   :root {
-    --artifact-title: 1rem;
-    --artifact-description: 0.7rem;
-    --artifact-description-line-height: 1rem;
+    --explore-content: 1.1rem;
+    --main-title: 2.2rem;
+    --main-title-world: 4.2rem;
+    --main-description: 1.2rem;
+    --artifact-title: 1.4rem;
+    --artifact-title-line-height: 2rem;
+    --artifact-description: 0.95rem;
+    --artifact-description-letter-spacing: calc(clamp(0px, (0.2vh - 3px), 2px));
+    --artifact-description-line-height: calc(clamp(15px, (7vh - 26px), 30px));
+    --zoom-button-size: 1.2rem;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   :root {
     --main-title: 2.4rem;
-    --main-title-world: 2.8rem;
-    --main-description: 0.8rem;
-    --artifact-title: 1rem;
-    --artifact-description: 0.8rem;
-    --artifact-description-line-height: 1.4rem;
-    --explore: 3.4vmin;
-    --explore-button: 2.8vmin;
-    --explore-content: 3.8vmin;
+    --main-title-world: 4.8rem;
+    --main-description: 1rem;
+    --artifact-title: 1.6rem;
+    --artifact-title-line-height: 2.4rem;
+    --artifact-description: 1.2rem;
+    --artifact-description-letter-spacing: calc(clamp(0px, (0.2vh - 3px), 2px));
+    --artifact-description-line-height: calc(clamp(20px, (8vh - 26px), 60px));
+    --zoom-button-size: 1.2rem;
+    --explore: 2rem;
+    --explore-button: 0.8rem;
+    --explore-content: 1.2rem;
     --explore-content-line-height: 150%;
-    --explore-content-author: 0.7em;
-    --explore-content-mute-button: 1em;
+    --explore-content-author: 0.8rem;
+    --explore-content-mute-button: 1rem;
     --explore-content-weight: 600;
-    --explore-content-heading: 4.5vmin;
+    --explore-content-heading: 1.6rem;
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
     --unmute-footer: 0.7em;
@@ -94,9 +104,35 @@
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (max-height: 320px) and (orientation: landscape) {
   :root {
-    --artifact-title: 0.9rem;
-    --artifact-description: 0.75rem;
-    --artifact-description-line-height: 1.15rem;
+    --main-title: 2rem;
+    --main-title-world: 4.2rem;
+    --main-description: 0.9rem;
+    --explore-content: 1rem;
+    --artifact-title: 1.4rem;
+    --artifact-title-line-height: 2.4rem;
+    --artifact-description: 1rem;
+    --artifact-description-letter-spacing: calc(
+      clamp(0px, (0.4vh - 2.6px), 2px)
+    );
+    --artifact-description-line-height: calc(clamp(20px, (8vh - 20px), 60px));
+    --zoom-button-size: 1.2rem;
+  }
+}
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 1024px) {
+  :root {
+    --artifact-title: 1.9rem;
+    --artifact-title-line-height: 2rem;
+    --artifact-description: 1.2rem;
+    --artifact-description-letter-spacing: calc(clamp(0px, (0.2vh - 3px), 2px));
+    --artifact-description-line-height: calc(clamp(25px, (6vh - 30px), 60px));
+  }
+}
+@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 1024px) {
+  :root {
+    --artifact-title: 2rem;
+    --artifact-title-line-height: 2rem;
+    --artifact-description: 0.9rem;
+    --artifact-description-line-height: 2rem;
   }
 }
 
@@ -107,13 +143,12 @@
   --explore-menu-timing: 0.5s 0s ease-in-out;
 }
 
-:root {
-  --100vh: 100vh;
-  --100vw: 100vw;
+html {
+  font-size: clamp(10px, 1.8vmin, 36px);
 }
 
 body {
-  font-size: calc(10px + 16 * (100vw - 300px) / 1300);
+  width: 100vw;
 }
 
 a {
@@ -124,19 +159,21 @@ div.artifact {
   position: absolute;
   top: 0;
   left: 0;
-  width: 100vw;
-  height: 100vh;
+  right: 0;
   margin: 0;
   padding: 0;
+  width: 100vw;
+  height: 100vh;
 }
 div.artifact .content {
   z-index: 1;
   margin: 0;
+  padding: 2.2rem 3.4rem 2.6rem 5.5rem;
   padding: 4vh 4vw 4vh 6vw;
   color: white;
   background-color: transparent;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content {
     padding: 0;
   }
@@ -154,15 +191,30 @@ div.artifact .content .absolute-content-container {
   width: 100%;
   max-width: 100vw;
   transition: opacity var(--explore-content-timing), visibility var(--explore-content-timing);
-  max-width: 40vw;
   line-height: var(--explore-content-line-height);
   font-size: var(--explore-content);
   font-weight: 300;
 }
+div.artifact .content .absolute-content-container.start {
+  display: flex;
+  flex-direction: row;
+}
+@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 1024px) {
+  div.artifact .content .absolute-content-container.start {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container.start {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
 div.artifact .content .absolute-content-container .about-container {
   width: 28vw;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .about-container {
     margin: 0 5vw;
     width: 90vw;
@@ -176,15 +228,15 @@ div.artifact .content .absolute-content-container .about-container {
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .content .absolute-content-container .about-container .header {
-    margin-top: 0.5rem;
+    margin-top: 0;
     display: flex;
-    align-items: flex-end;
+    align-items: center;
   }
 }
-@media (min-aspect-ratio: 5/2) and (min-width: 1280px) {
+@media only screen and (min-aspect-ratio: 5/2) and (min-width: 1280px) {
   div.artifact .content .absolute-content-container .about-container .header {
     display: flex;
-    align-items: flex-end;
+    align-items: center;
   }
 }
 div.artifact .content .absolute-content-container .about-container .header img {
@@ -192,24 +244,24 @@ div.artifact .content .absolute-content-container .about-container .header img {
   height: 7rem;
   padding: 0rem;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .about-container .header img {
-    width: 16vw;
-    height: 16vw;
+    width: 4rem;
+    height: 4rem;
     margin: 1rem 0.5rem 0.5rem 0;
   }
 }
 @media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .about-container .header img {
-    width: 12vw;
-    height: 12vw;
+    width: 3rem;
+    height: 3rem;
     margin: 0.5rem 0.5rem 0.5rem 0;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .content .absolute-content-container .about-container .header img {
-    width: 10vh;
-    height: 10vh;
+    width: 9vh;
+    height: 9vh;
     margin: 1rem 0.5rem 0.5rem 0;
   }
 }
@@ -220,7 +272,7 @@ div.artifact .content .absolute-content-container .about-container .header img {
     margin: 0.5rem 0.5rem 0.5rem 0;
   }
 }
-@media (min-aspect-ratio: 5/2) and (min-width: 1280px) {
+@media only screen and (min-aspect-ratio: 5/2) and (min-width: 1280px) {
   div.artifact .content .absolute-content-container .about-container .header img {
     width: 6rem;
     height: 6rem;
@@ -229,12 +281,12 @@ div.artifact .content .absolute-content-container .about-container .header img {
 }
 div.artifact .content .absolute-content-container .about-container .header .title {
   width: 30vw;
-  margin: 4.5vh 0 5.5vh 0;
+  margin: 2.5rem 0 2.9rem 0;
   font-family: "Libre Caslon Text", serif;
   font-size: var(--artifact-title);
+  line-height: var(--artifact-title-line-height);
   font-weight: 600;
   color: var(--thoreau-blue);
-  line-height: 1.1em;
   text-transform: capitalize;
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
@@ -242,7 +294,7 @@ div.artifact .content .absolute-content-container .about-container .header .titl
     margin: 4vh 0 4vh 0;
   }
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .about-container .header .title {
     margin: 1vh 0 2vh 0;
     width: 70vw;
@@ -252,8 +304,9 @@ div.artifact .content .absolute-content-container .about-container hr {
   display: block;
   width: 10vw;
   height: 1px;
+  margin: 0.5rem 0;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .about-container hr {
     display: none;
   }
@@ -269,12 +322,12 @@ div.artifact .content .absolute-content-container .about-container hr {
   }
 }
 div.artifact .content .absolute-content-container .about-container .description {
-  margin: 4.5vh 0;
+  margin: 2.5rem 0;
   width: 100%;
   font-size: var(--artifact-description);
   line-height: var(--artifact-description-line-height);
   font-weight: 300;
-  letter-spacing: 1px;
+  letter-spacing: var(--artifact-description-letter-spacing);
   color: var(--navy-blue);
 }
 div.artifact .content .absolute-content-container .about-container .description span.first-line {
@@ -282,33 +335,37 @@ div.artifact .content .absolute-content-container .about-container .description 
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .content .absolute-content-container .about-container .description {
-    width: 95%;
-    letter-spacing: 0.5px;
+    margin: 1.5rem 0;
+    width: 100%;
+    max-width: 25rem;
+    letter-spacing: 0.2px;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (max-height: 320px) and (orientation: landscape) {
   div.artifact .content .absolute-content-container .about-container .description {
     width: 110%;
     letter-spacing: 0px;
+    max-width: 20rem;
     margin: 2vh 0;
   }
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .about-container .description {
     width: 100%;
-    letter-spacing: 0.5px;
+    max-width: 25rem;
     margin: 2vh 0;
   }
 }
 @media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .about-container .description {
     margin: 1vh 0;
+    max-width: 20rem;
   }
 }
 div.artifact .content .absolute-content-container .image-container {
   position: sticky;
   top: 5vh;
-  height: 90vh;
+  height: 85vh;
   margin-left: 1vw;
   left: 30%;
   width: 75%;
@@ -328,17 +385,32 @@ div.artifact .content .absolute-content-container .image-container img {
   width: inherit;
   height: auto;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .image-container {
     top: 30vh;
-    height: 90vw;
+    height: 75vw;
     left: 0;
     width: 100%;
     margin-top: 0;
+    margin-left: 0;
     padding: 0;
   }
   div.artifact .content .absolute-content-container .image-container img {
-    width: 80%;
+    width: 85%;
+  }
+}
+@media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container .image-container {
+    top: 30vh;
+    height: 85vw;
+    left: 0;
+    width: 100%;
+    margin-top: 0;
+    margin-left: 0;
+    padding: 0;
+  }
+  div.artifact .content .absolute-content-container .image-container img {
+    width: 90%;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
@@ -350,38 +422,47 @@ div.artifact .content .absolute-content-container .image-container img {
     width: 60%;
   }
 }
+@media only screen and (min-aspect-ratio: 5/2) and (min-width: 1280px) {
+  div.artifact .content .absolute-content-container .image-container {
+    height: 85vh;
+  }
+}
 div.artifact .content .absolute-content-container .image-container .zoom-controls {
   pointer-events: auto;
   position: absolute;
   right: 1.5vw;
-  bottom: 7vh;
-  height: 2rem;
+  bottom: 2vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 0em 0.5em;
   border: 1px solid lightgray;
-  border-radius: 1em;
+  border-radius: var(--zoom-button-size);
   background-color: var(--navy-blue);
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .image-container .zoom-controls {
-    right: 1vw;
-    bottom: 0vh;
-    height: 1.8rem;
+    right: 4vw;
+    bottom: 1vh;
+  }
+}
+@media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container .image-container .zoom-controls {
+    right: 2vw;
+    bottom: 1vh;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .content .absolute-content-container .image-container .zoom-controls {
     right: 1vw;
     bottom: 3vh;
-    height: 1.8rem;
   }
 }
 div.artifact .content .absolute-content-container .image-container .zoom-controls button {
   padding: 0;
   margin: 0.1rem 0.35rem;
-  width: 1rem;
+  width: var(--zoom-button-size);
+  height: calc(var(--zoom-button-size) * 1.4);
   background-color: transparent;
   border: none;
   box-sizing: border-box;
@@ -390,12 +471,13 @@ div.artifact .content .absolute-content-container .image-container .zoom-control
   justify-content: center;
 }
 div.artifact .content .absolute-content-container .image-container .zoom-controls button img {
-  width: 1rem;
+  width: var(--zoom-button-size);
   height: auto;
-  margin: 0 0.4rem;
+  margin: 0 0.2rem;
 }
 div.artifact .content .absolute-content-container .image-container .zoom-controls .v-divide {
   width: 0.1rem;
+  min-width: 2px;
   background-color: white;
   height: auto;
 }
@@ -408,7 +490,7 @@ div.artifact .content .absolute-content-container hr {
   border-top: 1px solid var(--navy-blue);
   opacity: 1;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container {
     flex-direction: column;
     justify-content: flex-start;
@@ -442,7 +524,7 @@ div.artifact .animation-frame-container {
   pointer-events: none;
   top: 0;
   left: 0;
-  height: var(--100vh);
+  height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
@@ -451,9 +533,9 @@ div.artifact .animation-frame-container {
   align-items: center;
   justify-content: space-around;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .animation-frame-container {
-    height: var(--100vh);
+    height: 100vh;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
@@ -474,7 +556,7 @@ div.artifact .animation-frame-container img {
     width: 100%;
   }
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .animation-frame-container img {
     width: 100%;
   }
@@ -484,7 +566,7 @@ div.artifact .background-image-container {
   z-index: -1;
   top: 0;
   left: 0;
-  height: var(--100vh);
+  height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
@@ -519,9 +601,9 @@ div.artifact .fixed-image-container {
   align-items: center;
   justify-content: space-around;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .fixed-image-container {
-    height: var(--100vh);
+    height: 100vh;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
@@ -537,7 +619,7 @@ div.artifact .fixed-image-container img {
   width: 80%;
   align-self: center;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .fixed-image-container img {
     width: 80%;
   }
@@ -564,16 +646,16 @@ div.artifact .dropdown.explore-another-object {
     right: 2vw;
   }
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .dropdown.explore-another-object {
     top: 2vh;
     right: 2vw;
   }
 }
 div.artifact .dropdown.explore-another-object button {
-  padding: 0.35em 1.5em;
+  padding: 0.35rem 1.5rem;
   border: none;
-  border-radius: 1.25em;
+  border-radius: 1.25rem;
   background-color: var(--navy-blue);
   font-size: var(--explore-button);
   color: var(--almost-white);
@@ -584,13 +666,13 @@ div.artifact .dropdown.explore-another-object button:focus {
 }
 div.artifact .dropdown.explore-another-object button::after {
   display: inline-block;
-  margin-left: 0.255em;
-  vertical-align: 0em;
+  margin-left: 0.255rem;
+  vertical-align: 0rem;
   border: none;
   content: url("../media/images/explore_another_down_arrow.png");
 }
 div.artifact .dropdown.explore-another-object ul.dropdown-menu {
-  padding-top: 0.1em;
+  padding-top: 0.1rem;
   background-color: transparent;
   border: none;
   display: block;
@@ -643,6 +725,10 @@ div.artifact .arrow-scroll-down {
   background-color: transparent;
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
 }
+div.artifact .arrow-scroll-down img {
+  width: 2.5rem;
+  height: auto;
+}
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .arrow-scroll-down {
     bottom: 3vh;
@@ -674,7 +760,7 @@ div.artifact .mute-button.secondary {
   bottom: 3vh;
   right: 5vw;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .mute-button.secondary {
     bottom: 2.5vh;
   }
@@ -727,7 +813,7 @@ div.artifact .unmute-footer {
   padding: 0;
   font-size: var(--unmute-footer);
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .unmute-footer {
     height: 5vh;
     font-size: var(--unmute-footer);
@@ -768,7 +854,7 @@ div.artifact .fixed-video-container {
   align-items: center;
   justify-content: space-around;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .fixed-video-container {
     width: 100vw;
   }
@@ -783,7 +869,7 @@ div.artifact .fixed-video-container .video-wrapper {
   align-self: center;
   justify-self: center;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .fixed-video-container .video-wrapper {
     width: 100%;
   }
@@ -816,7 +902,7 @@ div.artifact .fixed-video-container .video-wrapper video {
   align-self: center;
   object-fit: contain;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .fixed-video-container .video-wrapper video {
     width: 100%;
     height: auto;
@@ -843,7 +929,13 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.sta
   display: flex;
   flex-direction: row;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.start {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 1024px) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.start {
     flex-direction: column;
     justify-content: flex-start;
@@ -859,7 +951,13 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.cur
   max-width: 30vw;
   margin-top: 18vh;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.curious {
+    top: 38vh;
+    left: 72vw;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.curious {
     top: 12vh;
     left: 35vw;
@@ -872,16 +970,16 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
   height: 400vh;
   position: sticky;
   top: 3em;
-  left: 4em;
+  left: 4rem;
   max-width: 25vw;
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
-    left: 10vw;
+    left: 3vw;
     max-width: 30vw;
   }
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
     top: 10vh;
     left: 14vw;
@@ -898,11 +996,11 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.som
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.some-scientific {
     top: 15vh;
-    left: 5vw;
+    left: 3vw;
     max-width: 30vw;
   }
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.some-scientific {
     top: 25vh;
     left: 10vw;
@@ -929,17 +1027,18 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not img.spyglass.hawk {
   position: absolute;
-  margin-left: -13vw;
+  margin-left: -12rem;
   top: 2vh;
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
     height: 92vh;
     text-indent: -0.7rem;
+    margin-left: 50%;
   }
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not img.spyglass.hawk {
     transform: scale(0.65);
-    margin-left: -18vw;
+    margin-left: -15rem;
     top: -2vh;
   }
 }
@@ -953,11 +1052,11 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
   }
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not img.spyglass.hawk {
     transform: scale(0.5);
-    margin-left: -22vw;
-    top: -2vh;
+    margin-left: -13rem;
+    top: -1vh;
   }
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
     margin: unset;
     left: 10vw;
@@ -972,7 +1071,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
     top: 16vh;
   }
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .image-container img.spyglass-photo {
     width: 80%;
   }
@@ -988,6 +1087,18 @@ div.artifact.spyglass .fixed-image-container.spyglass img.spyglass-photo-rotated
 div.artifact.spyglass .animation-frame-container.spyglass {
   padding: 0 0 1vh 0;
   justify-content: flex-end;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.spyglass .animation-frame-container.spyglass {
+    padding: 2rem 0 0 0;
+    justify-content: center;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact.spyglass .animation-frame-container.spyglass {
+    padding: 2rem 0 0 0;
+    justify-content: center;
+  }
 }
 div.artifact.spyglass .background-image-container.spyglass:before {
   background-color: var(--thoreau-rgba-blue);
@@ -1116,7 +1227,7 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-photo-rota
 div.artifact.snowshoes .background-image-container.snowshoes:before {
   background-color: var(--thoreau-rgba-blue);
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.snowshoes .content.snowshoes .image-container img.snowshoes-photo {
     width: 80%;
   }
@@ -1134,7 +1245,7 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
   top: 4vh;
   left: 5vw;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.start {
     flex-direction: column;
     justify-content: flex-start;
@@ -1167,7 +1278,7 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
     left: 45vw;
   }
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.a-healthy-man {
     height: 98vh;
     left: 10vw;
@@ -1252,10 +1363,14 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
   padding: 0;
 }
 
+html {
+  font-size: clamp(10px, 1.8vmin, 36px);
+}
+
 body.index {
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;
@@ -1266,7 +1381,7 @@ body.index {
   background-position: center;
   background-size: cover;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   body.index {
     margin: 10px 0px;
   }
@@ -1288,7 +1403,7 @@ body.index {
   display: flex;
   flex-direction: column;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main {
     height: 90vh;
   }
@@ -1310,7 +1425,7 @@ body.index {
   height: 24vh;
   margin: 1vh 2vw;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .header {
     width: 100%;
     height: auto;
@@ -1336,7 +1451,7 @@ body.index {
   font-weight: 600;
   padding-bottom: 0.5vh;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .header .title {
     margin: 3vh 0 3vh 0;
     padding-bottom: 0;
@@ -1355,7 +1470,7 @@ body.index {
   color: var(--navy-blue);
   border-left: 1px solid;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .header .separator {
     width: 50%;
     height: 1vh;
@@ -1375,7 +1490,7 @@ body.index {
   width: 5.8em;
   height: 5.8em;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .header img.pinetree {
     display: none;
     width: 6vmax;
@@ -1397,16 +1512,13 @@ body.index {
 .content.index .main .header .description .heading {
   font-weight: 600;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .header .description {
-    width: 80%;
+    width: 30rem;
     margin: 2vh 0;
   }
   .content.index .main .header .description div {
     display: contents;
-  }
-  .content.index .main .header .description div.heading {
-    font-weight: inherit;
   }
 }
 @media only screen and (max-device-width: 570px) and (orientation: landscape) {
@@ -1424,7 +1536,7 @@ body.index {
   width: 95vw;
   height: 65vh;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .gallery {
     width: 100vw;
     margin-top: 0;
@@ -1447,7 +1559,7 @@ body.index {
   background-size: contain;
   justify-content: space-around;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .gallery .image-container {
     height: 45vh;
   }
@@ -1497,7 +1609,7 @@ body.index {
   width: 2.5vw;
   height: auto;
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .gallery .select {
     justify-content: flex-start;
   }
@@ -1523,7 +1635,7 @@ body.index {
   margin-left: 2.25vw;
   transform: rotate(180deg);
 }
-@media only screen and (min-device-width: 320px) and (max-device-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .gallery .select.right .circle {
     margin-right: -10vw;
   }
