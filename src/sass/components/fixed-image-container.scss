@@ -9,7 +9,7 @@
   padding: 0;
 
   @include mobile-portrait() {
-    height: var(--100vh);
+    height: 100vh;
   }
   @include mobile-landscape() {
     height: 90vh;

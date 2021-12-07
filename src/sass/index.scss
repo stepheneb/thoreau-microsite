@@ -4,12 +4,13 @@
 }
 
 html {
+  font-size: clamp(10px, 1.8vmin, 36px);
 }
 
 body.index {
   margin: 0;
   padding: 0;
-  width: 100%;
+  width: 100vw;
   overflow: hidden;
   @include mobile-portrait() {
     margin: 10px 0px;
@@ -83,8 +84,6 @@ body.index {
         @include mobile-portrait() {
           margin: 3vh 0 3vh 0;
           padding-bottom: 0;
-          .world {
-          }
         }
         @include mobile-landscape() {
           margin: 4vh 0 4vh 0;
@@ -134,13 +133,10 @@ body.index {
           font-weight: 600;
         }
         @include mobile-portrait() {
-          width: 80%;
+          width: 30rem;
           margin: 2vh 0;
           div {
             display: contents;
-            &.heading {
-              font-weight: inherit;
-            }
           }
         }
         @media only screen and (max-device-width: 570px) and (orientation: landscape) {

@@ -4,7 +4,7 @@
   pointer-events: none;
   top: 0;
   left: 0;
-  height: var(--100vh);
+  height: 100vh;
   width: 100vw;
   margin: 0;
   padding: 0;
@@ -14,7 +14,7 @@
   justify-content: space-around;
 
   @include mobile-portrait() {
-    height: var(--100vh);
+    height: 100vh;
   }
   @include mobile-landscape() {
     height: 90vh;

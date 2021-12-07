@@ -26,6 +26,10 @@ div.artifact.spyglass {
 
         @include mobile-landscape() {
         }
+        @include desktop-strong-portrait() {
+          flex-direction: column;
+          justify-content: flex-start;
+        }
       }
 
       &.curious {
@@ -39,6 +43,8 @@ div.artifact.spyglass {
         margin-top: 18vh;
 
         @include mobile-landscape() {
+          top: 38vh;
+          left: 72vw;
         }
 
         @include mobile-portrait() {
@@ -54,11 +60,11 @@ div.artifact.spyglass {
         height: 400vh;
         position: sticky;
         top: 3em;
-        left: 4em;
+        left: 4rem;
         max-width: 25vw;
 
         @include mobile-landscape() {
-          left: 10vw;
+          left: 3vw;
           max-width: 30vw;
         }
         @include mobile-portrait() {
@@ -74,9 +80,10 @@ div.artifact.spyglass {
         top: 7em;
         left: 4em;
         max-width: 22vw;
+
         @include mobile-landscape() {
           top: 15vh;
-          left: 5vw;
+          left: 3vw;
           max-width: 30vw;
         }
         @include mobile-portrait() {
@@ -106,15 +113,16 @@ div.artifact.spyglass {
 
         img.spyglass.hawk {
           position: absolute;
-          margin-left: -13vw;
+          margin-left: -12rem;
           top: 2vh;
         }
         @include mobile-landscape() {
           height: 92vh;
           text-indent: -0.7rem;
+          margin-left: 50%;
           img.spyglass.hawk {
             transform: scale(0.65);
-            margin-left: -18vw;
+            margin-left: -15rem;
             top: -2vh;
           }
         }
@@ -126,8 +134,8 @@ div.artifact.spyglass {
           }
           img.spyglass.hawk {
             transform: scale(0.5);
-            margin-left: -22vw;
-            top: -2vh;
+            margin-left: -13rem;
+            top: -1vh;
           }
         }
         @include mobile-portrait() {
@@ -169,6 +177,14 @@ div.artifact.spyglass {
   .animation-frame-container.spyglass {
     padding: 0 0 1vh 0;
     justify-content: flex-end;
+    @include mobile-portrait() {
+      padding: 2rem 0 0 0;
+      justify-content: center;
+    }
+    @include mobile-landscape() {
+      padding: 2rem 0 0 0;
+      justify-content: center;
+    }
   }
 
   .background-image-container.spyglass {

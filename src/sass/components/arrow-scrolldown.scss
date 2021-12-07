@@ -8,6 +8,10 @@
   width: 100%;
   display: flex;
   justify-content: center;
+  img {
+    width: 2.5rem;
+    height: auto;
+  }
   @include mobile-portrait() {
   }
   @include mobile-landscape() {

@@ -20,9 +20,9 @@
   }
 
   button {
-    padding: 0.35em 1.5em;
+    padding: 0.35rem 1.5rem;
     border: none;
-    border-radius: 1.25em;
+    border-radius: 1.25rem;
     background-color: var(--navy-blue);
     font-size: var(--explore-button);
     color: var(--almost-white);
@@ -32,14 +32,14 @@
     }
     &::after {
       display: inline-block;
-      margin-left: 0.255em;
-      vertical-align: 0em;
+      margin-left: 0.255rem;
+      vertical-align: 0rem;
       border: none;
       content: url("../media/images/explore_another_down_arrow.png");
     }
   }
   ul.dropdown-menu {
-    padding-top: 0.1em;
+    padding-top: 0.1rem;
     background-color: transparent;
     border: none;
     display: block;
