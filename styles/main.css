@@ -118,7 +118,7 @@
     --zoom-button-size: 1.2rem;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 1024px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
   :root {
     --artifact-title: 1.9rem;
     --artifact-title-line-height: 2rem;
