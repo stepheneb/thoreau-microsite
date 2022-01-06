@@ -118,3 +118,25 @@ $ ls -lSh winter-stream-304x540*
 -rw-r--r--  1 stephen  staff   1.6M Nov 29 15:16 winter-stream-304x540-250k.mp4
 -rw-r--r--  1 stephen  staff   1.4M Nov 29 15:15 winter-stream-304x540-250k.webm
 ```
+
+Changing aspect ratio of video to portrait for mobile.
+
+```
+<video preload="auto" loop="" autoplay="" muted="" playsinline="" webkit-playsinline="webkit-playsinline" class="svelte-swxx5">
+  <source type="video/mp4" src="https://int.nyt.com/data/videotape/finished/2021/07/1626759862/top8_final_1600_v3-1600w.mp4">
+  <source type="video/webm" src="https://int.nyt.com/data/videotape/finished/2021/07/1626759862/top8_final_1600_v3-1600w.webm">
+</video>
+
+
+ffmpeg -i winter-stream-960x540.mp4 -vf "crop=ih*9/16:ih" winter-stream-540x304.mp4
+
+$ ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of default=nw=1 winter-stream-540x304.mp4
+width=304
+height=540
+
+
+ffmpeg -i winter-stream-960x540.mp4 -vf "crop=ih*9/16:ih" -f null - 2>&1 ffprobe -v error -select_streams v:0 -show_entries stream=width,height -of default=nw=1
+
+ffmpeg -i winter-stream-960x540.mp4 -b:v 1M -crf 30 -c:a libopus -threads 8 -speed 4 -row-mt 1 -y winter-stream-960x540.mp4-1M.mp4
+ffmpeg i winter-stream-960x540-2M.mp4 -b:v 2M -crf 30 -c:a libopus -threads 8 -speed 4 -row-mt 1 -y winter-stream-960x540-2M.mp4
+```
