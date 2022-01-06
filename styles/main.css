@@ -8,6 +8,7 @@
   --border-gray: gray;
   --border-light-gray: #ddd;
   --navy-blue: #25334b;
+  --white: #fff;
   --almost-white: #ddd;
   --medium-gray: #a7bbca;
   --snowshoe-brown: #704b46;
@@ -914,6 +915,15 @@ div.artifact .fixed-video-container .video-wrapper video {
     width: auto;
   }
 }
+div.artifact .fixed-video-container.fullscreen {
+  width: 100vw;
+  height: 100vh;
+}
+div.artifact .fixed-video-container.fullscreen .video-wrapper video {
+  width: 100vw;
+  height: 100vh;
+  object-fit: cover;
+}
 
 body#spyglass {
   height: 1200vh;
@@ -1008,16 +1018,16 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.som
   }
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
-  height: 88vh;
-  max-width: 40vw;
-  margin-left: 35%;
-  color: var(--navy-blue);
+  height: 90vh;
+  max-width: 45vw;
+  margin-left: 22%;
+  color: var(--white);
   font-size: var(--explore-content-heading);
   font-family: "Libre Caslon Text", serif;
   text-indent: -0.9rem;
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not hr {
-  border-color: var(--medium-gray);
+  border-color: var(--navy-blue);
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not .author {
   text-indent: 0;
@@ -1213,6 +1223,10 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   background-size: cover;
 }
 #spyglass[data-content-scroll="11"] .fixed-image-container.spyglass.hawk {
+  visibility: visible;
+  opacity: 1;
+}
+#spyglass[data-content-scroll="11"] .fixed-video-container.spyglass.walden-sunset-video {
   visibility: visible;
   opacity: 1;
 }
