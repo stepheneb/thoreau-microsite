@@ -94,15 +94,15 @@ div.artifact.spyglass {
       }
 
       &.would-it-not {
-        height: 88vh;
-        max-width: 40vw;
-        margin-left: 35%;
-        color: var(--navy-blue);
+        height: 90vh;
+        max-width: 45vw;
+        margin-left: 22%;
+        color: var(--white);
         font-size: var(--explore-content-heading);
         font-family: "Libre Caslon Text", serif;
         text-indent: -0.9rem;
         hr {
-          border-color: var(--medium-gray);
+          border-color: var(--navy-blue);
         }
         .author {
           text-indent: 0;
@@ -327,6 +327,10 @@ div.artifact.spyglass {
     }
   }
   .fixed-image-container.spyglass.hawk {
+    visibility: visible;
+    opacity: 1;
+  }
+  .fixed-video-container.spyglass.walden-sunset-video {
     visibility: visible;
     opacity: 1;
   }
