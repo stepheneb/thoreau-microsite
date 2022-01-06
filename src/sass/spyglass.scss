@@ -319,6 +319,7 @@ div.artifact.spyglass {
     opacity: 1;
   }
   .background-image-container.spyglass {
+    visibility: hidden;
     &:before {
       background-image: url("../media/images/pond-and-fog-986727760-170667a.jpg");
       background-repeat: no-repeat;

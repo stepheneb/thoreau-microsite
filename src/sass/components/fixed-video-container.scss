@@ -67,9 +67,12 @@
     }
   }
   &.fullscreen {
-    width: 100vw;
-    height: 100vh;
+    width: 101vw;
+    height: 101vh;
     .video-wrapper {
+      .mute-button {
+        right: 2.5vw;
+      }
       video {
         width: 100vw;
         height: 100vh;
