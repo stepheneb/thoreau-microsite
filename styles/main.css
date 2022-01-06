@@ -916,8 +916,11 @@ div.artifact .fixed-video-container .video-wrapper video {
   }
 }
 div.artifact .fixed-video-container.fullscreen {
-  width: 100vw;
-  height: 100vh;
+  width: 101vw;
+  height: 101vh;
+}
+div.artifact .fixed-video-container.fullscreen .video-wrapper .mute-button {
+  right: 2.5vw;
 }
 div.artifact .fixed-video-container.fullscreen .video-wrapper video {
   width: 100vw;
@@ -1215,6 +1218,9 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 #spyglass[data-content-scroll="11"] .absolute-content-container.spyglass.would-it-not {
   visibility: visible;
   opacity: 1;
+}
+#spyglass[data-content-scroll="11"] .background-image-container.spyglass {
+  visibility: hidden;
 }
 #spyglass[data-content-scroll="11"] .background-image-container.spyglass:before {
   background-image: url("../media/images/pond-and-fog-986727760-170667a.jpg");
