@@ -127,7 +127,7 @@
     --artifact-description-line-height: calc(clamp(25px, (6vh - 30px), 60px));
   }
 }
-@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 1024px) {
+@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 640px) {
   :root {
     --artifact-title: 2rem;
     --artifact-title-line-height: 2rem;
@@ -199,7 +199,7 @@ div.artifact .content .absolute-content-container.start {
   display: flex;
   flex-direction: row;
 }
-@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 1024px) {
+@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 640px) {
   div.artifact .content .absolute-content-container.start {
     flex-direction: column;
     justify-content: flex-start;
@@ -935,7 +935,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.sta
     justify-content: flex-start;
   }
 }
-@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 1024px) {
+@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 640px) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.start {
     flex-direction: column;
     justify-content: flex-start;
