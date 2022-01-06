@@ -36,7 +36,7 @@
 
 @mixin desktop-strong-portrait() {
   // @media only screen and (max-aspect-ratio: 3/4) and (min-width: 1024px) or (min-width: 1024px) {
-  @media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 1024px) {
+  @media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 640px) {
     @content;
   }
 }
