@@ -3,8 +3,8 @@
 
 app.firstUserSoundOnRequest = true;
 
-let muteButtons, unmuteFooter, soundOnOffButton, container, animationFrameImg,
-  zoomMinus, zoomPlus, artifactImage, audioElement, storeScrollArguments;
+let unmuteFooter, backgroundSoundButton, container, animationFrameImg,
+  zoomMinus, zoomPlus, artifactImage, silentAudioElement, storeScrollArguments;
 
 // The debounce function receives our function as a parameter
 const debounce = (fn) => {
@@ -133,9 +133,8 @@ let manageZoomButtons = () => {
   rescaleArtifactImage();
 }
 
-let soundOnOff = 'off';
-let soundIsOn = () => soundOnOff == 'on';
-// let soundIsOff = () => !soundIsOn();
+let backgroundSoundOnOff = 'off';
+let backgroundSoundIsOn = () => backgroundSoundOnOff == 'on';
 
 let startPlayDelay = 500;
 
@@ -149,6 +148,7 @@ let isAudio = (mediaPlayer) => {
 }
 
 let mediaCollection = [];
+
 document.querySelectorAll('audio, video').forEach((mediaPlayer) => {
   let container = mediaPlayer.parentElement;
   if (isVideo(mediaPlayer)) {
@@ -170,7 +170,7 @@ document.querySelectorAll('audio, video').forEach((mediaPlayer) => {
   })
 })
 
-let updatemediaCollection = (muteStateChanged = false) => {
+let updateMediaCollection = () => {
   let contentFloatScroll = document.body.dataset.contentScrollFloat;
   if (contentFloatScroll) {
     contentFloatScroll = +contentFloatScroll;
@@ -181,35 +181,47 @@ let updatemediaCollection = (muteStateChanged = false) => {
   let isAudioItem = (item) => {
     return isAudio(item.mediaPlayer);
   }
+  let isBackgroundSound = (item) => {
+    return isAudio(item.mediaPlayer) && item.mediaPlayer.id == 'background-sounds';
+  }
+
   let isVisible = (item) => {
-    return item.visibility == 'visible';
+    return item.visibility == 'visible' && item.opacity == 1;
   }
   let isNotVisible = (item) => {
     return item.visibility == 'hidden' || item.opacity < 1;
   }
+
+  let visibilityChanged = (item) => {
+    item.computedStyle = getComputedStyle(item.container);
+    let currentVisibility = item.computedStyle.visibility;
+    let currentOpacity = item.computedStyle.opacity;
+    let changed = item.visibility != currentVisibility || item.opacity != currentOpacity;
+    if (changed) {
+      item.visibility = currentVisibility;
+      item.opacity = currentOpacity;
+    }
+    return changed;
+  }
+
   let paused = (item) => {
-    let p = item.mediaPlayer.paused || audioElement.paused;
+    let p = item.mediaPlayer.paused;
     app.logger('paused', item.mediaPlayer.id, p);
     return p;
   }
   // let reset = (item) => {
   //   app.logger('reset', item.mediaPlayer.id);
   //   item.mediaPlayer.currentTime = 0;
-  //   audioElement.currentTime = 0;
+  //   silentAudioElement.currentTime = 0;
   // }
-  let visibilityChanged = (item) => {
-    item.computedStyle = getComputedStyle(item.container);
-    let changed = false;
-    changed = item.computedStyle.visibility !== item.visibility || item.computedStyle.opacity !== item.opacity;
-    return changed;
-  }
+
   let stopAudio = (item) => {
-    app.logger('stopAudio', item.mediaPlayer.id);
+    app.logger('stopAudio()', item.mediaPlayer.id);
     if (isAudioItem(item)) {
       item.mediaPlayer.currentTime = 0;
-      if (item.mediaPlayer.src == audioElement.src) {
-        audioElement.pause();
-        audioElement.currentTime = 0;
+      if (item.mediaPlayer.src == silentAudioElement.src) {
+        silentAudioElement.pause();
+        silentAudioElement.currentTime = 0;
       }
       window.clearTimeout(item.startPlayTimeoutID);
     } else if (isVideoItem(item)) {
@@ -223,6 +235,7 @@ let updatemediaCollection = (muteStateChanged = false) => {
   // let stopAll = () => {
   //   mediaCollection.forEach((item) => stopAudio(item));
   // }
+
   let stopOthers = (item) => {
     mediaCollection.forEach((i) => {
       if (i.id !== item.id) {
@@ -230,15 +243,14 @@ let updatemediaCollection = (muteStateChanged = false) => {
       }
     })
   }
+
   let play = (item) => {
     app.logger('play', item.mediaPlayer.id);
     if (isAudioItem(item)) {
       stopOthers(item);
       item.startPlayTimeoutID = setTimeout(() => {
-        audioElement.src = item.mediaPlayer.src;
-        audioElement.play();
-        audioElement.volume = 1;
-        // item.mediaPlayer.play();
+        item.mediaPlayer.play();
+        item.mediaPlayer.volume = 1;
       }, startPlayDelay);
     } else if (isVideoItem(item)) {
       item.startPlayTimeoutID = setTimeout(() => {
@@ -247,30 +259,23 @@ let updatemediaCollection = (muteStateChanged = false) => {
     }
     item.played = true;
   }
+
   let updateMedia = (item) => {
     if (isVisible(item)) {
-      if (soundOnOff == 'on') {
-        if (isAudioItem(item) && paused(item) && !item.played) {
-          // reset(item);
-          play(item);
-        } else if (isVideoItem(item)) {
-          item.mediaPlayer.removeAttribute("muted");
-          item.mediaPlayer.muted = false;
-          play(item);
+      if (isBackgroundSound(item) && backgroundSoundIsOn()) {
+        if (paused(item)) {
+          item.mediaPlayer.play();
         }
-
-      } else {
-        stopAudio(item);
       }
     } else {
-      app.logger('not visible, stop playing:', item.mediaPlayer.id);
-      stopAudio(item);
+      app.logger(`${item.id} not visible, stop playing:`, item.mediaPlayer.id);
+      // stopAudio(item);
+
     }
   }
   mediaCollection.forEach((item) => {
     if (visibilityChanged(item)) {
-      app.logger(item.id, '=========>', item.computedStyle.visibility);
-      item.visibility = item.computedStyle.visibility;
+      app.logger(item.id || item.mediaPlayer.id, '=========>', item.computedStyle.visibility);
       if (isNotVisible(item)) item.played = false;
       if (isVideoItem(item)) {
         if (isVisible(item)) {
@@ -282,48 +287,46 @@ let updatemediaCollection = (muteStateChanged = false) => {
     } else {
       app.logger(item.id, ':', item.computedStyle.visibility);
     }
-    if (muteStateChanged) item.played = false;
     if (isAudioItem(item)) {
       if (item.fadeOutStart) {
         if (item.fadeOutStart <= contentFloatScroll && item.fadeOutEnd > contentFloatScroll) {
           let extent = item.fadeOutEnd - item.fadeOutStart
           let volume = (item.fadeOutEnd - contentFloatScroll) / extent;
-          audioElement.volume = volume;
+          item.mediaPlayer.volume = volume;
         }
       }
       if (item.fadeInStart) {
         if (item.fadeInStart <= contentFloatScroll && item.fadeInEnd > contentFloatScroll) {
           let extent = item.fadeInEnd - item.fadeInStart
           let volume = (contentFloatScroll - item.fadeInStart) / extent;
-          audioElement.volume = volume;
+          item.mediaPlayer.volume = volume;
         }
       }
     }
   })
-  if (soundIsOn() || muteStateChanged) {
-    mediaCollection.forEach((item) => updateMedia(item));
-  }
+  mediaCollection.forEach((item) => updateMedia(item));
 }
 
-let updatemediaCollectionListener = () => {
+let updateMediaCollectionListener = () => {
   app.logger('.');
-  app.logger('updatemediaCollectionListener');
-  updatemediaCollection();
+  app.logger('updateMediaCollectionListener');
+  updateMediaCollection();
 }
 
 let processSoundControls = () => {
   if (app.firstUserSoundOnRequest) {
-    audioElement.removeAttribute('muted');
-    audioElement.play();
+    silentAudioElement.removeAttribute('muted');
+    silentAudioElement.play();
     app.firstUserSoundOnRequest = false;
   }
-  let currentState = soundOnOffButton.dataset.sound;
+
   let updateSoundControl = (el) => {
     let onChildren = el.querySelectorAll('*.on');
     let offChildren = el.querySelectorAll('*.off');
+    let currentState = backgroundSoundButton.dataset.sound;
     if (currentState == 'off') {
-      soundOnOff = 'on';
-      soundOnOffButton.dataset.sound = soundOnOff;
+      backgroundSoundOnOff = 'on';
+      backgroundSoundButton.dataset.sound = backgroundSoundOnOff;
       onChildren.forEach((el) => {
         el.style.display = 'block';
       })
@@ -331,8 +334,8 @@ let processSoundControls = () => {
         el.style.display = 'none';
       })
     } else if (currentState == 'on') {
-      soundOnOff = 'off';
-      soundOnOffButton.dataset.sound = soundOnOff;
+      backgroundSoundOnOff = 'off';
+      backgroundSoundButton.dataset.sound = backgroundSoundOnOff;
       onChildren.forEach((el) => {
         el.style.display = 'none';
       })
@@ -340,27 +343,30 @@ let processSoundControls = () => {
         el.style.display = 'block';
       })
     }
-    app.logger('sound:', soundOnOff);
+    app.logger('background sound:', backgroundSoundOnOff);
   }
-  updateSoundControl(soundOnOffButton);
-  if (soundIsOn()) {
-    unmuteFooter.classList.add('on');
-  } else {
-    unmuteFooter.classList.remove('on');
+
+  if (unmuteFooter.enabled) {
+    if (backgroundSoundIsOn()) {
+      unmuteFooter.classList.add('on');
+    } else {
+      unmuteFooter.classList.remove('on');
+    }
   }
-  muteButtons.forEach((muteButton) => updateSoundControl(muteButton));
-  updatemediaCollection(true);
+
+  updateSoundControl(backgroundSoundButton);
+  updateMediaCollection();
 }
 
 let silentSrc = './media/audio/silence-0.01s.mp3';
 
 let createSilentAudioClip = () => {
-  audioElement = document.createElement('audio');
-  audioElement.id = 'audio';
-  audioElement.src = silentSrc;
-  audioElement.type = 'audio/mpeg';
-  // audioElement.muted = 'muted';
-  container.appendChild(audioElement);
+  silentAudioElement = document.createElement('audio');
+  silentAudioElement.id = 'audio';
+  silentAudioElement.src = silentSrc;
+  silentAudioElement.type = 'audio/mpeg';
+  // silentAudioElement.muted = 'muted';
+  container.appendChild(silentAudioElement);
 };
 
 //
@@ -398,40 +404,37 @@ const startup = (id, audios, animations) => {
     manageZoomButtons();
   })
 
-  soundOnOffButton = document.getElementById('sound-on-off');
   unmuteFooter = document.getElementById('unmute-footer');
+  unmuteFooter.enabled = window.getComputedStyle(unmuteFooter).display !== 'none;'
 
-  if (soundOnOffButton) {
-    soundOnOffButton.addEventListener('click', () => {
-      app.logger('sound-on-off clicked');
-      if (audioElement.src == silentSrc) {
-        audioElement.play();
-      }
+  // backgroundSoundButton = document.getElementById('unmute-footer-button');
+  backgroundSoundButton = document.getElementById('mute-button');
+  backgroundSoundOnOff = 'off';
+  backgroundSoundButton.dataset.sound = backgroundSoundOnOff;
+
+  if (backgroundSoundButton) {
+    backgroundSoundButton.addEventListener('click', () => {
+      app.logger('mute-on-off clicked');
       processSoundControls();
     });
-    muteButtons = document.querySelectorAll('.mute-button.secondary');
-
-    muteButtons.forEach((muteButton) => {
-      muteButton.addEventListener('click', () => {
-        processSoundControls(muteButton);
-      })
-    })
-    document.addEventListener('scroll', debounce(updatemediaCollectionListener), { passive: true });
-
-    mediaCollection.forEach((item) => {
-      if (audios) {
-        let audio = audios.find((a) => a.id == item.id);
-        if (audio) {
-          item.fadeOutStart = audio.fadeOutStart;
-          item.fadeOutEnd = audio.fadeOutEnd;
-        }
-      }
-      item.container.addEventListener('transitionend', updatemediaCollectionListener)
-    })
-
-    window.setInterval(() => {
-      updatemediaCollectionListener
-    }, 250)
-
   }
+
+  document.addEventListener('scroll', debounce(updateMediaCollectionListener), { passive: true });
+
+  mediaCollection.forEach((item) => {
+    if (audios) {
+      let audio = audios.find((a) => a.id == item.id);
+      if (audio) {
+        item.fadeOutStart = audio.fadeOutStart;
+        item.fadeOutEnd = audio.fadeOutEnd;
+      }
+    }
+    item.container.addEventListener('transitionend', updateMediaCollectionListener)
+  })
+
+  window.setInterval(() => {
+    updateMediaCollectionListener
+  }, 250)
 }
+
+app.dev = true;
