@@ -287,16 +287,20 @@
 
   <div class="artifact spyglass">
 
-    <div id='walden-sunset-video' class='fixed-video-container fullscreen spyglass walden-sunset-video'>
+    <div id='walden-sunset-video' class='video background fixed-video-container fullscreen spyglass walden-sunset-video'>
       <div class='video-wrapper'>
-        <video preload="auto" loop muted playsinline webkit-playsinline class='walden-sunset-video'>
+        <video preload="auto" loop muted playsinline webkit-playsinline class='background walden-sunset-video'>
           <source src="./media/video/walden-sunset/012315408-sun-sets-over-walden-pond_Edited_Loop_crf_22.mp4" type="video/mp4">
           Sorry, your browser doesn't support embedded videos.
         </video>
       </div>
     </div>
 
-    <div id="mute-button" class='mute-button secondary'>
+    <!-- id='background-sounds'             <audio src="./media/audio/spyglass/087279315-endless-spring-nature-ambience_trimmed.mp3"></audio> -->
+
+
+    <div id="background-track" class='audio background mute-button secondary'>
+      <audio src="./media/audio/spyglass/087279315-endless-spring-nature-ambience_trimmed.mp3"></audio>
       <div class="off">Click to unmute</div>
       <svg class='off' xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="bi bi-volume-off-fill" viewBox="0 0 16 16">
         <g>
@@ -313,7 +317,6 @@
             d="M8.707 11.182A4.486 4.486 0 0 0 10.025 8a4.486 4.486 0 0 0-1.318-3.182L8 5.525A3.489 3.489 0 0 1 9.025 8 3.49 3.49 0 0 1 8 10.475l.707.707zM6.717 3.55A.5.5 0 0 1 7 4v8a.5.5 0 0 1-.812.39L3.825 10.5H1.5A.5.5 0 0 1 1 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z" />
         </g>
       </svg>
-      <audio id='background-sounds' loop src="./media/audio/spyglass/087279315-endless-spring-nature-ambience_trimmed.mp3"></audio>
 
     </div>
 
@@ -380,8 +383,27 @@
         of the universe, right, what else would come up with it…
         <hr>
         <div class='author'>
-          <div class='name'>Laura Walls, Historian</div>
-          <audio controls controlsList="nodownload noplaybackrate" id='2-thoreau-did-have-a-curious-mind' src="./media/audio/spyglass/2-thoreau-did-have-a-curious-mind.mp3"></audio>
+          <div class='name'>Laura Dassow Walls, Historian</div>
+          <div class="audio player" id='2-thoreau-did-have-a-curious-mind'>
+            <audio src="./media/audio/spyglass/2-thoreau-did-have-a-curious-mind.mp3"></audio>
+            <div class='playpause'>
+              <div class="play">
+                <i class="bi bi-play-fill"></i>
+              </div>
+              <div class="pause">
+                <i class="bi bi-pause-fill"></i>
+              </div>
+            </div>
+            <div class='time-display'>
+              <div class='span current'></div>
+              <div class='span divider'>/</div>
+              <div class='span duration'></div>
+            </div>
+            <div class='progress-indicator'>
+              <div class='elapsed'></div>
+              <div class='remaining'></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -392,8 +414,28 @@
         his home in Concord.
         <hr>
         <div class='author'>
-          <div class='name'>Laura Walls, Historian</div>
-          <audio controls controlsList="nodownload noplaybackrate" id='3-his-experiments-his-observations' src="./media/audio/spyglass/3-his-experiments-his-observations.mp3"></audio>
+          <div class='name'>Laura Dassow Walls, Historian</div>
+
+          <div class="audio player" id='3-his-experiments-his-observations'>
+            <audio src="./media/audio/spyglass/3-his-experiments-his-observations.mp3"></audio>
+            <div class='playpause'>
+              <div class="play">
+                <i class="bi bi-play-fill"></i>
+              </div>
+              <div class="pause">
+                <i class="bi bi-pause-fill"></i>
+              </div>
+            </div>
+            <div class='time-display'>
+              <div class='span current'></div>
+              <div class='span divider'>/</div>
+              <div class='span duration'></div>
+            </div>
+            <div class='progress-indicator'>
+              <div class='elapsed'></div>
+              <div class='remaining'></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -401,8 +443,27 @@
         Some scientific work that is still looked at as fundamental to ecological studies today.
         <hr>
         <div class='author'>
-          <div class='name'>Laura Walls, Historian</div>
-          <audio controls controlsList="nodownload noplaybackrate" id='5-some-scientific-works' src="./media/audio/spyglass/5-some-scientific-work.mp3"></audio>
+          <div class='name'>Laura Dassow Walls, Historian</div>
+          <div class="audio player" id='5-some-scientific-works'>
+            <audio src="./media/audio/spyglass/5-some-scientific-work.mp3"></audio>
+            <div class='playpause'>
+              <div class="play">
+                <i class="bi bi-play-fill"></i>
+              </div>
+              <div class="pause">
+                <i class="bi bi-pause-fill"></i>
+              </div>
+            </div>
+            <div class='time-display'>
+              <div class='span current'></div>
+              <div class='span divider'>/</div>
+              <div class='span duration'></div>
+            </div>
+            <div class='progress-indicator'>
+              <div class='elapsed'></div>
+              <div class='remaining'></div>
+            </div>
+          </div>
         </div>
       </div>
 
@@ -414,7 +475,27 @@
           <hr>
           <div class='author thoreau'>
             <div class='name'>Henry David Thoreau</div>
-            <audio controls controlsList="nodownload noplaybackrate" id='6-would-it-not' src="./media/audio/spyglass/6-would-it-not.mp3"></audio>
+            <div class="audio player" id='6-would-it-not'>
+              <audio src="./media/audio/spyglass/6-would-it-not.mp3"></audio>
+              <div class='playpause'>
+                <div class="play">
+                  <i class="bi bi-play-fill"></i>
+                </div>
+                <div class="pause">
+                  <i class="bi bi-pause-fill"></i>
+                </div>
+              </div>
+              <div class='time-display'>
+                <div class='span current'></div>
+                <div class='span divider'>/</div>
+                <div class='span duration'></div>
+              </div>
+              <div class='progress-indicator'>
+                <div class='elapsed'></div>
+                <div class='remaining'></div>
+              </div>
+            </div>
+
           </div>
         </div>
       </div>

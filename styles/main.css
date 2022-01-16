@@ -138,10 +138,10 @@
 }
 
 :root {
-  --explore-images-timing: 0.5s 0s ease-in-out;
-  --explore-content-timing: 0.5s 0s ease-in-out;
-  --gallery-carousel-timing: 0.5s;
-  --explore-menu-timing: 0.5s 0s ease-in-out;
+  --explore-images-timing: 0.2s 0s ease-in-out;
+  --explore-content-timing: 0.2s 0s ease-in-out;
+  --gallery-carousel-timing: 0.2s;
+  --explore-menu-timing: 0.2s 0s ease-in-out;
 }
 
 html {
@@ -516,34 +516,56 @@ div.artifact .content .absolute-content-container .author .name {
 div.artifact .content .absolute-content-container .author .name.thoreau {
   color: black;
 }
-div.artifact .content .absolute-content-container .author audio {
-  z-index: 2;
+div.artifact .content .absolute-content-container .author .audio.player {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: -0.6em;
+}
+div.artifact .content .absolute-content-container .author .audio.player .playpause {
+  font-size: 2.6em;
   pointer-events: all;
-  transform: scale(1.3);
-  margin-left: 0.9em;
-  margin-top: -0.6em;
 }
-div.artifact .content .absolute-content-container .author audio::-webkit-media-controls-enclosure {
-  background-color: transparent;
-}
-div.artifact .content .absolute-content-container .author audio::-webkit-media-controls-play-button {
-  display: block;
-}
-div.artifact .content .absolute-content-container .author audio::-webkit-media-controls-mute-button {
+div.artifact .content .absolute-content-container .author .audio.player .playpause .pause {
   display: none;
 }
-div.artifact .content .absolute-content-container .author audio::-webkit-media-controls-current-time-display {
-  display: block;
-  font-size: 85%;
+div.artifact .content .absolute-content-container .author .audio.player .playpause.playing .play {
+  display: none;
 }
-div.artifact .content .absolute-content-container .author audio::-webkit-media-controls-time-remaining-display {
-  display: block;
-  font-size: 85%;
-}
-div.artifact .content .absolute-content-container .author audio::-webkit-media-controls-timeline {
+div.artifact .content .absolute-content-container .author .audio.player .playpause.playing .pause {
   display: block;
 }
-div.artifact .content .absolute-content-container .author audio::-webkit-media-controls-volume-slider {
+div.artifact .content .absolute-content-container .author .audio.player .time-display {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 0.75em;
+}
+div.artifact .content .absolute-content-container .author .audio.player .time-display div.span {
+  font-size: 0.8em;
+}
+div.artifact .content .absolute-content-container .author .audio.player .time-display div.divider {
+  padding: 0 0.4em 0 0.4em;
+}
+div.artifact .content .absolute-content-container .author .audio.player .progress-indicator {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  margin-left: 1em;
+  width: 10em;
+  height: 0.3em;
+}
+div.artifact .content .absolute-content-container .author .audio.player .progress-indicator .elapsed {
+  width: 0%;
+  height: 100%;
+  background-color: white;
+}
+div.artifact .content .absolute-content-container .author .audio.player .progress-indicator .remaining {
+  width: 100%;
+  height: 100%;
+  background-color: black;
+}
+div.artifact .content .absolute-content-container .author .audio.player audio {
   display: none;
 }
 div.artifact body[data-content-scroll="0"] .mute-button {
@@ -1016,6 +1038,8 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
   top: 3em;
   left: 4rem;
   max-width: 25vw;
+  visibility: hidden;
+  opacity: 0;
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {

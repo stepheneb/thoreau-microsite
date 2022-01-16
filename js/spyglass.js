@@ -20,31 +20,31 @@ const animationFrameCallback = (animationFrameNum, animationFrameImg, isVisible 
   }
 }
 
-let audios = [{
-    id: 'curious',
-    src: './media/audio/spyglass/2-thoreau-did-have-a-curious-mind.mp3',
-    fadeInStart: 2.0,
-    fadeInEnd: 2.25,
-    fadeOutStart: 4.5,
-    fadeOutEnd: 5.0
-  },
-  {
-    id: 'his-experiments',
-    src: './media/audio/spyglass/3-his-experiments-his-observations.mp3',
-    fadeInStart: 5.0,
-    fadeInEnd: 5.25,
-    fadeOutStart: 8.5,
-    fadeOutEnd: 9.0
-  },
-  {
-    id: 'some-scientific',
-    src: './media/audio/spyglass/5-some-scientific-work.mp3',
-    fadeInStart: 9.0,
-    fadeInEnd: 9.25,
-    fadeOutStart: 10.5,
-    fadeOutEnd: 11.0
-  }
-];
+// let audios = [{
+//     id: 'curious',
+//     src: './media/audio/spyglass/2-thoreau-did-have-a-curious-mind.mp3',
+//     fadeInStart: 2.0,
+//     fadeInEnd: 2.25,
+//     fadeOutStart: 4.5,
+//     fadeOutEnd: 5.0
+//   },
+//   {
+//     id: 'his-experiments',
+//     src: './media/audio/spyglass/3-his-experiments-his-observations.mp3',
+//     fadeInStart: 5.0,
+//     fadeInEnd: 5.25,
+//     fadeOutStart: 8.5,
+//     fadeOutEnd: 9.0
+//   },
+//   {
+//     id: 'some-scientific',
+//     src: './media/audio/spyglass/5-some-scientific-work.mp3',
+//     fadeInStart: 9.0,
+//     fadeInEnd: 9.25,
+//     fadeOutStart: 10.5,
+//     fadeOutEnd: 11.0
+//   }
+// ];
 
 let animations = [{
     callback: animationFrameCallback,
@@ -70,4 +70,4 @@ app.maxContentScroll = 12;
 
 // app.dev = true;
 
-app.domReady(startup('spyglass', audios, animations));
+app.domReady(startup('spyglass', animations));
