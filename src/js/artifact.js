@@ -6,10 +6,9 @@ app.firstUserSoundOnRequest = true;
 let contentScroll, contentScrollFLoat;
 let previousContentScrollFLoat = 0;
 
-let audioCollection, audioPlayers, videoPlayers, audioBackgrounds, videoBackgrounds, silentAudioElement;
+let audioPlayerCollection, audioBackgroundCollection, silentAudioElement;
 
-let unmuteFooter, backgroundSoundButton, container, animationFrameImg,
-  zoomMinus, zoomPlus, artifactImage, storeScrollArguments;
+let container, animationFrameImg, zoomMinus, zoomPlus, artifactImage, storeScrollArguments;
 
 // The debounce function receives our function as a parameter
 const debounce = (fn) => {
@@ -115,7 +114,6 @@ const storeScroll = (animations, animationFrameImg) => {
       app.logger(contentScrollFLoat.toFixed(1));
     }
   }
-
 };
 
 const storeScrollListener = (e, ...args) => {
@@ -149,11 +147,6 @@ let manageZoomButtons = () => {
   rescaleArtifactImage();
 }
 
-let backgroundSoundOnOff = 'off';
-let backgroundSoundIsOn = () => backgroundSoundOnOff == 'on';
-
-let startPlayDelay = 500;
-
 let isVideo = (mediaPlayer) => {
   let proto = Object.prototype.toString.call(mediaPlayer).slice(8, -1).toLowerCase();
   return proto == 'htmlvideoelement';
@@ -162,217 +155,6 @@ let isAudio = (mediaPlayer) => {
   let proto = Object.prototype.toString.call(mediaPlayer).slice(8, -1).toLowerCase();
   return proto == 'htmlaudioelement';
 }
-
-// let mediaCollection = [];
-//
-// document.querySelectorAll('audio, video').forEach((mediaPlayer) => {
-//   let container = mediaPlayer.parentElement;
-//   if (isVideo(mediaPlayer)) {
-//     container = container.parentElement;
-//   }
-//   let id = mediaPlayer.parentElement.parentElement.id;
-//   let computedStyle = getComputedStyle(container);
-//   let visibility = computedStyle.visibility;
-//   let opacity = computedStyle.opacity;
-//   mediaCollection.push({
-//     id: id,
-//     mediaPlayer: mediaPlayer,
-//     container: container,
-//     computedStyle: computedStyle,
-//     visibility: visibility,
-//     opacity: opacity,
-//     played: false,
-//     startPlayTimeoutID: null
-//   })
-// })
-
-// let updateMediaCollection = () => {
-//   let contentFloatScroll = document.body.dataset.contentScrollFloat;
-//   if (contentFloatScroll) {
-//     contentFloatScroll = +contentFloatScroll;
-//   }
-//   let isVideoItem = (item) => {
-//     return isVideo(item.mediaPlayer);
-//   }
-//   let isAudioItem = (item) => {
-//     return isAudio(item.mediaPlayer);
-//   }
-//   let isBackgroundSound = (item) => {
-//     return isAudio(item.mediaPlayer) && item.mediaPlayer.id == 'background-sounds';
-//   }
-//
-//   let isVisible = (item) => {
-//     return item.visibility == 'visible' && item.opacity == 1;
-//   }
-//   let isNotVisible = (item) => {
-//     return item.visibility == 'hidden' || item.opacity < 1;
-//   }
-//
-//   let visibilityChanged = (item) => {
-//     item.computedStyle = getComputedStyle(item.container);
-//     let currentVisibility = item.computedStyle.visibility;
-//     let currentOpacity = item.computedStyle.opacity;
-//     let changed = item.visibility != currentVisibility || item.opacity != currentOpacity;
-//     if (changed) {
-//       item.visibility = currentVisibility;
-//       item.opacity = currentOpacity;
-//     }
-//     return changed;
-//   }
-//
-//   let paused = (item) => {
-//     let p = item.mediaPlayer.paused;
-//     app.logger('paused', item.mediaPlayer.id, p);
-//     return p;
-//   }
-//   // let reset = (item) => {
-//   //   app.logger('reset', item.mediaPlayer.id);
-//   //   item.mediaPlayer.currentTime = 0;
-//   //   silentAudioElement.currentTime = 0;
-//   // }
-//
-//   let stopAudio = (item) => {
-//     app.logger('stopAudio()', item.mediaPlayer.id);
-//     if (isAudioItem(item)) {
-//       item.mediaPlayer.currentTime = 0;
-//       if (item.mediaPlayer.src == silentAudioElement.src) {
-//         silentAudioElement.pause();
-//         silentAudioElement.currentTime = 0;
-//       }
-//       window.clearTimeout(item.startPlayTimeoutID);
-//     } else if (isVideoItem(item)) {
-//       item.mediaPlayer.setAttribute('muted', 'muted')
-//       item.mediaPlayer.muted = true;
-//       window.clearTimeout(item.startPlayTimeoutID);
-//     } else {
-//       console.error('unknow media type:', item.mediaPlayer);
-//     }
-//   }
-//   // let stopAll = () => {
-//   //   mediaCollection.forEach((item) => stopAudio(item));
-//   // }
-//
-//   let stopOthers = (item) => {
-//     mediaCollection.forEach((i) => {
-//       if (i.id !== item.id) {
-//         stopAudio(i);
-//       }
-//     })
-//   }
-//
-//   let play = (item) => {
-//     app.logger('play', item.mediaPlayer.id);
-//     if (isAudioItem(item)) {
-//       stopOthers(item);
-//       item.startPlayTimeoutID = setTimeout(() => {
-//         item.mediaPlayer.play();
-//         item.mediaPlayer.volume = 1;
-//       }, startPlayDelay);
-//     } else if (isVideoItem(item)) {
-//       item.startPlayTimeoutID = setTimeout(() => {
-//         item.mediaPlayer.play();
-//       }, startPlayDelay);
-//     }
-//     item.played = true;
-//   }
-//
-//   let updateMedia = (item) => {
-//     if (isVisible(item)) {
-//       if (isBackgroundSound(item) && backgroundSoundIsOn()) {
-//         if (paused(item)) {
-//           item.mediaPlayer.play();
-//         }
-//       }
-//     } else {
-//       app.logger(`${item.id} not visible, stop playing:`, item.mediaPlayer.id);
-//       // stopAudio(item);
-//
-//     }
-//   }
-//   mediaCollection.forEach((item) => {
-//     if (visibilityChanged(item)) {
-//       app.logger(item.id || item.mediaPlayer.id, '=========>', item.computedStyle.visibility);
-//       if (isNotVisible(item)) item.played = false;
-//       if (isVideoItem(item)) {
-//         if (isVisible(item)) {
-//           play(item);
-//         } else {
-//           stopAudio(item);
-//         }
-//       }
-//     } else {
-//       app.logger(item.id, ':', item.computedStyle.visibility);
-//     }
-//     if (isAudioItem(item)) {
-//       if (item.fadeOutStart) {
-//         if (item.fadeOutStart <= contentFloatScroll && item.fadeOutEnd > contentFloatScroll) {
-//           let extent = item.fadeOutEnd - item.fadeOutStart
-//           let volume = (item.fadeOutEnd - contentFloatScroll) / extent;
-//           item.mediaPlayer.volume = volume;
-//         }
-//       }
-//       if (item.fadeInStart) {
-//         if (item.fadeInStart <= contentFloatScroll && item.fadeInEnd > contentFloatScroll) {
-//           let extent = item.fadeInEnd - item.fadeInStart
-//           let volume = (contentFloatScroll - item.fadeInStart) / extent;
-//           item.mediaPlayer.volume = volume;
-//         }
-//       }
-//     }
-//   })
-//   mediaCollection.forEach((item) => updateMedia(item));
-// }
-//
-// let updateMediaCollectionListener = () => {
-//   app.logger('.');
-//   app.logger('updateMediaCollectionListener');
-//   updateMediaCollection();
-// }
-//
-// let processSoundControls = () => {
-//   if (app.firstUserSoundOnRequest) {
-//     silentAudioElement.removeAttribute('muted');
-//     silentAudioElement.play();
-//     app.firstUserSoundOnRequest = false;
-//   }
-//
-//   let updateSoundControl = (el) => {
-//     let onChildren = el.querySelectorAll('*.on');
-//     let offChildren = el.querySelectorAll('*.off');
-//     let currentState = backgroundSoundButton.dataset.sound;
-//     if (currentState == 'off') {
-//       backgroundSoundOnOff = 'on';
-//       backgroundSoundButton.dataset.sound = backgroundSoundOnOff;
-//       onChildren.forEach((el) => {
-//         el.style.display = 'block';
-//       })
-//       offChildren.forEach((el) => {
-//         el.style.display = 'none';
-//       })
-//     } else if (currentState == 'on') {
-//       backgroundSoundOnOff = 'off';
-//       backgroundSoundButton.dataset.sound = backgroundSoundOnOff;
-//       onChildren.forEach((el) => {
-//         el.style.display = 'none';
-//       })
-//       offChildren.forEach((el) => {
-//         el.style.display = 'block';
-//       })
-//     }
-//     app.logger('background sound:', backgroundSoundOnOff);
-//   }
-//
-//   if (unmuteFooter.enabled) {
-//     if (backgroundSoundIsOn()) {
-//       unmuteFooter.classList.add('on');
-//     } else {
-//       unmuteFooter.classList.remove('on');
-//     }
-//   }
-//
-//   updateSoundControl(backgroundSoundButton);
-//   updateMediaCollection();
-// }
 
 let silentSrc = './media/audio/silence-0.01s.mp3';
 
@@ -398,7 +180,6 @@ class MediaItem {
     this.wrapper = wrapper;
     this.id = wrapper.id;
     this.media = wrapper.querySelector('audio');
-
     this.isAudio = isAudio(this.media);
     this.isVideo = isVideo(this.media);
 
@@ -412,13 +193,9 @@ class MediaItem {
     this.visible;
     this.visibility;
     this.opacity;
-
     this.paused;
-
     this.stopping = false;
-
     this.played = false;
-
     this.volume = 1;
     this.fadein = 500;
     this.fadeout = 500;
@@ -440,7 +217,7 @@ class MediaItem {
 
   getCurrentVisiblity() {
     this.getStyle();
-    let currentVisibility = this.style.visibility == 'visible' && this.style.opacity == '1';
+    let currentVisibility = this.style.visibility == 'visible' && this.style.opacity == '1' && this.style.display != 'none';
     return currentVisibility;
   }
 
@@ -449,7 +226,7 @@ class MediaItem {
     let currentVisibility = this.getCurrentVisiblity();
     let changed = currentVisibility != previousVisibility;
     if (changed) {
-      app.logger(contentScrollFLoat.toFixed(1), 'changed:', changed, ', previous:', previousVisibility, ', current:', currentVisibility);
+      app.logger(contentScrollFLoat.toFixed(1), this.id, 'changed:', changed, ', previous:', previousVisibility, ', current:', currentVisibility);
     }
     return changed;
   }
@@ -506,10 +283,12 @@ class MediaItem {
       const volumeStep = volummeSweepExtent / steps;
       let volume = this.volume;
       this.media.volume = volume;
-      let startTimestamp = performance.now();
-      let sweep = (timestamp) => {
-        let duration = timestamp - startTimestamp;
-        app.logger(volume.toFixed(2), duration.toFixed(0));
+      // let startTimestamp = performance.now();
+      // let sweep = (timestamp) => {
+      //  let duration = timestamp - startTimestamp;
+      //  app.logger(volume.toFixed(2), duration.toFixed(0));
+
+      let sweep = () => {
         volume += volumeStep;
         if (volume > endVolume) {
           this.media.volume = volume;
@@ -561,7 +340,6 @@ class MediaItem {
 
     if (this.isAudio) {
       playAudio();
-
     }
 
     if (this.isVideo) {
@@ -570,49 +348,39 @@ class MediaItem {
       }, this.startPlayDelay);
     }
   }
-
 }
 
 class AudioPlayerItem extends MediaItem {
-
   constructor(audioWrapper) {
     super(audioWrapper);
-
     this.playpause = this.wrapper.querySelector('.playpause');
     this.playBtn = this.wrapper.querySelector('.play');
     this.pauseBtn = this.wrapper.querySelector('.pause');
     this.timeDisplay = this.wrapper.querySelector('.time-display');
     this.currentTimeEl = this.timeDisplay.querySelector('.current')
     this.durationEl = this.timeDisplay.querySelector('.duration')
-
     this.progressDisplay = this.wrapper.querySelector('.progress-indicator');
     this.elapsedBar = this.progressDisplay.querySelector('.elapsed');
     this.remainingBar = this.progressDisplay.querySelector('.remaining');
-
     this.playBtn.addEventListener('click', () => {
       this.playpause.classList.add('playing');
       this.play();
     });
-
     this.pauseBtn.addEventListener('click', () => {
       this.playpause.classList.remove('playing');
       this.stop();
     });
-
     this.media.addEventListener('timeupdate', () => {
       this.updateCurrentTime();
     })
-
     this.media.addEventListener('durationchange', () => {
       this.updateDuration();
     })
-
     this.media.addEventListener('ended', () => {
       this.playpause.classList.remove('playing');
       this.media.currentTime = 0;
       this.updateDuration();
     })
-
     this.updateCurrentTime();
   }
 
@@ -620,6 +388,8 @@ class AudioPlayerItem extends MediaItem {
     this.resetVisibilityState();
     if (this.isPlaying() && this.isNotVisible()) {
       this.stop();
+      this.media.currentTime = 0;
+      this.playpause.classList.remove('playing');
     }
   }
 
@@ -665,28 +435,71 @@ class AudioPlayerItem extends MediaItem {
       this.playBtn.classList.add('paused');
     }
   }
-
-}
-
-class VideoPlayerItem extends MediaItem {
-  constructor(audio) {
-    super(audio);
-  }
 }
 
 class AudioBackgroundItem extends MediaItem {
   constructor(audio) {
     super(audio);
+    this.media.loop = true;
+    this.mutedState = true;
+    this.onChildren = this.wrapper.querySelectorAll('*.on');
+    this.offChildren = this.wrapper.querySelectorAll('*.off');
+    this.volume = 1;
+    this.wrapper.addEventListener('click', () => {
+      if (this.mutedState) {
+        this.mutedState = false;
+        this.updateMuteBtnView();
+        this.play();
+      } else {
+        this.mutedState = true;
+        this.updateMuteBtnView();
+        this.stop();
+      }
+    })
+  }
+
+  update() {
+    this.resetVisibilityState();
+    if (this.isPlaying() && this.isNotVisible()) {
+      this.stop();
+    }
+    if (this.isVisible() && !this.mutedState) {
+      this.play();
+    }
+  }
+
+  updateMuteBtnView() {
+    if (this.mutedState) {
+      this.onChildren.forEach((el) => {
+        el.style.display = 'none';
+      })
+      this.offChildren.forEach((el) => {
+        el.style.display = 'block';
+      })
+    } else {
+      this.offChildren.forEach((el) => {
+        el.style.display = 'none';
+      })
+      this.onChildren.forEach((el) => {
+        el.style.display = 'block';
+      })
+    }
   }
 }
 
-class VideoBackgroundItem extends MediaItem {
-  constructor(video) {
-    super(video);
-  }
-}
+// class VideoPlayerItem extends MediaItem {
+//   constructor(audio) {
+//     super(audio);
+//   }
+// }
+//
+// class VideoBackgroundItem extends MediaItem {
+//   constructor(video) {
+//     super(video);
+//   }
+// }
 
-class AudioPlayerCollection {
+class AudioCollection {
   constructor(selector, klass) {
     let elArray = Array.from(document.querySelectorAll(selector));
     this.items = elArray.map(el => new klass(el));
@@ -701,7 +514,8 @@ class AudioPlayerCollection {
 }
 
 let updateMCollectionListener = () => {
-  audioCollection.update();
+  audioPlayerCollection.update();
+  audioBackgroundCollection.update();
 }
 
 //
@@ -713,20 +527,15 @@ const startup = (id, animations) => {
   container = document.getElementById(id);
   createSilentAudioClip();
 
-  function makeItems(selector, klass) {
-    let elArray = Array.from(document.querySelectorAll(selector));
-    return elArray.map(el => new klass(el));
-  }
-
   // audioPlayers = makeItems('audio.player', AudioPlayerItem);
+  // audioBackgrounds = makeItems('audio.background', AudioBackgroundItem);
 
-  audioCollection = new AudioPlayerCollection('.audio.player', AudioPlayerItem);
+  audioPlayerCollection = new AudioCollection('.audio.player', AudioPlayerItem);
 
-  videoPlayers = makeItems('video.player', VideoPlayerItem);
+  audioBackgroundCollection = new AudioCollection('.audio.background', AudioBackgroundItem);
 
-  audioBackgrounds = makeItems('audio.background', AudioBackgroundItem);
-
-  videoBackgrounds = makeItems('video.background', VideoBackgroundItem);
+  // videoPlayers = makeItems('video.player', VideoPlayerItem);
+  // videoBackgrounds = makeItems('video.background', VideoBackgroundItem);
 
   animationFrameImg = document.getElementById('animation-frame');
 
@@ -753,23 +562,6 @@ const startup = (id, animations) => {
     artifactImageScale *= artifactZoomIncrement;
     manageZoomButtons();
   })
-
-  // unmuteFooter = document.getElementById('unmute-footer');
-  // unmuteFooter.enabled = window.getComputedStyle(unmuteFooter).display !== 'none;'
-
-  // backgroundSoundButton = document.getElementById('unmute-footer-button');
-  backgroundSoundButton = document.getElementById('mute-button');
-  backgroundSoundOnOff = 'off';
-  backgroundSoundButton.dataset.sound = backgroundSoundOnOff;
-
-  if (backgroundSoundButton) {
-    backgroundSoundButton.addEventListener('click', () => {
-      app.logger('mute-on-off clicked');
-      // processSoundControls();
-    });
-  }
-
-  // document.addEventListener('scroll', debounce(updateMCollectionListener), { passive: true });
 
   // window.setInterval(() => {
   //   updateMCollectionListener
