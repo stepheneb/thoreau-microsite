@@ -198,8 +198,14 @@ class MediaItem {
   }
 
   // 1..0 => easein, easout 1..0
-  easeinEaseout(x) {
-    return (Math.cos(Math.PI * x) + 1) / 2;
+  easeinEaseout(vin, low_v, high_v) {
+    let range = high_v - low_v;
+    let vinScaled = (vin - low_v) * 1 / range;
+    let x = Math.abs(vinScaled - 1);
+    let easedX = 0.5 * (Math.cos(x * Math.PI) + 1);
+    let vout = easedX * range / 1 + low_v;
+    // app.logger(vin, low_v, high_v, vout);
+    return vout;
   }
 
   getStyle() {
@@ -266,13 +272,18 @@ class MediaItem {
   }
 
   sweepVolume(startVolume, endVolume, timePeriod, callback) {
-    let endtest;
+    app.logger('');
+    let endtest, lowV, highV;
     if (endVolume > startVolume) {
+      lowV = startVolume;
+      highV = endVolume;
       endtest = (v, eV) => {
         return v < eV
       }
     } else {
       endtest = (v, eV) => {
+        lowV = endVolume;
+        highV = startVolume;
         return v >= eV
       }
     }
@@ -282,13 +293,14 @@ class MediaItem {
     const volumeStep = volummeSweepExtent / steps;
     let volume = startVolume
     this.media.volume = volume;
+    app.logger('start-volume', volume, 'volumeStep', volumeStep);
     let startTimestamp = performance.now();
     let sweep = (timestamp) => {
       let duration = timestamp - startTimestamp;
-      app.logger(volume.toFixed(2), duration.toFixed(0));
       volume += volumeStep;
       if (endtest(volume, endVolume)) {
-        this.media.volume = volume;
+        this.media.volume = this.easeinEaseout(volume, lowV, highV);
+        app.logger('-', volume.toFixed(2), this.media.volume.toFixed(2), duration.toFixed(0));
         window.requestAnimationFrame(sweep);
       } else {
         this.media.volume = endVolume;
@@ -300,8 +312,8 @@ class MediaItem {
     window.requestAnimationFrame(sweep);
   }
 
-  lowerVolume() {
-    this.sweepVolume(this.volume, this.volume / 2, this.fadein)
+  lowerVolume(vlow) {
+    this.sweepVolume(this.volume, vlow, this.fadein)
   }
 
   raiseVolume() {
@@ -364,13 +376,21 @@ class AudioPlayerItem extends MediaItem {
   }
 
   play() {
-    audioBackgroundCollection.items.forEach(item => item.lowerVolume());
+    audioBackgroundCollection.items.forEach(item => {
+      if (item.isPlaying()) {
+        item.lowerVolume(this.volume * 0.3)
+      }
+    });
     super.play();
   }
 
   stop() {
     super.stop();
-    audioBackgroundCollection.items.forEach(item => item.raiseVolume());
+    audioBackgroundCollection.items.forEach(item => {
+      if (item.isPlaying()) {
+        item.raiseVolume()
+      }
+    });
   }
 
   update() {
@@ -434,8 +454,8 @@ class AudioBackgroundItem extends MediaItem {
     this.onChildren = this.wrapper.querySelectorAll('*.on');
     this.offChildren = this.wrapper.querySelectorAll('*.off');
     this.volume = 1;
-    this.fadeout = 400;
     this.fadein = 1000;
+    this.fadeout = 400;
 
     this.wrapper.addEventListener('click', () => {
       if (this.mutedState) {
