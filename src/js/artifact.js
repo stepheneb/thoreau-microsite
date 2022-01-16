@@ -6,7 +6,8 @@ app.firstUserSoundOnRequest = true;
 let contentScroll, contentScrollFLoat;
 let previousContentScrollFLoat = 0;
 
-let audioPlayerCollection, audioBackgroundCollection, silentAudioElement;
+let audioPlayerCollection, audioBackgroundCollection, videoBackgroundCollection;
+let silentAudioElement;
 
 let container, animationFrameImg, zoomMinus, zoomPlus, artifactImage, storeScrollArguments;
 
@@ -147,15 +148,6 @@ let manageZoomButtons = () => {
   rescaleArtifactImage();
 }
 
-let isVideo = (mediaPlayer) => {
-  let proto = Object.prototype.toString.call(mediaPlayer).slice(8, -1).toLowerCase();
-  return proto == 'htmlvideoelement';
-}
-let isAudio = (mediaPlayer) => {
-  let proto = Object.prototype.toString.call(mediaPlayer).slice(8, -1).toLowerCase();
-  return proto == 'htmlaudioelement';
-}
-
 let silentSrc = './media/audio/silence-0.01s.mp3';
 
 let createSilentAudioClip = () => {
@@ -179,16 +171,9 @@ class MediaItem {
   constructor(wrapper) {
     this.wrapper = wrapper;
     this.id = wrapper.id;
-    this.media = wrapper.querySelector('audio');
-    this.isAudio = isAudio(this.media);
-    this.isVideo = isVideo(this.media);
-
-    // if (this.isVideo) {
-    //   this.wrapper = media.parentElement.parentElement;
-    // } else {
-    //   this.wrapper = media.parentElement;
-    // }
-
+    this.media = wrapper.querySelector('audio,video');
+    this.isAudio = this.isAudioMedia(this.media);
+    this.isVideo = this.isVideoMedia(this.media);
     this.style;
     this.visible;
     this.visibility;
@@ -199,10 +184,17 @@ class MediaItem {
     this.volume = 1;
     this.fadein = 500;
     this.fadeout = 500;
-
     this.resetVisibilityState();
-    // this.startPlayDelay = 500;
-    // this.mediaSetIntervalID = null;
+  }
+
+  isVideoMedia() {
+    let proto = Object.prototype.toString.call(this.media).slice(8, -1).toLowerCase();
+    return proto == 'htmlvideoelement';
+  }
+
+  isAudioMedia() {
+    let proto = Object.prototype.toString.call(this.media).slice(8, -1).toLowerCase();
+    return proto == 'htmlaudioelement';
   }
 
   // 1..0 => easein, easout 1..0
@@ -438,8 +430,8 @@ class AudioPlayerItem extends MediaItem {
 }
 
 class AudioBackgroundItem extends MediaItem {
-  constructor(audio) {
-    super(audio);
+  constructor(audioWrapper) {
+    super(audioWrapper);
     this.media.loop = true;
     this.mutedState = true;
     this.onChildren = this.wrapper.querySelectorAll('*.on');
@@ -487,19 +479,33 @@ class AudioBackgroundItem extends MediaItem {
   }
 }
 
+class VideoBackgroundItem extends MediaItem {
+  constructor(videoWrapper) {
+    super(videoWrapper);
+    this.media.loop = true;
+    setTimeout(() => {
+      this.update();
+    });
+  }
+  update() {
+    this.resetVisibilityState();
+    if (this.isNotVisible()) {
+      this.stop();
+    }
+    if (this.isVisible()) {
+      this.play();
+    }
+  }
+}
+
 // class VideoPlayerItem extends MediaItem {
 //   constructor(audio) {
 //     super(audio);
 //   }
 // }
 //
-// class VideoBackgroundItem extends MediaItem {
-//   constructor(video) {
-//     super(video);
-//   }
-// }
 
-class AudioCollection {
+class MediaCollection {
   constructor(selector, klass) {
     let elArray = Array.from(document.querySelectorAll(selector));
     this.items = elArray.map(el => new klass(el));
@@ -516,6 +522,7 @@ class AudioCollection {
 let updateMCollectionListener = () => {
   audioPlayerCollection.update();
   audioBackgroundCollection.update();
+  videoBackgroundCollection.update();
 }
 
 //
@@ -529,12 +536,12 @@ const startup = (id, animations) => {
 
   // audioPlayers = makeItems('audio.player', AudioPlayerItem);
   // audioBackgrounds = makeItems('audio.background', AudioBackgroundItem);
-
-  audioPlayerCollection = new AudioCollection('.audio.player', AudioPlayerItem);
-
-  audioBackgroundCollection = new AudioCollection('.audio.background', AudioBackgroundItem);
-
   // videoPlayers = makeItems('video.player', VideoPlayerItem);
+
+  audioPlayerCollection = new MediaCollection('.audio.player', AudioPlayerItem);
+  audioBackgroundCollection = new MediaCollection('.audio.background', AudioBackgroundItem);
+  videoBackgroundCollection = new MediaCollection('.video.background', VideoBackgroundItem);
+
   // videoBackgrounds = makeItems('video.background', VideoBackgroundItem);
 
   animationFrameImg = document.getElementById('animation-frame');
