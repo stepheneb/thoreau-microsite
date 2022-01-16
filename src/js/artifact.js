@@ -182,8 +182,8 @@ class MediaItem {
     this.stopping = false;
     this.played = false;
     this.volume = 1;
-    this.fadein = 500;
-    this.fadeout = 500;
+    this.fadein = 300;
+    this.fadeout = 300;
     this.resetVisibilityState();
   }
 
@@ -265,80 +265,67 @@ class MediaItem {
     return duration;
   }
 
-  stop() {
-    let stopAudio = () => {
-      this.stopping = true;
-      const endVolume = 0;
-      const interval = 1000 / 60;
-      const volummeSweepExtent = endVolume - this.volume;
-      const steps = this.fadeout / interval;
-      const volumeStep = volummeSweepExtent / steps;
-      let volume = this.volume;
-      this.media.volume = volume;
-      // let startTimestamp = performance.now();
-      // let sweep = (timestamp) => {
-      //  let duration = timestamp - startTimestamp;
-      //  app.logger(volume.toFixed(2), duration.toFixed(0));
-
-      let sweep = () => {
-        volume += volumeStep;
-        if (volume > endVolume) {
-          this.media.volume = volume;
-          window.requestAnimationFrame(sweep);
-        } else {
-          this.media.volume = endVolume;
-          this.media.pause();
-          this.stopping = false;
-          this.stopped = true;
-          this.media.currentTime = 0;
-          this.media.volume = 1;
-          this.media.muted = false;
-        }
-      };
-      window.requestAnimationFrame(sweep);
-    }
-
-    if (this.isAudio)
-      if (this.isPlaying() && !this.stopping) {
-        stopAudio();
+  sweepVolume(startVolume, endVolume, timePeriod, callback) {
+    let endtest;
+    if (endVolume > startVolume) {
+      endtest = (v, eV) => {
+        return v < eV
       }
+    } else {
+      endtest = (v, eV) => {
+        return v >= eV
+      }
+    }
+    const interval = 1000 / 60;
+    const volummeSweepExtent = endVolume - startVolume;
+    const steps = timePeriod / interval;
+    const volumeStep = volummeSweepExtent / steps;
+    let volume = startVolume
+    this.media.volume = volume;
+    let startTimestamp = performance.now();
+    let sweep = (timestamp) => {
+      let duration = timestamp - startTimestamp;
+      app.logger(volume.toFixed(2), duration.toFixed(0));
+      volume += volumeStep;
+      if (endtest(volume, endVolume)) {
+        this.media.volume = volume;
+        window.requestAnimationFrame(sweep);
+      } else {
+        this.media.volume = endVolume;
+        if (typeof callback == 'function') {
+          callback();
+        }
+      }
+    };
+    window.requestAnimationFrame(sweep);
+  }
+
+  lowerVolume() {
+    this.sweepVolume(this.volume, this.volume / 2, this.fadein)
+  }
+
+  raiseVolume() {
+    this.sweepVolume(this.media.volume, this.volume, this.fadein)
+  }
+
+  stop() {
+    let stopMedia = () => {
+      this.sweepVolume(this.volume, 0, this.fadeout, () => {
+        this.media.pause();
+        this.stopping = false;
+        this.stopped = true;
+        this.media.volume = 1;
+        this.media.muted = false;
+      })
+    }
+    if (this.isPlaying() && !this.stopping) {
+      stopMedia();
+    }
   }
 
   play() {
-    let playAudio = () => {
-      const startVolume = 0;
-      const interval = 1000 / 60;
-      const volummeSweepExtent = this.volume - startVolume;
-      const steps = this.fadein / interval;
-      const volumeStep = volummeSweepExtent / steps;
-      let volume = 0;
-      let startTimestamp = performance.now();
-      let sweep = (timestamp) => {
-        let duration = timestamp - startTimestamp;
-        app.logger(volume.toFixed(2), duration.toFixed(0));
-        volume += volumeStep;
-        if (volume < this.volume) {
-          this.media.volume = volume;
-          window.requestAnimationFrame(sweep);
-        } else {
-          this.media.volume = this.volume;
-        }
-      };
-
-      this.media.volume = volume;
-      this.media.play();
-      window.requestAnimationFrame(sweep);
-    }
-
-    if (this.isAudio) {
-      playAudio();
-    }
-
-    if (this.isVideo) {
-      this.startPlayTimeoutID = setTimeout(() => {
-        this.media.play();
-      }, this.startPlayDelay);
-    }
+    this.sweepVolume(0, this.volume, this.fadein)
+    this.media.play();
   }
 }
 
@@ -374,6 +361,16 @@ class AudioPlayerItem extends MediaItem {
       this.updateDuration();
     })
     this.updateCurrentTime();
+  }
+
+  play() {
+    audioBackgroundCollection.items.forEach(item => item.lowerVolume());
+    super.play();
+  }
+
+  stop() {
+    super.stop();
+    audioBackgroundCollection.items.forEach(item => item.raiseVolume());
   }
 
   update() {
@@ -437,6 +434,9 @@ class AudioBackgroundItem extends MediaItem {
     this.onChildren = this.wrapper.querySelectorAll('*.on');
     this.offChildren = this.wrapper.querySelectorAll('*.off');
     this.volume = 1;
+    this.fadeout = 400;
+    this.fadein = 1000;
+
     this.wrapper.addEventListener('click', () => {
       if (this.mutedState) {
         this.mutedState = false;
@@ -483,17 +483,17 @@ class VideoBackgroundItem extends MediaItem {
   constructor(videoWrapper) {
     super(videoWrapper);
     this.media.loop = true;
-    setTimeout(() => {
+    this.media.addEventListener('canplay', () => {
       this.update();
     });
   }
   update() {
     this.resetVisibilityState();
     if (this.isNotVisible()) {
-      this.stop();
+      this.media.pause();
     }
     if (this.isVisible()) {
-      this.play();
+      this.media.play();
     }
   }
 }
