@@ -71,6 +71,11 @@ Updating to a newer lts/Fermium version of Node.js and migrate any globally inst
 
 nvm install node --reinstall-packages-from=node
 
+
+
+## ffmpeg notes
+
+
 **Generating `webm` from `mp4` with `ffmpeg`**
 
 Reference: see: https://trac.ffmpeg.org/wiki/Encode/VP9
@@ -139,4 +144,10 @@ ffmpeg -i winter-stream-960x540.mp4 -vf "crop=ih*9/16:ih" -f null - 2>&1 ffprobe
 
 ffmpeg -i winter-stream-960x540.mp4 -b:v 1M -crf 30 -c:a libopus -threads 8 -speed 4 -row-mt 1 -y winter-stream-960x540.mp4-1M.mp4
 ffmpeg i winter-stream-960x540-2M.mp4 -b:v 2M -crf 30 -c:a libopus -threads 8 -speed 4 -row-mt 1 -y winter-stream-960x540-2M.mp4
+```
+
+**Extract first frame from video to use as background image**
+
+```
+ffmpeg -i src/media/video/walden-sunset/012315408-sun-sets-over-walden-pond_Edited_Loop_crf_22.mp4 -vf "scale=iw*sar:ih,setsar=1" -vframes 1 src/media/images/spyglass/sun-sets-over-walden-pond.jpg
 ```

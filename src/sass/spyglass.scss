@@ -293,9 +293,9 @@ div.artifact.spyglass {
     opacity: 1;
   }
   .background-image-container.spyglass {
-    visibility: hidden;
+    visibility: visible;
     &:before {
-      background-image: url("../media/images/pond-and-fog-986727760-170667a.jpg");
+      background-image: url("../media/images/spyglass/sun-sets-over-walden-pond.jpg");
       background-repeat: no-repeat;
       background-position: center;
       background-size: cover;
