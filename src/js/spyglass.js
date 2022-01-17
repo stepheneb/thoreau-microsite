@@ -66,7 +66,7 @@ let animations = [{
   }
 ];
 
-app.maxContentScroll = 12;
+app.maxContentScroll = 11;
 
 // app.dev = true;
 
