@@ -611,9 +611,9 @@ const startup = (id, animations) => {
     manageZoomButtons();
   })
 
-  // window.setInterval(() => {
-  //   updateMCollectionListener
-  // }, 250)
+  window.setInterval(() => {
+    updateMCollectionListener();
+  }, 250)
 }
 
 app.dev = true;
