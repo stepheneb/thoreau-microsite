@@ -54,7 +54,7 @@ let sLogger = new SectionLogger();
 // so we can use it in our stylesheets
 
 const storeScroll = (animations, animationFrameImg) => {
-  const contentViewportOffset = 0.4;
+  const contentViewportOffset = 0.6;
   contentScrollFLoat = window.scrollY / window.innerHeight + contentViewportOffset;
   contentScroll = Math.floor(contentScrollFLoat);
   let aspectRatio = window.innerWidth / window.innerHeight;
