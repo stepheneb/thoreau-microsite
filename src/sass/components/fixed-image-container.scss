@@ -18,6 +18,9 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  transition: opacity var(--explore-images-timing),
+    visibility var(--explore-images-timing);
+
   img {
     visibility: hidden;
     opacity: 0;
