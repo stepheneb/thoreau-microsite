@@ -34,13 +34,14 @@ div.artifact.spyglass {
 
       &.curious {
         height: 300vh;
-        min-height: 300vh;
+        // min-height: 300vh;
         position: sticky;
-        top: 60vh;
-        left: 6vw;
+        visibility: hidden;
+        top: 61vh;
+        left: 7vw;
         width: 26vw;
         max-width: 30vw;
-        margin-top: 18vh;
+        // margin-top: 18vh;
 
         @include mobile-landscape() {
           top: 38vh;
@@ -59,10 +60,10 @@ div.artifact.spyglass {
       &.his-experiments {
         height: 400vh;
         position: sticky;
-        top: 3em;
-        left: 4rem;
-        max-width: 25vw;
         visibility: hidden;
+        top: 10vh;
+        left: 7vw;
+        max-width: 25vw;
         opacity: 0;
 
         @include mobile-landscape() {
@@ -78,8 +79,8 @@ div.artifact.spyglass {
 
       &.would-it-not {
         height: 90vh;
+        margin: 6vh 0 0 25vw;
         max-width: 45vw;
-        margin-left: 22%;
         color: var(--white);
         font-size: var(--explore-content-heading);
         font-family: "Libre Caslon Text", serif;
@@ -158,7 +159,6 @@ div.artifact.spyglass {
   }
 
   .animation-frame-container.spyglass {
-    padding: 0 0 1vh 0;
     justify-content: flex-end;
     @include mobile-portrait() {
       padding: 2rem 0 0 0;
@@ -260,18 +260,28 @@ div.artifact.spyglass {
     opacity: 1;
   }
 }
+
 #spyglass[data-content-scroll="2"],
-#spyglass[data-content-scroll="3"],
-#spyglass[data-content-scroll="4"] {
+#spyglass[data-content-scroll="3"] {
   .absolute-content-container.spyglass.curious {
     visibility: visible;
     opacity: 1;
+    position: fixed;
   }
   .arrow-scroll-down {
     visibility: visible;
     opacity: 1;
   }
 }
+#spyglass[data-content-scroll="2"] {
+  .absolute-content-container.spyglass.curious {
+    position: sticky;
+  }
+}
+
+#spyglass[data-content-scroll="4"] {
+}
+
 #spyglass[data-content-scroll="5"],
 #spyglass[data-content-scroll="6"],
 #spyglass[data-content-scroll="7"],
@@ -279,14 +289,19 @@ div.artifact.spyglass {
   .absolute-content-container.spyglass.his-experiments {
     visibility: visible;
     opacity: 1;
+    position: fixed;
   }
   .arrow-scroll-down {
     visibility: visible;
     opacity: 1;
   }
 }
+#spyglass[data-content-scroll="5"] {
+  .absolute-content-container.spyglass.his-experiments {
+    position: sticky;
+  }
+}
 
-#spyglass[data-content-scroll="9"],
 #spyglass[data-content-scroll="9"] {
   .absolute-content-container.spyglass.would-it-not {
     visibility: visible;

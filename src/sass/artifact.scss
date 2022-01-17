@@ -24,8 +24,7 @@ div.artifact {
   .content {
     z-index: 1;
     margin: 0;
-    padding: 2.2rem 3.4rem 2.6rem 5.5rem;
-    padding: 4vh 4vw 4vh 6vw;
+    padding: 0;
     @include mobile-portrait() {
       padding: 0;
     }
@@ -70,6 +69,7 @@ div.artifact {
 
       .about-container {
         width: 28vw;
+        margin: 3.4rem 0 0 5.5rem;
         @include mobile-portrait() {
           margin: 0 5vw;
           width: 90vw;
@@ -188,10 +188,10 @@ div.artifact {
 
       .image-container {
         position: sticky;
-        top: 5vh;
-        height: 85vh;
-        margin-left: 1vw;
+        margin: 0 4vw 0 1vw;
+        top: 11vh;
         left: 30%;
+        height: 85vh;
         width: 75%;
         margin-top: 5%;
 
