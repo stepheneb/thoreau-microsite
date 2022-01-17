@@ -138,8 +138,8 @@
 }
 
 :root {
-  --explore-images-timing: 0.2s 0s ease-in-out;
-  --explore-content-timing: 0.2s 0s ease-in-out;
+  --explore-images-timing: 0.5s 0s ease-in-out;
+  --explore-content-timing: 0.3s 0s ease-in-out;
   --gallery-carousel-timing: 0.2s;
   --explore-menu-timing: 0.2s 0s ease-in-out;
 }
@@ -169,8 +169,7 @@ div.artifact {
 div.artifact .content {
   z-index: 1;
   margin: 0;
-  padding: 2.2rem 3.4rem 2.6rem 5.5rem;
-  padding: 4vh 4vw 4vh 6vw;
+  padding: 0;
   color: white;
   background-color: transparent;
 }
@@ -214,6 +213,7 @@ div.artifact .content .absolute-content-container.start {
 }
 div.artifact .content .absolute-content-container .about-container {
   width: 28vw;
+  margin: 3.4rem 0 0 5.5rem;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .about-container {
@@ -365,10 +365,10 @@ div.artifact .content .absolute-content-container .about-container .description 
 }
 div.artifact .content .absolute-content-container .image-container {
   position: sticky;
-  top: 5vh;
-  height: 85vh;
-  margin-left: 1vw;
+  margin: 0 4vw 0 1vw;
+  top: 11vh;
   left: 30%;
+  height: 85vh;
   width: 75%;
   margin-top: 5%;
   display: flex;
@@ -653,6 +653,7 @@ div.artifact .fixed-image-container {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .fixed-image-container {
@@ -1009,13 +1010,12 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.sta
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.curious {
   height: 300vh;
-  min-height: 300vh;
   position: sticky;
-  top: 60vh;
-  left: 6vw;
+  visibility: hidden;
+  top: 61vh;
+  left: 7vw;
   width: 26vw;
   max-width: 30vw;
-  margin-top: 18vh;
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.curious {
@@ -1035,10 +1035,10 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.cur
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
   height: 400vh;
   position: sticky;
-  top: 3em;
-  left: 4rem;
-  max-width: 25vw;
   visibility: hidden;
+  top: 10vh;
+  left: 7vw;
+  max-width: 25vw;
   opacity: 0;
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
@@ -1056,8 +1056,8 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
   height: 90vh;
+  margin: 6vh 0 0 25vw;
   max-width: 45vw;
-  margin-left: 22%;
   color: var(--white);
   font-size: var(--explore-content-heading);
   font-family: "Libre Caslon Text", serif;
@@ -1132,7 +1132,6 @@ div.artifact.spyglass .fixed-image-container.spyglass img.spyglass-photo-rotated
   transform: rotate(-9deg);
 }
 div.artifact.spyglass .animation-frame-container.spyglass {
-  padding: 0 0 1vh 0;
   justify-content: flex-end;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
@@ -1214,16 +1213,19 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 }
 
 #spyglass[data-content-scroll="2"] .absolute-content-container.spyglass.curious,
-#spyglass[data-content-scroll="3"] .absolute-content-container.spyglass.curious,
-#spyglass[data-content-scroll="4"] .absolute-content-container.spyglass.curious {
+#spyglass[data-content-scroll="3"] .absolute-content-container.spyglass.curious {
+  visibility: visible;
+  opacity: 1;
+  position: fixed;
+}
+#spyglass[data-content-scroll="2"] .arrow-scroll-down,
+#spyglass[data-content-scroll="3"] .arrow-scroll-down {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="2"] .arrow-scroll-down,
-#spyglass[data-content-scroll="3"] .arrow-scroll-down,
-#spyglass[data-content-scroll="4"] .arrow-scroll-down {
-  visibility: visible;
-  opacity: 1;
+
+#spyglass[data-content-scroll="2"] .absolute-content-container.spyglass.curious {
+  position: sticky;
 }
 
 #spyglass[data-content-scroll="5"] .absolute-content-container.spyglass.his-experiments,
@@ -1232,6 +1234,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 #spyglass[data-content-scroll="8"] .absolute-content-container.spyglass.his-experiments {
   visibility: visible;
   opacity: 1;
+  position: fixed;
 }
 #spyglass[data-content-scroll="5"] .arrow-scroll-down,
 #spyglass[data-content-scroll="6"] .arrow-scroll-down,
@@ -1241,33 +1244,31 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   opacity: 1;
 }
 
-#spyglass[data-content-scroll="9"] .absolute-content-container.spyglass.would-it-not,
+#spyglass[data-content-scroll="5"] .absolute-content-container.spyglass.his-experiments {
+  position: sticky;
+}
+
 #spyglass[data-content-scroll="9"] .absolute-content-container.spyglass.would-it-not {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="9"] .background-image-container.spyglass,
 #spyglass[data-content-scroll="9"] .background-image-container.spyglass {
-  visibility: hidden;
+  visibility: visible;
 }
-#spyglass[data-content-scroll="9"] .background-image-container.spyglass:before,
 #spyglass[data-content-scroll="9"] .background-image-container.spyglass:before {
-  background-image: url("../media/images/pond-and-fog-986727760-170667a.jpg");
+  background-image: url("../media/images/spyglass/sun-sets-over-walden-pond.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-#spyglass[data-content-scroll="9"] .fixed-image-container.spyglass.hawk,
 #spyglass[data-content-scroll="9"] .fixed-image-container.spyglass.hawk {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="9"] .fixed-video-container.spyglass.walden-sunset-video,
 #spyglass[data-content-scroll="9"] .fixed-video-container.spyglass.walden-sunset-video {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="9"] .animation-frame-container.spyglass,
 #spyglass[data-content-scroll="9"] .animation-frame-container.spyglass {
   visibility: hidden;
   opacity: 0;

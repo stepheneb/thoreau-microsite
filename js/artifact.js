@@ -34,11 +34,27 @@ const debounce = (fn) => {
   };
 };
 
+class SectionLogger {
+  constructor() {
+    this.animationFrameNum;
+  }
+  log(csFloat) {
+    if (typeof this.animationFrameNum == 'number')
+      app.logger('section:', csFloat.toFixed(2), ', anim:', this.animationFrameNum);
+    else {
+      app.logger('section:', csFloat.toFixed(2));
+    }
+    this.animationFrameNum = undefined;
+  }
+}
+
+let sLogger = new SectionLogger();
+
 // Reads out the scroll position and stores it in the data attribute
 // so we can use it in our stylesheets
 
 const storeScroll = (animations, animationFrameImg) => {
-  const contentViewportOffset = 0.4;
+  const contentViewportOffset = 0.6;
   contentScrollFLoat = window.scrollY / window.innerHeight + contentViewportOffset;
   contentScroll = Math.floor(contentScrollFLoat);
   let aspectRatio = window.innerWidth / window.innerHeight;
@@ -72,6 +88,7 @@ const storeScroll = (animations, animationFrameImg) => {
 
     if (animations !== undefined) {
       animations.forEach((a) => {
+
         if (inPageScopeBefore(a)) {
           result = {
             animation: a,
@@ -100,6 +117,8 @@ const storeScroll = (animations, animationFrameImg) => {
   animation = result.animation;
   if (animation) {
     animation.callback(result.frameNum, animationFrameImg, result.visible);
+    sLogger.animationFrameNum = result.frameNum;
+
   }
   contentScrollFLoat = Math.min(app.maxContentScroll, contentScrollFLoat);
   container.dataset.contentScrollFloat = contentScrollFLoat;
@@ -110,9 +129,10 @@ const storeScroll = (animations, animationFrameImg) => {
   container.dataset.aspectRatio = aspectRatio;
 
   if (app.dev) {
-    if (Math.abs(contentScrollFLoat - previousContentScrollFLoat) >= 0.09) {
+    if (Math.abs(contentScrollFLoat - previousContentScrollFLoat) >= 0.01) {
+      // let ts = (performance.now() / 1000).toFixed(2);
       previousContentScrollFLoat = contentScrollFLoat;
-      app.logger(contentScrollFLoat.toFixed(1));
+      sLogger.log(contentScrollFLoat);
     }
   }
 };
@@ -224,7 +244,8 @@ class MediaItem {
     let currentVisibility = this.getCurrentVisiblity();
     let changed = currentVisibility != previousVisibility;
     if (changed) {
-      app.logger(contentScrollFLoat.toFixed(1), this.id, 'changed:', changed, ', previous:', previousVisibility, ', current:', currentVisibility);
+      let transitionPoint = currentVisibility ? 'completed' : 'started';
+      app.logger(this.id, `visibility ${transitionPoint} change to:`, currentVisibility, 'at', contentScrollFLoat.toFixed(2));
     }
     return changed;
   }
@@ -590,9 +611,9 @@ const startup = (id, animations) => {
     manageZoomButtons();
   })
 
-  // window.setInterval(() => {
-  //   updateMCollectionListener
-  // }, 250)
+  window.setInterval(() => {
+    updateMCollectionListener();
+  }, 250)
 }
 
 app.dev = true;
