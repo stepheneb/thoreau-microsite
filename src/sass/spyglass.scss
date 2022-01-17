@@ -159,12 +159,17 @@ div.artifact.spyglass {
   }
 
   .animation-frame-container.spyglass {
-    justify-content: flex-end;
+    justify-content: flex-center;
+    margin: 0 0 0 0;
+    // margin-left: 7vw;
+    // margin-top: -4vh;
     @include mobile-portrait() {
+      margin: 0 0 0 0;
       padding: 2rem 0 0 0;
       justify-content: center;
     }
     @include mobile-landscape() {
+      margin: 0 0 0 0;
       padding: 2rem 0 0 0;
       justify-content: center;
     }
