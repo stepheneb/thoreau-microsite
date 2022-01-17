@@ -33,7 +33,7 @@
   --explore-content-author: 1rem;
   --explore-content-mute-button: 0.8rem;
   --explore-content-weight: 400;
-  --explore-content-heading: 2.1rem;
+  --explore-content-heading: 2.2rem;
   --explore-content-heading-weight: 600;
   --back-button-size: 2em;
   --unmute-footer: 0.6em;
@@ -563,7 +563,7 @@ div.artifact .content .absolute-content-container .author .audio.player .progres
 div.artifact .content .absolute-content-container .author .audio.player .progress-indicator .remaining {
   width: 100%;
   height: 100%;
-  background-color: black;
+  background-color: var(--navy-blue);
 }
 div.artifact .content .absolute-content-container .author .audio.player audio {
   display: none;
@@ -982,7 +982,7 @@ div.artifact .fixed-video-container.fullscreen .video-wrapper video {
 }
 
 body#spyglass {
-  height: 1200vh;
+  height: 1000vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -1011,8 +1011,8 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.cur
   height: 300vh;
   min-height: 300vh;
   position: sticky;
-  top: 8vh;
-  left: 68vw;
+  top: 60vh;
+  left: 6vw;
   width: 26vw;
   max-width: 30vw;
   margin-top: 18vh;
@@ -1051,27 +1051,6 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
     top: 10vh;
     left: 14vw;
-    max-width: 70vw;
-  }
-}
-div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.some-scientific {
-  height: 200vh;
-  position: sticky;
-  top: 7em;
-  left: 4em;
-  max-width: 22vw;
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.some-scientific {
-    top: 15vh;
-    left: 3vw;
-    max-width: 30vw;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.some-scientific {
-    top: 25vh;
-    left: 10vw;
     max-width: 70vw;
   }
 }
@@ -1262,39 +1241,34 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   opacity: 1;
 }
 
-#spyglass[data-content-scroll="9"] .absolute-content-container.spyglass.some-scientific,
-#spyglass[data-content-scroll="10"] .absolute-content-container.spyglass.some-scientific {
+#spyglass[data-content-scroll="9"] .absolute-content-container.spyglass.would-it-not,
+#spyglass[data-content-scroll="9"] .absolute-content-container.spyglass.would-it-not {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="9"] .arrow-scroll-down,
-#spyglass[data-content-scroll="10"] .arrow-scroll-down {
-  visibility: visible;
-  opacity: 1;
-}
-
-#spyglass[data-content-scroll="11"] .absolute-content-container.spyglass.would-it-not {
-  visibility: visible;
-  opacity: 1;
-}
-#spyglass[data-content-scroll="11"] .background-image-container.spyglass {
+#spyglass[data-content-scroll="9"] .background-image-container.spyglass,
+#spyglass[data-content-scroll="9"] .background-image-container.spyglass {
   visibility: hidden;
 }
-#spyglass[data-content-scroll="11"] .background-image-container.spyglass:before {
+#spyglass[data-content-scroll="9"] .background-image-container.spyglass:before,
+#spyglass[data-content-scroll="9"] .background-image-container.spyglass:before {
   background-image: url("../media/images/pond-and-fog-986727760-170667a.jpg");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-#spyglass[data-content-scroll="11"] .fixed-image-container.spyglass.hawk {
+#spyglass[data-content-scroll="9"] .fixed-image-container.spyglass.hawk,
+#spyglass[data-content-scroll="9"] .fixed-image-container.spyglass.hawk {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="11"] .fixed-video-container.spyglass.walden-sunset-video {
+#spyglass[data-content-scroll="9"] .fixed-video-container.spyglass.walden-sunset-video,
+#spyglass[data-content-scroll="9"] .fixed-video-container.spyglass.walden-sunset-video {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="11"] .animation-frame-container.spyglass {
+#spyglass[data-content-scroll="9"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="9"] .animation-frame-container.spyglass {
   visibility: hidden;
   opacity: 0;
 }
