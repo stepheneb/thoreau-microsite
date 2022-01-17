@@ -1132,16 +1132,19 @@ div.artifact.spyglass .fixed-image-container.spyglass img.spyglass-photo-rotated
   transform: rotate(-9deg);
 }
 div.artifact.spyglass .animation-frame-container.spyglass {
-  justify-content: flex-end;
+  justify-content: flex-center;
+  margin: 0 0 0 0;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .animation-frame-container.spyglass {
+    margin: 0 0 0 0;
     padding: 2rem 0 0 0;
     justify-content: center;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.spyglass .animation-frame-container.spyglass {
+    margin: 0 0 0 0;
     padding: 2rem 0 0 0;
     justify-content: center;
   }
