@@ -1054,6 +1054,9 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
     max-width: 70vw;
   }
 }
+div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass q {
+  font-weight: 600;
+}
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
   height: 90vh;
   margin: 6vh 0 0 25vw;
