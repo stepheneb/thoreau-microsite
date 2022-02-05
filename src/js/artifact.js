@@ -3,15 +3,39 @@
 
 app.firstUserSoundOnRequest = true;
 
+//
+// SectionLogger
+//
+
+class SectionLogger {
+  constructor() {
+    this.animationFrameNum;
+  }
+  log(csFloat) {
+    if (typeof this.animationFrameNum == 'number')
+      app.logger('section:', csFloat.toFixed(2), ', anim:', this.animationFrameNum);
+    else {
+      app.logger('section:', csFloat.toFixed(2));
+    }
+    this.animationFrameNum = undefined;
+  }
+}
+
+let sLogger = new SectionLogger();
+
+//
+// Scroll and animation management
+//
+
 let contentScroll, contentScrollFLoat;
 let previousContentScrollFLoat = 0;
 
-let audioPlayerCollection, audioBackgroundCollection, videoBackgroundCollection;
-let silentAudioElement;
-
 let container, animationFrameImg, storeScrollArguments;
 
+//
 // The debounce function receives our function as a parameter
+//
+
 const debounce = (fn) => {
 
   // This holds the requestAnimationFrame reference, so we can cancel it if we wish
@@ -34,25 +58,10 @@ const debounce = (fn) => {
   };
 };
 
-class SectionLogger {
-  constructor() {
-    this.animationFrameNum;
-  }
-  log(csFloat) {
-    if (typeof this.animationFrameNum == 'number')
-      app.logger('section:', csFloat.toFixed(2), ', anim:', this.animationFrameNum);
-    else {
-      app.logger('section:', csFloat.toFixed(2));
-    }
-    this.animationFrameNum = undefined;
-  }
-}
-
-let sLogger = new SectionLogger();
-
+//
 // Reads out the scroll position and stores it in the data attribute
 // so we can use it in our stylesheets
-
+//
 const storeScroll = (animations, animationFrameImg) => {
   const contentViewportOffset = 0.6;
   contentScrollFLoat = window.scrollY / window.innerHeight + contentViewportOffset;
@@ -143,6 +152,12 @@ const storeScrollListener = (e, ...args) => {
     updateMCollectionListener();
   });
 }
+
+//
+// Media management
+//
+
+let silentAudioElement;
 
 let silentSrc = './media/audio/silence-0.01s.mp3';
 
