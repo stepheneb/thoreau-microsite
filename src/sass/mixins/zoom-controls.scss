@@ -1,0 +1,56 @@
+@mixin zoom-controls() {
+  .zoom-controls {
+    pointer-events: auto;
+    position: absolute;
+    right: 1.5vw;
+    bottom: 3.8vh;
+    @include mobile-portrait() {
+      right: 4vw;
+      bottom: 1vh;
+      // height: 1.8rem;
+    }
+    @include mobile-portrait-small() {
+      right: 2vw;
+      bottom: 1vh;
+      // height: 1.8rem;
+    }
+    @include mobile-landscape() {
+      right: 1vw;
+      bottom: 3vh;
+      // height: 1.8rem;
+    }
+
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+
+    padding: 0em 0.5em;
+    border: 1px solid lightgray;
+    border-radius: var(--zoom-button-size);
+    background-color: var(--navy-blue);
+
+    button {
+      padding: 0;
+      margin: 0.075rem 0.25rem;
+      width: var(--zoom-button-size);
+      height: calc(var(--zoom-button-size) * 1.4);
+      background-color: transparent;
+      border: none;
+      box-sizing: border-box;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      img {
+        width: var(--zoom-button-size);
+        height: auto;
+        margin: 0 0.2rem;
+      }
+    }
+    .v-divide {
+      width: 0.1rem;
+      min-width: 2px;
+      background-color: white;
+      height: auto;
+    }
+  }
+}
