@@ -193,6 +193,10 @@ class MediaItem {
     return proto == 'htmlaudioelement';
   }
 
+  isAutoPlay() {
+    return this.wrapper.classList.contains('autoplay')
+  }
+
   // 1..0 => easein, easout 1..0
   easeinEaseout(vin, low_v, high_v) {
     let range = high_v - low_v;
@@ -334,6 +338,7 @@ class MediaItem {
 
   play() {
     this.sweepVolume(0, this.volume, this.fadein)
+    console.log('play', 356);
     this.media.play();
   }
 }
@@ -368,8 +373,17 @@ class AudioPlayerItem extends MediaItem {
       this.playpause.classList.remove('playing');
       this.media.currentTime = 0;
       this.updateDuration();
+      this.restoreBackgroundVolume();
     })
     this.updateCurrentTime();
+  }
+
+  restoreBackgroundVolume() {
+    audioBackgroundCollection.items.forEach(item => {
+      if (item.isPlaying()) {
+        item.raiseVolume()
+      }
+    });
   }
 
   play() {
@@ -383,11 +397,7 @@ class AudioPlayerItem extends MediaItem {
 
   stop() {
     super.stop();
-    audioBackgroundCollection.items.forEach(item => {
-      if (item.isPlaying()) {
-        item.raiseVolume()
-      }
-    });
+    this.restoreBackgroundVolume();
   }
 
   update() {
@@ -396,6 +406,9 @@ class AudioPlayerItem extends MediaItem {
       this.stop();
       this.media.currentTime = 0;
       this.playpause.classList.remove('playing');
+    }
+    if (this.isPaused() && this.isVisible() && this.isAutoPlay()) {
+      this.play();
     }
   }
 
@@ -535,6 +548,8 @@ class MediaCollection {
     });
   }
 }
+
+let audioPlayerCollection, audioBackgroundCollection, videoBackgroundCollection;
 
 let updateMCollectionListener = () => {
   audioPlayerCollection.update();

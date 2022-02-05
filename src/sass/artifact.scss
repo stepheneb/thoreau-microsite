@@ -11,6 +11,22 @@ a {
   pointer-events: all;
 }
 
+.transparent {
+  color: transparent !important;
+  background-color: transparent !important;
+  * {
+    color: transparent !important;
+    background-color: transparent !important;
+  }
+  hr {
+    display: none !important;
+  }
+}
+
+img.transparent {
+  display: none !important;
+}
+
 div.artifact {
   position: absolute;
   top: 0;
