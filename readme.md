@@ -6,10 +6,10 @@ Static website: https://stepheneb.github.io/thoreau-microsite/
 
 **Local Development**
 
-1. Make sure that the active long-term-support version of Node.js is installed. If not see options for installing below.
+1. Make sure that the active long-term-support version of Node.js is installed, currently `lts/Gallium`. If not see options for installing below.
 ```
 $ node -v
-v14.18.1
+v16.13.2
 ```
 2. Clone the repository to your local computer.
 3. Open a shell and move to the directory where the repository is cloned.
@@ -52,25 +52,25 @@ The site can also be opened from another computer or mobile computer on the same
 
 Node.js: https://nodejs.dev/
 
-The build tools for the thoreau microsite use the latest active long-term-support (lts) release of Node.js.
+The build tools for the thoreau microsite use the latest active long-term-support (lts) release of Node.js: `lts/Gallium`.
 
 ```
 $ node -v
-v14.18.1
+v16.13.2
 ```
 
 There are instructions on the Node.js home page describing how to install it.
 
 The instructions for macOS suggest using the Node Version Manager **`nvm`** to install Node.js: https://github.com/nvm-sh/nvm
 
+After installin `nvm` install the latest
 ```
-$ curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.37.2/install.sh | bash
 $ nvm install --lts
 ```
-Updating to a newer lts/Fermium version of Node.js and migrate any globally installed npm packagees.
+
+Updating to a newer lts/Gallium version of Node.js and migrate any globally installed npm packagees.
 
 nvm install node --reinstall-packages-from=node
-
 
 
 ## ffmpeg notes
