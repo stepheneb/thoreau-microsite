@@ -89,8 +89,8 @@ div.artifact {
             align-items: center;
           }
           img {
-            width: 7rem;
-            height: 7rem;
+            width: 6rem;
+            height: 6rem;
             padding: 0rem;
             @include mobile-portrait() {
               width: 4rem;
