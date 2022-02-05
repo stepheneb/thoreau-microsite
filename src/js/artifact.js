@@ -9,7 +9,7 @@ let previousContentScrollFLoat = 0;
 let audioPlayerCollection, audioBackgroundCollection, videoBackgroundCollection;
 let silentAudioElement;
 
-let container, animationFrameImg, zoomMinus, zoomPlus, artifactImage, storeScrollArguments;
+let container, animationFrameImg, storeScrollArguments;
 
 // The debounce function receives our function as a parameter
 const debounce = (fn) => {
@@ -142,30 +142,6 @@ const storeScrollListener = (e, ...args) => {
   setTimeout(() => {
     updateMCollectionListener();
   });
-}
-
-let artifactImageScale = 1;
-let artifactMaxImageScale = 3;
-let artifactZoomIncrement = 1.1;
-
-let rescaleArtifactImage = () => {
-  artifactImage.style.transform = `scale(${artifactImageScale})`;
-}
-
-let manageZoomButtons = () => {
-  if (artifactImageScale > artifactMaxImageScale) {
-    artifactImageScale = artifactMaxImageScale;
-    zoomPlus.setAttribute("disabled", "disabled");
-  } else {
-    zoomPlus.removeAttribute("disabled");
-  }
-  if (artifactImageScale < 1) {
-    artifactImageScale = 1;
-    zoomMinus.setAttribute("disabled", "disabled");
-  } else {
-    zoomMinus.removeAttribute("disabled");
-  }
-  rescaleArtifactImage();
 }
 
 let silentSrc = './media/audio/silence-0.01s.mp3';
@@ -596,20 +572,6 @@ const startup = (id, animations) => {
 
   // Update scroll position for first time
   storeScroll(animations, animationFrameImg);
-
-  zoomMinus = document.getElementById('zoom-minus');
-  zoomPlus = document.getElementById('zoom-plus');
-  artifactImage = document.getElementById('artifact-image');
-
-  zoomMinus.addEventListener('click', () => {
-    artifactImageScale /= artifactZoomIncrement;
-    manageZoomButtons();
-  })
-
-  zoomPlus.addEventListener('click', () => {
-    artifactImageScale *= artifactZoomIncrement;
-    manageZoomButtons();
-  })
 
   window.setInterval(() => {
     updateMCollectionListener();
