@@ -1,11 +1,11 @@
 .mute-button {
   font-size: var(--explore-content-mute-button);
-  color: var(--almost-white);
+  color: var(--mute-button-color);
   text-transform: uppercase;
   &.secondary {
     position: fixed;
-    bottom: 3vh;
-    right: 5vw;
+    bottom: 2.5vh;
+    right: 5.5vw;
     @include mobile-landscape() {
     }
     @include mobile-portrait() {
@@ -19,17 +19,28 @@
   justify-content: space-around;
   align-items: center;
   div {
-    margin-right: 0.2em;
-    margin-bottom: -0.1em;
+    margin-right: 0.1em;
+    margin-bottom: -0.05em;
+    font-size: 0.95em;
     &.off {
       display: block;
+      &.x {
+        margin-left: -0.5em;
+        margin-bottom: 0.05em;
+        font-size: 52%;
+        font-weight: bold;
+        svg {
+          height: 1em;
+          width: auto;
+        }
+      }
     }
     &.on {
       display: none;
     }
   }
   svg {
-    height: 1.5em;
+    height: 1.8em;
     width: auto;
     &.off {
       display: block;
