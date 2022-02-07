@@ -3,10 +3,9 @@
 //
 
 body#spyglass {
-  height: 1000vh;
+  height: 1300vh;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
 
 div.artifact.spyglass {
@@ -63,8 +62,8 @@ div.artifact.spyglass {
         visibility: hidden;
         top: 10vh;
         left: 7vw;
+        width: 25vw;
         max-width: 25vw;
-        opacity: 0;
 
         @include mobile-landscape() {
           left: 3vw;
@@ -77,18 +76,21 @@ div.artifact.spyglass {
         }
       }
 
-      q {
-        font-weight: 600;
-      }
-
       &.would-it-not {
-        height: 90vh;
-        margin: 6vh 0 0 25vw;
-        max-width: 45vw;
+        height: 300vh;
+        position: sticky;
+        visibility: hidden;
+        top: 26vh;
+        left: 34vw;
+        width: 35vw;
+        max-width: 40vw;
+
+        font-weight: 600;
         color: var(--white);
         font-size: var(--explore-content-heading);
         font-family: "Libre Caslon Text", serif;
-        text-indent: -0.9rem;
+
+        text-indent: -1rem;
         hr {
           border-color: var(--navy-blue);
         }
@@ -99,46 +101,21 @@ div.artifact.spyglass {
           }
         }
 
-        img.spyglass.hawk {
-          position: absolute;
-          margin-left: -12rem;
-          top: 2vh;
-        }
         @include mobile-landscape() {
-          height: 92vh;
-          text-indent: -0.7rem;
-          margin-left: 50%;
-          img.spyglass.hawk {
-            transform: scale(0.65);
-            margin-left: -15rem;
-            top: -2vh;
-          }
-        }
-        @include mobile-landscape-small() {
-          height: 92vh;
-          text-indent: -0.5rem;
-          hr {
-            display: none;
-          }
-          img.spyglass.hawk {
-            transform: scale(0.5);
-            margin-left: -13rem;
-            top: -1vh;
-          }
+          left: 3vw;
+          max-width: 30vw;
         }
         @include mobile-portrait() {
-          margin: unset;
-          left: 10vw;
-          width: 100%;
-          .quote-wrapper {
-            width: 60vw;
-          }
-          img.spyglass.hawk {
-            transform: scale(0.65);
-            margin-left: 42vw;
-            top: 16vh;
-          }
+          top: 10vh;
+          left: 14vw;
+          max-width: 70vw;
         }
+      }
+
+      &.walden-sunset {
+        height: 100vh;
+        position: sticky;
+        visibility: hidden;
       }
     }
   }
@@ -185,6 +162,10 @@ div.artifact.spyglass {
     }
   }
 }
+
+//
+// style changes based on content scroll position
+//
 
 #spyglass[data-content-scroll="0"] {
   .arrow-scroll-down {
@@ -311,24 +292,36 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-content-scroll="9"] {
+#spyglass[data-content-scroll="9"],
+#spyglass[data-content-scroll="10"],
+#spyglass[data-content-scroll="11"] {
   .absolute-content-container.spyglass.would-it-not {
     visibility: visible;
     opacity: 1;
+    position: fixed;
   }
-  .background-image-container.spyglass {
-    visibility: visible;
-    &:before {
-      background-image: url("../media/images/spyglass/sun-sets-over-walden-pond.jpg");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-  .fixed-image-container.spyglass.hawk {
+  .arrow-scroll-down {
     visibility: visible;
     opacity: 1;
   }
+  .animation-frame-container.spyglass {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+#spyglass[data-content-scroll="9"] {
+  .absolute-content-container.spyglass.would-it-not {
+    position: sticky;
+  }
+}
+
+#spyglass[data-content-scroll="12"] {
+  .absolute-content-container.spyglass.walden-sunset {
+    visibility: visible;
+    opacity: 1;
+    position: fixed;
+  }
+
   .fixed-video-container.spyglass.walden-sunset-video {
     visibility: visible;
     opacity: 1;
