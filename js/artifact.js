@@ -288,7 +288,7 @@ class MediaItem {
   }
 
   sweepVolume(startVolume, endVolume, timePeriod, callback) {
-    app.logger('');
+    // app.logger('');
     let endtest, lowV, highV;
     if (endVolume > startVolume) {
       lowV = startVolume;
@@ -309,14 +309,14 @@ class MediaItem {
     const volumeStep = volummeSweepExtent / steps;
     let volume = startVolume
     this.media.volume = volume;
-    app.logger('start-volume', volume, 'volumeStep', volumeStep);
+    // app.logger('start-volume', volume, 'volumeStep', volumeStep);
     let startTimestamp = performance.now();
     let sweep = (timestamp) => {
       let duration = timestamp - startTimestamp;
       volume += volumeStep;
       if (endtest(volume, endVolume)) {
         this.media.volume = this.easeinEaseout(volume, lowV, highV);
-        app.logger('-', volume.toFixed(2), this.media.volume.toFixed(2), duration.toFixed(0));
+        // app.logger('-', volume.toFixed(2), this.media.volume.toFixed(2), duration.toFixed(0));
         window.requestAnimationFrame(sweep);
       } else {
         this.media.volume = endVolume;
@@ -358,7 +358,7 @@ class MediaItem {
       promise.then(() => {
         // play started
       }).catch((rejection) => {
-        console.log(rejection);
+        app.logger(rejection);
         // rejection.name => 'NotAllowedError'
         // play was prevented.
         // Show a "Play" button so that user can start playback.
@@ -618,4 +618,4 @@ const startup = (id, animations) => {
   }, 250)
 }
 
-// app.dev = true;
+app.dev = true;
