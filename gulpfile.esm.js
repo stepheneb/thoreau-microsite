@@ -24,7 +24,8 @@ function reload(done) {
 function serve(done) {
   server.init({
     server: {
-      baseDir: dest
+      baseDir: dest,
+      index: "index.html"
     }
   });
   done();
