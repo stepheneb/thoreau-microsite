@@ -1014,6 +1014,7 @@ body#spyglass {
   height: 1300vh;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.start {
@@ -1287,6 +1288,15 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 #spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset-video {
   visibility: visible;
   opacity: 1;
+}
+#spyglass[data-content-scroll="12"] .background-image-container.spyglass {
+  visibility: visible;
+}
+#spyglass[data-content-scroll="12"] .background-image-container.spyglass:before {
+  background-image: url("../media/images/spyglass/sun-sets-over-walden-pond.jpg");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 #spyglass[data-content-scroll="12"] .animation-frame-container.spyglass {
   visibility: hidden;
