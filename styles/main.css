@@ -998,23 +998,22 @@ div.artifact .fixed-video-container .video-wrapper video {
   }
 }
 div.artifact .fixed-video-container.fullscreen {
-  width: 101vw;
-  height: 101vh;
+  width: 100vw;
+  height: 100vh;
 }
 div.artifact .fixed-video-container.fullscreen .video-wrapper .mute-button {
   right: 2.5vw;
 }
 div.artifact .fixed-video-container.fullscreen .video-wrapper video {
-  width: 100vw;
   height: 100vh;
+  width: 100vw;
   object-fit: cover;
 }
 
 body#spyglass {
-  height: 1000vh;
+  height: 1300vh;
   margin: 0;
   padding: 0;
-  overflow-x: hidden;
 }
 
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.start {
@@ -1066,8 +1065,8 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
   visibility: hidden;
   top: 10vh;
   left: 7vw;
+  width: 25vw;
   max-width: 25vw;
-  opacity: 0;
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
@@ -1082,17 +1081,19 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
     max-width: 70vw;
   }
 }
-div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass q {
-  font-weight: 600;
-}
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
-  height: 90vh;
-  margin: 6vh 0 0 25vw;
-  max-width: 45vw;
+  height: 300vh;
+  position: sticky;
+  visibility: hidden;
+  top: 26vh;
+  left: 34vw;
+  width: 35vw;
+  max-width: 40vw;
+  font-weight: 600;
   color: var(--white);
   font-size: var(--explore-content-heading);
   font-family: "Libre Caslon Text", serif;
-  text-indent: -0.9rem;
+  text-indent: -1rem;
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not hr {
   border-color: var(--navy-blue);
@@ -1103,51 +1104,23 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not .author .mute-button {
   color: var(--navy-blue);
 }
-div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not img.spyglass.hawk {
-  position: absolute;
-  margin-left: -12rem;
-  top: 2vh;
-}
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
-    height: 92vh;
-    text-indent: -0.7rem;
-    margin-left: 50%;
-  }
-  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not img.spyglass.hawk {
-    transform: scale(0.65);
-    margin-left: -15rem;
-    top: -2vh;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (max-height: 320px) and (orientation: landscape) {
-  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
-    height: 92vh;
-    text-indent: -0.5rem;
-  }
-  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not hr {
-    display: none;
-  }
-  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not img.spyglass.hawk {
-    transform: scale(0.5);
-    margin-left: -13rem;
-    top: -1vh;
+    left: 3vw;
+    max-width: 30vw;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
-    margin: unset;
-    left: 10vw;
-    width: 100%;
+    top: 10vh;
+    left: 14vw;
+    max-width: 70vw;
   }
-  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not .quote-wrapper {
-    width: 60vw;
-  }
-  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not img.spyglass.hawk {
-    transform: scale(0.65);
-    margin-left: 42vw;
-    top: 16vh;
-  }
+}
+div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.walden-sunset {
+  height: 100vh;
+  position: sticky;
+  visibility: hidden;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .image-container img.spyglass-photo {
@@ -1282,28 +1255,40 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   position: sticky;
 }
 
+#spyglass[data-content-scroll="9"] .absolute-content-container.spyglass.would-it-not,
+#spyglass[data-content-scroll="10"] .absolute-content-container.spyglass.would-it-not,
+#spyglass[data-content-scroll="11"] .absolute-content-container.spyglass.would-it-not {
+  visibility: visible;
+  opacity: 1;
+  position: fixed;
+}
+#spyglass[data-content-scroll="9"] .arrow-scroll-down,
+#spyglass[data-content-scroll="10"] .arrow-scroll-down,
+#spyglass[data-content-scroll="11"] .arrow-scroll-down {
+  visibility: visible;
+  opacity: 1;
+}
+#spyglass[data-content-scroll="9"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="10"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="11"] .animation-frame-container.spyglass {
+  visibility: hidden;
+  opacity: 0;
+}
+
 #spyglass[data-content-scroll="9"] .absolute-content-container.spyglass.would-it-not {
+  position: sticky;
+}
+
+#spyglass[data-content-scroll="12"] .absolute-content-container.spyglass.walden-sunset {
+  visibility: visible;
+  opacity: 1;
+  position: fixed;
+}
+#spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset-video {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="9"] .background-image-container.spyglass {
-  visibility: visible;
-}
-#spyglass[data-content-scroll="9"] .background-image-container.spyglass:before {
-  background-image: url("../media/images/spyglass/sun-sets-over-walden-pond.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
-#spyglass[data-content-scroll="9"] .fixed-image-container.spyglass.hawk {
-  visibility: visible;
-  opacity: 1;
-}
-#spyglass[data-content-scroll="9"] .fixed-video-container.spyglass.walden-sunset-video {
-  visibility: visible;
-  opacity: 1;
-}
-#spyglass[data-content-scroll="9"] .animation-frame-container.spyglass {
+#spyglass[data-content-scroll="12"] .animation-frame-container.spyglass {
   visibility: hidden;
   opacity: 0;
 }

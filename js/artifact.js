@@ -353,8 +353,18 @@ class MediaItem {
 
   play() {
     this.sweepVolume(0, this.volume, this.fadein)
-    console.log('play', 356);
-    this.media.play();
+    let promise = this.media.play();
+    if (promise !== undefined) {
+      promise.then(() => {
+        // play started
+      }).catch((rejection) => {
+        console.log(rejection);
+        // rejection.name => 'NotAllowedError'
+        // play was prevented.
+        // Show a "Play" button so that user can start playback.
+        // https://developer.chrome.com/blog/autoplay/
+      });
+    }
   }
 }
 
@@ -538,7 +548,7 @@ class VideoBackgroundItem extends MediaItem {
       this.media.pause();
     }
     if (this.isVisible()) {
-      this.media.play();
+      this.play();
     }
   }
 }
@@ -608,4 +618,4 @@ const startup = (id, animations) => {
   }, 250)
 }
 
-app.dev = true;
+// app.dev = true;
