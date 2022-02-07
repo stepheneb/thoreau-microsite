@@ -1,9 +1,7 @@
 /* color variables */
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
 :root {
-  --thoreau-blue-old: #77bece;
   --thoreau-blue: #5dc0d0;
-  --thoreau-rgba-blue-old: rgba(119, 190, 206, 1);
   --thoreau-rgba-blue: rgba(93, 192, 208, 1);
   --border-gray: gray;
   --border-light-gray: #ddd;
@@ -13,6 +11,9 @@
   --medium-gray: #a7bbca;
   --snowshoe-brown: #704b46;
   --snowshoe-writing-mask: #cdd7e0;
+  --progress-indicator-elapsed: var(--navy-blue);
+  --progress-indicator-remaining: white;
+  --mute-button-color: var(--white);
 }
 
 /* font sizes */
@@ -27,7 +28,7 @@
   --artifact-description-letter-spacing: calc(clamp(0px, (0.4vh - 2.6px), 2px));
   --artifact-description-line-height: calc(clamp(30px, (8vh - 26px), 60px));
   --zoom-button-size: 1.25rem;
-  --explore-button: 0.8rem;
+  --explore-button: 0.85rem;
   --explore-content: 1.35rem;
   --explore-content-line-height: 160%;
   --explore-content-author: 1rem;
@@ -156,6 +157,22 @@ a {
   pointer-events: all;
 }
 
+.transparent {
+  color: transparent !important;
+  background-color: transparent !important;
+}
+.transparent * {
+  color: transparent !important;
+  background-color: transparent !important;
+}
+.transparent hr {
+  display: none !important;
+}
+
+img.transparent {
+  display: none !important;
+}
+
 div.artifact {
   position: absolute;
   top: 0;
@@ -241,8 +258,8 @@ div.artifact .content .absolute-content-container .about-container {
   }
 }
 div.artifact .content .absolute-content-container .about-container .header img {
-  width: 7rem;
-  height: 7rem;
+  width: 6rem;
+  height: 6rem;
   padding: 0rem;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
@@ -432,7 +449,7 @@ div.artifact .content .absolute-content-container .image-container .zoom-control
   pointer-events: auto;
   position: absolute;
   right: 1.5vw;
-  bottom: 2vh;
+  bottom: 3.8vh;
   display: flex;
   flex-direction: row;
   justify-content: center;
@@ -461,7 +478,7 @@ div.artifact .content .absolute-content-container .image-container .zoom-control
 }
 div.artifact .content .absolute-content-container .image-container .zoom-controls button {
   padding: 0;
-  margin: 0.1rem 0.35rem;
+  margin: 0.075rem 0.25rem;
   width: var(--zoom-button-size);
   height: calc(var(--zoom-button-size) * 1.4);
   background-color: transparent;
@@ -558,12 +575,12 @@ div.artifact .content .absolute-content-container .author .audio.player .progres
 div.artifact .content .absolute-content-container .author .audio.player .progress-indicator .elapsed {
   width: 0%;
   height: 100%;
-  background-color: white;
+  background-color: var(--progress-indicator-elapsed);
 }
 div.artifact .content .absolute-content-container .author .audio.player .progress-indicator .remaining {
   width: 100%;
   height: 100%;
-  background-color: var(--navy-blue);
+  background-color: var(--progress-indicator-remaining);
 }
 div.artifact .content .absolute-content-container .author .audio.player audio {
   display: none;
@@ -689,8 +706,8 @@ div.artifact .dropdown.explore-another-object {
   z-index: 3;
   visibility: hidden;
   opacity: 0;
-  top: 4vh;
-  right: 6vw;
+  top: 5vh;
+  right: 5.5vw;
   background-color: transparent;
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
 }
@@ -720,7 +737,7 @@ div.artifact .dropdown.explore-another-object button:focus {
 }
 div.artifact .dropdown.explore-another-object button::after {
   display: inline-block;
-  margin-left: 0.255rem;
+  margin-left: 0.7rem;
   vertical-align: 0rem;
   border: none;
   content: url("../media/images/explore_another_down_arrow.png");
@@ -801,7 +818,7 @@ div.artifact .arrow-scroll-down img {
 }
 div.artifact .mute-button {
   font-size: var(--explore-content-mute-button);
-  color: var(--almost-white);
+  color: var(--mute-button-color);
   text-transform: uppercase;
   pointer-events: auto;
   height: 2em;
@@ -812,8 +829,8 @@ div.artifact .mute-button {
 }
 div.artifact .mute-button.secondary {
   position: fixed;
-  bottom: 3vh;
-  right: 5vw;
+  bottom: 2.5vh;
+  right: 5.5vw;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .mute-button.secondary {
@@ -821,17 +838,28 @@ div.artifact .mute-button.secondary {
   }
 }
 div.artifact .mute-button div {
-  margin-right: 0.2em;
-  margin-bottom: -0.1em;
+  margin-right: 0.1em;
+  margin-bottom: -0.05em;
+  font-size: 0.95em;
 }
 div.artifact .mute-button div.off {
   display: block;
+}
+div.artifact .mute-button div.off.x {
+  margin-left: -0.5em;
+  margin-bottom: 0.05em;
+  font-size: 52%;
+  font-weight: bold;
+}
+div.artifact .mute-button div.off.x svg {
+  height: 1em;
+  width: auto;
 }
 div.artifact .mute-button div.on {
   display: none;
 }
 div.artifact .mute-button svg {
-  height: 1.5em;
+  height: 1.8em;
   width: auto;
 }
 div.artifact .mute-button svg.off {
@@ -1160,7 +1188,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   content: url("../media/images/arrow-scroll-down.png");
 }
 #spyglass[data-content-scroll="0"] .mute-button {
-  display: none;
+  color: black;
 }
 #spyglass[data-content-scroll="0"] .animation-frame-container.spyglass {
   visibility: hidden;

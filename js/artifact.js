@@ -3,15 +3,39 @@
 
 app.firstUserSoundOnRequest = true;
 
+//
+// SectionLogger
+//
+
+class SectionLogger {
+  constructor() {
+    this.animationFrameNum;
+  }
+  log(csFloat) {
+    if (typeof this.animationFrameNum == 'number')
+      app.logger('section:', csFloat.toFixed(2), ', anim:', this.animationFrameNum);
+    else {
+      app.logger('section:', csFloat.toFixed(2));
+    }
+    this.animationFrameNum = undefined;
+  }
+}
+
+let sLogger = new SectionLogger();
+
+//
+// Scroll and animation management
+//
+
 let contentScroll, contentScrollFLoat;
 let previousContentScrollFLoat = 0;
 
-let audioPlayerCollection, audioBackgroundCollection, videoBackgroundCollection;
-let silentAudioElement;
+let container, animationFrameImg, storeScrollArguments;
 
-let container, animationFrameImg, zoomMinus, zoomPlus, artifactImage, storeScrollArguments;
-
+//
 // The debounce function receives our function as a parameter
+//
+
 const debounce = (fn) => {
 
   // This holds the requestAnimationFrame reference, so we can cancel it if we wish
@@ -34,25 +58,10 @@ const debounce = (fn) => {
   };
 };
 
-class SectionLogger {
-  constructor() {
-    this.animationFrameNum;
-  }
-  log(csFloat) {
-    if (typeof this.animationFrameNum == 'number')
-      app.logger('section:', csFloat.toFixed(2), ', anim:', this.animationFrameNum);
-    else {
-      app.logger('section:', csFloat.toFixed(2));
-    }
-    this.animationFrameNum = undefined;
-  }
-}
-
-let sLogger = new SectionLogger();
-
+//
 // Reads out the scroll position and stores it in the data attribute
 // so we can use it in our stylesheets
-
+//
 const storeScroll = (animations, animationFrameImg) => {
   const contentViewportOffset = 0.6;
   contentScrollFLoat = window.scrollY / window.innerHeight + contentViewportOffset;
@@ -144,29 +153,11 @@ const storeScrollListener = (e, ...args) => {
   });
 }
 
-let artifactImageScale = 1;
-let artifactMaxImageScale = 3;
-let artifactZoomIncrement = 1.1;
+//
+// Media management
+//
 
-let rescaleArtifactImage = () => {
-  artifactImage.style.transform = `scale(${artifactImageScale})`;
-}
-
-let manageZoomButtons = () => {
-  if (artifactImageScale > artifactMaxImageScale) {
-    artifactImageScale = artifactMaxImageScale;
-    zoomPlus.setAttribute("disabled", "disabled");
-  } else {
-    zoomPlus.removeAttribute("disabled");
-  }
-  if (artifactImageScale < 1) {
-    artifactImageScale = 1;
-    zoomMinus.setAttribute("disabled", "disabled");
-  } else {
-    zoomMinus.removeAttribute("disabled");
-  }
-  rescaleArtifactImage();
-}
+let silentAudioElement;
 
 let silentSrc = './media/audio/silence-0.01s.mp3';
 
@@ -215,6 +206,10 @@ class MediaItem {
   isAudioMedia() {
     let proto = Object.prototype.toString.call(this.media).slice(8, -1).toLowerCase();
     return proto == 'htmlaudioelement';
+  }
+
+  isAutoPlay() {
+    return this.wrapper.classList.contains('autoplay')
   }
 
   // 1..0 => easein, easout 1..0
@@ -358,6 +353,7 @@ class MediaItem {
 
   play() {
     this.sweepVolume(0, this.volume, this.fadein)
+    console.log('play', 356);
     this.media.play();
   }
 }
@@ -392,8 +388,17 @@ class AudioPlayerItem extends MediaItem {
       this.playpause.classList.remove('playing');
       this.media.currentTime = 0;
       this.updateDuration();
+      this.restoreBackgroundVolume();
     })
     this.updateCurrentTime();
+  }
+
+  restoreBackgroundVolume() {
+    audioBackgroundCollection.items.forEach(item => {
+      if (item.isPlaying()) {
+        item.raiseVolume()
+      }
+    });
   }
 
   play() {
@@ -407,11 +412,7 @@ class AudioPlayerItem extends MediaItem {
 
   stop() {
     super.stop();
-    audioBackgroundCollection.items.forEach(item => {
-      if (item.isPlaying()) {
-        item.raiseVolume()
-      }
-    });
+    this.restoreBackgroundVolume();
   }
 
   update() {
@@ -420,6 +421,9 @@ class AudioPlayerItem extends MediaItem {
       this.stop();
       this.media.currentTime = 0;
       this.playpause.classList.remove('playing');
+    }
+    if (this.isPaused() && this.isVisible() && this.isAutoPlay()) {
+      this.play();
     }
   }
 
@@ -560,6 +564,8 @@ class MediaCollection {
   }
 }
 
+let audioPlayerCollection, audioBackgroundCollection, videoBackgroundCollection;
+
 let updateMCollectionListener = () => {
   audioPlayerCollection.update();
   audioBackgroundCollection.update();
@@ -596,20 +602,6 @@ const startup = (id, animations) => {
 
   // Update scroll position for first time
   storeScroll(animations, animationFrameImg);
-
-  zoomMinus = document.getElementById('zoom-minus');
-  zoomPlus = document.getElementById('zoom-plus');
-  artifactImage = document.getElementById('artifact-image');
-
-  zoomMinus.addEventListener('click', () => {
-    artifactImageScale /= artifactZoomIncrement;
-    manageZoomButtons();
-  })
-
-  zoomPlus.addEventListener('click', () => {
-    artifactImageScale *= artifactZoomIncrement;
-    manageZoomButtons();
-  })
 
   window.setInterval(() => {
     updateMCollectionListener();

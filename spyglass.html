@@ -307,7 +307,11 @@
           <path d="M10.717 3.55A.5.5 0 0 1 11 4v8a.5.5 0 0 1-.812.39L7.825 10.5H5.5A.5.5 0 0 1 5 10V6a.5.5 0 0 1 .5-.5h2.325l2.363-1.89a.5.5 0 0 1 .529-.06z" />
         </g>
       </svg>
-      <div class='off'>x</div>
+      <div class='off x'>
+        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" stroke="currentColor" stroke-width="4" stroke-linecap="round" viewBox="0 0 16 16">
+          <path class="outline" d="M0 0 L16 16 M0 16 L16 0" </path>
+        </svg>
+      </div>
       <div class="on">Click to mute</div>
       <svg class="on" xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 16 16" fill="currentColor" class="bi bi-volume-up-fill">
         <g>
@@ -440,14 +444,14 @@
       </div>
 
       <div id='would-it-not' class='absolute-content-container spyglass would-it-not'>
-        <img src='media/images/hawk.png' class='spyglass hawk'></img>
-        <div class='quote-wrapper'>
+        <img src='media/images/hawk.png' class='spyglass hawk transparent'></img>
+        <div class='quote-wrapper transparent'>
           <q>Would it not be well to carry a spy glass in order to watch these shy birds– such
             as ducks and hawks?</q>
           <hr>
           <div class='author thoreau'>
             <div class='name'>Henry David Thoreau</div>
-            <div class="audio player" id='6-would-it-not'>
+            <div class="audio player autoplay transparent" id='6-would-it-not'>
               <audio src="./media/audio/spyglass/6-would-it-not.mp3"></audio>
               <div class='playpause'>
                 <div class="play">
@@ -467,7 +471,6 @@
                 <div class='remaining'></div>
               </div>
             </div>
-
           </div>
         </div>
       </div>
@@ -505,6 +508,7 @@
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-/bQdsTh/da6pkI1MST/rWKFNjaCP5gBSY4sEBT38Q/9RBh9AH40zEOg7Hlq2THRZ" crossorigin="anonymous"></script>
 
   <script src="js/utilities.js"></script>
+  <script src="js/zoom.js"></script>
   <script src="js/artifact.js"></script>
   <script src="js/spyglass.js"></script>
 
