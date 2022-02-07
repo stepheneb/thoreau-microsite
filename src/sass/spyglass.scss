@@ -6,6 +6,7 @@ body#spyglass {
   height: 1300vh;
   margin: 0;
   padding: 0;
+  overflow-x: hidden;
 }
 
 div.artifact.spyglass {
@@ -325,6 +326,17 @@ div.artifact.spyglass {
   .fixed-video-container.spyglass.walden-sunset-video {
     visibility: visible;
     opacity: 1;
+  }
+
+  // hack to hide about 2-3 pixels at bottom of video
+  .background-image-container.spyglass {
+    visibility: visible;
+    &:before {
+      background-image: url("../media/images/spyglass/sun-sets-over-walden-pond.jpg");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
   }
   .animation-frame-container.spyglass {
     visibility: hidden;
