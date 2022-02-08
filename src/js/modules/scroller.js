@@ -16,9 +16,9 @@ class SectionLogger {
   }
   log(csFloat) {
     if (typeof this.animationFrameNum == 'number')
-      app.logger('section:', csFloat.toFixed(2), ', anim:', this.animationFrameNum);
+      app.logger('page:', csFloat.toFixed(2), ', anim:', this.animationFrameNum);
     else {
-      app.logger('section:', csFloat.toFixed(2));
+      app.logger('page:', csFloat.toFixed(2));
     }
     this.animationFrameNum = undefined;
   }

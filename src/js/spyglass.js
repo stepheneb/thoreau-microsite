@@ -7,18 +7,18 @@ import { startup } from './modules/artifact.js';
 let animations = [{
     startFrame: 46,
     endFrame: 160,
+    startScroll: 1.95,
+    endScroll: 4.5,
     startPage: 1,
     endPage: 4,
-    startScroll: 1.95,
-    endScroll: 4.5
   },
   {
     startFrame: 161,
     endFrame: 243,
+    startScroll: 5.0,
+    endScroll: 8.5,
     startPage: 5,
     endPage: 10,
-    startScroll: 5.0,
-    endScroll: 8.5
   }
 ];
 
