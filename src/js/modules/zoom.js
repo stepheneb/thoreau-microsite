@@ -1,28 +1,38 @@
+import { app } from "./globals.js";
+
 const zoomMinus = document.getElementById('zoom-minus');
 const zoomPlus = document.getElementById('zoom-plus');
 const artifactImage = document.getElementById('artifact-image');
+const artifactWrapper = artifactImage.parentElement;
+const dragLayer = artifactWrapper.querySelector('div.draglayer');
 
 export const zoom = {
   scale: 1,
   maxScale: 3,
-  increment: 1.1
+  increment: 1.1,
+  dx: 0,
+  dy: 0,
+  startpos: {
+    x: 0,
+    y: 0
+  },
+  endpos: {
+    x: 0,
+    y: 0
+  }
 }
 
-zoomMinus.addEventListener('click', () => {
-  zoom.scale /= zoom.increment;
-  manageZoomButtons();
-})
-
-zoomPlus.addEventListener('click', () => {
-  zoom.scale *= zoom.increment;
-  manageZoomButtons();
-})
-
-const manageZoomButtons = () => {
-  const rescaleArtifactImage = () => {
-    artifactImage.style.transform = `scale(${zoom.scale})`;
+const scaleAndTranslate = () => {
+  let transform = `scale(${zoom.scale}) translate(${zoom.dx}px, ${zoom.dy}px)`;
+  artifactImage.style.transform = transform;
+  if (zoom.scale > 1) {
+    artifactWrapper.classList.add('zoomed');
+  } else {
+    artifactWrapper.classList.remove('zoomed');
   }
+}
 
+const handleZoomButtons = () => {
   if (zoom.scale > zoom.maxScale) {
     zoom.scale = zoom.maxScale;
     zoomPlus.setAttribute("disabled", "disabled");
@@ -31,9 +41,78 @@ const manageZoomButtons = () => {
   }
   if (zoom.scale < 1) {
     zoom.scale = 1;
+    zoom.dx = 0;
+    zoom.dy = 0;
     zoomMinus.setAttribute("disabled", "disabled");
   } else {
     zoomMinus.removeAttribute("disabled");
   }
-  rescaleArtifactImage();
+  scaleAndTranslate();
+}
+
+zoomMinus.addEventListener('click', () => {
+  zoom.scale /= zoom.increment;
+  handleZoomButtons();
+})
+
+zoomPlus.addEventListener('click', () => {
+  zoom.scale *= zoom.increment;
+  handleZoomButtons();
+})
+
+export const setupDragHandling = () => {
+  let pointerdown = false;
+  let dragstarted = false;
+  let dragging = false;
+
+  const originalPos = { x: 0, y: 0 };
+
+  const dragEnded = () => {
+    app.logger('pointer up')
+    dragging = false;
+    dragstarted = false;
+    dragLayer.classList.remove('dragging');
+  }
+
+  const updateDxDy = () => {
+    zoom.dx = originalPos.x + (zoom.endpos.x - zoom.startpos.x) / zoom.scale;
+    zoom.dy = originalPos.y + (zoom.endpos.y - zoom.startpos.y) / zoom.scale;
+    app.logger('dragging', zoom.dx, zoom.dy, zoom.startpos.x, zoom.startpos.y, zoom.endpos.x, zoom.endpos.y);
+    scaleAndTranslate();
+  }
+
+  dragLayer.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    dragLayer.classList.add('dragging');
+    zoom.startpos.x = e.offsetX;
+    zoom.startpos.y = e.offsetY;
+    originalPos.x = zoom.dx;
+    originalPos.y = zoom.dy;
+    pointerdown = true;
+    dragstarted = true;
+    app.logger('pointer down', pointerdown)
+  });
+
+  dragLayer.addEventListener('pointermove', (e) => {
+    if (dragstarted) {
+      e.preventDefault();
+      dragging = true;
+      zoom.endpos.x = e.offsetX;
+      zoom.endpos.y = e.offsetY;
+      updateDxDy();
+    }
+  });
+
+  dragLayer.addEventListener('pointerup', (e) => {
+    e.preventDefault();
+    dragEnded();
+  });
+
+  dragLayer.addEventListener('pointercancel', () => {
+    // dragEnded();
+  });
+
+  dragLayer.addEventListener('pointerleave', () => {
+    // dragEnded();
+  });
 }
