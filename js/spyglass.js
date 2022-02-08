@@ -18,7 +18,7 @@ let animations = [{
     startScroll: 5.0,
     endScroll: 8.5,
     startPage: 5,
-    endPage: 10,
+    endPage: 9,
   }
 ];
 
