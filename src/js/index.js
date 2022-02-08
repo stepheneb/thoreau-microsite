@@ -1,5 +1,8 @@
 /*jshint esversion: 8 */
-/*global app pages */
+/*global */
+
+import { app } from "./modules/globals.js";
+import { pages } from "./modules/pages.js";
 
 let selectRight, selectLeft, selectedImage, carouselImageContainer;
 

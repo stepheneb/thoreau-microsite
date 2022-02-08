@@ -1,10 +1,12 @@
 /*jshint esversion: 8 */
-/*global app */
+/*global  */
 
 // eslint-disable-next-line no-unused-vars
 if (window.app === undefined) {
   window.app = {};
 }
+
+export const app = window.app;
 
 // eslint-disable-next-line no-unused-vars
 app.domReady = (callBack) => {
@@ -38,6 +40,12 @@ app.reflow = (element) => {
 // eslint-disable-next-line no-unused-vars
 app.logger = (...args) => {
   if (app.dev) {
+    console.log(...args);
+  }
+}
+
+app.loggerVolume = (...args) => {
+  if (app.volume) {
     console.log(...args);
   }
 }
