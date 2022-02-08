@@ -1,5 +1,13 @@
 /*jshint esversion: 8 */
-/*global  app startup */
+/*global */
+
+import { app } from "./modules/globals.js"
+import { startup } from './modules/artifact.js';
 
 app.maxContentScroll = 2;
-app.domReady(startup('snowshoes'));
+
+app.dev = true;
+
+app.domReady(() => {
+  startup('snowshoes');
+});

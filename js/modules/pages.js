@@ -1,8 +1,7 @@
 /*jshint esversion: 8 */
 /*global */
 
-// eslint-disable-next-line no-unused-vars
-let pages = [{
+export const pages = [{
     id: 'snowshoes',
     location: "snowshoes.html",
     enabled: false,
