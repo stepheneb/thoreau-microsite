@@ -81,7 +81,7 @@ div.artifact {
 
       .about-container {
         width: 28vw;
-        margin: 3.4rem 0 0 5.5rem;
+        margin: 3rem 0 0 5.5rem;
         @include mobile-portrait() {
           margin: 0 5vw;
           width: 90vw;
@@ -101,8 +101,8 @@ div.artifact {
             align-items: center;
           }
           img {
-            width: 6rem;
-            height: 6rem;
+            width: 5.6rem;
+            height: 5.6rem;
             padding: 0rem;
             @include mobile-portrait() {
               width: 4rem;
@@ -132,7 +132,7 @@ div.artifact {
           }
           .title {
             width: 30vw;
-            margin: 2.5rem 0 2.9rem 0;
+            margin: 3rem 0 2.9rem 0;
             font-family: "Libre Caslon Text", serif;
             font-size: var(--artifact-title);
             line-height: var(--artifact-title-line-height);
@@ -153,6 +153,7 @@ div.artifact {
           width: 10vw;
           height: 1px;
           margin: 0.5rem 0;
+          color: var(----medium-gray);
           @include mobile-portrait() {
             display: none;
           }
@@ -172,7 +173,7 @@ div.artifact {
           letter-spacing: var(--artifact-description-letter-spacing);
           color: var(--navy-blue);
           span.first-line {
-            font-weight: 600;
+            font-weight: 700;
           }
           @include mobile-landscape() {
             margin: 1.5rem 0;

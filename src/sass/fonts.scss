@@ -15,7 +15,9 @@
   --artifact-title: 2.25rem;
   --artifact-title-line-height: 2.4rem;
   --artifact-description: 1.25rem;
-  --artifact-description-letter-spacing: calc(clamp(0px, (0.4vh - 2.6px), 2px));
+  --artifact-description-letter-spacing: calc(
+    clamp(0px, (0.4vh - 3.61px), 2px)
+  );
   --artifact-description-line-height: calc(clamp(30px, (8vh - 26px), 60px));
   --zoom-button-size: 1.25rem;
 
