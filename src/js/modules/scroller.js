@@ -137,7 +137,7 @@ const storeScroll = (animations, animationFrameImg) => {
   result = inScope(animations);
   animation = result.animation;
   if (animation) {
-    animation.callback(result.frameNum, animationFrameImg, result.visible);
+    animation.callback(result.frameNum, animationFrameImg, animation.imgPrefix, result.visible);
     sLogger.animationFrameNum = result.frameNum;
 
   }
@@ -165,7 +165,7 @@ const storeScrollListener = (e, ...args) => {
   });
 }
 
-const animationFrameCallback = (animationFrameNum, animationFrameImg, isVisible = true) => {
+const animationFrameCallback = (animationFrameNum, animationFrameImg, imgPrefix, isVisible = true) => {
   let updateSrc = (newSrc) => {
     if (animationFrameImg.src !== newSrc) {
       animationFrameImg.src = newSrc;
@@ -174,7 +174,7 @@ const animationFrameCallback = (animationFrameNum, animationFrameImg, isVisible 
   }
   if (animationFrameNum >= 0 && isVisible) {
     let paddedFrameNum = (animationFrameNum).toString().padStart(5, '0');
-    updateSrc(`./media/images/animations/spyglass/Spyglass_PNGSeq_01__${paddedFrameNum}.png`);
+    updateSrc(`./media/images/animations/${imgPrefix}${paddedFrameNum}.png`);
   }
   if (!isVisible) {
     updateSrc('./media/images/transparent.png');
