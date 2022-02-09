@@ -61,15 +61,10 @@ zoomPlus.addEventListener('click', () => {
 })
 
 export const setupDragHandling = () => {
-  let pointerdown = false;
   let dragstarted = false;
-  let dragging = false;
-
   const originalPos = { x: 0, y: 0 };
 
   const dragEnded = () => {
-    app.logger('pointer up')
-    dragging = false;
     dragstarted = false;
     dragLayer.classList.remove('dragging');
   }
@@ -77,7 +72,6 @@ export const setupDragHandling = () => {
   const updateDxDy = () => {
     zoom.dx = originalPos.x + (zoom.endpos.x - zoom.startpos.x) / zoom.scale;
     zoom.dy = originalPos.y + (zoom.endpos.y - zoom.startpos.y) / zoom.scale;
-    app.logger('dragging', zoom.dx, zoom.dy, zoom.startpos.x, zoom.startpos.y, zoom.endpos.x, zoom.endpos.y);
     scaleAndTranslate();
   }
 
@@ -88,15 +82,12 @@ export const setupDragHandling = () => {
     zoom.startpos.y = e.offsetY;
     originalPos.x = zoom.dx;
     originalPos.y = zoom.dy;
-    pointerdown = true;
     dragstarted = true;
-    app.logger('pointer down', pointerdown)
   });
 
   dragLayer.addEventListener('pointermove', (e) => {
     if (dragstarted) {
       e.preventDefault();
-      dragging = true;
       zoom.endpos.x = e.offsetX;
       zoom.endpos.y = e.offsetY;
       updateDxDy();
@@ -109,10 +100,10 @@ export const setupDragHandling = () => {
   });
 
   dragLayer.addEventListener('pointercancel', () => {
-    // dragEnded();
+    dragEnded();
   });
 
   dragLayer.addEventListener('pointerleave', () => {
-    // dragEnded();
+    dragEnded();
   });
 }
