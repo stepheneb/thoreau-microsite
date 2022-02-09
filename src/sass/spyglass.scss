@@ -303,6 +303,16 @@ div.artifact.spyglass {
     opacity: 1;
     position: fixed;
   }
+  .background-image-container.spyglass {
+    &:before {
+      background-color: var(--thoreau-rgba-blue);
+      background-image: url("../media/images/thoreau-handwriting-light-background.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
   .arrow-scroll-down {
     visibility: visible;
     opacity: 1;
