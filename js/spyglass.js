@@ -5,6 +5,7 @@ import { app } from "./modules/globals.js"
 import { startup } from './modules/artifact.js';
 
 let animations = [{
+    imgPrefix: 'spyglass/Spyglass_PNGSeq_01__',
     startFrame: 46,
     endFrame: 160,
     startScroll: 1.95,
@@ -13,6 +14,7 @@ let animations = [{
     endPage: 4,
   },
   {
+    imgPrefix: 'spyglass/Spyglass_PNGSeq_01__',
     startFrame: 161,
     endFrame: 243,
     startScroll: 5.0,
