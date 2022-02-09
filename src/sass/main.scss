@@ -9,6 +9,16 @@
 @import "snowshoes";
 @import "index";
 
+div.viewport {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -99;
+  height: 100vh;
+  width: 100vw;
+  visible: hidden;
+}
+
 @supports (font-size: clamp(10px, 1.8vmin, 36px)) {
   html {
     font-size: clamp(10px, 1.8vmin, 36px);

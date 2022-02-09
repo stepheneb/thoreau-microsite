@@ -2,6 +2,18 @@ import { app } from "./globals.js"
 
 import { MediaCollection, AudioPlayerItem, AudioBackgroundItem, VideoBackgroundItem } from './media.js';
 
+let viewportDiv;
+
+const setupViewportDiv = () => {
+  viewportDiv = document.createElement('div');
+  viewportDiv.classList.add('viewport');
+  container.querySelector('div.artifact').insertAdjacentElement('afterend', viewportDiv);
+}
+
+const getFullVh = () => {
+  return viewportDiv.clientHeight
+}
+
 //
 // Scroll and animation management
 //
@@ -64,9 +76,9 @@ const debounce = (fn) => {
 //
 const storeScroll = (animations, animationFrameImg) => {
   const contentViewportOffset = 0.6;
-  contentScrollFLoat = window.scrollY / window.innerHeight + contentViewportOffset;
+  contentScrollFLoat = window.scrollY / getFullVh() + contentViewportOffset;
   contentScroll = Math.floor(contentScrollFLoat);
-  let aspectRatio = window.innerWidth / window.innerHeight;
+  let aspectRatio = window.innerWidth / getFullVh()
   let result, animation;
 
   let inScope = (animations) => {
@@ -133,7 +145,7 @@ const storeScroll = (animations, animationFrameImg) => {
   container.dataset.contentScrollFloat = contentScrollFLoat;
   container.dataset.contentScroll = contentScroll;
   container.dataset.scrollY = window.scrollY;
-  container.dataset.innerHeight = window.innerHeight;
+  container.dataset.innerHeight = getFullVh();
   container.dataset.innerWidth = window.innerWidth;
   container.dataset.aspectRatio = aspectRatio;
 
@@ -177,6 +189,8 @@ const mediaCollectionUpdateHandler = () => {
 
 const scrollerSetup = (el, animations) => {
   container = el;
+  setupViewportDiv();
+
   animationFrameImg = document.getElementById('animation-frame');
 
   audioPlayerCollection = new MediaCollection('.audio.player', AudioPlayerItem);
