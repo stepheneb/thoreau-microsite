@@ -1,5 +1,5 @@
 import { app } from "./globals.js"
-import { contentScrollFLoat } from './scroller.js'
+import { contentScrollFLoat, audioBackgroundCollection } from './scroller.js'
 
 class MediaItem {
   isAudio(player) {

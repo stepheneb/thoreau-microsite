@@ -145,10 +145,6 @@
   --explore-menu-timing: 0.2s 0s ease-in-out;
 }
 
-html {
-  font-size: clamp(10px, 1.8vmin, 36px);
-}
-
 body {
   width: 100vw;
 }
@@ -797,8 +793,8 @@ div.artifact .arrow-scroll-down {
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
 }
 div.artifact .arrow-scroll-down img {
-  width: 2.5rem;
-  height: auto;
+  height: 1.8rem;
+  width: auto;
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .arrow-scroll-down {
@@ -1077,8 +1073,9 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
-    top: 10vh;
+    top: 14vh;
     left: 14vw;
+    width: 70vw;
     max-width: 70vw;
   }
 }
@@ -1113,9 +1110,10 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
-    top: 10vh;
-    left: 14vw;
-    max-width: 70vw;
+    top: 20vh;
+    left: 20vw;
+    width: 54vw;
+    max-width: 54vw;
   }
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.walden-sunset {
@@ -1445,10 +1443,6 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
   padding: 0;
 }
 
-html {
-  font-size: clamp(10px, 1.8vmin, 36px);
-}
-
 body.index {
   margin: 0;
   padding: 0;
@@ -1724,5 +1718,45 @@ body.index {
   .content.index .main .gallery .select.right .circle img {
     margin-left: 3vw;
     transform: rotate(180deg);
+  }
+}
+
+div.viewport {
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -99;
+  height: 100vh;
+  width: 100vw;
+  visible: hidden;
+}
+
+@supports (font-size: clamp(10px, 1.8vmin, 36px)) {
+  html {
+    font-size: clamp(10px, 1.8vmin, 36px);
+  }
+}
+@supports (font-size: 2.5vmin) and (not (font-size: clamp(10px, 1.8vmin, 36px))) {
+  @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+    html {
+      font-size: 2.5vmin;
+    }
+  }
+  @media only screen and (min-height: 320px) and (max-height: 480px) and (orientation: landscape) {
+    html {
+      font-size: 2.5vmin;
+    }
+  }
+}
+@supports (not (font-size: 2.5vmin)) and (not (font-size: clamp(10px, 1.8vmin, 36px))) {
+  @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+    html {
+      font-size: 12px;
+    }
+  }
+  @media only screen and (min-height: 320px) and (max-height: 480px) and (orientation: landscape) {
+    html {
+      font-size: 12px;
+    }
   }
 }
