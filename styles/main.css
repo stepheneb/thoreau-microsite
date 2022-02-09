@@ -444,7 +444,7 @@ div.artifact .content .absolute-content-container .image-container img {
 div.artifact .content .absolute-content-container .image-container .zoom-controls {
   pointer-events: auto;
   position: absolute;
-  right: 1.5vw;
+  right: 2.5vw;
   bottom: 3.8vh;
   display: flex;
   flex-direction: row;
@@ -793,7 +793,7 @@ div.artifact .arrow-scroll-down {
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
 }
 div.artifact .arrow-scroll-down img {
-  height: 1.8rem;
+  height: 1.6rem;
   width: auto;
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
@@ -1036,7 +1036,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.cur
   height: 300vh;
   position: sticky;
   visibility: hidden;
-  top: 61vh;
+  top: 62vh;
   left: 7vw;
   width: 26vw;
   max-width: 30vw;
@@ -1060,7 +1060,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
   height: 400vh;
   position: sticky;
   visibility: hidden;
-  top: 10vh;
+  top: 9vh;
   left: 7vw;
   width: 25vw;
   max-width: 25vw;
@@ -1083,8 +1083,8 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
   height: 300vh;
   position: sticky;
   visibility: hidden;
-  top: 26vh;
-  left: 34vw;
+  top: 30vh;
+  left: 32.5vw;
   width: 35vw;
   max-width: 40vw;
   font-weight: 600;
@@ -1260,6 +1260,15 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   visibility: visible;
   opacity: 1;
   position: fixed;
+}
+#spyglass[data-content-scroll="9"] .background-image-container.spyglass:before,
+#spyglass[data-content-scroll="10"] .background-image-container.spyglass:before,
+#spyglass[data-content-scroll="11"] .background-image-container.spyglass:before {
+  background-color: var(--thoreau-rgba-blue);
+  background-image: url("../media/images/thoreau-handwriting-light-background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
 }
 #spyglass[data-content-scroll="9"] .arrow-scroll-down,
 #spyglass[data-content-scroll="10"] .arrow-scroll-down,
