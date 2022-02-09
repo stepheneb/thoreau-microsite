@@ -1036,7 +1036,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.cur
   height: 300vh;
   position: sticky;
   visibility: hidden;
-  top: 62vh;
+  top: 61vh;
   left: 7vw;
   width: 26vw;
   max-width: 30vw;
@@ -1060,7 +1060,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
   height: 400vh;
   position: sticky;
   visibility: hidden;
-  top: 9vh;
+  top: 10vh;
   left: 7vw;
   width: 25vw;
   max-width: 25vw;
@@ -1083,8 +1083,8 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
   height: 300vh;
   position: sticky;
   visibility: hidden;
-  top: 30vh;
-  left: 32.5vw;
+  top: 26vh;
+  left: 34vw;
   width: 35vw;
   max-width: 40vw;
   font-weight: 600;
