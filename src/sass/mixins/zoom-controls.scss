@@ -2,7 +2,7 @@
   .zoom-controls {
     pointer-events: auto;
     position: absolute;
-    right: 1.5vw;
+    right: 2.5vw;
     bottom: 3.8vh;
     @include mobile-portrait() {
       right: 4vw;
