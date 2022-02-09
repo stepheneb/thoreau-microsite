@@ -399,9 +399,23 @@ div.artifact .content .absolute-content-container .image-container {
   opacity: 1;
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
 }
+div.artifact .content .absolute-content-container .image-container.zoomed {
+  border: dashed lightgray 1px;
+}
 div.artifact .content .absolute-content-container .image-container img {
   width: inherit;
   height: auto;
+}
+div.artifact .content .absolute-content-container .image-container div.draglayer {
+  position: absolute;
+  pointer-events: all;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 90%;
+}
+div.artifact .content .absolute-content-container .image-container div.draglayer.dragging {
+  cursor: grab;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container .image-container {
@@ -446,7 +460,7 @@ div.artifact .content .absolute-content-container .image-container img {
   }
 }
 div.artifact .content .absolute-content-container .image-container .zoom-controls {
-  pointer-events: auto;
+  pointer-events: all;
   position: absolute;
   right: 2.5vw;
   bottom: 3.8vh;
@@ -487,6 +501,8 @@ div.artifact .content .absolute-content-container .image-container .zoom-control
   display: inline-flex;
   align-items: center;
   justify-content: center;
+  pointer-events: all;
+  cursor: default;
 }
 div.artifact .content .absolute-content-container .image-container .zoom-controls button img {
   width: var(--zoom-button-size);

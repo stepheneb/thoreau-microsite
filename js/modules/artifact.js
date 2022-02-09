@@ -3,7 +3,7 @@
 
 import { app } from "./globals.js";
 import { scrollerSetup } from './scroller.js';
-import { zoom } from "./zoom.js";
+import { zoom, setupDragHandling } from "./zoom.js";
 
 app.logger(zoom);
 
@@ -16,4 +16,5 @@ export const startup = (id, animations) => {
   const container = document.getElementById(id);
 
   scrollerSetup(container, animations);
+  setupDragHandling();
 }
