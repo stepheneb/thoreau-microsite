@@ -9,8 +9,8 @@
   display: flex;
   justify-content: center;
   img {
-    width: 2.5rem;
-    height: auto;
+    height: 1.8rem;
+    width: auto;
   }
   @include mobile-portrait() {
   }
