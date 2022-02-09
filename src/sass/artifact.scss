@@ -1,5 +1,6 @@
 body {
   width: 100vw;
+  font-family: "Nunito Sans", sans-serif;
 }
 
 a {
@@ -58,7 +59,7 @@ div.artifact {
 
       line-height: var(--explore-content-line-height);
       font-size: var(--explore-content);
-      font-weight: 400;
+      font-weight: 300;
 
       &.start {
         display: flex;
