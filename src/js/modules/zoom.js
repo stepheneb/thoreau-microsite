@@ -24,6 +24,7 @@ export const zoom = {
 
 const scaleAndTranslate = () => {
   let transform = `scale(${zoom.scale}) translate(${zoom.dx}px, ${zoom.dy}px)`;
+  app.logger(transform);
   artifactImage.style.transform = transform;
   if (zoom.scale > 1) {
     artifactWrapper.classList.add('zoomed');
@@ -62,11 +63,14 @@ zoomPlus.addEventListener('click', () => {
 
 export const setupDragHandling = () => {
   let dragstarted = false;
+  const touchscreen = navigator.maxTouchPoints > 0 || navigator.platform == 'iPhone'
   const originalPos = { x: 0, y: 0 };
 
-  const dragEnded = () => {
+  const dragEnded = (e) => {
+    e.preventDefault();
     dragstarted = false;
     dragLayer.classList.remove('dragging');
+    console.log(e);
   }
 
   const updateDxDy = () => {
@@ -75,35 +79,84 @@ export const setupDragHandling = () => {
     scaleAndTranslate();
   }
 
-  dragLayer.addEventListener('pointerdown', (e) => {
-    e.preventDefault();
+  const down = (x, y) => {
     dragLayer.classList.add('dragging');
-    zoom.startpos.x = e.offsetX;
-    zoom.startpos.y = e.offsetY;
+    dragstarted = true;
+    zoom.startpos.x = x;
+    zoom.startpos.y = y;
     originalPos.x = zoom.dx;
     originalPos.y = zoom.dy;
-    dragstarted = true;
+  }
+
+  const move = (x, y) => {
+    if (dragstarted) {
+      zoom.endpos.x = x;
+      zoom.endpos.y = y;
+      updateDxDy();
+    }
+  }
+
+  //
+  // start
+  //
+
+  if (touchscreen) {
+    dragLayer.addEventListener('touchstart', (e) => {
+      e.preventDefault();
+      e.stopPropagation();
+      let touch = e.targetTouches[0];
+      down(touch.clientX, touch.clientY);
+    });
+  }
+  dragLayer.addEventListener('pointerdown', (e) => {
+    e.preventDefault();
+    e.stopPropagation();
+    down(e.offsetX, e.offsetY);
   });
 
+  //
+  // move
+  //
+  if (touchscreen) {
+    dragLayer.addEventListener('touchmove', (e) => {
+      if (dragstarted) {
+        e.preventDefault();
+        e.stopPropagation();
+        let touch = e.targetTouches[0];
+        move(touch.clientX, touch.clientY);
+      }
+    });
+  }
   dragLayer.addEventListener('pointermove', (e) => {
     if (dragstarted) {
       e.preventDefault();
-      zoom.endpos.x = e.offsetX;
-      zoom.endpos.y = e.offsetY;
-      updateDxDy();
+      e.stopPropagation();
+      move(e.offsetX, e.offsetY);
     }
   });
 
+  //
+  // end
+  //
+
   dragLayer.addEventListener('pointerup', (e) => {
-    e.preventDefault();
-    dragEnded();
+    dragEnded(e);
+  });
+
+  dragLayer.addEventListener('touchend', (e) => {
+    dragEnded(e);
   });
 
   dragLayer.addEventListener('pointercancel', () => {
-    dragEnded();
+    // dragEnded();
+  });
+
+  dragLayer.addEventListener('touchcancel', () => {
+    // dragEnded();
   });
 
   dragLayer.addEventListener('pointerleave', () => {
-    dragEnded();
+    // dragEnded();
   });
+
 }

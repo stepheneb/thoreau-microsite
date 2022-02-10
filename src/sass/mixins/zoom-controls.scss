@@ -1,6 +1,7 @@
 @mixin zoom-controls() {
   .zoom-controls {
     pointer-events: all;
+    user-select: none;
     z-index: 2;
     position: absolute;
     right: 2.5vw;
