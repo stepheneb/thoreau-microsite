@@ -63,7 +63,7 @@ div.artifact {
 
       &.start {
         display: flex;
-        flex-direction: row;
+        flex-direction: column;
 
         @include desktop-strong-portrait() {
           flex-direction: column;
@@ -77,20 +77,30 @@ div.artifact {
 
         @include mobile-landscape() {
         }
-      }
 
-      .about-container {
-        width: 28vw;
-        margin: 3rem 0 0 5.5rem;
-        @include mobile-portrait() {
-          margin: 0 5vw;
-          width: 90vw;
-        }
-        @include mobile-landscape() {
-          width: 35vw;
-          max-width: 35vw;
-        }
-        .header {
+        .menu {
+          width: 100vw;
+          margin-top: 1.5vh;
+          padding-right: 6.5vw;
+          height: 5vh;
+          display: flex;
+          flex-direction: row;
+          align-items: baseline;
+          justify-content: space-between;
+
+          @include mobile-portrait() {
+            margin: 0;
+            height: 8vh;
+            align-items: baseline;
+            justify-content: space-between;
+            background-color: var(--mobile-header-gray);
+          }
+          @include mobile-portrait-small() {
+            margin: 0;
+            height: 7.5vh;
+            background-color: var(--mobile-header-gray);
+          }
+
           @include mobile-landscape() {
             margin-top: 0;
             display: flex;
@@ -100,19 +110,25 @@ div.artifact {
             display: flex;
             align-items: center;
           }
-          img {
-            width: 5.6rem;
-            height: 5.6rem;
-            padding: 0rem;
+          .home {
+            margin: 2rem 0 0 5.5rem;
+            a {
+              img {
+                width: 5.6rem;
+                height: 5.6rem;
+                padding: 0rem;
+                @include desktop-strong-landscape() {
+                  width: 6rem;
+                  height: 6rem;
+                  padding: 0.5rem;
+                }
+              }
+            }
             @include mobile-portrait() {
-              width: 4rem;
-              height: 4rem;
-              margin: 1rem 0.5rem 0.5rem 0;
+              display: none;
             }
             @include mobile-portrait-small() {
-              width: 3rem;
-              height: 3rem;
-              margin: 0.5rem 0.5rem 0.5rem 0;
+              display: none;
             }
             @include mobile-landscape() {
               width: 9vh;
@@ -124,165 +140,221 @@ div.artifact {
               height: 10vh;
               margin: 0.5rem 0.5rem 0.5rem 0;
             }
-            @include desktop-strong-landscape() {
-              width: 6rem;
-              height: 6rem;
-              padding: 0.5rem;
-            }
           }
           .title {
-            width: 30vw;
-            margin: 3rem 0 2.9rem 0;
+            display: none;
+            flex: none;
+            margin: 0vh 0.4vw;
+            padding-bottom: 2vh;
             font-family: "Libre Caslon Text", serif;
-            font-size: var(--artifact-title);
-            line-height: var(--artifact-title-line-height);
+            font-size: var(--main-title);
             font-weight: 600;
-            color: var(--thoreau-blue);
-            text-transform: capitalize;
+            color: var(--navy-blue);
+            .world {
+              margin: 0 1vw 0 0;
+              padding: 0;
+              font-family: "Libre Caslon Display", serif;
+              font-size: var(--main-title-world);
+              color: var(--white);
+              font-weight: 600;
+              padding-bottom: 0.5vh;
+            }
+            @include mobile-portrait() {
+              display: block;
+              margin: 3vh 0 3vh 10vw;
+              padding-bottom: 0;
+            }
             @include mobile-landscape() {
               margin: 4vh 0 4vh 0;
             }
-            @include mobile-portrait() {
-              margin: 1vh 0 2vh 0;
-              width: 70vw;
-            }
           }
         }
-        hr {
-          display: block;
-          width: 10vw;
-          height: 1px;
-          margin: 0.5rem 0;
-          color: var(----medium-gray);
+        .content {
+          display: flex;
+          flex-direction: row;
           @include mobile-portrait() {
-            display: none;
-          }
-          @include mobile-landscape() {
-            display: block;
-          }
-          @include mobile-landscape-small {
-            display: none;
-          }
-        }
-        .description {
-          margin: 2.5rem 0;
-          width: 100%;
-          font-size: var(--artifact-description);
-          line-height: var(--artifact-description-line-height);
-          font-weight: 300;
-          letter-spacing: var(--artifact-description-letter-spacing);
-          color: var(--navy-blue);
-          span.first-line {
-            font-weight: 700;
-          }
-          @include mobile-landscape() {
-            margin: 1.5rem 0;
-            width: 100%;
-            max-width: 25rem;
-            letter-spacing: 0.2px;
-          }
-          @include mobile-landscape-small {
-            width: 110%;
-            letter-spacing: 0px;
-            max-width: 20rem;
-            margin: 2vh 0;
-          }
-          @include mobile-portrait() {
-            width: 100%;
-            max-width: 25rem;
-            margin: 2vh 0;
+            width: 100vw;
+            flex-direction: column-reverse;
           }
           @include mobile-portrait-small() {
-            margin: 1vh 0;
-            max-width: 20rem;
+            flex-direction: column-reverse;
+          }
+
+          .about-container {
+            width: 28vw;
+            margin: 5rem 0 0 5.5rem;
+            @include mobile-portrait() {
+              margin: 0 5vw;
+              width: 70vw;
+              align-self: center;
+            }
+            @include mobile-portrait-small() {
+              margin: 0 5vw;
+              width: 70vw;
+              align-self: center;
+            }
+            @include mobile-landscape() {
+              width: 35vw;
+              max-width: 35vw;
+            }
+            .header {
+              @include mobile-landscape() {
+                margin-top: 0;
+                display: flex;
+                align-items: center;
+              }
+              @include desktop-strong-landscape() {
+                display: flex;
+                align-items: center;
+              }
+              .title {
+                width: 30vw;
+                margin: 3rem 0 2.9rem 0;
+                font-family: "Libre Caslon Text", serif;
+                font-size: var(--artifact-title);
+                line-height: var(--artifact-title-line-height);
+                font-weight: 600;
+                color: var(--thoreau-blue);
+                text-transform: capitalize;
+                @include mobile-landscape() {
+                  margin: 4vh 0 4vh 0;
+                }
+                @include mobile-portrait() {
+                  margin: 1vh 0 2vh 0;
+                  width: 70vw;
+                }
+              }
+            }
+            hr {
+              display: block;
+              width: 10vw;
+              height: 1px;
+              margin: 0.5rem 0;
+              color: var(--medium-gray);
+              @include mobile-portrait() {
+              }
+              @include mobile-landscape() {
+                display: block;
+              }
+              @include mobile-landscape-small {
+                display: none;
+              }
+            }
+            .description {
+              margin: 2.5rem 0;
+              width: 100%;
+              font-size: var(--artifact-description);
+              line-height: var(--artifact-description-line-height);
+              font-weight: 300;
+              letter-spacing: var(--artifact-description-letter-spacing);
+              color: var(--navy-blue);
+              &::first-line {
+                font-weight: 700;
+              }
+              span.first-line {
+                font-weight: 700;
+              }
+              @include mobile-landscape() {
+                margin: 1.5rem 0;
+                width: 100%;
+                max-width: 25rem;
+                letter-spacing: 0.2px;
+              }
+              @include mobile-landscape-small {
+                width: 110%;
+                letter-spacing: 0px;
+                max-width: 20rem;
+                margin: 2vh 0;
+              }
+              @include mobile-portrait() {
+                width: 100%;
+                max-width: 25rem;
+                margin: 2vh 0;
+              }
+              @include mobile-portrait-small() {
+                margin: 1vh 0;
+                max-width: 20rem;
+              }
+            }
+          }
+
+          .image-container {
+            position: relative;
+            margin: 5vh 4vw 0 1vw;
+            height: 82vh;
+            width: 75%;
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+
+            &.zoomed {
+              border: dashed lightgray 1px;
+            }
+
+            img {
+              width: inherit;
+              height: auto;
+              &.artifact {
+              }
+            }
+            div.draglayer {
+              position: absolute;
+              pointer-events: all;
+              top: 0;
+              left: 0;
+              width: 100%;
+              height: 100%;
+              &.dragging {
+                cursor: move;
+              }
+            }
+
+            @include mobile-portrait() {
+              margin: 0 0 0 0;
+              height: 40vh;
+              width: 90vw;
+              padding: 0;
+              align-self: center;
+              img {
+                width: 85%;
+              }
+            }
+            @include mobile-portrait-small() {
+              margin: 2vh 0 0 0;
+              height: 40vh;
+              width: 100%;
+              padding: 0;
+              img {
+                width: 85%;
+              }
+            }
+            @include mobile-landscape() {
+              width: 70%;
+              margin-top: 0;
+              img {
+                width: 60%;
+              }
+            }
+            @include desktop-strong-landscape() {
+              height: 85vh;
+              img {
+                // width: 60%;
+              }
+            }
+
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            visibility: visible;
+            opacity: 1;
+            transition: opacity var(--explore-images-timing),
+              visibility var(--explore-images-timing);
+
+            @include zoom-controls();
           }
         }
-      }
-
-      .image-container {
-        position: -webkit-sticky;
-        position: sticky;
-        margin: 0 4vw 0 1vw;
-        top: 11vh;
-        left: 30%;
-        height: 82vh;
-        width: 75%;
-        margin-top: 5%;
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        align-items: center;
-
-        &.zoomed {
-          border: dashed lightgray 1px;
-        }
-
-        img {
-          width: inherit;
-          height: auto;
-          &.artifact {
-          }
-        }
-        div.draglayer {
-          position: absolute;
-          pointer-events: all;
-          top: 0;
-          left: 0;
-          width: 100%;
-          height: 100%;
-          &.dragging {
-            cursor: move;
-          }
-        }
-
-        @include mobile-portrait() {
-          top: 30vh;
-          height: 75vw;
-          left: 0;
-          width: 100%;
-          margin-top: 0;
-          margin-left: 0;
-          padding: 0;
-          img {
-            width: 85%;
-          }
-        }
-        @include mobile-portrait-small() {
-          top: 30vh;
-          height: 85vw;
-          left: 0;
-          width: 100%;
-          margin-top: 0;
-          margin-left: 0;
-          padding: 0;
-          img {
-            width: 90%;
-          }
-        }
-        @include mobile-landscape() {
-          width: 70%;
-          margin-top: 0;
-          img {
-            width: 60%;
-          }
-        }
-        @include desktop-strong-landscape() {
-          height: 85vh;
-          img {
-            // width: 60%;
-          }
-        }
-
-        display: flex;
-        flex-direction: column;
-        justify-content: center;
-        visibility: visible;
-        opacity: 1;
-        transition: opacity var(--explore-images-timing),
-          visibility var(--explore-images-timing);
-
-        @include zoom-controls();
       }
 
       .quote-wrapper {
@@ -294,14 +366,6 @@ div.artifact {
         width: 25%;
         border-top: 1px solid var(--navy-blue);
         opacity: 1;
-      }
-
-      @include mobile-portrait() {
-        flex-direction: column;
-        justify-content: flex-start;
-        width: 100vw;
-        top: 0vh;
-        left: 0vw;
       }
 
       .author {

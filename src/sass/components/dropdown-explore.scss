@@ -1,24 +1,20 @@
 .dropdown.explore-another-object {
   pointer-events: auto;
-  position: fixed;
   z-index: 3;
-  visibility: hidden;
-  opacity: 0;
-  top: 5vh;
-  right: 5.5vw;
+  align-self: center;
+  margin-top: 5vh;
   background-color: transparent;
   transition: opacity var(--explore-images-timing),
     visibility var(--explore-images-timing);
 
-  @include mobile-landscape() {
-    top: 3vh;
-    right: 2vw;
+  @include mobile-portrait() {
+    margin: 0;
   }
   @include mobile-portrait() {
-    top: 2vh;
-    right: 2vw;
+    margin: 0;
   }
-
+  @include mobile-landscape() {
+  }
   button {
     padding: 0.35rem 1.5rem;
     border: none;
@@ -36,6 +32,12 @@
       vertical-align: 0rem;
       border: none;
       content: url("../media/images/explore_another_down_arrow.png");
+      @include mobile-portrait() {
+        display: none;
+      }
+      @include mobile-portrait() {
+        display: none;
+      }
     }
   }
   ul.dropdown-menu {

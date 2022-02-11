@@ -323,38 +323,56 @@
     <div class="content spyglass">
 
       <div id='start' class='absolute-content-container spyglass start'>
-        <div class='about-container'>
-          <div class='header'>
-            <a href='./index.html#spyglass'><img src='media/images/pinetree-with-border.png'></img></a>
-            <div class='title'>
-              Thoreau's Spyglass
+        <div class='menu'>
+          <div class='home'>
+            <a href='./index.html#spyglass'>
+              <img src='media/images/pinetree-with-border.png'></img>
+            </a>
+          </div>
+          <div class='title'>Thoreau’s <span class='world'>World</span></div>
+          <div class="dropdown explore-another-object">
+            <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
+              Explore another object
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+              <li><a class="dropdown-item" href="./snowshoes.html">Snowshoes</a></li>
+              <li><a class="dropdown-item">Spyglass ✓</a></li>
+              <li><a class="dropdown-item" href="./index.html#spyglass">Main Page</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class='content'>
+          <div class='about-container'>
+            <div class='header'>
+              <div class='title'>
+                Thoreau's Spyglass
+              </div>
+            </div>
+            <hr>
+            <div class='description'>
+              <span class='first-line'>Thoreau preferred to observe nature with the naked eye, not through a lens.</span>
+              <br>It was after much internal debate
+              <br>that he decided to spend $8.00
+              <br>— a rare splurge—
+              <br>on this spyglass in the spring of 1854.
+              <br>He was delighted
+              <br>with his enhanced ability
+              <br>to study bird behaviors
+              <br>and other natural phenomena.
             </div>
           </div>
-          <hr>
-          <div class='description'>
-            <span class='first-line'>Thoreau preferred to observe nature with the naked eye, not through a lens.</span>
-            <br>It was after much internal debate
-            <br>that he decided to spend $8.00
-            <br>— a rare splurge—
-            <br>on this spyglass in the spring of 1854.
-            <br>He was delighted
-            <br>with his enhanced ability
-            <br>to study bird behaviors
-            <br>and other natural phenomena.
+          <div class='image-container'>
+            <img id='artifact-image' class='artifact' src='media/images/spyglass-higres.png' class='spyglass-photo'></img>
+            <div class='draglayer'></div>
+
+            <div class='zoom-controls'>
+              <button id='zoom-minus' class='zoom-minus' disabled><img src='media/images/zoom-minus.png'></img></button>
+              <div class='v-divide'></div>
+              <button id='zoom-plus' class='zoom-plus'><img src='media/images/zoom-plus.png'></img></button>
+            </div>
+
           </div>
         </div>
-        <div class='image-container'>
-          <img id='artifact-image' class='artifact' src='media/images/spyglass-higres.png' class='spyglass-photo'></img>
-          <div class='draglayer'></div>
-
-          <div class='zoom-controls'>
-            <button id='zoom-minus' class='zoom-minus' disabled><img src='media/images/zoom-minus.png'></img></button>
-            <div class='v-divide'></div>
-            <button id='zoom-plus' class='zoom-plus'><img src='media/images/zoom-plus.png'></img></button>
-          </div>
-
-        </div>
-
       </div>
 
       <div id='curious' class='absolute-content-container spyglass curious'>
@@ -462,17 +480,6 @@
 
     <div class='animation-frame-container spyglass'>
       <img id='animation-frame' src='media/images/animations/spyglass/Spyglass_PNGSeq_01__00000.png' width='1920' height='1080'></img>
-    </div>
-
-    <div class="dropdown explore-another-object">
-      <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false">
-        Explore another object
-      </button>
-      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
-        <li><a class="dropdown-item" href="./snowshoes.html">Snowshoes</a></li>
-        <li><a class="dropdown-item">Spyglass ✓</a></li>
-        <li><a class="dropdown-item" href="./index.html#spyglass">Main Page</a></li>
-      </ul>
     </div>
 
     <div class='arrow-scroll-down'>

@@ -39,15 +39,15 @@
   }
 
   @include mobile-portrait() {
-    --main-title: 2rem;
-    --main-title-world: 4.2rem;
+    --main-title: 1.4rem;
+    --main-title-world: 1.4rem;
     --main-description: 1.4rem;
 
-    --artifact-title: 1.4rem;
-    --artifact-description: 1.1rem;
-    --artifact-description-line-height: 1.7rem;
+    --artifact-title: 1.5rem;
+    --artifact-description: 1.25rem;
+    --artifact-description-line-height: 1.9rem;
 
-    --explore-button: 0.7rem;
+    --explore-button: 1rem;
     --explore-content: 1.2rem;
     --explore-content-line-height: 150%;
 
@@ -61,6 +61,7 @@
   }
 
   @include mobile-portrait-small() {
+    --explore-button: 1rem;
     --explore-content: 1.1rem;
 
     --main-title: 2.2rem;
