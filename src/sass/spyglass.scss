@@ -3,7 +3,7 @@
 //
 
 body#spyglass {
-  height: 1300vh;
+  height: 1200vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -61,6 +61,7 @@ div.artifact.spyglass {
         position: -webkit-sticky;
         position: sticky;
         visibility: hidden;
+        opacity: 0;
         top: 9vh;
         left: 7vw;
         width: 25vw;
@@ -79,10 +80,11 @@ div.artifact.spyglass {
       }
 
       &.would-it-not {
-        height: 300vh;
+        height: 100vh;
         position: -webkit-sticky;
         position: sticky;
         visibility: hidden;
+        opacity: 0;
         top: 30vh;
         left: 32.5vw;
         width: 35vw;
@@ -309,44 +311,10 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-content-scroll="9"],
-#spyglass[data-content-scroll="10"],
-#spyglass[data-content-scroll="11"] {
-  .absolute-content-container.spyglass.would-it-not {
-    visibility: visible;
-    opacity: 1;
-    position: fixed;
-  }
-  .background-image-container.spyglass {
-    &:before {
-      background-color: var(--thoreau-rgba-blue);
-      background-image: url("../media/images/thoreau-handwriting-light-background.png");
-      background-repeat: no-repeat;
-      background-position: center;
-      background-size: cover;
-    }
-  }
-
-  .arrow-scroll-down {
-    visibility: visible;
-    opacity: 1;
-  }
-  .animation-frame-container.spyglass {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
 #spyglass[data-content-scroll="9"] {
-  .absolute-content-container.spyglass.would-it-not {
-    position: sticky;
-  }
-}
-
-#spyglass[data-content-scroll="12"] {
   .absolute-content-container.spyglass.walden-sunset {
     visibility: visible;
     opacity: 1;
-    position: fixed;
   }
 
   .fixed-video-container.spyglass.walden-sunset-video {
@@ -364,8 +332,48 @@ div.artifact.spyglass {
       background-size: cover;
     }
   }
+
+  .arrow-scroll-down {
+    visibility: visible;
+    opacity: 1;
+  }
+
   .animation-frame-container.spyglass {
     visibility: hidden;
     opacity: 0;
+  }
+}
+
+#spyglass[data-content-scroll="10"],
+#spyglass[data-content-scroll="11"] {
+  .absolute-content-container.spyglass.would-it-not {
+    visibility: visible;
+    opacity: 1;
+    position: sticky;
+  }
+  .background-image-container.spyglass {
+    &:before {
+      background-color: var(--thoreau-rgba-blue);
+      background-image: url("../media/images/thoreau-handwriting-light-background.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  .arrow-scroll-down {
+    visibility: hidden;
+    opacity: 0;
+  }
+  .animation-frame-container.spyglass {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
+#spyglass[data-content-scroll="11"] {
+  .absolute-content-container.spyglass.would-it-not {
+    visibility: visible;
+    opacity: 1;
+    position: fixed;
   }
 }

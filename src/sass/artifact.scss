@@ -61,6 +61,10 @@ div.artifact {
       font-size: var(--explore-content);
       font-weight: 300;
 
+      &.end {
+        height: 100vh;
+      }
+
       &.start {
         display: flex;
         flex-direction: column;
