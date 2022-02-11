@@ -51,6 +51,10 @@ const paths = {
     src: 'src/media/images/**/*.{png,gif,jpg}',
     dest: `${dest}/media/images/`
   },
+  animations: {
+    src: 'src/media/animations/**/*.{png,gif,jpg}',
+    dest: `${dest}/media/animations/`
+  },
   audio: {
     src: 'src/media/audio/**/*.mp3',
     dest: `${dest}/media/audio/`
@@ -75,6 +79,12 @@ export function images() {
   return gulp
     .src(paths.images.src)
     .pipe(gulp.dest(paths.images.dest));
+}
+
+export function animations() {
+  return gulp
+    .src(paths.animations.src)
+    .pipe(gulp.dest(paths.animations.dest));
 }
 
 export function audio() {
@@ -118,6 +128,7 @@ export const build = (cb) => {
   clean();
   html();
   images();
+  animations();
   audio();
   video();
   styles();
@@ -130,6 +141,7 @@ const watch = () => {
   gulp.watch(paths.styles.src, gulp.series(styles, reload));
   gulp.watch(paths.html.src, gulp.series(html, reload));
   gulp.watch(paths.images.src, gulp.series(images, reload));
+  gulp.watch(paths.animations.src, gulp.series(images, reload));
   gulp.watch(paths.audio.src, gulp.series(audio, reload));
   gulp.watch(paths.video.src, gulp.series(video, reload));
 };

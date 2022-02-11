@@ -174,7 +174,7 @@ const animationFrameCallback = (animationFrameNum, animationFrameImg, imgPrefix,
   }
   if (animationFrameNum >= 0 && isVisible) {
     let paddedFrameNum = (animationFrameNum).toString().padStart(5, '0');
-    updateSrc(`./media/images/animations/${imgPrefix}${paddedFrameNum}.png`);
+    updateSrc(`./media/animations/${imgPrefix}${paddedFrameNum}.png`);
   }
   if (!isVisible) {
     updateSrc('./media/images/transparent.png');

@@ -22,9 +22,9 @@
   img {
     transition: opacity var(--explore-images-timing),
       visibility var(--explore-images-timing);
-    margin: 0;
-    width: 90%;
-    height: auto;
+    margin: 5vh 10vw;
+    height: 100%;
+    width: auto;
     aspect-ratio: attr(width) / attr(height);
     align-self: center;
     @include mobile-portrait() {
