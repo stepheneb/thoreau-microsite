@@ -835,6 +835,7 @@ div.artifact .fixed-image-container img {
 div.artifact .dropdown.explore-another-object {
   pointer-events: auto;
   z-index: 3;
+  transform-style: preserve-3d;
   align-self: center;
   margin-top: 5vh;
   background-color: transparent;
@@ -910,13 +911,15 @@ div.artifact .dropdown.explore-another-object button::after {
   }
 }
 div.artifact .dropdown.explore-another-object ul.dropdown-menu {
-  padding-top: 0.1rem;
+  top: 1rem;
+  padding-top: 2rem;
   background-color: transparent;
-  border: none;
   display: block;
+  transform: translateZ(-10px);
   visibility: hidden;
   display: none;
   opacity: 0;
+  background-color: var(--mobile-header-gray);
   transition: opacity var(--explore-menu-timing), visibility var(--explore-menu-timing);
 }
 div.artifact .dropdown.explore-another-object ul.dropdown-menu li a.dropdown-item {
@@ -926,27 +929,43 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu li a.dropdown-ite
 div.artifact .dropdown.explore-another-object ul.dropdown-menu.show {
   visibility: visible;
   display: block;
+  width: 100%;
   opacity: 1;
   transition: opacity var(--explore-menu-timing), visibility var(--explore-menu-timing);
-  padding-top: 0.1em;
-  background-color: transparent;
+  padding-top: 1.75em;
+  border-radius: 0.5rem;
+  background-color: var(--mobile-header-gray);
   border: none;
 }
 div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li {
-  margin-left: 1em;
-  padding: 0.2em 0em;
-  background-color: transparent;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  background-color: var(--mobile-header-gray);
+}
+div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li.mobile-only {
+  display: none;
 }
 div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdown-item {
+  display: inline-block;
   visibility: visible;
   opacity: 1;
-  padding: 0.35em 1.5em;
+  padding: 0.1rem 1rem;
+  border-radius: 0;
+  color: var(--navy-blue);
+  background-color: var(--mobile-header-gray);
   border: none;
-  border-radius: 1.25em;
-  background-color: var(--navy-blue);
-  color: var(--almost-white);
   font-size: var(--explore-button);
   text-decoration: none;
+}
+div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdown-item.disabled {
+  color: gray;
+}
+div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdown-item.selected {
+  font-weight: 700;
 }
 div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdown-item:hover {
   background-color: var(--navy-blue);
@@ -979,8 +998,11 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li:last-child {
     padding-bottom: 4rem;
   }
-  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item {
-    font-family: "Libre Caslon Text", serif;
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li.desktop-only {
+    display: none;
+  }
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li.mobile-only {
+    display: flex;
   }
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item {
     display: inline-block;
@@ -995,7 +1017,7 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
   }
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.small {
     font-family: "Nunito Sans", sans-serif;
-    font-size: 120%;
+    font-size: 130%;
   }
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.disabled {
     color: gray;
