@@ -232,6 +232,7 @@ class AudioPlayerItem extends MediaItem {
       this.restoreBackgroundVolume();
     })
     this.updateCurrentTime();
+    this.updateDuration();
   }
 
   restoreBackgroundVolume() {

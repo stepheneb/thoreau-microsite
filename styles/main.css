@@ -6,9 +6,11 @@
   --border-gray: gray;
   --border-light-gray: #ddd;
   --navy-blue: #25334b;
+  --navy-blue-rgba: rgba(13, 110, 253, 0.3);
   --white: #fff;
   --almost-white: #ddd;
   --medium-gray: #a7bbca;
+  --darker-gray: #798894;
   --snowshoe-brown: #704b46;
   --snowshoe-writing-mask: #cdd7e0;
   --progress-indicator-elapsed: var(--navy-blue);
@@ -32,9 +34,10 @@
   --artifact-description-line-height: calc(clamp(30px, (8vh - 26px), 60px));
   --zoom-button-size: 1.25rem;
   --explore-button: 0.85rem;
-  --explore-content: 1.35rem;
-  --explore-content-line-height: 160%;
-  --explore-content-author: 1rem;
+  --explore-content: 1.28rem;
+  --explore-content-line-height: 168%;
+  --explore-content-letter-spacing: 0.75px;
+  --explore-content-author: 0.88rem;
   --explore-content-mute-button: 0.8rem;
   --explore-content-weight: 400;
   --explore-content-heading: 2.2rem;
@@ -58,12 +61,12 @@
     --artifact-description: 1.25rem;
     --artifact-description-line-height: 1.9rem;
     --explore-button: 1rem;
-    --explore-content: 1.2rem;
-    --explore-content-line-height: 150%;
-    --explore-content-author: 0.8em;
+    --explore-content: 1.5rem;
+    --explore-content-line-height: 160%;
+    --explore-content-author: 1.2rem;
     --explore-content-mute-button: 1rem;
     --explore-content-weight: 600;
-    --explore-content-heading: 1.6rem;
+    --explore-content-heading: 2rem;
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
     --unmute-footer: 0.7em;
@@ -210,8 +213,14 @@ div.artifact .content .absolute-content-container {
   max-width: 100vw;
   transition: opacity var(--explore-content-timing), visibility var(--explore-content-timing);
   line-height: var(--explore-content-line-height);
+  letter-spacing: var(--explore-content-letter-spacing);
   font-size: var(--explore-content);
   font-weight: 300;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container {
+    font-weight: 400;
+  }
 }
 div.artifact .content .absolute-content-container.end {
   height: 100vh;
@@ -245,8 +254,9 @@ div.artifact .content .absolute-content-container.start .menu {
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container.start .menu {
     margin: 0;
+    padding: 0;
     height: 8vh;
-    align-items: baseline;
+    align-items: center;
     justify-content: space-between;
     background-color: var(--mobile-header-gray);
   }
@@ -309,6 +319,9 @@ div.artifact .content .absolute-content-container.start .menu .home a img {
     height: 10vh;
     margin: 0.5rem 0.5rem 0.5rem 0;
   }
+}
+div.artifact .content .absolute-content-container.start .menu a {
+  text-decoration: none;
 }
 div.artifact .content .absolute-content-container.start .menu .title {
   display: none;
@@ -440,11 +453,21 @@ div.artifact .content .absolute-content-container.start .content .about-containe
   letter-spacing: var(--artifact-description-letter-spacing);
   color: var(--navy-blue);
 }
-div.artifact .content .absolute-content-container.start .content .about-container .description::first-line {
-  font-weight: 700;
-}
 div.artifact .content .absolute-content-container.start .content .about-container .description span.first-line {
   font-weight: 700;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container.start .content .about-container .description {
+    width: 100%;
+    max-width: 25rem;
+    margin: 2vh 0;
+  }
+}
+@media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container.start .content .about-container .description {
+    margin: 1vh 0;
+    max-width: 20rem;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .content .absolute-content-container.start .content .about-container .description {
@@ -460,19 +483,6 @@ div.artifact .content .absolute-content-container.start .content .about-containe
     letter-spacing: 0px;
     max-width: 20rem;
     margin: 2vh 0;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .content .about-container .description {
-    width: 100%;
-    max-width: 25rem;
-    margin: 2vh 0;
-  }
-}
-@media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .content .about-container .description {
-    margin: 1vh 0;
-    max-width: 20rem;
   }
 }
 div.artifact .content .absolute-content-container.start .content .image-container {
@@ -609,9 +619,15 @@ div.artifact .content .absolute-content-container .quote-wrapper {
   flex-direction: column;
 }
 div.artifact .content .absolute-content-container hr {
-  width: 25%;
+  width: 20%;
   border-top: 1px solid var(--navy-blue);
+  margin: 1.75rem 0 1rem 0;
   opacity: 1;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container hr {
+    width: 30%;
+  }
 }
 div.artifact .content .absolute-content-container .author {
   display: flex;
@@ -678,6 +694,21 @@ div.artifact .content .absolute-content-container .author .audio.player .progres
   height: 100%;
   background-color: var(--progress-indicator-remaining);
 }
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container .author .audio.player .playpause {
+    font-size: 2.4rem;
+  }
+  div.artifact .content .absolute-content-container .author .audio.player .time-display {
+    margin-left: 0.5rem;
+  }
+  div.artifact .content .absolute-content-container .author .audio.player .time-display div.span {
+    font-size: 1.2rem;
+  }
+  div.artifact .content .absolute-content-container .author .audio.player .progress-indicator {
+    height: 0.4rem;
+    width: 12rem;
+  }
+}
 div.artifact .content .absolute-content-container .author .audio.player audio {
   display: none;
 }
@@ -717,12 +748,12 @@ div.artifact .animation-frame-container img {
   aspect-ratio: attr(width)/attr(height);
   align-self: center;
 }
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .animation-frame-container img {
     width: 100%;
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .animation-frame-container img {
     width: 100%;
   }
@@ -788,7 +819,8 @@ div.artifact .fixed-image-container img {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .fixed-image-container img {
-    width: 80%;
+    height: 50%;
+    width: auto;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
@@ -806,12 +838,7 @@ div.artifact .dropdown.explore-another-object {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .dropdown.explore-another-object {
-    margin: 0;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .dropdown.explore-another-object {
-    margin: 0;
+    margin: 0 4vw 0 0;
   }
 }
 div.artifact .dropdown.explore-another-object button {
@@ -826,6 +853,12 @@ div.artifact .dropdown.explore-another-object button {
 div.artifact .dropdown.explore-another-object button:focus {
   box-shadow: none;
 }
+div.artifact .dropdown.explore-another-object button span.name {
+  display: inline-block;
+}
+div.artifact .dropdown.explore-another-object button span.toggler-icon {
+  display: none;
+}
 div.artifact .dropdown.explore-another-object button::after {
   display: inline-block;
   margin-left: 0.7rem;
@@ -839,6 +872,35 @@ div.artifact .dropdown.explore-another-object button::after {
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .dropdown.explore-another-object button {
+    padding: 0.35rem 0;
+    border: none;
+    border-radius: 1.25rem;
+    background-color: var(--navy-blue);
+    font-size: var(--explore-button);
+    color: transparent;
+    background-color: transparent;
+    font-weight: 300;
+  }
+  div.artifact .dropdown.explore-another-object button:focus {
+    box-shadow: none;
+  }
+  div.artifact .dropdown.explore-another-object button span.name {
+    display: none;
+  }
+  div.artifact .dropdown.explore-another-object button span.toggler-icon {
+    display: inline-block;
+    width: 4vh;
+    height: 4vh;
+    vertical-align: middle;
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: 100%;
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%280, 0, 0, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
+  div.artifact .dropdown.explore-another-object button span.toggler-icon.light {
+    background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 30 30'%3e%3cpath stroke='rgba%28255, 255, 255, 0.55%29' stroke-linecap='round' stroke-miterlimit='10' stroke-width='2' d='M4 7h22M4 15h22M4 23h22'/%3e%3c/svg%3e");
+  }
   div.artifact .dropdown.explore-another-object button::after {
     display: none;
   }
@@ -849,6 +911,7 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu {
   border: none;
   display: block;
   visibility: hidden;
+  display: none;
   opacity: 0;
   transition: opacity var(--explore-menu-timing), visibility var(--explore-menu-timing);
 }
@@ -858,6 +921,7 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu li a.dropdown-ite
 }
 div.artifact .dropdown.explore-another-object ul.dropdown-menu.show {
   visibility: visible;
+  display: block;
   opacity: 1;
   transition: opacity var(--explore-menu-timing), visibility var(--explore-menu-timing);
   padding-top: 0.1em;
@@ -883,6 +947,61 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
 div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdown-item:hover {
   background-color: var(--navy-blue);
   color: white;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show {
+    position: absolute !important;
+    top: 7vh;
+    left: -87.5vw;
+    transform: none !important;
+    margin: 0 !important;
+    padding: 0 !important;
+    width: 97vw;
+    height: 83vh;
+    background-color: var(--mobile-header-gray);
+  }
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li {
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--mobile-header-gray);
+  }
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li:first-child {
+    padding-top: 4rem;
+  }
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li:last-child {
+    padding-bottom: 4rem;
+  }
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item {
+    font-family: "Libre Caslon Text", serif;
+  }
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item {
+    display: inline-block;
+    margin-right: auto;
+    margin-left: auto;
+    font-size: 160%;
+    padding: 0.5em 1em;
+    border-radius: 0;
+    color: var(--navy-blue);
+    background-color: var(--mobile-header-gray);
+    border: none;
+  }
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.small {
+    font-family: "Nunito Sans", sans-serif;
+    font-size: 120%;
+  }
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.disabled {
+    color: gray;
+  }
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider {
+    width: 20%;
+    margin: 2rem 0;
+    border: 1px solid white;
+    opacity: 1;
+  }
 }
 div.artifact .arrow-scroll-down {
   pointer-events: none;
@@ -1140,24 +1259,23 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.cur
   position: -webkit-sticky;
   position: sticky;
   visibility: hidden;
-  top: 62vh;
+  top: 61vh;
   left: 7vw;
-  width: 26vw;
-  max-width: 30vw;
+  width: 29vw;
+  max-width: 29vw;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.curious {
+    top: 55vh;
+    left: 10vw;
+    width: 80vw;
+    max-width: 80vw;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.curious {
     top: 38vh;
     left: 72vw;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.curious {
-    top: 12vh;
-    left: 35vw;
-    width: 50vw;
-    left: 40vw;
-    max-width: 60vw;
   }
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
@@ -1168,21 +1286,21 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
   opacity: 0;
   top: 9vh;
   left: 7vw;
-  width: 25vw;
-  max-width: 25vw;
+  width: 28vw;
+  max-width: 28vw;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
+    top: 50vh;
+    left: 10vw;
+    width: 80vw;
+    max-width: 80vw;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
     left: 3vw;
     max-width: 30vw;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
-    top: 14vh;
-    left: 14vw;
-    width: 70vw;
-    max-width: 70vw;
   }
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
@@ -1193,8 +1311,8 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
   opacity: 0;
   top: 30vh;
   left: 32.5vw;
-  width: 35vw;
-  max-width: 40vw;
+  width: 37vw;
+  max-width: 37vw;
   font-weight: 600;
   color: var(--white);
   font-size: var(--explore-content-heading);
@@ -1205,23 +1323,24 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
   border-color: var(--navy-blue);
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not .author {
+  font-weight: 300;
   text-indent: 0;
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not .author .mute-button {
   color: var(--navy-blue);
 }
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
+    top: 30vh;
+    left: 20vw;
+    width: 58vw;
+    max-width: 58vw;
+  }
+}
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
     left: 3vw;
     max-width: 30vw;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
-    top: 20vh;
-    left: 20vw;
-    width: 54vw;
-    max-width: 54vw;
   }
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.walden-sunset {
@@ -1244,9 +1363,15 @@ div.artifact.spyglass .fixed-image-container.spyglass img.spyglass-photo-rotated
   transform: rotate(-9deg);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.spyglass .fixed-image-container.spyglass img.spyglass-photo-rotated {
+    height: 19%;
+    transform: rotate(-9deg) translate(2rem, -17vh);
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .animation-frame-container.spyglass {
-    margin: 0 0 0 0;
-    padding: 2rem 0 0 0;
+    margin: -15vh 0 0 0;
+    padding: 0;
     justify-content: center;
   }
 }
