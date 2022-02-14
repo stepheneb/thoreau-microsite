@@ -36,14 +36,13 @@ div.artifact.spyglass {
         position: -webkit-sticky;
         position: sticky;
         visibility: hidden;
-        top: 62vh;
+        top: 61vh;
         left: 7vw;
-        width: 26vw;
-        max-width: 30vw;
-        // margin-top: 18vh;
+        width: 29vw;
+        max-width: 29vw;
 
         @include mobile-portrait() {
-          top: 60vh;
+          top: 55vh;
           left: 10vw;
           width: 80vw;
           max-width: 80vw;
@@ -63,11 +62,11 @@ div.artifact.spyglass {
         opacity: 0;
         top: 9vh;
         left: 7vw;
-        width: 25vw;
-        max-width: 25vw;
+        width: 28vw;
+        max-width: 28vw;
 
         @include mobile-portrait() {
-          top: 55vh;
+          top: 50vh;
           left: 10vw;
           width: 80vw;
           max-width: 80vw;
@@ -87,8 +86,8 @@ div.artifact.spyglass {
         opacity: 0;
         top: 30vh;
         left: 32.5vw;
-        width: 35vw;
-        max-width: 40vw;
+        width: 37vw;
+        max-width: 37vw;
 
         font-weight: 600;
         color: var(--white);
@@ -100,6 +99,7 @@ div.artifact.spyglass {
           border-color: var(--navy-blue);
         }
         .author {
+          font-weight: 300;
           text-indent: 0;
           .mute-button {
             color: var(--navy-blue);
@@ -144,7 +144,8 @@ div.artifact.spyglass {
     img.spyglass-photo-rotated {
       transform: rotate(-9deg);
       @include mobile-portrait() {
-        transform: rotate(-9deg) translate(12rem, -15vh);
+        height: 19%;
+        transform: rotate(-9deg) translate(2rem, -17vh);
       }
     }
   }

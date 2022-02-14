@@ -126,13 +126,12 @@
       @include mobile-portrait() {
         position: absolute !important;
         top: 7vh;
-        left: -88vw;
+        left: -87.5vw;
         transform: none !important;
         margin: 0 !important;
         padding: 0 !important;
         width: 97vw;
-        height: 80vh;
-        z-index: 4;
+        height: 83vh;
         background-color: var(--mobile-header-gray);
         li {
           margin: 0;

@@ -58,6 +58,7 @@ div.artifact {
         visibility var(--explore-content-timing);
 
       line-height: var(--explore-content-line-height);
+      letter-spacing: var(--explore-content-letter-spacing);
       font-size: var(--explore-content);
       font-weight: 300;
       @include mobile-portrait() {
@@ -372,8 +373,9 @@ div.artifact {
       }
 
       hr {
-        width: 25%;
+        width: 20%;
         border-top: 1px solid var(--navy-blue);
+        margin: 1.75rem 0 1rem 0;
         opacity: 1;
         @include mobile-portrait() {
           width: 30%;
