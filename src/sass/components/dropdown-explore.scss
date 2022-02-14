@@ -83,6 +83,7 @@
     border: none;
     display: block;
     visibility: hidden;
+    display: none;
     opacity: 0;
     transition: opacity var(--explore-menu-timing),
       visibility var(--explore-menu-timing);
@@ -95,6 +96,7 @@
 
     &.show {
       visibility: visible;
+      display: block;
       opacity: 1;
       transition: opacity var(--explore-menu-timing),
         visibility var(--explore-menu-timing);
