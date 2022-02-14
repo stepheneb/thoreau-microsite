@@ -42,17 +42,16 @@ div.artifact.spyglass {
         max-width: 30vw;
         // margin-top: 18vh;
 
+        @include mobile-portrait() {
+          top: 60vh;
+          left: 10vw;
+          width: 80vw;
+          max-width: 80vw;
+        }
+
         @include mobile-landscape() {
           top: 38vh;
           left: 72vw;
-        }
-
-        @include mobile-portrait() {
-          top: 12vh;
-          left: 35vw;
-          width: 50vw;
-          left: 40vw;
-          max-width: 60vw;
         }
       }
 
@@ -67,15 +66,16 @@ div.artifact.spyglass {
         width: 25vw;
         max-width: 25vw;
 
+        @include mobile-portrait() {
+          top: 55vh;
+          left: 10vw;
+          width: 80vw;
+          max-width: 80vw;
+        }
+
         @include mobile-landscape() {
           left: 3vw;
           max-width: 30vw;
-        }
-        @include mobile-portrait() {
-          top: 14vh;
-          left: 14vw;
-          width: 70vw;
-          max-width: 70vw;
         }
       }
 
@@ -106,15 +106,15 @@ div.artifact.spyglass {
           }
         }
 
+        @include mobile-portrait() {
+          top: 30vh;
+          left: 20vw;
+          width: 58vw;
+          max-width: 58vw;
+        }
         @include mobile-landscape() {
           left: 3vw;
           max-width: 30vw;
-        }
-        @include mobile-portrait() {
-          top: 20vh;
-          left: 20vw;
-          width: 54vw;
-          max-width: 54vw;
         }
       }
 
@@ -143,13 +143,16 @@ div.artifact.spyglass {
   .fixed-image-container.spyglass {
     img.spyglass-photo-rotated {
       transform: rotate(-9deg);
+      @include mobile-portrait() {
+        transform: rotate(-9deg) translate(12rem, -15vh);
+      }
     }
   }
 
   .animation-frame-container.spyglass {
     @include mobile-portrait() {
-      margin: 0 0 0 0;
-      padding: 2rem 0 0 0;
+      margin: -15vh 0 0 0;
+      padding: 0;
       justify-content: center;
     }
     @include mobile-landscape() {

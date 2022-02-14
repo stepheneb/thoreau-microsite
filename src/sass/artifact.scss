@@ -60,6 +60,9 @@ div.artifact {
       line-height: var(--explore-content-line-height);
       font-size: var(--explore-content);
       font-weight: 300;
+      @include mobile-portrait() {
+        font-weight: 400;
+      }
 
       &.end {
         height: 100vh;
@@ -94,8 +97,9 @@ div.artifact {
 
           @include mobile-portrait() {
             margin: 0;
+            padding: 0;
             height: 8vh;
-            align-items: baseline;
+            align-items: center;
             justify-content: space-between;
             background-color: var(--mobile-header-gray);
           }
@@ -114,6 +118,7 @@ div.artifact {
             display: flex;
             align-items: center;
           }
+
           .home {
             margin: 2rem 0 0 5.5rem;
             a {
@@ -144,6 +149,9 @@ div.artifact {
               height: 10vh;
               margin: 0.5rem 0.5rem 0.5rem 0;
             }
+          }
+          a {
+            text-decoration: none;
           }
           .title {
             display: none;
@@ -252,11 +260,17 @@ div.artifact {
               font-weight: 300;
               letter-spacing: var(--artifact-description-letter-spacing);
               color: var(--navy-blue);
-              &::first-line {
-                font-weight: 700;
-              }
               span.first-line {
                 font-weight: 700;
+              }
+              @include mobile-portrait() {
+                width: 100%;
+                max-width: 25rem;
+                margin: 2vh 0;
+              }
+              @include mobile-portrait-small() {
+                margin: 1vh 0;
+                max-width: 20rem;
               }
               @include mobile-landscape() {
                 margin: 1.5rem 0;
@@ -269,15 +283,6 @@ div.artifact {
                 letter-spacing: 0px;
                 max-width: 20rem;
                 margin: 2vh 0;
-              }
-              @include mobile-portrait() {
-                width: 100%;
-                max-width: 25rem;
-                margin: 2vh 0;
-              }
-              @include mobile-portrait-small() {
-                margin: 1vh 0;
-                max-width: 20rem;
               }
             }
           }
@@ -370,6 +375,9 @@ div.artifact {
         width: 25%;
         border-top: 1px solid var(--navy-blue);
         opacity: 1;
+        @include mobile-portrait() {
+          width: 30%;
+        }
       }
 
       .author {

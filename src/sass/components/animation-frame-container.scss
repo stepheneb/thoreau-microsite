@@ -27,10 +27,10 @@
     height: auto;
     aspect-ratio: attr(width) / attr(height);
     align-self: center;
-    @include mobile-landscape() {
+    @include mobile-portrait() {
       width: 100%;
     }
-    @include mobile-portrait() {
+    @include mobile-landscape() {
       width: 100%;
     }
   }

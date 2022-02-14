@@ -30,7 +30,8 @@
     width: 80%;
     align-self: center;
     @include mobile-portrait() {
-      width: 80%;
+      height: 50%;
+      width: auto;
     }
     @include mobile-landscape() {
       width: 70%;
