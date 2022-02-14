@@ -1,6 +1,7 @@
 .dropdown.explore-another-object {
   pointer-events: auto;
   z-index: 3;
+  transform-style: preserve-3d;
   align-self: center;
   margin-top: 5vh;
   background-color: transparent;
@@ -78,13 +79,15 @@
   }
 
   ul.dropdown-menu {
-    padding-top: 0.1rem;
+    top: 1rem;
+    padding-top: 2rem;
     background-color: transparent;
-    border: none;
     display: block;
+    transform: translateZ(-10px);
     visibility: hidden;
     display: none;
     opacity: 0;
+    background-color: var(--mobile-header-gray);
     transition: opacity var(--explore-menu-timing),
       visibility var(--explore-menu-timing);
     li {
@@ -97,24 +100,44 @@
     &.show {
       visibility: visible;
       display: block;
+      width: 100%;
       opacity: 1;
       transition: opacity var(--explore-menu-timing),
         visibility var(--explore-menu-timing);
-      padding-top: 0.1em;
-      background-color: transparent;
+      padding-top: 1.75em;
+      border-radius: 0.5rem;
+      background-color: var(--mobile-header-gray);
       border: none;
       li {
-        margin-left: 1em;
-        padding: 0.2em 0em;
-        background-color: transparent;
+        margin: 0;
+        padding: 0;
+        display: flex;
+        flex-direction: row;
+        align-items: center;
+        justify-content: center;
+        background-color: var(--mobile-header-gray);
+
+        &.mobile-only {
+          display: none;
+        }
         a.dropdown-item {
+          display: inline-block;
           visibility: visible;
           opacity: 1;
-          padding: 0.35em 1.5em;
+          padding: 0.1rem 1rem;
+          border-radius: 0;
+          color: var(--navy-blue);
+          &.disabled {
+            color: gray;
+          }
+          &.selected {
+            font-weight: 700;
+            // &:after {
+            //   content: " ✓";
+            // }
+          }
+          background-color: var(--mobile-header-gray);
           border: none;
-          border-radius: 1.25em;
-          background-color: var(--navy-blue);
-          color: var(--almost-white);
           font-size: var(--explore-button);
           text-decoration: none;
           &:hover {
@@ -147,8 +170,13 @@
           &:last-child {
             padding-bottom: 4rem;
           }
+          &.desktop-only {
+            display: none;
+          }
+          &.mobile-only {
+            display: flex;
+          }
           .item {
-            font-family: "Libre Caslon Text", serif;
             a.dropdown-item {
               display: inline-block;
               margin-right: auto;
@@ -156,7 +184,7 @@
               font-size: 160%;
               &.small {
                 font-family: "Nunito Sans", sans-serif;
-                font-size: 120%;
+                font-size: 130%;
               }
               padding: 0.5em 1em;
               border-radius: 0;
