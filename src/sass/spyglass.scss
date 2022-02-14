@@ -3,7 +3,7 @@
 //
 
 body#spyglass {
-  height: 1200vh;
+  height: 1400vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -13,7 +13,7 @@ div.artifact.spyglass {
   .content.spyglass {
     .absolute-content-container.spyglass {
       &.start {
-        height: 200vh;
+        height: 400vh;
         width: 100%;
         max-width: 100vw;
 
@@ -144,17 +144,16 @@ div.artifact.spyglass {
     img.spyglass-photo-rotated {
       transform: rotate(-9deg);
       @include mobile-portrait() {
-        height: 19%;
-        transform: rotate(-9deg) translate(2rem, -17vh);
+        width: 90vw;
+        height: auto;
+        // height: 19%;
+        transform: rotate(-9deg) translate(1.5rem, -16vh);
       }
     }
   }
 
   .animation-frame-container.spyglass {
     @include mobile-portrait() {
-      margin: -15vh 0 0 0;
-      padding: 0;
-      justify-content: center;
     }
     @include mobile-landscape() {
       margin: 0 0 0 0;
@@ -247,13 +246,14 @@ div.artifact.spyglass {
       background-size: cover;
     }
   }
-
   .animation-frame-container.spyglass {
+    @include mobile-portrait() {
+      top: 15vh;
+    }
     img {
       margin: 5vh 10vw;
     }
   }
-
   img.spyglass-photo-rotated {
     visibility: visible;
     opacity: 1;
@@ -266,12 +266,10 @@ div.artifact.spyglass {
 
 #spyglass[data-content-scroll="2"],
 #spyglass[data-content-scroll="3"] {
-  .absolute-content-container.spyglass.curious {
-    visibility: visible;
-    opacity: 1;
-    position: fixed;
-  }
   .animation-frame-container.spyglass {
+    @include mobile-portrait() {
+      top: 15vh;
+    }
     img {
       margin: 5vh 10vw;
     }
@@ -281,41 +279,67 @@ div.artifact.spyglass {
     opacity: 1;
   }
 }
-#spyglass[data-content-scroll="2"] {
-  .absolute-content-container.spyglass.curious {
-    position: sticky;
-  }
-}
 
-#spyglass[data-content-scroll="4"] {
-}
-
-#spyglass[data-content-scroll="5"],
-#spyglass[data-content-scroll="6"],
-#spyglass[data-content-scroll="7"],
-#spyglass[data-content-scroll="8"] {
-  .absolute-content-container.spyglass.his-experiments {
-    visibility: visible;
-    opacity: 1;
-    position: fixed;
-  }
-  .animation-frame-container.spyglass {
-    img {
-      margin: 5vh 10vw;
-    }
-  }
-  .arrow-scroll-down {
-    visibility: visible;
-    opacity: 1;
-  }
-}
+#spyglass[data-content-scroll="4"],
 #spyglass[data-content-scroll="5"] {
+  .absolute-content-container.spyglass.curious {
+    visibility: visible;
+    opacity: 1;
+    position: fixed;
+  }
+  .animation-frame-container.spyglass {
+    @include mobile-portrait() {
+      top: 15vh;
+    }
+    img {
+      margin: 5vh 10vw;
+    }
+  }
+  .arrow-scroll-down {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+#spyglass[data-content-scroll="4"] {
+  .absolute-content-container.spyglass.curious {
+    position: sticky;
+  }
+}
+
+#spyglass[data-content-scroll="6"] {
+  .animation-frame-container.spyglass {
+    img {
+      margin: 5vh 10vw;
+    }
+  }
+}
+
+#spyglass[data-content-scroll="7"],
+#spyglass[data-content-scroll="8"],
+#spyglass[data-content-scroll="9"],
+#spyglass[data-content-scroll="10"] {
+  .absolute-content-container.spyglass.his-experiments {
+    visibility: visible;
+    opacity: 1;
+    position: fixed;
+  }
+  .animation-frame-container.spyglass {
+    img {
+      margin: 5vh 10vw;
+    }
+  }
+  .arrow-scroll-down {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+#spyglass[data-content-scroll="7"] {
   .absolute-content-container.spyglass.his-experiments {
     position: sticky;
   }
 }
 
-#spyglass[data-content-scroll="9"] {
+#spyglass[data-content-scroll="11"] {
   .absolute-content-container.spyglass.walden-sunset {
     visibility: visible;
     opacity: 1;
@@ -348,8 +372,8 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-content-scroll="10"],
-#spyglass[data-content-scroll="11"] {
+#spyglass[data-content-scroll="12"],
+#spyglass[data-content-scroll="13"] {
   .absolute-content-container.spyglass.would-it-not {
     visibility: visible;
     opacity: 1;
@@ -374,7 +398,7 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-content-scroll="11"] {
+#spyglass[data-content-scroll="13"] {
   .absolute-content-container.spyglass.would-it-not {
     visibility: visible;
     opacity: 1;
