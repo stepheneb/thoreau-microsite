@@ -1,6 +1,6 @@
 .dropdown.explore-another-object {
   pointer-events: auto;
-  z-index: 3;
+  z-index: initial;
   transform-style: preserve-3d;
   align-self: center;
   margin-top: 5vh;
@@ -79,6 +79,7 @@
   }
 
   ul.dropdown-menu {
+    z-index: -1;
     top: 1rem;
     padding-top: 2rem;
     background-color: transparent;
