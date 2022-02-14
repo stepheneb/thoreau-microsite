@@ -242,6 +242,7 @@ div.artifact .content .absolute-content-container.start {
   }
 }
 div.artifact .content .absolute-content-container.start .menu {
+  z-index: 3;
   width: 100vw;
   margin-top: 1.5vh;
   padding-right: 6.5vw;
@@ -834,7 +835,7 @@ div.artifact .fixed-image-container img {
 }
 div.artifact .dropdown.explore-another-object {
   pointer-events: auto;
-  z-index: 3;
+  z-index: initial;
   transform-style: preserve-3d;
   align-self: center;
   margin-top: 5vh;
@@ -911,6 +912,7 @@ div.artifact .dropdown.explore-another-object button::after {
   }
 }
 div.artifact .dropdown.explore-another-object ul.dropdown-menu {
+  z-index: -1;
   top: 1rem;
   padding-top: 2rem;
   background-color: transparent;
