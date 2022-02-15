@@ -378,8 +378,12 @@ div.artifact.spyglass {
     visibility: visible;
     opacity: 1;
     filter: url(#blue-wash);
-    // filter: sepia(100%) hue-rotate(145deg) saturate(400%) brightness(100%)
-    //   contrast(25%);
+    @media not all and (min-resolution: 0.001dpcm) {
+      @supports (-webkit-appearance: none) {
+        filter: sepia(100%) hue-rotate(145deg) saturate(400%) brightness(100%)
+          contrast(25%);
+      }
+    }
   }
 
   .arrow-scroll-down {
