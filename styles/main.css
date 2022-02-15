@@ -1591,6 +1591,14 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   opacity: 1;
   filter: url(#blue-wash);
 }
+@media not all and (min-resolution: 0.001dpcm) {
+  @supports (-webkit-appearance: none) {
+    #spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset-video,
+#spyglass[data-content-scroll="13"] .fixed-video-container.spyglass.walden-sunset-video {
+      filter: sepia(100%) hue-rotate(145deg) saturate(400%) brightness(100%) contrast(25%);
+    }
+  }
+}
 #spyglass[data-content-scroll="12"] .arrow-scroll-down,
 #spyglass[data-content-scroll="13"] .arrow-scroll-down {
   visibility: hidden;
