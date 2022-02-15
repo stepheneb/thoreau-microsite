@@ -26,6 +26,8 @@
     position: relative;
     align-self: center;
     justify-self: center;
+    width: 100vw;
+    height: 100vh;
     @include mobile-portrait() {
       width: 100%;
     }
