@@ -755,7 +755,7 @@ div.artifact .animation-frame-container img {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .animation-frame-container img {
-    width: 100%;
+    width: 95vw;
     margin: 20% 0;
   }
 }
@@ -1199,6 +1199,8 @@ div.artifact .fixed-video-container .video-wrapper {
   position: relative;
   align-self: center;
   justify-self: center;
+  width: 100vw;
+  height: 100vh;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .fixed-video-container .video-wrapper {
@@ -1520,8 +1522,10 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   position: sticky;
 }
 
-#spyglass[data-content-scroll="6"] .animation-frame-container.spyglass img {
-  margin: 5vh 10vw;
+@media only screen and (min-aspect-ratio: 3/2) and (min-width: 1280px) {
+  #spyglass[data-content-scroll="6"] .animation-frame-container.spyglass img {
+    margin: 20vh 30vw 10vh 30vw;
+  }
 }
 
 #spyglass[data-content-scroll="7"] .absolute-content-container.spyglass.his-experiments,
@@ -1532,11 +1536,19 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   opacity: 1;
   position: fixed;
 }
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  #spyglass[data-content-scroll="7"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="8"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="9"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="10"] .animation-frame-container.spyglass {
+    top: -10vh;
+  }
+}
 #spyglass[data-content-scroll="7"] .animation-frame-container.spyglass img,
 #spyglass[data-content-scroll="8"] .animation-frame-container.spyglass img,
 #spyglass[data-content-scroll="9"] .animation-frame-container.spyglass img,
 #spyglass[data-content-scroll="10"] .animation-frame-container.spyglass img {
-  margin: 5vh 10vw;
+  margin: 20vh 30vw 10vh 30vw;
 }
 #spyglass[data-content-scroll="7"] .arrow-scroll-down,
 #spyglass[data-content-scroll="8"] .arrow-scroll-down,
@@ -1558,15 +1570,6 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="11"] .background-image-container.spyglass {
-  visibility: visible;
-}
-#spyglass[data-content-scroll="11"] .background-image-container.spyglass:before {
-  background-image: url("../media/images/spyglass/sun-sets-over-walden-pond.jpg");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
-}
 #spyglass[data-content-scroll="11"] .arrow-scroll-down {
   visibility: visible;
   opacity: 1;
@@ -1582,13 +1585,11 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   opacity: 1;
   position: sticky;
 }
-#spyglass[data-content-scroll="12"] .background-image-container.spyglass:before,
-#spyglass[data-content-scroll="13"] .background-image-container.spyglass:before {
-  background-color: var(--thoreau-rgba-blue);
-  background-image: url("../media/images/thoreau-handwriting-light-background.png");
-  background-repeat: no-repeat;
-  background-position: center;
-  background-size: cover;
+#spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset-video,
+#spyglass[data-content-scroll="13"] .fixed-video-container.spyglass.walden-sunset-video {
+  visibility: visible;
+  opacity: 1;
+  filter: url(#blue-wash);
 }
 #spyglass[data-content-scroll="12"] .arrow-scroll-down,
 #spyglass[data-content-scroll="13"] .arrow-scroll-down {
