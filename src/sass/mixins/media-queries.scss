@@ -28,6 +28,12 @@
 //   }
 // }
 
+@mixin desktop() {
+  @media only screen and (min-aspect-ratio: 3/2) and (min-width: 1280px) {
+    @content;
+  }
+}
+
 @mixin desktop-strong-landscape() {
   @media only screen and (min-aspect-ratio: 5/2) and (min-width: 1280px) {
     @content;
