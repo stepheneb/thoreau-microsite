@@ -107,7 +107,7 @@ div.artifact.spyglass {
         }
 
         @include mobile-portrait() {
-          top: 30vh;
+          top: 27vh;
           left: 20vw;
           width: 58vw;
           max-width: 58vw;
@@ -351,7 +351,7 @@ div.artifact.spyglass {
     opacity: 1;
   }
 
-  .fixed-video-container.spyglass.walden-sunset-video {
+  .fixed-video-container.spyglass.walden-sunset {
     visibility: visible;
     opacity: 1;
   }
@@ -375,16 +375,9 @@ div.artifact.spyglass {
     position: sticky;
   }
 
-  .fixed-video-container.spyglass.walden-sunset-video {
+  .fixed-video-container.spyglass.walden-sunset-blue {
     visibility: visible;
     opacity: 1;
-    filter: url(#blue-wash);
-    @media not all and (min-resolution: 0.001dpcm) {
-      @supports (-webkit-appearance: none) {
-        filter: sepia(100%) hue-rotate(145deg) saturate(400%) brightness(100%)
-          contrast(25%);
-      }
-    }
   }
 
   .arrow-scroll-down {
