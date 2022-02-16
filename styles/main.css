@@ -503,7 +503,7 @@ div.artifact .content .absolute-content-container.start .content .image-containe
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
 }
 div.artifact .content .absolute-content-container.start .content .image-container.zoomed {
-  border: dashed lightgray 1px;
+  border: none;
 }
 div.artifact .content .absolute-content-container.start .content .image-container img {
   width: inherit;
@@ -1374,7 +1374,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
   }
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.walden-sunset {
-  height: 100vh;
+  height: 200vh;
   position: -webkit-sticky;
   position: sticky;
   visibility: hidden;
@@ -1414,7 +1414,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   content: url("../media/images/arrow-scroll-down.png");
 }
 #spyglass[data-content-scroll="0"] .mute-button {
-  color: black;
+  color: var(--navy-blue);
 }
 #spyglass[data-content-scroll="0"] .animation-frame-container.spyglass {
   visibility: hidden;
@@ -1562,55 +1562,59 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   position: sticky;
 }
 
-#spyglass[data-content-scroll="11"] .absolute-content-container.spyglass.walden-sunset {
+#spyglass[data-content-scroll="11"] .absolute-content-container.spyglass.walden-sunset,
+#spyglass[data-content-scroll="12"] .absolute-content-container.spyglass.walden-sunset {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="11"] .fixed-video-container.spyglass.walden-sunset-video {
+#spyglass[data-content-scroll="11"] .fixed-video-container.spyglass.walden-sunset-video,
+#spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset-video {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="11"] .arrow-scroll-down {
+#spyglass[data-content-scroll="11"] .arrow-scroll-down,
+#spyglass[data-content-scroll="12"] .arrow-scroll-down {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="11"] .animation-frame-container.spyglass {
+#spyglass[data-content-scroll="11"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="12"] .animation-frame-container.spyglass {
   visibility: hidden;
   opacity: 0;
 }
 
-#spyglass[data-content-scroll="12"] .absolute-content-container.spyglass.would-it-not,
-#spyglass[data-content-scroll="13"] .absolute-content-container.spyglass.would-it-not {
+#spyglass[data-content-scroll="13"] .absolute-content-container.spyglass.would-it-not,
+#spyglass[data-content-scroll="14"] .absolute-content-container.spyglass.would-it-not {
   visibility: visible;
   opacity: 1;
   position: sticky;
 }
-#spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset-video,
-#spyglass[data-content-scroll="13"] .fixed-video-container.spyglass.walden-sunset-video {
+#spyglass[data-content-scroll="13"] .fixed-video-container.spyglass.walden-sunset-video,
+#spyglass[data-content-scroll="14"] .fixed-video-container.spyglass.walden-sunset-video {
   visibility: visible;
   opacity: 1;
   filter: url(#blue-wash);
 }
 @media not all and (min-resolution: 0.001dpcm) {
   @supports (-webkit-appearance: none) {
-    #spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset-video,
-#spyglass[data-content-scroll="13"] .fixed-video-container.spyglass.walden-sunset-video {
+    #spyglass[data-content-scroll="13"] .fixed-video-container.spyglass.walden-sunset-video,
+#spyglass[data-content-scroll="14"] .fixed-video-container.spyglass.walden-sunset-video {
       filter: sepia(100%) hue-rotate(145deg) saturate(400%) brightness(100%) contrast(25%);
     }
   }
 }
-#spyglass[data-content-scroll="12"] .arrow-scroll-down,
-#spyglass[data-content-scroll="13"] .arrow-scroll-down {
+#spyglass[data-content-scroll="13"] .arrow-scroll-down,
+#spyglass[data-content-scroll="14"] .arrow-scroll-down {
   visibility: hidden;
   opacity: 0;
 }
-#spyglass[data-content-scroll="12"] .animation-frame-container.spyglass,
-#spyglass[data-content-scroll="13"] .animation-frame-container.spyglass {
+#spyglass[data-content-scroll="13"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="14"] .animation-frame-container.spyglass {
   visibility: hidden;
   opacity: 0;
 }
 
-#spyglass[data-content-scroll="13"] .absolute-content-container.spyglass.would-it-not {
+#spyglass[data-content-scroll="14"] .absolute-content-container.spyglass.would-it-not {
   visibility: visible;
   opacity: 1;
   position: fixed;
