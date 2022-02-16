@@ -18,7 +18,7 @@ let animations = [{
     startFrame: 110,
     endFrame: 144,
     startScroll: 4,
-    endScroll: 5.25,
+    endScroll: 5.90,
     startPage: 4,
     endPage: 5,
   },

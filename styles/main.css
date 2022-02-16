@@ -1321,7 +1321,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
-    top: 50vh;
+    top: 48vh;
     left: 10vw;
     width: 80vw;
     max-width: 80vw;
@@ -1361,7 +1361,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
-    top: 30vh;
+    top: 24vh;
     left: 20vw;
     width: 58vw;
     max-width: 58vw;
@@ -1567,8 +1567,8 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="11"] .fixed-video-container.spyglass.walden-sunset-video,
-#spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset-video {
+#spyglass[data-content-scroll="11"] .fixed-video-container.spyglass.walden-sunset,
+#spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset {
   visibility: visible;
   opacity: 1;
 }
@@ -1589,19 +1589,10 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   opacity: 1;
   position: sticky;
 }
-#spyglass[data-content-scroll="13"] .fixed-video-container.spyglass.walden-sunset-video,
-#spyglass[data-content-scroll="14"] .fixed-video-container.spyglass.walden-sunset-video {
+#spyglass[data-content-scroll="13"] .fixed-video-container.spyglass.walden-sunset-blue,
+#spyglass[data-content-scroll="14"] .fixed-video-container.spyglass.walden-sunset-blue {
   visibility: visible;
   opacity: 1;
-  filter: url(#blue-wash);
-}
-@media not all and (min-resolution: 0.001dpcm) {
-  @supports (-webkit-appearance: none) {
-    #spyglass[data-content-scroll="13"] .fixed-video-container.spyglass.walden-sunset-video,
-#spyglass[data-content-scroll="14"] .fixed-video-container.spyglass.walden-sunset-video {
-      filter: sepia(100%) hue-rotate(145deg) saturate(400%) brightness(100%) contrast(25%);
-    }
-  }
 }
 #spyglass[data-content-scroll="13"] .arrow-scroll-down,
 #spyglass[data-content-scroll="14"] .arrow-scroll-down {
