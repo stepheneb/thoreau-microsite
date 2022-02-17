@@ -1140,33 +1140,30 @@ div.artifact .unmute-footer {
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 4vh;
+  height: 5vh;
   padding: 0;
   font-size: var(--unmute-footer);
+}
+div.artifact .unmute-footer .label {
+  margin-right: 18vw;
+  color: var(--navy-blue);
+}
+div.artifact .unmute-footer.on .label {
+  display: none;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .unmute-footer {
     height: 5vh;
     font-size: var(--unmute-footer);
   }
+  div.artifact .unmute-footer .label {
+    margin-right: 38vw;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .unmute-footer {
     height: 6vh;
   }
-}
-div.artifact .unmute-footer .label {
-  margin-right: 1.5vw;
-  font-style: italic;
-  color: var(--navy-blue);
-}
-div.artifact .unmute-footer .mute-button {
-  font-size: 105%;
-  margin-right: 10vw;
-  color: white;
-}
-div.artifact .unmute-footer.on .label {
-  display: none;
 }
 div.artifact .fixed-video-container {
   z-index: 0;
@@ -1413,8 +1410,18 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 #spyglass[data-content-scroll="0"] .arrow-scroll-down img {
   content: url("../media/images/arrow-scroll-down.png");
 }
+#spyglass[data-content-scroll="0"] .unmute-footer {
+  display: flex;
+}
 #spyglass[data-content-scroll="0"] .mute-button {
+  z-index: 1;
   color: var(--navy-blue);
+  bottom: 1.1vh;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  #spyglass[data-content-scroll="0"] .mute-button {
+    bottom: 0.8vh;
+  }
 }
 #spyglass[data-content-scroll="0"] .animation-frame-container.spyglass {
   visibility: hidden;
@@ -1452,6 +1459,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   opacity: 1;
 }
 #spyglass[data-content-scroll="0"] .arrow-scroll-down {
+  bottom: 5.5vh;
   visibility: visible;
   opacity: 1;
 }

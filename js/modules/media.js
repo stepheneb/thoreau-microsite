@@ -316,6 +316,7 @@ class AudioPlayerItem extends MediaItem {
 class AudioBackgroundItem extends MediaItem {
   constructor(audioWrapper) {
     super(audioWrapper);
+    this.unmuteFooter = document.getElementById('unmute-footer');
     this.media.loop = true;
     this.mutedState = true;
     this.onChildren = this.wrapper.querySelectorAll('*.on');
@@ -349,6 +350,7 @@ class AudioBackgroundItem extends MediaItem {
 
   updateMuteBtnView() {
     if (this.mutedState) {
+      this.unmuteFooter.classList.remove('on');
       this.onChildren.forEach((el) => {
         el.style.display = 'none';
       })
@@ -356,6 +358,7 @@ class AudioBackgroundItem extends MediaItem {
         el.style.display = 'block';
       })
     } else {
+      this.unmuteFooter.classList.add('on');
       this.offChildren.forEach((el) => {
         el.style.display = 'none';
       })
