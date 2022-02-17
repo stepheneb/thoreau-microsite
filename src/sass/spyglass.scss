@@ -179,9 +179,16 @@ div.artifact.spyglass {
       content: url("../media/images/arrow-scroll-down.png");
     }
   }
-
+  .unmute-footer {
+    display: flex;
+  }
   .mute-button {
+    z-index: 1;
     color: var(--navy-blue);
+    bottom: 1.1vh;
+    @include mobile-portrait() {
+      bottom: calc(5vh / 2 - 1.5vh);
+    }
   }
 
   .animation-frame-container.spyglass {
@@ -231,6 +238,7 @@ div.artifact.spyglass {
   }
 
   .arrow-scroll-down {
+    bottom: 5.5vh;
     visibility: visible;
     opacity: 1;
   }
