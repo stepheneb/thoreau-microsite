@@ -1420,7 +1420,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #spyglass[data-content-scroll="0"] .mute-button {
-    bottom: 0.8vh;
+    bottom: 1vh;
   }
 }
 #spyglass[data-content-scroll="0"] .animation-frame-container.spyglass {
