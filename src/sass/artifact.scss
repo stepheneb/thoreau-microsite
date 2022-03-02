@@ -32,6 +32,9 @@ div.artifact {
   padding: 0;
   width: 100vw;
   height: 100vh;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 
   .content {
     z-index: 1;

@@ -19,7 +19,15 @@
     clamp(0px, (0.4vh - 3.61px), 2px)
   );
   --artifact-description-line-height: calc(clamp(30px, (8vh - 26px), 60px));
-  --zoom-button-size: 1.25rem;
+  --zoom-button-size: 1.1rem;
+
+  --zoom-button-bottom: 0.8vh;
+  --zoom-button-right: 2.5vw;
+
+  --zoom-button-height: 2rem;
+  --zoom-button-width: 2.65rem;
+  --zoom-icon-width: 0.9rem;
+  --zoom-divide-width: 0.1rem;
 
   --explore-button: 0.85rem;
   --explore-content: 1.28rem;
@@ -59,6 +67,13 @@
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
     --unmute-footer: 0.8em;
+
+    --zoom-button-bottom: 0vh;
+    --zoom-button-right: 1vw;
+    --zoom-button-height: 2.7rem;
+    --zoom-button-width: 3.6rem;
+    --zoom-icon-width: 1.3rem;
+    --zoom-divide-width: 0.2rem;
   }
 
   @include mobile-portrait-small() {
