@@ -6,10 +6,18 @@ const artifactImage = document.getElementById('artifact-image');
 const artifactWrapper = artifactImage.parentElement;
 const dragLayer = artifactWrapper.querySelector('div.draglayer');
 
+const ZoomIn = Symbol("ZoomIn")
+const ZoomOut = Symbol("ZoomOut")
+
 export const zoom = {
   scale: 1,
   maxScale: 3,
-  increment: 1.1,
+  speed: 0,
+  maxSpeed: 0.075,
+  deltaPlus: 0.005,
+  deltaMinus: 0.02,
+  interval: null,
+  zooming: false,
   dx: 0,
   dy: 0,
   startpos: {
@@ -51,14 +59,72 @@ const handleZoomButtons = () => {
   scaleAndTranslate();
 }
 
-zoomMinus.addEventListener('click', () => {
-  zoom.scale /= zoom.increment;
-  handleZoomButtons();
+const startZooming = (direction = ZoomIn) => {
+  clearInterval(zoom.interval);
+  zoom.zooming = true;
+  zoom.speed = zoom.deltaPlus;
+
+  const process = () => {
+    if (direction == ZoomIn) {
+      zoom.scale *= 1 + zoom.speed;
+    } else {
+      zoom.scale /= 1 + zoom.speed;
+    }
+    handleZoomButtons();
+  }
+  process();
+
+  zoom.interval = setInterval(() => {
+    if (zoom.zooming) {
+      zoom.speed += zoom.deltaPlus;
+      if (zoom.speed > zoom.maxSpeed) {
+        zoom.speed = zoom.maxSpeed;
+      }
+      process();
+    } else {
+      zoom.speed -= zoom.deltaMinus;
+      if (zoom.speed > 0) {
+        process();
+      } else {
+        clearInterval(zoom.interval);
+        zoom.interval = null;
+      }
+    }
+  }, 60);
+}
+
+const endZooming = () => {
+  zoom.zooming = false;
+}
+
+const zoomStartEvents = [
+  'pointerdown'
+]
+
+const zoomEndEvents = [
+  'pointerup',
+  'pointerout',
+  'pointerleave',
+  'touchend',
+  'touchcancel'
+]
+
+const startZoomOut = () => {
+  startZooming(ZoomOut);
+}
+
+const startZoomIn = () => {
+  startZooming(ZoomIn);
+}
+
+zoomStartEvents.forEach((event) => {
+  zoomMinus.addEventListener(event, startZoomOut);
+  zoomPlus.addEventListener(event, startZoomIn);
 })
 
-zoomPlus.addEventListener('click', () => {
-  zoom.scale *= zoom.increment;
-  handleZoomButtons();
+zoomEndEvents.forEach((event) => {
+  zoomMinus.addEventListener(event, endZooming);
+  zoomPlus.addEventListener(event, endZooming);
 })
 
 export const setupDragHandling = () => {
