@@ -32,7 +32,13 @@
     clamp(0px, (0.4vh - 3.61px), 2px)
   );
   --artifact-description-line-height: calc(clamp(30px, (8vh - 26px), 60px));
-  --zoom-button-size: 1.25rem;
+  --zoom-button-size: 1.1rem;
+  --zoom-button-bottom: 0.8vh;
+  --zoom-button-right: 2.5vw;
+  --zoom-button-height: 2rem;
+  --zoom-button-width: 2.65rem;
+  --zoom-icon-width: 0.9rem;
+  --zoom-divide-width: 0.1rem;
   --explore-button: 0.85rem;
   --explore-content: 1.28rem;
   --explore-content-line-height: 168%;
@@ -70,6 +76,12 @@
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
     --unmute-footer: 0.8em;
+    --zoom-button-bottom: 0vh;
+    --zoom-button-right: 1vw;
+    --zoom-button-height: 2.7rem;
+    --zoom-button-width: 3.6rem;
+    --zoom-icon-width: 1.3rem;
+    --zoom-divide-width: 0.2rem;
   }
 }
 @media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
@@ -186,6 +198,9 @@ div.artifact {
   padding: 0;
   width: 100vw;
   height: 100vh;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  user-select: none;
 }
 div.artifact .content {
   z-index: 1;
@@ -559,24 +574,14 @@ div.artifact .content .absolute-content-container.start .content .image-containe
 }
 div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls {
   pointer-events: all;
-  user-select: none;
   z-index: 2;
   position: absolute;
-  right: 2.5vw;
-  bottom: 0.8vh;
+  right: var(--zoom-button-right);
+  bottom: var(--zoom-button-bottom);
   display: flex;
   flex-direction: row;
   justify-content: center;
-  padding: 0em 0.5em;
-  border: 1px solid lightgray;
-  border-radius: var(--zoom-button-size);
-  background-color: var(--navy-blue);
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls {
-    right: 4vw;
-    bottom: 1vh;
-  }
+  padding: 0em 0em;
 }
 @media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls {
@@ -593,9 +598,11 @@ div.artifact .content .absolute-content-container.start .content .image-containe
 div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls button {
   padding: 0;
   margin: 0.075rem 0.25rem;
-  width: var(--zoom-button-size);
+  margin: 0;
+  width: var(--zoom-button-width);
   height: calc(var(--zoom-button-size) * 1.4);
-  background-color: transparent;
+  height: var(--zoom-button-height);
+  background-color: var(--navy-blue);
   border: none;
   box-sizing: border-box;
   display: inline-flex;
@@ -605,12 +612,27 @@ div.artifact .content .absolute-content-container.start .content .image-containe
   cursor: default;
 }
 div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls button img {
-  width: var(--zoom-button-size);
+  pointer-events: none;
+  width: var(--zoom-icon-width);
   height: auto;
-  margin: 0 0.2rem;
+  margin: 0;
+}
+div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls button.zoom-minus {
+  border-top-left-radius: var(--zoom-button-height);
+  border-bottom-left-radius: var(--zoom-button-height);
+}
+div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls button.zoom-minus img {
+  margin-right: -0.4rem;
+}
+div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls button.zoom-plus {
+  border-top-right-radius: var(--zoom-button-height);
+  border-bottom-right-radius: var(--zoom-button-height);
+}
+div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls button.zoom-plus img {
+  margin-left: -0.4rem;
 }
 div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls .v-divide {
-  width: 0.1rem;
+  width: var(--zoom-divide-width);
   min-width: 2px;
   background-color: white;
   height: auto;
@@ -939,6 +961,9 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show {
   background-color: var(--mobile-header-gray);
   border: none;
 }
+div.artifact .dropdown.explore-another-object ul.dropdown-menu.show .close {
+  display: none;
+}
 div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li {
   margin: 0;
   padding: 0;
@@ -976,14 +1001,33 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show {
     position: absolute !important;
-    top: 7vh;
-    left: -87.5vw;
+    top: 0;
+    left: -90vw;
+    width: 102vw;
+    height: 100vh;
+    z-index: 5;
     transform: none !important;
     margin: 0 !important;
-    padding: 0 !important;
-    width: 97vw;
-    height: 83vh;
+    padding: 3vh 0 0 0 !important;
     background-color: var(--mobile-header-gray);
+  }
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show .close {
+    display: block;
+    position: absolute;
+    top: 0.5vh;
+    left: 86vw;
+    color: var(--navy-blue);
+    width: 2.6rem;
+    height: 2.6rem;
+    border: 1px solid white;
+    border-radius: 1.3rem;
+    padding-left: 0.7rem;
+    padding-top: 0rem;
+  }
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show .close svg {
+    stroke-width: 2;
+    width: 1rem;
+    height: 1rem;
   }
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li {
     margin: 0;
@@ -1019,7 +1063,7 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
   }
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.small {
     font-family: "Nunito Sans", sans-serif;
-    font-size: 130%;
+    font-size: 140%;
   }
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.disabled {
     color: gray;
@@ -1029,6 +1073,9 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
     margin: 2rem 0;
     border: 1px solid white;
     opacity: 1;
+  }
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider.wide {
+    width: 100%;
   }
 }
 div.artifact .arrow-scroll-down {
@@ -1571,13 +1618,14 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   position: sticky;
 }
 
-#spyglass[data-content-scroll="11"] .absolute-content-container.spyglass.walden-sunset,
-#spyglass[data-content-scroll="12"] .absolute-content-container.spyglass.walden-sunset {
+#spyglass[data-content-scroll="11"] .absolute-content-container.spyglass.would-it-not,
+#spyglass[data-content-scroll="12"] .absolute-content-container.spyglass.would-it-not {
   visibility: visible;
   opacity: 1;
+  position: sticky;
 }
-#spyglass[data-content-scroll="11"] .fixed-video-container.spyglass.walden-sunset,
-#spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset {
+#spyglass[data-content-scroll="11"] .fixed-video-container.spyglass.walden-sunset-blue,
+#spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset-blue {
   visibility: visible;
   opacity: 1;
 }
@@ -1592,14 +1640,19 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   opacity: 0;
 }
 
-#spyglass[data-content-scroll="13"] .absolute-content-container.spyglass.would-it-not,
-#spyglass[data-content-scroll="14"] .absolute-content-container.spyglass.would-it-not {
+#spyglass[data-content-scroll="12"] .absolute-content-container.spyglass.would-it-not {
   visibility: visible;
   opacity: 1;
-  position: sticky;
+  position: fixed;
 }
-#spyglass[data-content-scroll="13"] .fixed-video-container.spyglass.walden-sunset-blue,
-#spyglass[data-content-scroll="14"] .fixed-video-container.spyglass.walden-sunset-blue {
+
+#spyglass[data-content-scroll="13"] .absolute-content-container.spyglass.walden-sunset,
+#spyglass[data-content-scroll="14"] .absolute-content-container.spyglass.walden-sunset {
+  visibility: visible;
+  opacity: 1;
+}
+#spyglass[data-content-scroll="13"] .fixed-video-container.spyglass.walden-sunset,
+#spyglass[data-content-scroll="14"] .fixed-video-container.spyglass.walden-sunset {
   visibility: visible;
   opacity: 1;
 }
@@ -1612,12 +1665,6 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 #spyglass[data-content-scroll="14"] .animation-frame-container.spyglass {
   visibility: hidden;
   opacity: 0;
-}
-
-#spyglass[data-content-scroll="14"] .absolute-content-container.spyglass.would-it-not {
-  visibility: visible;
-  opacity: 1;
-  position: fixed;
 }
 
 div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-photo-rotated {
