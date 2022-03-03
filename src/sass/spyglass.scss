@@ -375,18 +375,23 @@ div.artifact.spyglass {
     opacity: 1;
   }
 
+  .animation-frame-container.spyglass,
   .arrow-scroll-down {
     visibility: hidden;
     opacity: 0;
   }
 
+  .next-object-footer,
   .back-to-top {
     visibility: visible;
     opacity: 1;
   }
 
-  .animation-frame-container.spyglass {
-    visibility: hidden;
-    opacity: 0;
+  .next-object-footer {
+    visibility: visible;
+  }
+
+  .mute-button {
+    bottom: 11.5vh;
   }
 }

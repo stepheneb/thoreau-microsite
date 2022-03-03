@@ -7,10 +7,16 @@
   --border-gray: gray;
   --border-light-gray: #ddd;
   --navy-blue: #25334b;
-  --navy-blue-rgba: rgba(13, 110, 253, 0.3);
+  --navy-blue-rgba1: rgba(13, 110, 253, 1);
+  --navy-blue-rgba0: rgba(13, 110, 253, 0);
   --white: #fff;
   --almost-white: #ddd;
   --medium-gray: #a7bbca;
+  --medium-gray-rgba-100: rgba(167, 187, 202, 1);
+  --medium-gray-rgba-80: rgba(167, 187, 202, 0.8);
+  --medium-gray-rgba-50: rgba(167, 187, 202, 0.5);
+  --medium-gray-rgba-0: rgba(167, 187, 202, 0);
+
   --darker-gray: #798894;
   --snowshoe-brown: #704b46;
   --snowshoe-writing-mask: #cdd7e0;

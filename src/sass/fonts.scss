@@ -41,6 +41,8 @@
   --back-button-size: 2em;
   --unmute-footer: 0.8em;
 
+  --next-object: 0.85em;
+
   @include desktop-strong-landscape() {
     --artifact-title: 2rem;
     --artifact-description: 1.2rem;
