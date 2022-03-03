@@ -17,4 +17,9 @@ export const startup = (id, animations) => {
 
   scrollerSetup(container, animations);
   setupDragHandling();
+
+  const backToTop = document.getElementById('back-to-top');
+  backToTop.addEventListener('click', () => {
+    window.scrollTo(0, 0);
+  })
 }
