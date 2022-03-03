@@ -354,29 +354,6 @@ div.artifact.spyglass {
 
 #spyglass[data-content-scroll="11"],
 #spyglass[data-content-scroll="12"] {
-  .absolute-content-container.spyglass.walden-sunset {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .fixed-video-container.spyglass.walden-sunset {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .arrow-scroll-down {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .animation-frame-container.spyglass {
-    visibility: hidden;
-    opacity: 0;
-  }
-}
-
-#spyglass[data-content-scroll="13"],
-#spyglass[data-content-scroll="14"] {
   .absolute-content-container.spyglass.would-it-not {
     visibility: visible;
     opacity: 1;
@@ -389,19 +366,43 @@ div.artifact.spyglass {
   }
 
   .arrow-scroll-down {
-    visibility: hidden;
-    opacity: 0;
+    visibility: visible;
+    opacity: 1;
   }
+
   .animation-frame-container.spyglass {
     visibility: hidden;
     opacity: 0;
   }
 }
 
-#spyglass[data-content-scroll="14"] {
+#spyglass[data-content-scroll="12"] {
   .absolute-content-container.spyglass.would-it-not {
     visibility: visible;
     opacity: 1;
     position: fixed;
+  }
+}
+
+#spyglass[data-content-scroll="13"],
+#spyglass[data-content-scroll="14"] {
+  .absolute-content-container.spyglass.walden-sunset {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .fixed-video-container.spyglass.walden-sunset {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .arrow-scroll-down {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .animation-frame-container.spyglass {
+    visibility: hidden;
+    opacity: 0;
   }
 }
