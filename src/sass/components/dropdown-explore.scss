@@ -109,6 +109,9 @@
       border-radius: 0.5rem;
       background-color: var(--mobile-header-gray);
       border: none;
+      .close {
+        display: none;
+      }
       li {
         margin: 0;
         padding: 0;
@@ -149,14 +152,38 @@
       }
       @include mobile-portrait() {
         position: absolute !important;
-        top: 7vh;
-        left: -87.5vw;
+        // top: 7vh;
+        // left: -87.5vw;
+        // width: 97vw;
+        // height: 83vh;
+        top: 0;
+        left: -90vw;
+        width: 102vw;
+        height: 100vh;
+        z-index: 5;
+
         transform: none !important;
         margin: 0 !important;
-        padding: 0 !important;
-        width: 97vw;
-        height: 83vh;
+        padding: 3vh 0 0 0 !important;
         background-color: var(--mobile-header-gray);
+        .close {
+          display: block;
+          position: absolute;
+          top: 0.5vh;
+          left: 86vw;
+          color: var(--navy-blue);
+          width: 2.6rem;
+          height: 2.6rem;
+          border: 1px solid white;
+          border-radius: 1.3rem;
+          padding-left: 0.7rem;
+          padding-top: 0rem;
+          svg {
+            stroke-width: 2;
+            width: 1rem;
+            height: 1rem;
+          }
+        }
         li {
           margin: 0;
           padding: 0;
@@ -201,6 +228,9 @@
               margin: 2rem 0;
               border: 1px solid white;
               opacity: 1;
+              &.wide {
+                width: 100%;
+              }
             }
           }
         }
