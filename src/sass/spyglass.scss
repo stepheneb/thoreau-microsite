@@ -266,10 +266,6 @@ div.artifact.spyglass {
     visibility: visible;
     opacity: 1;
   }
-  .arrow-scroll-down {
-    visibility: visible;
-    opacity: 1;
-  }
 }
 
 #spyglass[data-content-scroll="2"],
@@ -281,10 +277,6 @@ div.artifact.spyglass {
     img {
       margin: 5vh 10vw;
     }
-  }
-  .arrow-scroll-down {
-    visibility: visible;
-    opacity: 1;
   }
 }
 
@@ -302,10 +294,6 @@ div.artifact.spyglass {
     img {
       margin: 5vh 10vw;
     }
-  }
-  .arrow-scroll-down {
-    visibility: visible;
-    opacity: 1;
   }
 }
 #spyglass[data-content-scroll="4"] {
@@ -341,10 +329,6 @@ div.artifact.spyglass {
       margin: 20vh 30vw 10vh 30vw;
     }
   }
-  .arrow-scroll-down {
-    visibility: visible;
-    opacity: 1;
-  }
 }
 #spyglass[data-content-scroll="7"] {
   .absolute-content-container.spyglass.his-experiments {
@@ -361,11 +345,6 @@ div.artifact.spyglass {
   }
 
   .fixed-video-container.spyglass.walden-sunset-blue {
-    visibility: visible;
-    opacity: 1;
-  }
-
-  .arrow-scroll-down {
     visibility: visible;
     opacity: 1;
   }
@@ -399,6 +378,11 @@ div.artifact.spyglass {
   .arrow-scroll-down {
     visibility: hidden;
     opacity: 0;
+  }
+
+  .back-to-top {
+    visibility: visible;
+    opacity: 1;
   }
 
   .animation-frame-container.spyglass {
