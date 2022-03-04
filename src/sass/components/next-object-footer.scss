@@ -7,12 +7,16 @@
   pointer-events: auto;
   position: fixed;
   z-index: 3;
-  background: linear-gradient(
-    0deg,
-    var(--medium-gray-rgba-80),
-    var(--medium-gray-rgba-0)
-  );
-  background-color: var(--medium-gray-rgba-100);
+  background-color: var(--medium-gray-rgba-75);
+  // background: linear-gradient(
+  //   0deg,
+  //   var(--medium-gray-rgba-75),
+  //   var(--medium-gray-rgba-65) 70%,
+  //   var(--medium-gray-rgba-60) 75%,
+  //   var(--medium-gray-rgba-50) 80%,
+  //   var(--medium-gray-rgba-30) 90%,
+  //   var(--medium-gray-rgba-0)
+  // );
   bottom: 0;
   left: 0;
   width: 100vw;
