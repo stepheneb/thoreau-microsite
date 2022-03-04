@@ -13,7 +13,14 @@
   --medium-gray: #a7bbca;
   --medium-gray-rgba-100: rgba(167, 187, 202, 1);
   --medium-gray-rgba-80: rgba(167, 187, 202, 0.8);
+  --medium-gray-rgba-75: rgba(167, 187, 202, 0.75);
+  --medium-gray-rgba-70: rgba(167, 187, 202, 0.7);
+  --medium-gray-rgba-65: rgba(167, 187, 202, 0.65);
+  --medium-gray-rgba-60: rgba(167, 187, 202, 0.6);
   --medium-gray-rgba-50: rgba(167, 187, 202, 0.5);
+  --medium-gray-rgba-40: rgba(167, 187, 202, 0.4);
+  --medium-gray-rgba-30: rgba(167, 187, 202, 0.5);
+  --medium-gray-rgba-20: rgba(167, 187, 202, 0.6);
   --medium-gray-rgba-0: rgba(167, 187, 202, 0);
   --darker-gray: #798894;
   --snowshoe-brown: #704b46;
@@ -1223,8 +1230,7 @@ div.artifact .next-object-footer {
   pointer-events: auto;
   position: fixed;
   z-index: 3;
-  background: linear-gradient(0deg, var(--medium-gray-rgba-80), var(--medium-gray-rgba-0));
-  background-color: var(--medium-gray-rgba-100);
+  background-color: var(--medium-gray-rgba-75);
   bottom: 0;
   left: 0;
   width: 100vw;
