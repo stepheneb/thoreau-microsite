@@ -7,6 +7,7 @@
   --thoreau-green: #84a745;
   --snowshoe-brown: #704b46;
   --snowshoe-writing-mask: #cdd7e0;
+  --november-skies: #a7bbca;
   --writing-mask: #cdd7e0;
   --border-gray: gray;
   --border-light-gray: #ddd;
@@ -464,7 +465,7 @@ div.artifact .content .absolute-content-container.start .content .about-containe
   width: 10vw;
   height: 1px;
   margin: 0.5rem 0;
-  color: var(--medium-gray);
+  color: var(--november-skies);
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .content .absolute-content-container.start .content .about-container hr {
@@ -1960,6 +1961,10 @@ div.artifact.walking-stick .background-image-container.walking-stick:before {
   background-position: center;
   background-size: cover;
 }
+#walking-stick[data-content-scroll="3"] .fixed-video-container.walking-stick.walk {
+  visibility: visible;
+  opacity: 1;
+}
 #walking-stick[data-content-scroll="3"] .arrow-scroll-down {
   visibility: hidden;
   opacity: 0;
@@ -2180,6 +2185,10 @@ div.artifact.flute .background-image-container.flute:before {
   background-position: center;
   background-size: cover;
 }
+#flute[data-content-scroll="3"] .fixed-video-container.flute.stream {
+  visibility: visible;
+  opacity: 1;
+}
 #flute[data-content-scroll="3"] .arrow-scroll-down {
   visibility: hidden;
   opacity: 0;
@@ -2247,6 +2256,12 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
   font-size: var(--explore-content-heading);
   font-family: "Libre Caslon Text", serif;
   text-indent: -1rem;
+}
+div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.perhaps-the-best .elapsed {
+  background-color: var(--progress-indicator-remaining);
+}
+div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.perhaps-the-best .remaining {
+  background-color: var(--progress-indicator-elapsed);
 }
 div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.perhaps-the-best hr {
   border-color: var(--white);
@@ -2348,7 +2363,7 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
   -webkit-clip-path: inset(0% 0% 0% 0%);
   clip-path: inset(0% 0% 0% 0%);
   transition: opacity var(--explore-images-timing), background-image var(--explore-images-timing);
-  background-image: url(../media/images/snowshoes/Watercolor_Stick.png);
+  background-image: url(../media/images/snowshoes/Watercolor_Snowshoes.png);
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
@@ -2400,6 +2415,10 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
+}
+#snowshoes[data-content-scroll="3"] .fixed-video-container.snowshoes.snow {
+  visibility: visible;
+  opacity: 1;
 }
 #snowshoes[data-content-scroll="3"] .arrow-scroll-down {
   visibility: hidden;
