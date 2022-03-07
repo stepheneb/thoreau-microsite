@@ -3,6 +3,8 @@
 :root {
   --thoreau-blue: #5dc0d0;
   --thoreau-rgba-blue: rgba(93, 192, 208, 1);
+  --thoreau-purple: #4b5a74;
+  --writing-mask: #cdd7e0;
   --border-gray: gray;
   --border-light-gray: #ddd;
   --navy-blue: #25334b;
@@ -1205,7 +1207,7 @@ div.artifact .back-to-top {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .back-to-top {
-    bottom: 2.5vh;
+    bottom: 6.5vh;
     right: unset;
     left: 6vw;
     width: 30vw;
@@ -1745,6 +1747,232 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 #spyglass[data-content-scroll="13"] .mute-button,
 #spyglass[data-content-scroll="14"] .mute-button {
   bottom: 11.5vh;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  #spyglass[data-content-scroll="13"] .mute-button,
+#spyglass[data-content-scroll="14"] .mute-button {
+    bottom: 6.5vh;
+  }
+}
+
+body#walking-stick {
+  height: 400vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.start {
+  height: 100vh;
+  width: 100%;
+  max-width: 100vw;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.start {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 640px) {
+  div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.start {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.i-have-met {
+  height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+  visibility: hidden;
+  opacity: 0;
+  top: 30vh;
+  left: 32.5vw;
+  width: 37vw;
+  max-width: 37vw;
+  font-weight: 600;
+  color: var(--white);
+  font-size: var(--explore-content-heading);
+  font-family: "Libre Caslon Text", serif;
+  text-indent: -1rem;
+}
+div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.i-have-met hr {
+  border-color: var(--navy-blue);
+}
+div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.i-have-met .author {
+  font-weight: 300;
+  text-indent: 0;
+}
+div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.i-have-met .author .mute-button {
+  color: var(--navy-blue);
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.i-have-met {
+    top: 24vh;
+    left: 20vw;
+    width: 58vw;
+    max-width: 58vw;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.i-have-met {
+    left: 3vw;
+    max-width: 30vw;
+  }
+}
+div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.forest-path {
+  height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+  visibility: hidden;
+  opacity: 0;
+  top: 9vh;
+  left: 7vw;
+  width: 28vw;
+  max-width: 28vw;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.forest-path {
+    top: 48vh;
+    left: 10vw;
+    width: 80vw;
+    max-width: 80vw;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.forest-path {
+    left: 3vw;
+    max-width: 30vw;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.walking-stick .image-container img.walking-stick-photo {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact.walking-stick .image-container img.walking-stick-photo {
+    width: 60%;
+  }
+}
+div.artifact.walking-stick .fixed-image-container.walking-stick img.walking-stick-detail {
+  width: 90%;
+  margin-right: -10%;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.walking-stick .fixed-image-container.walking-stick img.walking-stick-detail {
+    width: 90vw;
+    height: auto;
+  }
+}
+div.artifact.walking-stick .background-image-container.walking-stick:before {
+  background-color: var(--thoreau-purple);
+}
+
+#walking-stick[data-content-scroll="0"] .arrow-scroll-down img {
+  content: url("../media/images/arrow-scroll-down.png");
+}
+#walking-stick[data-content-scroll="0"] .unmute-footer {
+  display: flex;
+}
+#walking-stick[data-content-scroll="0"] .mute-button {
+  z-index: 1;
+  color: var(--navy-blue);
+  bottom: 1.1vh;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  #walking-stick[data-content-scroll="0"] .mute-button {
+    bottom: 0.9vh;
+  }
+}
+#walking-stick[data-content-scroll="0"] .background-image-container.walking-stick:before {
+  background-color: white;
+  background-image: url("../media/images/thoreau-handwriting-dark-background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#walking-stick[data-content-scroll="0"] .absolute-content-container.walking-stick.start {
+  visibility: visible;
+  opacity: 1;
+}
+#walking-stick[data-content-scroll="0"] .absolute-content-container.walking-stick.start .image-container {
+  -webkit-clip-path: inset(0% 0% 0% 0%);
+  clip-path: inset(0% 0% 0% 0%);
+  transition: opacity var(--explore-images-timing), background-image var(--explore-images-timing);
+  background-image: url(../media/images/walking-stick/Watercolor_Stick.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+#walking-stick[data-content-scroll="0"] .absolute-content-container.walking-stick.start .image-container img {
+  transform: scale(1);
+}
+#walking-stick[data-content-scroll="0"] .explore-another-object {
+  visibility: visible;
+  opacity: 1;
+}
+#walking-stick[data-content-scroll="0"] img.walking-stick-photo {
+  visibility: visible;
+  opacity: 1;
+}
+#walking-stick[data-content-scroll="0"] .arrow-scroll-down {
+  bottom: 5.5vh;
+  visibility: visible;
+  opacity: 1;
+}
+
+#walking-stick[data-content-scroll="1"] .background-image-container.walking-stick:before {
+  background-color: var(--thoreau-purple);
+  background-image: url("../media/images/thoreau-handwriting-light-background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#walking-stick[data-content-scroll="1"] img.walking-stick-detail {
+  visibility: visible;
+  opacity: 1;
+  width: 90%;
+  margin-right: -10%;
+}
+
+#walking-stick[data-content-scroll="2"] .background-image-container.walking-stick:before {
+  background-color: var(--thoreau-purple);
+  background-image: url("../media/images/walking-stick/forest-path-istockphoto-182508042-1024x1024-with-mask.png"), url("../media/images/thoreau_handwriting_blue_background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#walking-stick[data-content-scroll="2"] .absolute-content-container.walking-stick.i-have-met {
+  visibility: visible;
+  opacity: 1;
+  position: sticky;
+}
+
+#walking-stick[data-content-scroll="3"] .background-image-container.walking-stick:before {
+  background-image: url("../media/images/walking-stick/forest-path-istockphoto-182508042-1024x1024.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#walking-stick[data-content-scroll="3"] .arrow-scroll-down {
+  visibility: hidden;
+  opacity: 0;
+}
+#walking-stick[data-content-scroll="3"] .next-object-footer,
+#walking-stick[data-content-scroll="3"] .back-to-top {
+  visibility: visible;
+  opacity: 1;
+}
+#walking-stick[data-content-scroll="3"] .next-object-footer {
+  visibility: visible;
+}
+#walking-stick[data-content-scroll="3"] .mute-button {
+  bottom: 11.5vh;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  #walking-stick[data-content-scroll="3"] .mute-button {
+    bottom: 6.5vh;
+  }
 }
 
 div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-photo-rotated {
