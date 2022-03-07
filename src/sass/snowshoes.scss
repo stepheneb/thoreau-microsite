@@ -54,6 +54,13 @@ div.artifact.snowshoes {
         font-size: var(--explore-content-heading);
         font-family: "Libre Caslon Text", serif;
 
+        .elapsed {
+          background-color: var(--progress-indicator-remaining);
+        }
+        .remaining {
+          background-color: var(--progress-indicator-elapsed);
+        }
+
         text-indent: -1rem;
         hr {
           border-color: var(--white);
