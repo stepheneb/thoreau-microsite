@@ -28,7 +28,7 @@ export const pages = [{
   {
     id: 'flute',
     location: "flute.html",
-    enabled: false,
+    enabled: true,
     src: "media/images/flute/flute.png"
   },
   {

@@ -1,0 +1,266 @@
+//
+// FLute specific artifact styles
+//
+
+body#flute {
+  height: 400vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+div.artifact.flute {
+  .content.flute {
+    .absolute-content-container.flute {
+      &.start {
+        height: 100vh;
+        width: 100%;
+        max-width: 100vw;
+
+        @include mobile-portrait() {
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+
+        @include mobile-landscape() {
+        }
+        @include desktop-strong-portrait() {
+          flex-direction: column;
+          justify-content: flex-start;
+        }
+      }
+
+      &.my-music {
+        height: 100vh;
+        position: -webkit-sticky;
+        position: sticky;
+        visibility: hidden;
+        opacity: 0;
+        top: 30vh;
+        left: 32.5vw;
+        width: 37vw;
+        max-width: 37vw;
+
+        font-weight: 600;
+        color: var(--white);
+        font-size: var(--explore-content-heading);
+        font-family: "Libre Caslon Text", serif;
+
+        text-indent: -1rem;
+        hr {
+          border-color: var(--navy-blue);
+        }
+        .author {
+          font-weight: 300;
+          text-indent: 0;
+          .mute-button {
+            color: var(--navy-blue);
+          }
+        }
+
+        @include mobile-portrait() {
+          top: 24vh;
+          left: 20vw;
+          width: 58vw;
+          max-width: 58vw;
+        }
+        @include mobile-landscape() {
+          left: 3vw;
+          max-width: 30vw;
+        }
+      }
+
+      &.stream-path {
+        height: 100vh;
+        position: -webkit-sticky;
+        position: sticky;
+        visibility: hidden;
+        opacity: 0;
+        top: 9vh;
+        left: 7vw;
+        width: 28vw;
+        max-width: 28vw;
+
+        @include mobile-portrait() {
+          top: 48vh;
+          left: 10vw;
+          width: 80vw;
+          max-width: 80vw;
+        }
+
+        @include mobile-landscape() {
+          left: 3vw;
+          max-width: 30vw;
+        }
+      }
+    }
+  }
+
+  .image-container {
+    @include mobile-portrait() {
+      img.flute-photo {
+        width: 80%;
+      }
+    }
+    @include mobile-landscape() {
+      img.flute-photo {
+        width: 60%;
+      }
+    }
+  }
+
+  .fixed-image-container.flute {
+    img.flute-detail {
+      width: 100%;
+      @include mobile-portrait() {
+        width: 100vw;
+        height: auto;
+      }
+    }
+  }
+
+  .background-image-container.flute {
+    &:before {
+      background-color: var(--thoreau-green);
+    }
+  }
+}
+
+//
+// style changes based on content scroll position
+//
+
+#flute[data-content-scroll="0"] {
+  .arrow-scroll-down {
+    img {
+      content: url("../media/images/arrow-scroll-down.png");
+    }
+  }
+  .unmute-footer {
+    display: flex;
+  }
+  .mute-button {
+    z-index: 1;
+    color: var(--navy-blue);
+    bottom: 1.1vh;
+    @include mobile-portrait() {
+      bottom: calc(5vh / 2 - 1.6vh);
+    }
+  }
+
+  .background-image-container.flute {
+    &:before {
+      background-color: white;
+      background-image: url("../media/images/thoreau-handwriting-dark-background.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  .absolute-content-container.flute.start {
+    visibility: visible;
+    opacity: 1;
+
+    .image-container {
+      -webkit-clip-path: inset(0% 0% 0% 0%);
+      clip-path: inset(0% 0% 0% 0%);
+      transition: opacity var(--explore-images-timing),
+        background-image var(--explore-images-timing);
+
+      img {
+        transform: scale(1);
+      }
+
+      background-image: url(../media/images/flute/Watercolor_Stick.png);
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: contain;
+    }
+  }
+
+  .explore-another-object {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  img.flute-photo {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .arrow-scroll-down {
+    bottom: 5.5vh;
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#flute[data-content-scroll="1"] {
+  .background-image-container.flute {
+    &:before {
+      background-color: var(--thoreau-green);
+      background-image: url("../media/images/thoreau-handwriting-light-background.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+  img.flute-detail {
+    visibility: visible;
+    opacity: 1;
+  }
+}
+
+#flute[data-content-scroll="2"] {
+  .background-image-container.flute {
+    &:before {
+      background-color: var(--thoreau-green);
+      background-image: url("../media/images/thoreau-handwriting-light-background.png"),
+        url("../media/images/flute/forest-stream-david-lindahl-IcEB7ExxMew-unsplash-masked.png");
+
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  .absolute-content-container.flute.my-music {
+    visibility: visible;
+    opacity: 1;
+    position: sticky;
+  }
+}
+
+#flute[data-content-scroll="3"] {
+  .background-image-container.flute {
+    &:before {
+      background-image: url("../media/images/flute/forest-stream-david-lindahl-IcEB7ExxMew-unsplash.png");
+      background-repeat: no-repeat;
+      background-position: center;
+      background-size: cover;
+    }
+  }
+
+  .arrow-scroll-down {
+    visibility: hidden;
+    opacity: 0;
+  }
+
+  .next-object-footer,
+  .back-to-top {
+    visibility: visible;
+    opacity: 1;
+  }
+
+  .next-object-footer {
+    visibility: visible;
+  }
+
+  .mute-button {
+    bottom: 11.5vh;
+    @include mobile-portrait() {
+      bottom: 6.5vh;
+    }
+  }
+}
