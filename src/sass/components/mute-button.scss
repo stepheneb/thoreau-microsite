@@ -21,7 +21,7 @@
   div {
     margin-right: 0.1em;
     margin-bottom: -0.05em;
-    font-size: 0.95em;
+    font-size: var(--explore-content-mute-button);
     &.off {
       display: block;
       &.x {
