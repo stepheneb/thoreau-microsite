@@ -1,10 +1,10 @@
 /*jshint esversion: 8 */
-/*global */
+/*global  */
 
 import { app } from "./modules/globals.js"
 import { startup } from './modules/artifact.js';
 
-app.maxContentScroll = 2;
+app.maxContentScroll = 4;
 
 app.dev = true;
 

@@ -265,7 +265,8 @@ div.artifact {
               font-weight: 300;
               letter-spacing: var(--artifact-description-letter-spacing);
               color: var(--navy-blue);
-              span.first-line {
+              span.first-line,
+              span.bold {
                 font-weight: 700;
               }
               @include mobile-portrait() {

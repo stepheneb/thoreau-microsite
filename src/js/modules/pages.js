@@ -4,7 +4,7 @@
 export const pages = [{
     id: 'snowshoes',
     location: "snowshoes.html",
-    enabled: false,
+    enabled: true,
     src: "media/images/snowshoes/thoreau-snowshoes-close.png"
   },
   {
