@@ -6,10 +6,10 @@
     position: fixed;
     bottom: 2.5vh;
     right: 5.5vw;
-    @include mobile-landscape() {
-    }
     @include mobile-portrait() {
       bottom: 2.5vh;
+    }
+    @include mobile-landscape() {
     }
   }
   pointer-events: auto;

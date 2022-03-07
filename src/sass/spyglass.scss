@@ -393,5 +393,8 @@ div.artifact.spyglass {
 
   .mute-button {
     bottom: 11.5vh;
+    @include mobile-portrait() {
+      bottom: 6.5vh;
+    }
   }
 }

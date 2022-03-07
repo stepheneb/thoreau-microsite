@@ -15,7 +15,7 @@
   justify-content: flex-start;
   align-items: center;
   @include mobile-portrait() {
-    bottom: 2.5vh;
+    bottom: 6.5vh;
     right: unset;
     left: 6vw;
     width: 30vw;
