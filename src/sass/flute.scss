@@ -246,6 +246,11 @@ div.artifact.flute {
     }
   }
 
+  .fixed-video-container.flute.stream {
+    visibility: visible;
+    opacity: 1;
+  }
+
   .arrow-scroll-down {
     visibility: hidden;
     opacity: 0;

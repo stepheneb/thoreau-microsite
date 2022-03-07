@@ -249,6 +249,11 @@ div.artifact.walking-stick {
     }
   }
 
+  .fixed-video-container.walking-stick.walk {
+    visibility: visible;
+    opacity: 1;
+  }
+
   .arrow-scroll-down {
     visibility: hidden;
     opacity: 0;
