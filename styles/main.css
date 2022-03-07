@@ -1937,7 +1937,7 @@ div.artifact.walking-stick .background-image-container.walking-stick:before {
 
 #walking-stick[data-content-scroll="2"] .background-image-container.walking-stick:before {
   background-color: var(--thoreau-purple);
-  background-image: url("../media/images/walking-stick/forest-path-istockphoto-182508042-1024x1024-with-mask.png"), url("../media/images/thoreau_handwriting_blue_background.png");
+  background-image: url("../media/images/thoreau-handwriting-light-background.png"), url("../media/images/walking-stick/forest-path-istockphoto-182508042-1024x1024-with-mask.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
