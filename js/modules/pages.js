@@ -4,7 +4,7 @@
 export const pages = [{
     id: 'snowshoes',
     location: "snowshoes.html",
-    enabled: false,
+    enabled: true,
     src: "media/images/snowshoes/thoreau-snowshoes-close.png"
   },
   {
@@ -28,7 +28,7 @@ export const pages = [{
   {
     id: 'flute',
     location: "flute.html",
-    enabled: false,
+    enabled: true,
     src: "media/images/flute/flute.png"
   },
   {

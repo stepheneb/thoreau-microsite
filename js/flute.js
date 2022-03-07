@@ -4,10 +4,10 @@
 import { app } from "./modules/globals.js"
 import { startup } from './modules/artifact.js';
 
-app.maxContentScroll = 4;
+app.maxContentScroll = 5;
 
 app.dev = true;
 
 app.domReady(() => {
-  startup('snowshoes');
+  startup('flute');
 });
