@@ -43,17 +43,21 @@
         height: auto;
         margin: 0;
       }
+      i {
+        color: white;
+        font-size: 140%;
+      }
       &.zoom-minus {
         border-top-left-radius: var(--zoom-button-height);
         border-bottom-left-radius: var(--zoom-button-height);
-        img {
+        i {
           margin-right: -0.4rem;
         }
       }
       &.zoom-plus {
         border-top-right-radius: var(--zoom-button-height);
         border-bottom-right-radius: var(--zoom-button-height);
-        img {
+        i {
           margin-left: -0.4rem;
         }
       }

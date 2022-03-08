@@ -31,15 +31,21 @@
     span.toggler-icon {
       display: none;
     }
-    &::after {
+    svg.toggler-svg {
       display: inline-block;
       margin-left: 0.7rem;
-      vertical-align: 0rem;
-      border: none;
-      content: url("../media/images/explore_another_down_arrow.png");
+      margin-bottom: -0rem;
+      vertical-align: bottom;
+      width: 1.3rem;
+      height: auto;
+      stroke-width: 1;
+      color: white;
       @include mobile-portrait() {
         display: none;
       }
+    }
+    &::after {
+      display: none;
     }
   }
   @include mobile-portrait() {
