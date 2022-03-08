@@ -641,18 +641,22 @@ div.artifact .content .absolute-content-container.start .content .image-containe
   height: auto;
   margin: 0;
 }
+div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls button i {
+  color: white;
+  font-size: 140%;
+}
 div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls button.zoom-minus {
   border-top-left-radius: var(--zoom-button-height);
   border-bottom-left-radius: var(--zoom-button-height);
 }
-div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls button.zoom-minus img {
+div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls button.zoom-minus i {
   margin-right: -0.4rem;
 }
 div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls button.zoom-plus {
   border-top-right-radius: var(--zoom-button-height);
   border-bottom-right-radius: var(--zoom-button-height);
 }
-div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls button.zoom-plus img {
+div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls button.zoom-plus i {
   margin-left: -0.4rem;
 }
 div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls .v-divide {
@@ -911,17 +915,23 @@ div.artifact .dropdown.explore-another-object button span.name {
 div.artifact .dropdown.explore-another-object button span.toggler-icon {
   display: none;
 }
-div.artifact .dropdown.explore-another-object button::after {
+div.artifact .dropdown.explore-another-object button svg.toggler-svg {
   display: inline-block;
   margin-left: 0.7rem;
-  vertical-align: 0rem;
-  border: none;
-  content: url("../media/images/explore_another_down_arrow.png");
+  margin-bottom: 0rem;
+  vertical-align: bottom;
+  width: 1.3rem;
+  height: auto;
+  stroke-width: 1;
+  color: white;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .dropdown.explore-another-object button::after {
+  div.artifact .dropdown.explore-another-object button svg.toggler-svg {
     display: none;
   }
+}
+div.artifact .dropdown.explore-another-object button::after {
+  display: none;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .dropdown.explore-another-object button {
@@ -1257,11 +1267,16 @@ div.artifact .next-object-footer button {
   color: white;
   border: 1px solid white;
   border-radius: 1rem;
-  padding: 0.3em 1.25em;
+  padding: 0.3em 0.75rem 0.3em 1rem;
 }
-div.artifact .next-object-footer button img {
-  padding-left: 1vw;
-  height: 1.2em;
+div.artifact .next-object-footer button svg.next-object-svg {
+  display: inline-block;
+  transform: rotate(-0.25turn);
+  margin-left: 0.7rem;
+  vertical-align: middle;
+  stroke-width: 1;
+  color: white;
+  height: 1.05rem;
   width: auto;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {

@@ -53,6 +53,9 @@
           <div class="dropdown explore-another-object">
             <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
               <span class='name'>Explore another object</span>
+              <svg xmlns="http://www.w3.org/2000/svg" class="toggler-svg" width="16" height="16" stroke="currentColor" fill="currentColor" viewBox="0 0 16 16">
+                <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+              </svg>
               <span class="toggler-icon"></span>
             </button>
             <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="dropdownMenuButton1">
@@ -152,9 +155,9 @@
             <div class='draglayer'></div>
 
             <div class='zoom-controls'>
-              <button id='zoom-minus' class='zoom-minus' disabled><img src='media/images/zoom-minus.png'></img></button>
+              <button id='zoom-minus' class='zoom-minus' disabled><i class="bi bi-dash"></i></button>
               <div class='v-divide'></div>
-              <button id='zoom-plus' class='zoom-plus'><img src='media/images/zoom-plus.png'></img></button>
+              <button id='zoom-plus' class='zoom-plus'><i class="bi bi-plus"></i></button>
             </div>
 
           </div>
@@ -214,7 +217,9 @@
     <div class='next-object-footer'>
       <button id='next-object' class='next-object'>
         Next object
-        <img src="media/images/down_arrow.png"></img>
+        <svg xmlns="http://www.w3.org/2000/svg" class="next-object-svg" width="16" height="16" stroke="currentColor" fill="currentColor" viewBox="0 0 16 16">
+          <path fill-rule="evenodd" d="M1.646 4.646a.5.5 0 0 1 .708 0L8 10.293l5.646-5.647a.5.5 0 0 1 .708.708l-6 6a.5.5 0 0 1-.708 0l-6-6a.5.5 0 0 1 0-.708z" />
+        </svg>
       </button>
     </div>
 
