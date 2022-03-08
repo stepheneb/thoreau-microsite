@@ -10,6 +10,7 @@
   --snowshoe-brown: #704b46;
   --snowshoe-gray: rgb(205, 215, 224);
   --snowshoe-gray-rgba-90: rgba(205, 215, 224, 0.9);
+  --white-rgba-00: rgba(255, 255, 255, 0);
   --november-skies: #a7bbca;
   --writing-mask: #cdd7e0;
   --border-gray: gray;
@@ -178,8 +179,9 @@
 }
 
 :root {
-  --explore-images-timing: 0.75s 0s ease-in-out;
-  --explore-content-timing: 0.75s 0s ease-in-out;
+  --explore-images-timing: 0.5s 0s ease-in-out;
+  --explore-content-timing: 0.25s 0s ease-in-out;
+  --explore-video-tint-timing: 0.5s 0s ease-in-out;
   --gallery-carousel-timing: 0.2s;
   --explore-menu-timing: 0.2s 0s ease-in-out;
 }
@@ -1351,12 +1353,13 @@ div.artifact .fixed-video-container .video-wrapper {
   height: 100vh;
 }
 div.artifact .fixed-video-container .video-wrapper .tint {
-  visibility: hidden;
-  opacity: 0;
+  visibility: visible;
+  opacity: 1;
   position: absolute;
   width: 100%;
   height: 100%;
-  background-color: transparent;
+  background-color: var(--white-rgba-00);
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing), background-color var(--explore-video-tint-timing);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .fixed-video-container .video-wrapper {
@@ -1423,6 +1426,11 @@ body#spyglass {
   overflow-x: hidden;
 }
 
+div.artifact.spyglass .tint {
+  visibility: visible;
+  opacity: 1;
+  background-color: var(--thoreau-blue-rgba-80);
+}
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.start {
   height: 400vh;
   width: 100%;
@@ -1534,6 +1542,11 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wal
   position: -webkit-sticky;
   position: sticky;
   visibility: hidden;
+}
+div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.walden-sunset .video--wrapper .tint {
+  visibility: visible;
+  opacity: 1;
+  background-color: var(--thoreau-blue-rgba-80);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .image-container img.spyglass-photo {
@@ -1747,6 +1760,12 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   visibility: visible;
   opacity: 1;
 }
+#spyglass[data-content-scroll="13"] .fixed-video-container.spyglass.walden-sunset .tint,
+#spyglass[data-content-scroll="14"] .fixed-video-container.spyglass.walden-sunset .tint {
+  visibility: hidden;
+  opacity: 0;
+  background-color: transparent;
+}
 #spyglass[data-content-scroll="13"] .animation-frame-container.spyglass,
 #spyglass[data-content-scroll="13"] .arrow-scroll-down,
 #spyglass[data-content-scroll="14"] .animation-frame-container.spyglass,
@@ -1777,12 +1796,21 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 }
 
 body#walking-stick {
-  height: 400vh;
+  height: 500vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
+div.artifact.walking-stick .fixed-video-container.walking-stick.walk {
+  visibility: hidden;
+  opacity: 0;
+}
+div.artifact.walking-stick .fixed-video-container.walking-stick.walk .tint {
+  visibility: visible;
+  opacity: 1;
+  background-color: var(--thoreau-purple-rgba-90);
+}
 div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.start {
   height: 100vh;
   width: 100%;
@@ -1804,7 +1832,7 @@ div.artifact.walking-stick .content.walking-stick .absolute-content-container.wa
   }
 }
 div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.i-have-met {
-  height: 100vh;
+  height: 200vh;
   position: -webkit-sticky;
   position: sticky;
   visibility: hidden;
@@ -1959,66 +1987,88 @@ div.artifact.walking-stick .background-image-container.walking-stick:before {
   margin-right: -10%;
 }
 
-#walking-stick[data-content-scroll="2"] .background-image-container.walking-stick:before {
+#walking-stick[data-content-scroll="2"] .background-image-container.walking-stick:before,
+#walking-stick[data-content-scroll="3"] .background-image-container.walking-stick:before {
   background-color: var(--thoreau-purple);
   background-image: url("../media/images/thoreau-handwriting-light-background.png"), url("../media/images/walking-stick/forest-path-istockphoto-182508042-1024x1024-with-mask.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-#walking-stick[data-content-scroll="2"] .absolute-content-container.walking-stick.i-have-met {
+#walking-stick[data-content-scroll="2"] .absolute-content-container.walking-stick.i-have-met,
+#walking-stick[data-content-scroll="3"] .absolute-content-container.walking-stick.i-have-met {
   visibility: visible;
   opacity: 1;
   position: sticky;
 }
-#walking-stick[data-content-scroll="2"] .fixed-video-container.walking-stick.walk {
+#walking-stick[data-content-scroll="2"] .fixed-video-container.walking-stick.walk,
+#walking-stick[data-content-scroll="3"] .fixed-video-container.walking-stick.walk {
   visibility: visible;
   opacity: 1;
 }
-#walking-stick[data-content-scroll="2"] .fixed-video-container.walking-stick.walk .tint {
+#walking-stick[data-content-scroll="2"] .fixed-video-container.walking-stick.walk .tint,
+#walking-stick[data-content-scroll="3"] .fixed-video-container.walking-stick.walk .tint {
   visibility: visible;
   opacity: 1;
   background-color: var(--thoreau-purple-rgba-90);
 }
 
-#walking-stick[data-content-scroll="3"] .background-image-container.walking-stick:before {
+#walking-stick[data-content-scroll="3"] .absolute-content-container.walking-stick.i-have-met {
+  position: fixed;
+}
+
+#walking-stick[data-content-scroll="4"] .background-image-container.walking-stick:before {
   background-image: url("../media/images/walking-stick/forest-path-istockphoto-182508042-1024x1024.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-#walking-stick[data-content-scroll="3"] .fixed-video-container.walking-stick.walk {
+#walking-stick[data-content-scroll="4"] .fixed-video-container.walking-stick.walk {
   visibility: visible;
   opacity: 1;
 }
-#walking-stick[data-content-scroll="3"] .arrow-scroll-down {
+#walking-stick[data-content-scroll="4"] .fixed-video-container.walking-stick.walk .tint {
+  visibility: hidden;
+  opacity: 0;
+  background-color: transparent;
+}
+#walking-stick[data-content-scroll="4"] .arrow-scroll-down {
   visibility: hidden;
   opacity: 0;
 }
-#walking-stick[data-content-scroll="3"] .next-object-footer,
-#walking-stick[data-content-scroll="3"] .back-to-top {
+#walking-stick[data-content-scroll="4"] .next-object-footer,
+#walking-stick[data-content-scroll="4"] .back-to-top {
   visibility: visible;
   opacity: 1;
 }
-#walking-stick[data-content-scroll="3"] .next-object-footer {
+#walking-stick[data-content-scroll="4"] .next-object-footer {
   visibility: visible;
 }
-#walking-stick[data-content-scroll="3"] .mute-button {
+#walking-stick[data-content-scroll="4"] .mute-button {
   bottom: 11.5vh;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #walking-stick[data-content-scroll="3"] .mute-button {
+  #walking-stick[data-content-scroll="4"] .mute-button {
     bottom: 6.5vh;
   }
 }
 
 body#flute {
-  height: 400vh;
+  height: 500vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
+div.artifact.flute .fixed-video-container.flute.stream {
+  visibility: hidden;
+  opacity: 0;
+}
+div.artifact.flute .fixed-video-container.flute.stream .tint {
+  visibility: visible;
+  opacity: 1;
+  background-color: var(--thoreau-green-rgba-90);
+}
 div.artifact.flute .content.flute .absolute-content-container.flute.start {
   height: 100vh;
   width: 100%;
@@ -2040,7 +2090,7 @@ div.artifact.flute .content.flute .absolute-content-container.flute.start .title
   }
 }
 div.artifact.flute .content.flute .absolute-content-container.flute.my-music {
-  height: 100vh;
+  height: 200vh;
   position: -webkit-sticky;
   position: sticky;
   visibility: hidden;
@@ -2192,66 +2242,88 @@ div.artifact.flute .background-image-container.flute:before {
   opacity: 1;
 }
 
-#flute[data-content-scroll="2"] .background-image-container.flute:before {
+#flute[data-content-scroll="2"] .background-image-container.flute:before,
+#flute[data-content-scroll="3"] .background-image-container.flute:before {
   background-color: var(--thoreau-green);
   background-image: url("../media/images/thoreau-handwriting-light-background.png"), url("../media/images/flute/forest-stream-david-lindahl-IcEB7ExxMew-unsplash-masked.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-#flute[data-content-scroll="2"] .absolute-content-container.flute.my-music {
+#flute[data-content-scroll="2"] .absolute-content-container.flute.my-music,
+#flute[data-content-scroll="3"] .absolute-content-container.flute.my-music {
   visibility: visible;
   opacity: 1;
   position: sticky;
 }
-#flute[data-content-scroll="2"] .fixed-video-container.flute.stream {
+#flute[data-content-scroll="2"] .fixed-video-container.flute.stream,
+#flute[data-content-scroll="3"] .fixed-video-container.flute.stream {
   visibility: visible;
   opacity: 1;
 }
-#flute[data-content-scroll="2"] .fixed-video-container.flute.stream .tint {
+#flute[data-content-scroll="2"] .fixed-video-container.flute.stream .tint,
+#flute[data-content-scroll="3"] .fixed-video-container.flute.stream .tint {
   visibility: visible;
   opacity: 1;
   background-color: var(--thoreau-green-rgba-90);
 }
 
-#flute[data-content-scroll="3"] .background-image-container.flute:before {
+#flute[data-content-scroll="3"] .absolute-content-container.flute.my-music {
+  position: fixed;
+}
+
+#flute[data-content-scroll="4"] .background-image-container.flute:before {
   background-image: url("../media/images/flute/forest-stream-david-lindahl-IcEB7ExxMew-unsplash.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-#flute[data-content-scroll="3"] .fixed-video-container.flute.stream {
+#flute[data-content-scroll="4"] .fixed-video-container.flute.stream {
   visibility: visible;
   opacity: 1;
 }
-#flute[data-content-scroll="3"] .arrow-scroll-down {
+#flute[data-content-scroll="4"] .fixed-video-container.flute.stream .tint {
+  visibility: hidden;
+  opacity: 0;
+  background-color: transparent;
+}
+#flute[data-content-scroll="4"] .arrow-scroll-down {
   visibility: hidden;
   opacity: 0;
 }
-#flute[data-content-scroll="3"] .next-object-footer,
-#flute[data-content-scroll="3"] .back-to-top {
+#flute[data-content-scroll="4"] .next-object-footer,
+#flute[data-content-scroll="4"] .back-to-top {
   visibility: visible;
   opacity: 1;
 }
-#flute[data-content-scroll="3"] .next-object-footer {
+#flute[data-content-scroll="4"] .next-object-footer {
   visibility: visible;
 }
-#flute[data-content-scroll="3"] .mute-button {
+#flute[data-content-scroll="4"] .mute-button {
   bottom: 11.5vh;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #flute[data-content-scroll="3"] .mute-button {
+  #flute[data-content-scroll="4"] .mute-button {
     bottom: 6.5vh;
   }
 }
 
 body#snowshoes {
-  height: 400vh;
+  height: 500vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
+div.artifact.snowshoes .fixed-video-container.snowshoes.snowy-leaves {
+  visibility: hidden;
+  opacity: 0;
+}
+div.artifact.snowshoes .fixed-video-container.snowshoes.snowy-leaves .tint {
+  visibility: visible;
+  opacity: 1;
+  background-color: var(--snowshoe-gray-rgba-90);
+}
 div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.start {
   height: 100vh;
   width: 100%;
@@ -2277,7 +2349,7 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
   }
 }
 div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.perhaps-the-best {
-  height: 100vh;
+  height: 200vh;
   position: -webkit-sticky;
   position: sticky;
   visibility: hidden;
@@ -2432,55 +2504,68 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
   opacity: 1;
 }
 
-#snowshoes[data-content-scroll="2"] .background-image-container.snowshoes:before {
+#snowshoes[data-content-scroll="2"] .background-image-container.snowshoes:before,
+#snowshoes[data-content-scroll="3"] .background-image-container.snowshoes:before {
   background-color: var(--writing-mask);
   background-image: url("../media/images/thoreau-handwriting-light-background.png"), url("../media/images/snowshoes/snowy-leaves-david-lindahl-IcEB7ExxMew-unsplash-masked.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-#snowshoes[data-content-scroll="2"] .absolute-content-container.snowshoes.perhaps-the-best {
+#snowshoes[data-content-scroll="2"] .absolute-content-container.snowshoes.perhaps-the-best,
+#snowshoes[data-content-scroll="3"] .absolute-content-container.snowshoes.perhaps-the-best {
   visibility: visible;
   opacity: 1;
   position: sticky;
 }
-#snowshoes[data-content-scroll="2"] .fixed-video-container.snowshoes.snow {
+#snowshoes[data-content-scroll="2"] .fixed-video-container.snowshoes.snowy-leaves,
+#snowshoes[data-content-scroll="3"] .fixed-video-container.snowshoes.snowy-leaves {
   visibility: visible;
   opacity: 1;
 }
-#snowshoes[data-content-scroll="2"] .fixed-video-container.snowshoes.snow .tint {
+#snowshoes[data-content-scroll="2"] .fixed-video-container.snowshoes.snowy-leaves .tint,
+#snowshoes[data-content-scroll="3"] .fixed-video-container.snowshoes.snowy-leaves .tint {
   visibility: visible;
   opacity: 1;
   background-color: var(--snowshoe-gray-rgba-90);
 }
 
-#snowshoes[data-content-scroll="3"] .background-image-container.snowshoes:before {
+#snowshoes[data-content-scroll="3"] .absolute-content-container.snowshoes.perhaps-the-best {
+  position: fixed;
+}
+
+#snowshoes[data-content-scroll="4"] .background-image-container.snowshoes:before {
   background-image: url("../media/images/snowshoes/snowy-leaves-david-lindahl-IcEB7ExxMew-unsplash.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-#snowshoes[data-content-scroll="3"] .fixed-video-container.snowshoes.snow {
+#snowshoes[data-content-scroll="4"] .fixed-video-container.snowshoes.snowy-leaves {
   visibility: visible;
   opacity: 1;
 }
-#snowshoes[data-content-scroll="3"] .arrow-scroll-down {
+#snowshoes[data-content-scroll="4"] .fixed-video-container.snowshoes.snowy-leaves .tint {
+  visibility: hidden;
+  opacity: 0;
+  background-color: transparent;
+}
+#snowshoes[data-content-scroll="4"] .arrow-scroll-down {
   visibility: hidden;
   opacity: 0;
 }
-#snowshoes[data-content-scroll="3"] .next-object-footer,
-#snowshoes[data-content-scroll="3"] .back-to-top {
+#snowshoes[data-content-scroll="4"] .next-object-footer,
+#snowshoes[data-content-scroll="4"] .back-to-top {
   visibility: visible;
   opacity: 1;
 }
-#snowshoes[data-content-scroll="3"] .next-object-footer {
+#snowshoes[data-content-scroll="4"] .next-object-footer {
   visibility: visible;
 }
-#snowshoes[data-content-scroll="3"] .mute-button {
+#snowshoes[data-content-scroll="4"] .mute-button {
   bottom: 11.5vh;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #snowshoes[data-content-scroll="3"] .mute-button {
+  #snowshoes[data-content-scroll="4"] .mute-button {
     bottom: 6.5vh;
   }
 }
