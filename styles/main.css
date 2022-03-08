@@ -528,7 +528,6 @@ div.artifact .content .absolute-content-container.start .content .about-containe
 div.artifact .content .absolute-content-container.start .content .image-container {
   position: relative;
   margin: 5vh 4vw 0 0.5vw;
-  border: 1px solid red;
   height: 82vh;
   width: 75%;
   display: flex;
