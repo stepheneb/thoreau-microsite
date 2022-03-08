@@ -31,10 +31,15 @@
     color: white;
     border: 1px solid white;
     border-radius: 1rem;
-    padding: 0.3em 1.25em;
-    img {
-      padding-left: 1vw;
-      height: 1.2em;
+    padding: 0.3em 0.75rem 0.3em 1rem;
+    svg.next-object-svg {
+      display: inline-block;
+      transform: rotate(-0.25turn);
+      margin-left: 0.7rem;
+      vertical-align: middle;
+      stroke-width: 1;
+      color: white;
+      height: 1.05rem;
       width: auto;
     }
   }
