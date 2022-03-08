@@ -198,7 +198,7 @@ div.artifact {
           }
 
           .about-container {
-            width: 28vw;
+            width: 30vw;
             margin: 5rem 0 0 5.5rem;
             @include mobile-portrait() {
               margin: 0 5vw;
@@ -225,7 +225,7 @@ div.artifact {
                 align-items: center;
               }
               .title {
-                width: 30vw;
+                width: 100%;
                 margin: 3rem 0 2.9rem 0;
                 font-family: "Libre Caslon Text", serif;
                 font-size: var(--artifact-title);
@@ -295,7 +295,7 @@ div.artifact {
 
           .image-container {
             position: relative;
-            margin: 5vh 4vw 0 1vw;
+            margin: 5vh 4vw 0 0.5vw;
             height: 82vh;
             width: 75%;
 
