@@ -46,9 +46,9 @@
   --main-title: 3.6rem;
   --main-title-world: 8.6rem;
   --main-description: 1.2rem;
-  --artifact-title: 2.25rem;
+  --artifact-title: 2.1rem;
   --artifact-title-line-height: 2.4rem;
-  --artifact-description: 1.25rem;
+  --artifact-description: 1.2rem;
   --artifact-description-letter-spacing: calc(
     clamp(0px, (0.4vh - 3.61px), 2px)
   );
@@ -409,7 +409,7 @@ div.artifact .content .absolute-content-container.start .content {
   }
 }
 div.artifact .content .absolute-content-container.start .content .about-container {
-  width: 28vw;
+  width: 30vw;
   margin: 5rem 0 0 5.5rem;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
@@ -446,7 +446,7 @@ div.artifact .content .absolute-content-container.start .content .about-containe
   }
 }
 div.artifact .content .absolute-content-container.start .content .about-container .header .title {
-  width: 30vw;
+  width: 100%;
   margin: 3rem 0 2.9rem 0;
   font-family: "Libre Caslon Text", serif;
   font-size: var(--artifact-title);
@@ -527,7 +527,8 @@ div.artifact .content .absolute-content-container.start .content .about-containe
 }
 div.artifact .content .absolute-content-container.start .content .image-container {
   position: relative;
-  margin: 5vh 4vw 0 1vw;
+  margin: 5vh 4vw 0 0.5vw;
+  border: 1px solid red;
   height: 82vh;
   width: 75%;
   display: flex;
