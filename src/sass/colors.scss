@@ -2,14 +2,21 @@
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
 
 :root {
-  --thoreau-blue: #5dc0d0;
-  --thoreau-rgba-blue: rgba(93, 192, 208, 1);
+  --thoreau-blue: rgb(93, 192, 208);
+  --thoreau-blue-rgba-80: rgba(93, 192, 208, 0.8);
 
-  --thoreau-purple: #4b5a74;
-  --thoreau-green: #84a745;
+  --thoreau-purple: rgb(75, 90, 116);
+  --thoreau-purple-rgba-90: rgba(75, 90, 116, 0.9);
+
+  --thoreau-green: rgb(132, 167, 69);
+  --thoreau-green-rgba-90: rgb(132, 167, 69, 0.9);
 
   --snowshoe-brown: #704b46;
-  --snowshoe-writing-mask: #cdd7e0;
+
+  --snowshoe-gray: rgb(205, 215, 224);
+  --snowshoe-gray-rgba-90: rgba(205, 215, 224, 0.9);
+
+  --white-rgba-00: rgba(255, 255, 255, 0);
 
   --november-skies: #a7bbca;
 

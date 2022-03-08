@@ -10,6 +10,12 @@ body#spyglass {
 }
 
 div.artifact.spyglass {
+  .tint {
+    visibility: visible;
+    opacity: 1;
+    background-color: var(--thoreau-blue-rgba-80);
+  }
+
   .content.spyglass {
     .absolute-content-container.spyglass {
       &.start {
@@ -123,6 +129,13 @@ div.artifact.spyglass {
         position: -webkit-sticky;
         position: sticky;
         visibility: hidden;
+        .video--wrapper {
+          .tint {
+            visibility: visible;
+            opacity: 1;
+            background-color: var(--thoreau-blue-rgba-80);
+          }
+        }
       }
     }
   }
@@ -164,7 +177,7 @@ div.artifact.spyglass {
 
   .background-image-container.spyglass {
     &:before {
-      background-color: var(--thoreau-rgba-blue);
+      background-color: var(--thoreau-blue);
     }
   }
 }
@@ -247,7 +260,7 @@ div.artifact.spyglass {
 #spyglass[data-content-scroll="1"] {
   .background-image-container.spyglass {
     &:before {
-      background-color: var(--thoreau-rgba-blue);
+      background-color: var(--thoreau-blue);
       background-image: url("../media/images/thoreau-handwriting-light-background.png");
       background-repeat: no-repeat;
       background-position: center;
@@ -344,9 +357,14 @@ div.artifact.spyglass {
     position: sticky;
   }
 
-  .fixed-video-container.spyglass.walden-sunset-blue {
+  .fixed-video-container.spyglass.walden-sunset {
     visibility: visible;
     opacity: 1;
+    .tint {
+      visibility: visible;
+      opacity: 1;
+      background-color: var(--thoreau-blue-rgba-80);
+    }
   }
 
   .animation-frame-container.spyglass {
@@ -373,6 +391,11 @@ div.artifact.spyglass {
   .fixed-video-container.spyglass.walden-sunset {
     visibility: visible;
     opacity: 1;
+    .tint {
+      visibility: hidden;
+      opacity: 0;
+      background-color: transparent;
+    }
   }
 
   .animation-frame-container.spyglass,

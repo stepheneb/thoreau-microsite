@@ -28,6 +28,19 @@
     justify-self: center;
     width: 100vw;
     height: 100vh;
+    .tint {
+      visibility: visible;
+      opacity: 1;
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background-color: var(--white-rgba-00);
+      transition: opacity var(--explore-images-timing),
+        visibility var(--explore-images-timing),
+        background-color var(--explore-video-tint-timing);
+    }
+    video {
+    }
     @include mobile-portrait() {
       width: 100%;
     }

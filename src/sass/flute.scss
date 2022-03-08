@@ -3,13 +3,23 @@
 //
 
 body#flute {
-  height: 400vh;
+  height: 500vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
 div.artifact.flute {
+  .fixed-video-container.flute.stream {
+    visibility: hidden;
+    opacity: 0;
+    .tint {
+      visibility: visible;
+      opacity: 1;
+      background-color: var(--thoreau-green-rgba-90);
+    }
+  }
+
   .content.flute {
     .absolute-content-container.flute {
       &.start {
@@ -35,7 +45,7 @@ div.artifact.flute {
       }
 
       &.my-music {
-        height: 100vh;
+        height: 200vh;
         position: -webkit-sticky;
         position: sticky;
         visibility: hidden;
@@ -216,7 +226,8 @@ div.artifact.flute {
   }
 }
 
-#flute[data-content-scroll="2"] {
+#flute[data-content-scroll="2"],
+#flute[data-content-scroll="3"] {
   .background-image-container.flute {
     &:before {
       background-color: var(--thoreau-green);
@@ -234,9 +245,25 @@ div.artifact.flute {
     opacity: 1;
     position: sticky;
   }
+
+  .fixed-video-container.flute.stream {
+    visibility: visible;
+    opacity: 1;
+    .tint {
+      visibility: visible;
+      opacity: 1;
+      background-color: var(--thoreau-green-rgba-90);
+    }
+  }
 }
 
 #flute[data-content-scroll="3"] {
+  .absolute-content-container.flute.my-music {
+    position: fixed;
+  }
+}
+
+#flute[data-content-scroll="4"] {
   .background-image-container.flute {
     &:before {
       background-image: url("../media/images/flute/forest-stream-david-lindahl-IcEB7ExxMew-unsplash.png");
@@ -249,6 +276,11 @@ div.artifact.flute {
   .fixed-video-container.flute.stream {
     visibility: visible;
     opacity: 1;
+    .tint {
+      visibility: hidden;
+      opacity: 0;
+      background-color: transparent;
+    }
   }
 
   .arrow-scroll-down {

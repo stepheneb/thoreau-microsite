@@ -3,13 +3,23 @@
 //
 
 body#walking-stick {
-  height: 400vh;
+  height: 500vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
 div.artifact.walking-stick {
+  .fixed-video-container.walking-stick.walk {
+    visibility: hidden;
+    opacity: 0;
+    .tint {
+      visibility: visible;
+      opacity: 1;
+      background-color: var(--thoreau-purple-rgba-90);
+    }
+  }
+
   .content.walking-stick {
     .absolute-content-container.walking-stick {
       &.start {
@@ -35,7 +45,7 @@ div.artifact.walking-stick {
       }
 
       &.i-have-met {
-        height: 100vh;
+        height: 200vh;
         position: -webkit-sticky;
         position: sticky;
         visibility: hidden;
@@ -219,7 +229,8 @@ div.artifact.walking-stick {
   }
 }
 
-#walking-stick[data-content-scroll="2"] {
+#walking-stick[data-content-scroll="2"],
+#walking-stick[data-content-scroll="3"] {
   .background-image-container.walking-stick {
     &:before {
       background-color: var(--thoreau-purple);
@@ -237,9 +248,25 @@ div.artifact.walking-stick {
     opacity: 1;
     position: sticky;
   }
+
+  .fixed-video-container.walking-stick.walk {
+    visibility: visible;
+    opacity: 1;
+    .tint {
+      visibility: visible;
+      opacity: 1;
+      background-color: var(--thoreau-purple-rgba-90);
+    }
+  }
 }
 
 #walking-stick[data-content-scroll="3"] {
+  .absolute-content-container.walking-stick.i-have-met {
+    position: fixed;
+  }
+}
+
+#walking-stick[data-content-scroll="4"] {
   .background-image-container.walking-stick {
     &:before {
       background-image: url("../media/images/walking-stick/forest-path-istockphoto-182508042-1024x1024.png");
@@ -252,6 +279,11 @@ div.artifact.walking-stick {
   .fixed-video-container.walking-stick.walk {
     visibility: visible;
     opacity: 1;
+    .tint {
+      visibility: hidden;
+      opacity: 0;
+      background-color: transparent;
+    }
   }
 
   .arrow-scroll-down {

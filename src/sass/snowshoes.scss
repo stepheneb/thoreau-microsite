@@ -3,13 +3,23 @@
 //
 
 body#snowshoes {
-  height: 400vh;
+  height: 500vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
 }
 
 div.artifact.snowshoes {
+  .fixed-video-container.snowshoes.snowy-leaves {
+    visibility: hidden;
+    opacity: 0;
+    .tint {
+      visibility: visible;
+      opacity: 1;
+      background-color: var(--snowshoe-gray-rgba-90);
+    }
+  }
+
   .content.snowshoes {
     .absolute-content-container.snowshoes {
       &.start {
@@ -39,7 +49,7 @@ div.artifact.snowshoes {
       }
 
       &.perhaps-the-best {
-        height: 100vh;
+        height: 200vh;
         position: -webkit-sticky;
         position: sticky;
         visibility: hidden;
@@ -228,7 +238,8 @@ div.artifact.snowshoes {
   }
 }
 
-#snowshoes[data-content-scroll="2"] {
+#snowshoes[data-content-scroll="2"],
+#snowshoes[data-content-scroll="3"] {
   .background-image-container.snowshoes {
     &:before {
       background-color: var(--writing-mask);
@@ -246,9 +257,25 @@ div.artifact.snowshoes {
     opacity: 1;
     position: sticky;
   }
+
+  .fixed-video-container.snowshoes.snowy-leaves {
+    visibility: visible;
+    opacity: 1;
+    .tint {
+      visibility: visible;
+      opacity: 1;
+      background-color: var(--snowshoe-gray-rgba-90);
+    }
+  }
 }
 
 #snowshoes[data-content-scroll="3"] {
+  .absolute-content-container.snowshoes.perhaps-the-best {
+    position: fixed;
+  }
+}
+
+#snowshoes[data-content-scroll="4"] {
   .background-image-container.snowshoes {
     &:before {
       background-image: url("../media/images/snowshoes/snowy-leaves-david-lindahl-IcEB7ExxMew-unsplash.png");
@@ -258,9 +285,14 @@ div.artifact.snowshoes {
     }
   }
 
-  .fixed-video-container.snowshoes.snow {
+  .fixed-video-container.snowshoes.snowy-leaves {
     visibility: visible;
     opacity: 1;
+    .tint {
+      visibility: hidden;
+      opacity: 0;
+      background-color: transparent;
+    }
   }
 
   .arrow-scroll-down {
