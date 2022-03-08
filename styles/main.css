@@ -1,12 +1,15 @@
 /* color variables */
 /* https://developer.mozilla.org/en-US/docs/Web/CSS/Using_CSS_custom_properties */
 :root {
-  --thoreau-blue: #5dc0d0;
-  --thoreau-rgba-blue: rgba(93, 192, 208, 1);
-  --thoreau-purple: #4b5a74;
-  --thoreau-green: #84a745;
+  --thoreau-blue: rgb(93, 192, 208);
+  --thoreau-blue-rgba-80: rgba(93, 192, 208, 0.8);
+  --thoreau-purple: rgb(75, 90, 116);
+  --thoreau-purple-rgba-90: rgba(75, 90, 116, 0.9);
+  --thoreau-green: rgb(132, 167, 69);
+  --thoreau-green-rgba-90: rgb(132, 167, 69, 0.9);
   --snowshoe-brown: #704b46;
-  --snowshoe-writing-mask: #cdd7e0;
+  --snowshoe-gray: rgb(205, 215, 224);
+  --snowshoe-gray-rgba-90: rgba(205, 215, 224, 0.9);
   --november-skies: #a7bbca;
   --writing-mask: #cdd7e0;
   --border-gray: gray;
@@ -175,8 +178,8 @@
 }
 
 :root {
-  --explore-images-timing: 0.5s 0s ease-in-out;
-  --explore-content-timing: 0.3s 0s ease-in-out;
+  --explore-images-timing: 0.75s 0s ease-in-out;
+  --explore-content-timing: 0.75s 0s ease-in-out;
   --gallery-carousel-timing: 0.2s;
   --explore-menu-timing: 0.2s 0s ease-in-out;
 }
@@ -823,7 +826,7 @@ div.artifact .background-image-container:before {
   bottom: 0px;
   left: 0px;
   opacity: 1;
-  background-color: var(--thoreau-rgba-blue);
+  background-color: var(--thoreau-blue);
   background-image: url("../media/images/transparent.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -1347,6 +1350,14 @@ div.artifact .fixed-video-container .video-wrapper {
   width: 100vw;
   height: 100vh;
 }
+div.artifact .fixed-video-container .video-wrapper .tint {
+  visibility: hidden;
+  opacity: 0;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  background-color: transparent;
+}
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .fixed-video-container .video-wrapper {
     width: 100%;
@@ -1552,7 +1563,7 @@ div.artifact.spyglass .fixed-image-container.spyglass img.spyglass-photo-rotated
   }
 }
 div.artifact.spyglass .background-image-container.spyglass:before {
-  background-color: var(--thoreau-rgba-blue);
+  background-color: var(--thoreau-blue);
 }
 
 #spyglass[data-content-scroll="0"] .arrow-scroll-down img {
@@ -1613,7 +1624,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 }
 
 #spyglass[data-content-scroll="1"] .background-image-container.spyglass:before {
-  background-color: var(--thoreau-rgba-blue);
+  background-color: var(--thoreau-blue);
   background-image: url("../media/images/thoreau-handwriting-light-background.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -1703,10 +1714,16 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   opacity: 1;
   position: sticky;
 }
-#spyglass[data-content-scroll="11"] .fixed-video-container.spyglass.walden-sunset-blue,
-#spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset-blue {
+#spyglass[data-content-scroll="11"] .fixed-video-container.spyglass.walden-sunset,
+#spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset {
   visibility: visible;
   opacity: 1;
+}
+#spyglass[data-content-scroll="11"] .fixed-video-container.spyglass.walden-sunset .tint,
+#spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset .tint {
+  visibility: visible;
+  opacity: 1;
+  background-color: var(--thoreau-blue-rgba-80);
 }
 #spyglass[data-content-scroll="11"] .animation-frame-container.spyglass,
 #spyglass[data-content-scroll="12"] .animation-frame-container.spyglass {
@@ -1954,6 +1971,15 @@ div.artifact.walking-stick .background-image-container.walking-stick:before {
   opacity: 1;
   position: sticky;
 }
+#walking-stick[data-content-scroll="2"] .fixed-video-container.walking-stick.walk {
+  visibility: visible;
+  opacity: 1;
+}
+#walking-stick[data-content-scroll="2"] .fixed-video-container.walking-stick.walk .tint {
+  visibility: visible;
+  opacity: 1;
+  background-color: var(--thoreau-purple-rgba-90);
+}
 
 #walking-stick[data-content-scroll="3"] .background-image-container.walking-stick:before {
   background-image: url("../media/images/walking-stick/forest-path-istockphoto-182508042-1024x1024.png");
@@ -2177,6 +2203,15 @@ div.artifact.flute .background-image-container.flute:before {
   visibility: visible;
   opacity: 1;
   position: sticky;
+}
+#flute[data-content-scroll="2"] .fixed-video-container.flute.stream {
+  visibility: visible;
+  opacity: 1;
+}
+#flute[data-content-scroll="2"] .fixed-video-container.flute.stream .tint {
+  visibility: visible;
+  opacity: 1;
+  background-color: var(--thoreau-green-rgba-90);
 }
 
 #flute[data-content-scroll="3"] .background-image-container.flute:before {
@@ -2408,6 +2443,15 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
   visibility: visible;
   opacity: 1;
   position: sticky;
+}
+#snowshoes[data-content-scroll="2"] .fixed-video-container.snowshoes.snow {
+  visibility: visible;
+  opacity: 1;
+}
+#snowshoes[data-content-scroll="2"] .fixed-video-container.snowshoes.snow .tint {
+  visibility: visible;
+  opacity: 1;
+  background-color: var(--snowshoe-gray-rgba-90);
 }
 
 #snowshoes[data-content-scroll="3"] .background-image-container.snowshoes:before {
