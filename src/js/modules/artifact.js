@@ -5,6 +5,7 @@ import { app } from "./globals.js";
 import { scrollerSetup } from './scroller.js';
 import { zoom, setupDragHandling } from "./zoom.js";
 import { generateDropdownUL } from "./menu.js";
+import { pages } from "./pages.js";
 
 app.logger(zoom);
 
@@ -24,4 +25,15 @@ export const startup = (id, animations) => {
   backToTop.addEventListener('click', () => {
     window.scrollTo(0, 0);
   })
+
+  const artifactPages = pages.filter(p => p.type == 'artifact' && p.enabled);
+  let pageIndex = artifactPages.findIndex((p) => p.id == id);
+
+  const nextObject = document.getElementById('next-object');
+  nextObject.addEventListener('click', () => {
+    pageIndex += 1;
+    if (pageIndex >= artifactPages.length) pageIndex = 0;
+    window.location.href = artifactPages[pageIndex].location;
+  })
+
 }
