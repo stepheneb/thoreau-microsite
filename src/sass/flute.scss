@@ -127,7 +127,7 @@ div.artifact.flute {
     img.flute-detail {
       width: 147%;
       @include mobile-portrait() {
-        width: 100vw;
+        width: 150vw;
         height: auto;
       }
     }
