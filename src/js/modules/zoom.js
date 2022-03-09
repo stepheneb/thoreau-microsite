@@ -228,20 +228,22 @@ export const setupDragHandling = () => {
     dragEnded(e);
   });
 
-  dragLayer.addEventListener('touchend', (e) => {
-    dragEnded(e);
-  });
-
   dragLayer.addEventListener('pointercancel', () => {
     // dragEnded();
   });
 
-  dragLayer.addEventListener('touchcancel', () => {
-    // dragEnded();
+  dragLayer.addEventListener('pointerleave', (e) => {
+    dragEnded(e);
   });
 
-  dragLayer.addEventListener('pointerleave', () => {
-    // dragEnded();
+  dragLayer.addEventListener('touchend', (e) => {
+    e.preventDefault();
+    dragEnded(e);
+  });
+
+  dragLayer.addEventListener('touchcancel', (e) => {
+    e.preventDefault();
+    dragEnded(e);
   });
 
 }
