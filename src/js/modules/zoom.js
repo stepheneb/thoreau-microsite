@@ -127,9 +127,28 @@ zoomEndEvents.forEach((event) => {
   zoomPlus.addEventListener(event, endZooming);
 })
 
+const touchscreen = navigator.maxTouchPoints > 0 || navigator.platform == 'iPhone'
+
+if (touchscreen) {
+  zoomMinus.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+  })
+
+  zoomPlus.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+  })
+
+  dragLayer.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+  })
+
+  artifactWrapper.addEventListener('contextmenu', (e) => {
+    e.preventDefault();
+  })
+}
+
 export const setupDragHandling = () => {
   let dragstarted = false;
-  const touchscreen = navigator.maxTouchPoints > 0 || navigator.platform == 'iPhone'
   const originalPos = { x: 0, y: 0 };
 
   const dragEnded = (e) => {
