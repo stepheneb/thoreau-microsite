@@ -4,14 +4,16 @@
 import { app } from "./modules/globals.js";
 import { pages } from "./modules/pages.js";
 
+const artifactPages = pages.filter(p => p.type == 'artifact');
+
 let selectRight, selectLeft, selectedImage, carouselImageContainer;
 
 let pageIndex = 1;
-let selectedPage = pages[pageIndex];
+let selectedPage = artifactPages[pageIndex];
 
 let updateSelectedPage = () => {
   selectedImage.classList.remove('selected');
-  selectedPage = pages[pageIndex];
+  selectedPage = artifactPages[pageIndex];
   selectedImage = selectedPage.element;
   selectedImage.classList.add('selected');
   window.location.hash = selectedPage.id;
@@ -19,20 +21,20 @@ let updateSelectedPage = () => {
 
 let nextPage = () => {
   pageIndex += 1;
-  if (pageIndex >= pages.length) pageIndex = 0;
-  selectedPage = pages[pageIndex];
+  if (pageIndex >= artifactPages.length) pageIndex = 0;
+  selectedPage = artifactPages[pageIndex];
   updateSelectedPage();
 }
 
 let previousPage = () => {
   pageIndex -= 1;
-  if (pageIndex < 0) pageIndex = pages.length - 1;
-  selectedPage = pages[pageIndex];
+  if (pageIndex < 0) pageIndex = artifactPages.length - 1;
+  selectedPage = artifactPages[pageIndex];
   updateSelectedPage();
 }
 
 let generateCarouselImgElements = () => {
-  pages.forEach((page, index) => {
+  artifactPages.forEach((page, index) => {
     let img = document.createElement("img");
     img.classList.add(page.id);
     img.src = page.src;
@@ -54,13 +56,13 @@ app.domReady(() => {
   let hash = window.location.hash.slice(1);
   let index;
   if (hash.length > 0) {
-    index = pages.findIndex((p) => p.id == hash);
+    index = artifactPages.findIndex((p) => p.id == hash);
     if (index >= 0) {
       pageIndex = index;
     }
   }
   generateCarouselImgElements();
-  selectedPage = pages[pageIndex];
+  selectedPage = artifactPages[pageIndex];
 
   // loadCarouselImages();
 

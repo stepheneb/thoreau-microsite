@@ -2192,7 +2192,7 @@ div.artifact.flute .fixed-image-container.flute img.flute-detail {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.flute .fixed-image-container.flute img.flute-detail {
-    width: 100vw;
+    width: 150vw;
     height: auto;
   }
 }
