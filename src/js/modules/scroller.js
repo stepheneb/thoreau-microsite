@@ -220,4 +220,4 @@ const scrollerSetup = (el, animations) => {
   }, 250)
 }
 
-export { scrollerSetup, animationFrameCallback, debounce, contentScrollFLoat, audioBackgroundCollection };
+export { scrollerSetup, animationFrameCallback, debounce, contentScrollFLoat, audioPlayerCollection, audioBackgroundCollection };

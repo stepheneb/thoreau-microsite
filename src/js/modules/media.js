@@ -1,5 +1,5 @@
 import { app } from "./globals.js"
-import { contentScrollFLoat, audioBackgroundCollection } from './scroller.js'
+import { contentScrollFLoat, audioPlayerCollection, audioBackgroundCollection } from './scroller.js'
 
 class MediaItem {
   isAudio(player) {
@@ -119,7 +119,10 @@ class MediaItem {
   }
 
   sweepVolume(startVolume, endVolume, timePeriod, callback) {
-    // app.logger('');
+    if (startVolume == endVolume) {
+      app.logger('error', 'startVolume', startVolume, 'endVolume', endVolume);
+      return;
+    }
     let endtest, lowV, highV;
     if (endVolume > startVolume) {
       lowV = startVolume;
@@ -235,20 +238,25 @@ class AudioPlayerItem extends MediaItem {
     this.updateDuration();
   }
 
+  lowerBackgroundVolume() {
+    audioBackgroundCollection.items.forEach(item => {
+      if (item.isPlaying()) {
+        item.lowerVolume(this.volume * 0.3);
+      }
+    });
+  }
+
   restoreBackgroundVolume() {
     audioBackgroundCollection.items.forEach(item => {
       if (item.isPlaying()) {
+        item.volume = 1;
         item.raiseVolume()
       }
     });
   }
 
   play() {
-    audioBackgroundCollection.items.forEach(item => {
-      if (item.isPlaying()) {
-        item.lowerVolume(this.volume * 0.3)
-      }
-    });
+    this.lowerBackgroundVolume();
     super.play();
   }
 
@@ -338,6 +346,15 @@ class AudioBackgroundItem extends MediaItem {
     })
   }
 
+  play() {
+    if (audioPlayerCollection.anyItemPlaying()) {
+      this.volume = 0.3;
+    } else {
+      this.volume = 1;
+    }
+    super.play();
+  }
+
   update() {
     this.resetVisibilityState();
     if (this.isPlaying() && this.isNotVisible()) {
@@ -407,6 +424,16 @@ class MediaCollection {
       }
     });
   }
+  anyItemPlaying() {
+    let itemPlaying = false;
+    this.items.forEach(item => {
+      if (item.isPlaying()) {
+        itemPlaying = true;
+      }
+    });
+    return itemPlaying;
+  }
+
 }
 
 export { AudioPlayerItem, AudioBackgroundItem, VideoBackgroundItem, MediaCollection };
