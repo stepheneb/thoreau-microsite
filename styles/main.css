@@ -706,6 +706,13 @@ div.artifact .content .absolute-content-container .author .audio.player .playpau
   font-size: 2.6em;
   pointer-events: all;
 }
+div.artifact .content .absolute-content-container .author .audio.player .playpause .play svg,
+div.artifact .content .absolute-content-container .author .audio.player .playpause .pause svg {
+  width: 1.45rem;
+  height: auto;
+  vertical-align: unset;
+  margin: 0 0.5rem;
+}
 div.artifact .content .absolute-content-container .author .audio.player .playpause .pause {
   display: none;
 }
