@@ -24,8 +24,41 @@
   padding: 0;
   font-size: var(--next-object);
   font-weight: 300;
+
+  .back-to-top {
+    font-size: var(--explore-content-mute-button);
+    color: var(--navy-blue);
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 400;
+    pointer-events: auto;
+    height: 1.5rem;
+    margin-right: 2rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    @include mobile-portrait() {
+    }
+    @include mobile-landscape() {
+    }
+    .label {
+      text-transform: uppercase;
+      margin-right: 0.5em;
+    }
+    svg.back-to-top-svg {
+      display: inline-block;
+      transform: rotate(0.5turn);
+      margin: 0 0 0.275rem 0;
+      align-self: center;
+      stroke-width: 2.25;
+      color: var(--navy-blue);
+      height: 0.75rem;
+      width: auto;
+    }
+  }
+
   button {
-    margin-right: 7vw;
+    margin-right: var(--next-object-right-margin);
     background-color: var(--navy-blue);
     opacity: 1;
     color: white;
@@ -37,9 +70,9 @@
       transform: rotate(-0.25turn);
       margin-left: 0.7rem;
       vertical-align: middle;
-      stroke-width: 1;
+      stroke-width: 1.8;
       color: white;
-      height: 1.05rem;
+      height: 0.7rem;
       width: auto;
     }
   }

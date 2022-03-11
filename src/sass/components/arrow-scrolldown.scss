@@ -8,10 +8,16 @@
   width: 100%;
   display: flex;
   justify-content: center;
-  img {
-    height: 1.6rem;
+  svg.arrow-scroll-down {
+    display: block;
+    transform: rotate(0turn);
+    margin: 00;
+    color: var(--white);
+    stroke-width: 1.5px;
+    height: 2rem;
     width: auto;
   }
+
   @include mobile-portrait() {
   }
   @include mobile-landscape() {

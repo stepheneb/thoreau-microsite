@@ -146,11 +146,6 @@ div.artifact.walking-stick {
 //
 
 #walking-stick[data-content-scroll="0"] {
-  .arrow-scroll-down {
-    img {
-      content: url("../media/images/arrow-scroll-down.png");
-    }
-  }
   .unmute-footer {
     display: flex;
   }
@@ -205,9 +200,12 @@ div.artifact.walking-stick {
   }
 
   .arrow-scroll-down {
-    bottom: 5.5vh;
+    bottom: 5.25vh;
     visibility: visible;
     opacity: 1;
+    svg {
+      color: black;
+    }
   }
 }
 

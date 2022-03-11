@@ -15,7 +15,7 @@
   }
 
   button {
-    padding: 0.35rem 1.5rem;
+    padding: 0.35rem 1.5rem 0.33rem 1.5rem;
     border: none;
     border-radius: 1.25rem;
     background-color: var(--navy-blue);
@@ -34,16 +34,16 @@
     svg.toggler-svg {
       display: inline-block;
       margin-left: 0.7rem;
-      margin-bottom: -0rem;
-      vertical-align: bottom;
-      width: 1.3rem;
+      margin-bottom: -0.2rem;
+      width: 1.5rem;
       height: auto;
-      stroke-width: 1;
+      stroke-width: 1.5;
       color: white;
       @include mobile-portrait() {
         display: none;
       }
     }
+
     &::after {
       display: none;
     }

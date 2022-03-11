@@ -5,7 +5,7 @@
   &.secondary {
     position: fixed;
     bottom: 2.5vh;
-    right: 5.5vw;
+    right: var(--unmute-right-distance);
     @include mobile-portrait() {
       bottom: 2.5vh;
     }

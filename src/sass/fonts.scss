@@ -45,6 +45,9 @@
 
   --next-object: 0.85em;
 
+  --unmute-right-distance: 5.5vw;
+  --next-object-right-margin: 6vw;
+
   @include desktop-strong-landscape() {
     --artifact-title: 2rem;
     --artifact-description: 1.2rem;
