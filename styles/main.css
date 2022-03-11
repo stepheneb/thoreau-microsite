@@ -185,6 +185,7 @@
 :root {
   --explore-images-timing: 0.75s 0s ease-in-out;
   --explore-content-timing: 0.5s 0s ease-in-out;
+  --arrow-scroll-timing: 0.1s 0s ease-in-out;
   --explore-video-tint-timing: 0.5s 0s ease-in-out;
   --gallery-carousel-timing: 0.2s;
   --explore-menu-timing: 0.2s 0s ease-in-out;
@@ -1132,7 +1133,7 @@ div.artifact .arrow-scroll-down {
   display: flex;
   justify-content: center;
   background-color: transparent;
-  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing), bottom var(--arrow-scroll-timing);
 }
 div.artifact .arrow-scroll-down svg.arrow-scroll-down {
   display: block;
