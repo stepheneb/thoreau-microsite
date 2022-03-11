@@ -71,9 +71,10 @@
   --explore-content-heading: 2.2rem;
   --explore-content-heading-weight: 600;
   --back-button-size: 2em;
-  --next-object: 0.85em;
+  --next-object: 0.875em;
+  --back-to-top: 0.87em;
   --unmute-right-distance: 5.5vw;
-  --next-object-right-margin: 6vw;
+  --next-object-right-margin: 7vw;
 }
 @media only screen and (min-aspect-ratio: 5/2) and (min-width: 1280px) {
   :root {
@@ -1239,13 +1240,13 @@ div.artifact .next-object-footer {
   font-weight: 300;
 }
 div.artifact .next-object-footer .back-to-top {
-  font-size: var(--explore-content-mute-button);
   color: var(--navy-blue);
   font-family: "Nunito Sans", sans-serif;
   font-weight: 400;
+  font-size: var(--back-to-top);
   pointer-events: auto;
   height: 1.5rem;
-  margin-right: 2rem;
+  margin-right: 2.5rem;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -1259,10 +1260,10 @@ div.artifact .next-object-footer .back-to-top svg.back-to-top-svg {
   display: inline-block;
   transform: rotate(0.5turn);
   margin: 0 0 0.275rem 0;
-  align-self: center;
-  stroke-width: 2.25;
+  align-self: flex-start;
+  stroke-width: 1.25;
   color: var(--navy-blue);
-  height: 0.75rem;
+  height: 1rem;
   width: auto;
 }
 div.artifact .next-object-footer button {
@@ -1271,17 +1272,18 @@ div.artifact .next-object-footer button {
   opacity: 1;
   color: white;
   border: 1px solid white;
-  border-radius: 1rem;
-  padding: 0.3em 0.75rem 0.3em 1rem;
+  border-radius: 1.5rem;
+  padding: 0.37em 0.25rem 0.33em 1.5rem;
 }
 div.artifact .next-object-footer button svg.next-object-svg {
   display: inline-block;
   transform: rotate(-0.25turn);
-  margin-left: 0.7rem;
+  margin-left: 0.8rem;
   vertical-align: middle;
-  stroke-width: 1.8;
+  margin-top: -0.1rem;
+  stroke-width: 1.15;
   color: white;
-  height: 0.7rem;
+  height: 0.9rem;
   width: auto;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
