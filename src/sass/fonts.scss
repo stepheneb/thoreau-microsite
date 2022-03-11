@@ -43,10 +43,11 @@
   --explore-content-heading-weight: 600;
   --back-button-size: 2em;
 
-  --next-object: 0.85em;
+  --next-object: 0.875em;
+  --back-to-top: 0.87em;
 
   --unmute-right-distance: 5.5vw;
-  --next-object-right-margin: 6vw;
+  --next-object-right-margin: 7vw;
 
   @include desktop-strong-landscape() {
     --artifact-title: 2rem;
