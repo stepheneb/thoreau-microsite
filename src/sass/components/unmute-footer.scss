@@ -2,7 +2,7 @@
   display: flex;
   display: none;
   flex-direction: row;
-  justify-content: flex-end;
+  justify-content: space-between;
   align-items: center;
   pointer-events: auto;
   position: fixed;
@@ -12,7 +12,7 @@
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 5vh;
+  height: var(--unmute-footer-height);
   padding: 0;
   font-size: var(--unmute-footer);
   font-family: "Nunito Sans", sans-serif;
@@ -36,5 +36,43 @@
   }
   @include mobile-landscape() {
     height: 6vh;
+  }
+
+  .footer-items {
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    font-size: var(--unmute-footer-items);
+    font-family: "Nunito Sans", sans-serif;
+    font-style: normal;
+    @include mobile-portrait() {
+      display: none;
+    }
+    @include mobile-landscape() {
+      display: none;
+    }
+    .item {
+      margin: 0 0rem 0 1.5rem;
+      a {
+        color: var(--white);
+      }
+      &.popup {
+        margin: 0 0.5rem 0 0;
+        padding: 0.45rem 2.5rem;
+        background-color: var(--navy-blue);
+        svg.who-was-thoreau-svg {
+          display: inline-block;
+          transform: rotate(0.5turn);
+          margin: 0 0 0 0.25rem;
+          align-self: flex-start;
+          stroke-width: 1.25;
+          color: var(--white);
+          height: 0.8rem;
+          width: auto;
+          vertical-align: baseline;
+        }
+      }
+    }
   }
 }

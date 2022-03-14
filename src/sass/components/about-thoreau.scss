@@ -1,0 +1,68 @@
+.about-thoreau {
+  bottom: calc(var(--unmute-footer-height) + 2px);
+  width: 30vw;
+  background-color: var(--navy-blue);
+
+  .offcanvas-header {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 30vw;
+    height: 8vh;
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+    button.close {
+      color: var(--white);
+      width: var(--about-thoreau-close);
+      height: var(--about-thoreau-close);
+      border: 1px solid var(--white);
+      border-radius: var(--about-thoreau-close-radius);
+      background-color: var(--about-thoreau-close-background);
+      svg.about-thoreau-close-svg {
+        color: var(--navy-blue);
+        width: var(--about-thoreau-close-svg);
+        height: auto;
+        stroke-width: 0.09rem;
+        vertical-align: middle;
+        margin-bottom: -0.2rem;
+      }
+    }
+  }
+
+  .offcanvas-body {
+    margin: 3vh 2vw 4vh 1vw;
+    overflow: hidden;
+  }
+
+  .title {
+    margin: 1.9rem 0 1rem 0;
+    font-family: "Libre Caslon Text";
+    font-weight: 700;
+    font-size: var(--about-thoreau-title);
+    color: var(--november-skies);
+  }
+
+  hr {
+    width: 12%;
+    border-top: 1px solid var(--white);
+    margin: 1rem 0 1rem 0;
+    opacity: 1;
+    @include mobile-portrait() {
+      width: 30%;
+    }
+  }
+
+  .description {
+    width: 96%;
+    color: var(--white);
+    font-family: "Nunito Sans", sans-serif;
+    font-weight: 300;
+    font-style: normal;
+    font-size: var(--about-thoreau-description);
+    line-height: var(--about-thoreau-description-line-height);
+    p:first-of-type {
+      margin-bottom: 1.5rem;
+    }
+  }
+}

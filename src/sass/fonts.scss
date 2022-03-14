@@ -19,6 +19,14 @@
     clamp(0px, (0.4vh - 3.61px), 2px)
   );
   --artifact-description-line-height: calc(clamp(30px, (8vh - 26px), 60px));
+
+  --about-thoreau-title: 1.8rem;
+  --about-thoreau-description: 0.9rem;
+  --about-thoreau-description-line-height: 1.45rem;
+  --about-thoreau-close: 2rem;
+  --about-thoreau-close-radius: 1rem;
+  --about-thoreau-close-svg: 1.2rem;
+
   --zoom-button-size: 1.1rem;
 
   --zoom-button-bottom: 0.8vh;
@@ -36,6 +44,8 @@
   --explore-content-author: 0.88rem;
 
   --unmute-footer: 0.76rem;
+  --unmute-footer-height: 5.5vh;
+  --unmute-footer-items: 0.9rem;
   --explore-content-mute-button: 0.76rem;
 
   --explore-content-weight: 400;
