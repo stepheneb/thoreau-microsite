@@ -30,8 +30,14 @@ export const generateDropdownUL = (id) => {
       }
       break;
 
-    case 'link':
     case 'popup':
+      contents = `
+          <div class='item ${item.type}' data-bs-toggle="offcanvas" href="#aboutThoreau" role="button" aria-controls="offcanvasExample">
+            ${item.name}
+          </div>`;
+      break;
+
+    case 'link':
     case 'artifact':
       if (item.enabled) {
         disabled = '';

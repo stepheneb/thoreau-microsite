@@ -211,6 +211,9 @@
             display: flex;
           }
           .item {
+            &.popup {
+              font-size: 160%;
+            }
             a.dropdown-item {
               display: inline-block;
               margin-right: auto;
