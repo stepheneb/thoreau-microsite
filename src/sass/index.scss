@@ -95,6 +95,9 @@ body.index {
         margin-top: -2rem;
         width: 8.5rem;
         height: 8.5rem;
+        &.hide {
+          display: none;
+        }
       }
       &.noborder {
         margin: 0 1vw 2vh 0.25vw;
