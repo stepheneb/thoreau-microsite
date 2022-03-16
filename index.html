@@ -30,6 +30,20 @@
 <body class='index'>
   <div id="content" class="content index">
     <div class="main">
+      <div class='menu'>
+        <div id='explore-another-object' class="dropdown explore-another-object">
+          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown" aria-expanded="false" data-bs-display="static">
+            <span class='name'>Explore another object</span>
+            <svg xmlns="http://www.w3.org/2000/svg" class="toggler-svg" width="12" height="8" fill="transparent" stroke="currentColor" stroke-linecap="square" viewBox="0 0 12 8">
+              <path d="M2 1 L6 5 L10 1" />
+            </svg>
+            <span class="toggler-icon"></span>
+          </button>
+        </div>
+      </div>
+
+      <img class='pinetree' src='media/images/pinetree-with-border.png'></img>
+
       <div class="header">
         <div class='title'>
           Thoreau’s <span class='title world'>World</span>
@@ -37,8 +51,10 @@
         <div class='separator'></div>
         <img class='pinetree noborder' src='media/images/pinetree.png'>
         <div class='description'>
-          <div>Explore the world as Thoreau experienced it.</div>
-          <div class='heading'>Select an object from the Concord Museum's collection to begin.</div>
+          <div>
+            Explore the world as Thoreau experienced it.
+            <br><span class='heading'>Select an object from the Concord Museum's collection to begin.</span>
+          </div>
         </div>
       </div>
       <div class="gallery">
@@ -64,7 +80,7 @@
         </svg>
       </button>
       <button type="button" class="close mobile-only" data-bs-dismiss="offcanvas" aria-label="Close">
-        <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" stroke="currentColor" stroke-width="4" stroke-linecap="round" viewBox="0 0 16 16">
+        <svg xmlns="http://www.w3.org/2000/svg" class="close-mobile-only-svg" width="16" height="16" stroke="currentColor" stroke-width="4" stroke-linecap="round" viewBox="0 0 16 16">
           <path class="outline" d="M0 0 L16 16 M0 16 L16 0" />
         </svg>
       </button>

@@ -3,7 +3,7 @@
 
 import { app } from "./modules/globals.js";
 import { pages } from "./modules/pages.js";
-import { generateFooterItems } from "./modules/menu.js";
+import { generateFooterItems, generateDropdownUL } from "./modules/menu.js";
 
 const artifactPages = pages.filter(p => p.type == 'artifact' && p.enabled);
 
@@ -50,6 +50,7 @@ let generateCarouselImgElements = () => {
 };
 
 app.domReady(() => {
+  generateDropdownUL('main');
 
   generateFooterItems();
   selectRight = document.getElementById('select-right');
