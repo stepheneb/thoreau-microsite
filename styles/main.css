@@ -1386,7 +1386,14 @@ div.artifact .unmute-footer {
 }
 div.artifact .unmute-footer .label {
   margin-right: 18vw;
+  margin-left: auto;
+  margin-bottom: -0.3rem;
   color: var(--navy-blue);
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .unmute-footer .label {
+    margin-bottom: 0;
+  }
 }
 div.artifact .unmute-footer.on .label {
   display: none;
@@ -1397,7 +1404,7 @@ div.artifact .unmute-footer.on .label {
     font-size: var(--unmute-footer);
   }
   div.artifact .unmute-footer .label {
-    margin-right: 38vw;
+    margin-right: 42vw;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
@@ -1569,7 +1576,7 @@ div.artifact .about-thoreau .offcanvas-body .about .title {
 div.artifact .about-thoreau .offcanvas-body .about hr.title {
   width: 12%;
   border-top: 1px solid var(--white);
-  margin: 1rem 0 1rem 0;
+  margin: 0.5rem 0 1rem 0;
   opacity: 1;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
@@ -1588,6 +1595,9 @@ div.artifact .about-thoreau .offcanvas-body .about .description {
 }
 div.artifact .about-thoreau .offcanvas-body .about .description p:first-of-type {
   margin-bottom: 1.5rem;
+}
+div.artifact .about-thoreau .offcanvas-body .about .description p:last-of-type {
+  margin-bottom: 0;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .about-thoreau .offcanvas-body {
@@ -2886,6 +2896,293 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
   }
 }
 
+.unmute-footer {
+  display: flex;
+  display: none;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: center;
+  pointer-events: auto;
+  position: fixed;
+  z-index: 3;
+  opacity: 0.9;
+  background-color: var(--medium-gray);
+  bottom: 0;
+  left: 0;
+  width: 100vw;
+  height: var(--unmute-footer-height);
+  padding: 0;
+  font-size: var(--unmute-footer);
+  font-family: "Nunito Sans", sans-serif;
+  font-style: italic;
+}
+.unmute-footer .label {
+  margin-right: 18vw;
+  margin-left: auto;
+  margin-bottom: -0.3rem;
+  color: var(--navy-blue);
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  .unmute-footer .label {
+    margin-bottom: 0;
+  }
+}
+.unmute-footer.on .label {
+  display: none;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  .unmute-footer {
+    height: 5vh;
+    font-size: var(--unmute-footer);
+  }
+  .unmute-footer .label {
+    margin-right: 42vw;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  .unmute-footer {
+    height: 7vh;
+    font-size: var(--unmute-footer);
+  }
+  .unmute-footer .label {
+    margin-right: 38vw;
+  }
+}
+.unmute-footer .footer-items {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-start;
+  align-items: center;
+  font-size: var(--unmute-footer-items);
+  font-family: "Nunito Sans", sans-serif;
+  font-style: normal;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  .unmute-footer .footer-items {
+    display: none;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  .unmute-footer .footer-items {
+    display: none;
+  }
+}
+.unmute-footer .footer-items .item {
+  margin: 0 0rem 0 1.5rem;
+}
+.unmute-footer .footer-items .item a {
+  color: var(--white);
+}
+.unmute-footer .footer-items .item.popup {
+  margin: 0 0.5rem 0 0;
+  padding: 0.45rem 2.5rem;
+  background-color: var(--navy-blue);
+}
+.unmute-footer .footer-items .item.popup svg.who-was-thoreau-svg {
+  display: inline-block;
+  transform: rotate(0.5turn);
+  margin: 0 0 0 0.25rem;
+  align-self: flex-start;
+  stroke-width: 1.25;
+  color: var(--white);
+  height: 0.8rem;
+  width: auto;
+  vertical-align: baseline;
+}
+
+.about-thoreau {
+  width: 30vw;
+  overflow-y: auto;
+  overflow-x: hidden;
+  bottom: calc(var(--unmute-footer-height) + 2px);
+  background-color: var(--navy-blue);
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  .about-thoreau {
+    width: 100vw;
+    min-height: 100vh;
+  }
+}
+.about-thoreau .offcanvas-header {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 30vw;
+  height: 8vh;
+  min-height: 8vh;
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  padding-right: 1.5rem;
+}
+.about-thoreau .offcanvas-header button.close.mobile-only {
+  display: none;
+}
+.about-thoreau .offcanvas-header button.close.desktop-only {
+  color: var(--white);
+  width: var(--about-thoreau-close);
+  height: var(--about-thoreau-close);
+  border: 1px solid var(--white);
+  border-radius: var(--about-thoreau-close-radius);
+  background-color: var(--about-thoreau-close-background);
+}
+.about-thoreau .offcanvas-header button.close.desktop-only svg.about-thoreau-close-svg {
+  color: var(--navy-blue);
+  width: var(--about-thoreau-close-svg);
+  height: auto;
+  stroke-width: 0.09rem;
+  vertical-align: middle;
+  margin-bottom: -0.2rem;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  .about-thoreau .offcanvas-header {
+    position: sticky;
+    width: 100vw;
+    height: 8vh;
+    padding: 0;
+    border-bottom: 1px solid var(--white);
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-end;
+  }
+  .about-thoreau .offcanvas-header button.close.desktop-only {
+    display: none;
+  }
+  .about-thoreau .offcanvas-header button.close.mobile-only {
+    display: block;
+    margin: 0 2.5rem 0 0;
+    width: 3.2rem;
+    height: 3.2rem;
+    border: 1px solid white;
+    color: var(--navy-blue);
+    background-color: var(--november-skies);
+    border-radius: 1.6rem;
+    padding-left: 0.7rem;
+    padding-top: 0rem;
+  }
+  .about-thoreau .offcanvas-header button.close.mobile-only svg {
+    margin-left: -0.5rem;
+    stroke-width: 3;
+    width: 1.25rem;
+    height: 1.25rem;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  .about-thoreau .offcanvas-header {
+    height: 6vh;
+  }
+  .about-thoreau .offcanvas-header button.close.mobile-only {
+    width: 2rem;
+    height: 2rem;
+    border-radius: 1.4rem;
+    padding-left: 0.7rem;
+    padding-top: 0rem;
+  }
+  .about-thoreau .offcanvas-header button.close.mobile-only svg {
+    margin-left: -0.65rem;
+    stroke-width: 3;
+    width: 0.8rem;
+    height: 0.8rem;
+  }
+}
+.about-thoreau .offcanvas-body {
+  margin: 0;
+  padding: 4.5vh 2vw 0 2vw;
+  display: flex;
+  flex-direction: column;
+}
+.about-thoreau .offcanvas-body img {
+  width: 84%;
+  height: auto;
+}
+.about-thoreau .offcanvas-body .about {
+  display: flex;
+  flex-direction: column;
+}
+.about-thoreau .offcanvas-body .about .title {
+  margin: 1.9rem 0 1rem 0;
+  font-family: "Libre Caslon Text";
+  font-weight: 700;
+  font-size: var(--about-thoreau-title);
+  color: var(--november-skies);
+}
+.about-thoreau .offcanvas-body .about hr.title {
+  width: 12%;
+  border-top: 1px solid var(--white);
+  margin: 0.5rem 0 1rem 0;
+  opacity: 1;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  .about-thoreau .offcanvas-body .about hr.title {
+    width: 30%;
+  }
+}
+.about-thoreau .offcanvas-body .about .description {
+  width: 96%;
+  color: var(--white);
+  font-family: "Nunito Sans", sans-serif;
+  font-weight: 300;
+  font-style: normal;
+  font-size: var(--about-thoreau-description);
+  line-height: var(--about-thoreau-description-line-height);
+}
+.about-thoreau .offcanvas-body .about .description p:first-of-type {
+  margin-bottom: 1.5rem;
+}
+.about-thoreau .offcanvas-body .about .description p:last-of-type {
+  margin-bottom: 0;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  .about-thoreau .offcanvas-body {
+    margin: 0;
+    padding: 4vh 8vw;
+    display: flex;
+    flex-direction: column;
+    overflow-y: visible !important;
+  }
+  .about-thoreau .offcanvas-body .about .title {
+    margin: 2.2rem 0 0.8rem 0;
+    font-family: "Libre Caslon Text";
+    font-weight: 700;
+    font-size: var(--about-thoreau-title);
+    color: var(--november-skies);
+  }
+  .about-thoreau .offcanvas-body .about hr.title {
+    width: 14%;
+    margin: 0.8rem 0 1.4rem 0;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  .about-thoreau .offcanvas-body {
+    margin: 0;
+    padding: 2vh 4vw;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+  }
+  .about-thoreau .offcanvas-body img {
+    height: 80%;
+    width: auto;
+  }
+  .about-thoreau .offcanvas-body .about {
+    margin-left: 4rem;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .about-thoreau .offcanvas-body .about .title {
+    margin: 1rem 0 0.6rem 0;
+    font-family: "Libre Caslon Text";
+    font-weight: 700;
+    font-size: var(--about-thoreau-title);
+    color: var(--november-skies);
+  }
+  .about-thoreau .offcanvas-body .about hr.title {
+    width: 60%;
+    margin: 0.6rem 0 1.2rem 0;
+  }
+}
+
 * {
   margin: 0;
   padding: 0;
@@ -3167,6 +3464,18 @@ body.index {
     margin-left: 3vw;
     transform: rotate(180deg);
   }
+}
+.content.index .unmute-footer {
+  display: flex;
+  align-items: center;
+}
+.content.index .unmute-footer .footer-items {
+  height: 100%;
+}
+.content.index .unmute-footer .footer-items .item.popup {
+  height: 100%;
+  line-height: 2.2rem;
+  color: var(--white);
 }
 
 div.viewport {

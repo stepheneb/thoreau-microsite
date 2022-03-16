@@ -17,7 +17,7 @@ app.firstUserSoundOnRequest = true;
 export const startup = (id, animations) => {
   const container = document.getElementById(id);
   generateDropdownUL(id);
-  generateFooterItems();
+  // generateFooterItems();
 
   scrollerSetup(container, animations);
   setupDragHandling();
