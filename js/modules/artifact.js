@@ -4,7 +4,7 @@
 import { app } from "./globals.js";
 import { scrollerSetup } from './scroller.js';
 import { zoom, setupDragHandling } from "./zoom.js";
-import { generateDropdownUL, generateFooterItems } from "./menu.js";
+import { generateDropdownUL } from "./menu.js";
 import { pages } from "./pages.js";
 
 app.logger(zoom);

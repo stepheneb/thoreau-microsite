@@ -51,7 +51,7 @@ let generateCarouselImgElements = () => {
 
 app.domReady(() => {
 
-  generateFooterItems();;
+  generateFooterItems();
   selectRight = document.getElementById('select-right');
   selectLeft = document.getElementById('select-left');
   carouselImageContainer = document.getElementById('carousel-image-container');
