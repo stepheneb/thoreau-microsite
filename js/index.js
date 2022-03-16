@@ -52,6 +52,15 @@ let generateCarouselImgElements = () => {
 app.domReady(() => {
   generateDropdownUL('main');
 
+  const dropdown = document.getElementById('explore-another-object');
+  const pinetree = document.getElementById('mobile-pinetree');
+
+  dropdown.addEventListener('show.bs.dropdown', () => {
+    pinetree.classList.add('hide');
+  })
+  dropdown.addEventListener('hide.bs.dropdown', () => {
+    pinetree.classList.remove('hide');
+  })
   generateFooterItems();
   selectRight = document.getElementById('select-right');
   selectLeft = document.getElementById('select-left');

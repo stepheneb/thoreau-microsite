@@ -3564,6 +3564,9 @@ body.index {
     width: 8.5rem;
     height: 8.5rem;
   }
+  .content.index .main img.pinetree.hide {
+    display: none;
+  }
 }
 .content.index .main img.pinetree.noborder {
   margin: 0 1vw 2vh 0.25vw;
