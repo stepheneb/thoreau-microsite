@@ -9,6 +9,7 @@
       pointer-events: all;
       .play,
       .pause {
+        cursor: pointer;
         svg {
           width: 1.45rem;
           height: auto;
