@@ -47,9 +47,17 @@ const paths = {
     src: 'src/**/*.html',
     dest: `${dest}`
   },
+  manifest: {
+    src: 'src/**/manifest.*',
+    dest: `${dest}`
+  },
   images: {
     src: 'src/media/images/**/*.{png,gif,jpg}',
     dest: `${dest}/media/images/`
+  },
+  favicons: {
+    src: 'src/media/favicons/**/*.{png,ico,svg}',
+    dest: `${dest}/media/favicons/`
   },
   animations: {
     src: 'src/media/animations/**/*.{png,gif,jpg}',
@@ -75,10 +83,22 @@ export function html() {
     .pipe(gulp.dest(paths.html.dest));
 }
 
+export function manifest() {
+  return gulp
+    .src(paths.manifest.src)
+    .pipe(gulp.dest(paths.manifest.dest));
+}
+
 export function images() {
   return gulp
     .src(paths.images.src)
     .pipe(gulp.dest(paths.images.dest));
+}
+
+export function favicons() {
+  return gulp
+    .src(paths.favicons.src)
+    .pipe(gulp.dest(paths.favicons.dest));
 }
 
 export function animations() {
@@ -127,7 +147,9 @@ export const test = () => {
 export const build = (cb) => {
   clean();
   html();
+  manifest();
   images();
+  favicons();
   animations();
   audio();
   video();
@@ -140,8 +162,10 @@ const watch = () => {
   gulp.watch(paths.scripts.src, gulp.series(scripts, reload));
   gulp.watch(paths.styles.src, gulp.series(styles, reload));
   gulp.watch(paths.html.src, gulp.series(html, reload));
+  gulp.watch(paths.manifest.src, gulp.series(manifest, reload));
   gulp.watch(paths.images.src, gulp.series(images, reload));
-  gulp.watch(paths.animations.src, gulp.series(images, reload));
+  gulp.watch(paths.favicons.src, gulp.series(favicons, reload));
+  gulp.watch(paths.animations.src, gulp.series(animations, reload));
   gulp.watch(paths.audio.src, gulp.series(audio, reload));
   gulp.watch(paths.video.src, gulp.series(video, reload));
 };
