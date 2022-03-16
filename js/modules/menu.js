@@ -51,7 +51,7 @@ export const generateDropdownUL = (id) => {
       }
 
       contents = `<div class='item'>
-          <a class="dropdown-item ${disabled} ${selected}" href="./${item.location}${fragment}">${item.name}</a>
+          <a class="dropdown-item ${disabled} ${selected}" href="${item.location}${fragment}">${item.name}</a>
         </div>`;
 
       if (item.type == 'artifact' && !item.enabled) {
