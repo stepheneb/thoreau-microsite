@@ -23,6 +23,12 @@ div.artifact.spyglass {
         width: 100%;
         max-width: 100vw;
 
+        .content {
+          .title {
+            color: var(--thoreau-blue);
+          }
+        }
+
         @include mobile-portrait() {
           flex-direction: column;
           justify-content: flex-start;
