@@ -657,7 +657,7 @@ div.artifact .content .absolute-content-container.start .content .image-containe
   align-items: center;
   justify-content: center;
   pointer-events: all;
-  cursor: default;
+  cursor: pointer;
 }
 div.artifact .content .absolute-content-container.start .content .image-container .zoom-controls button img {
   pointer-events: none;
@@ -729,6 +729,10 @@ div.artifact .content .absolute-content-container .author .audio.player {
 div.artifact .content .absolute-content-container .author .audio.player .playpause {
   font-size: 2.6em;
   pointer-events: all;
+}
+div.artifact .content .absolute-content-container .author .audio.player .playpause .play,
+div.artifact .content .absolute-content-container .author .audio.player .playpause .pause {
+  cursor: pointer;
 }
 div.artifact .content .absolute-content-container .author .audio.player .playpause .play svg,
 div.artifact .content .absolute-content-container .author .audio.player .playpause .pause svg {
@@ -1237,6 +1241,7 @@ div.artifact .mute-button.secondary {
   position: fixed;
   bottom: 2.5vh;
   right: var(--unmute-right-distance);
+  cursor: pointer;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .mute-button.secondary {
@@ -3751,6 +3756,7 @@ body.index {
   height: 7vw;
   border: 1px solid var(--medium-gray);
   border-radius: 50%;
+  cursor: pointer;
 }
 .content.index .main .gallery .select .circle img {
   margin-top: 1.25vw;
