@@ -88,7 +88,7 @@ export const pages = [{
     enabled: true,
     fragment: true,
     name: 'Main Menu',
-    dropdownMenu: 'desktop',
+    dropdownMenu: 'all',
     location: "index.html",
     footerItem: false,
   },
