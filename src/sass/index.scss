@@ -108,7 +108,7 @@ body.index {
       flex-direction: row;
       align-self: center;
       align-items: center;
-      justify-content: center;
+      justify-content: flex-end;
       padding: 0 0;
       line-height: normal;
       width: 90vw;
@@ -135,7 +135,7 @@ body.index {
           font-family: "Libre Caslon Display", serif;
           font-size: var(--main-title-world);
           color: var(--medium-gray);
-          font-weight: 700;
+          font-weight: 600;
           padding-bottom: 0.5vh;
         }
         @include mobile-portrait() {
@@ -173,10 +173,11 @@ body.index {
         }
       }
       .description {
-        width: 40vw;
+        width: 30vw;
         font-weight: 300;
         font-size: var(--main-description);
-        color: black;
+        line-height: var(--main-description-line-height);
+        color: var(--navy-blue);
         .heading {
           font-weight: 600;
           @include mobile-portrait() {
