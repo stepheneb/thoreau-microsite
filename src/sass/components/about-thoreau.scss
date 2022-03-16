@@ -4,7 +4,7 @@
   overflow-x: hidden;
   bottom: calc(var(--unmute-footer-height) + 2px);
   background-color: var(--navy-blue);
-  @include mobile-portrait() {
+  @include mobile {
     width: 100vw;
     min-height: 100vh;
   }
@@ -39,7 +39,7 @@
         margin-bottom: -0.2rem;
       }
     }
-    @include mobile-portrait() {
+    @include mobile {
       position: sticky;
       width: 100vw;
       height: 8vh;
@@ -70,41 +70,68 @@
         }
       }
     }
+    @include mobile-landscape() {
+      height: 6vh;
+      button.close.mobile-only {
+        width: 2rem;
+        height: 2rem;
+        border-radius: 1.4rem;
+        padding-left: 0.7rem;
+        padding-top: 0rem;
+        svg {
+          margin-left: -0.65rem;
+          stroke-width: 3;
+          width: 0.8rem;
+          height: 0.8rem;
+        }
+      }
+    }
   }
 
   .offcanvas-body {
     margin: 0;
     padding: 4.5vh 2vw 0 2vw;
+    display: flex;
+    flex-direction: column;
+
     // overflow: hidden;
-
-    .title {
-      margin: 1.9rem 0 1rem 0;
-      font-family: "Libre Caslon Text";
-      font-weight: 700;
-      font-size: var(--about-thoreau-title);
-      color: var(--november-skies);
+    img {
+      width: 84%;
+      height: auto;
     }
 
-    hr.title {
-      width: 12%;
-      border-top: 1px solid var(--white);
-      margin: 1rem 0 1rem 0;
-      opacity: 1;
-      @include mobile-portrait() {
-        width: 30%;
+    .about {
+      display: flex;
+      flex-direction: column;
+      .title {
+        margin: 1.9rem 0 1rem 0;
+        font-family: "Libre Caslon Text";
+        font-weight: 700;
+        font-size: var(--about-thoreau-title);
+        color: var(--november-skies);
       }
-    }
 
-    .description {
-      width: 96%;
-      color: var(--white);
-      font-family: "Nunito Sans", sans-serif;
-      font-weight: 300;
-      font-style: normal;
-      font-size: var(--about-thoreau-description);
-      line-height: var(--about-thoreau-description-line-height);
-      p:first-of-type {
-        margin-bottom: 1.5rem;
+      hr.title {
+        width: 12%;
+        border-top: 1px solid var(--white);
+        margin: 1rem 0 1rem 0;
+        opacity: 1;
+        @include mobile-portrait() {
+          width: 30%;
+        }
+      }
+
+      .description {
+        width: 96%;
+        color: var(--white);
+        font-family: "Nunito Sans", sans-serif;
+        font-weight: 300;
+        font-style: normal;
+        font-size: var(--about-thoreau-description);
+        line-height: var(--about-thoreau-description-line-height);
+        p:first-of-type {
+          margin-bottom: 1.5rem;
+        }
       }
     }
 
@@ -117,16 +144,49 @@
       img {
         // align-self: center;
       }
-      .title {
-        margin: 2.2rem 0 0.8rem 0;
-        font-family: "Libre Caslon Text";
-        font-weight: 700;
-        font-size: var(--about-thoreau-title);
-        color: var(--november-skies);
+      .about {
+        .title {
+          margin: 2.2rem 0 0.8rem 0;
+          font-family: "Libre Caslon Text";
+          font-weight: 700;
+          font-size: var(--about-thoreau-title);
+          color: var(--november-skies);
+        }
+        hr.title {
+          width: 14%;
+          margin: 0.8rem 0 1.4rem 0;
+        }
       }
-      hr.title {
-        width: 14%;
-        margin: 0.8rem 0 1.4rem 0;
+    }
+
+    @include mobile-landscape() {
+      margin: 0;
+      padding: 2vh 4vw;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+
+      img {
+        height: 80%;
+        width: auto;
+      }
+      .about {
+        margin-left: 4rem;
+        display: flex;
+        flex-direction: column;
+        align-items: flex-start;
+
+        .title {
+          margin: 1rem 0 0.6rem 0;
+          font-family: "Libre Caslon Text";
+          font-weight: 700;
+          font-size: var(--about-thoreau-title);
+          color: var(--november-skies);
+        }
+        hr.title {
+          width: 60%;
+          margin: 0.6rem 0 1.2rem 0;
+        }
       }
     }
   }

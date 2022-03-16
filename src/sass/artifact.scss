@@ -44,7 +44,7 @@ div.artifact {
       padding: 0;
     }
     @include mobile-landscape() {
-      padding: 2vh 2vw 2vh 4vw;
+      padding: 0;
     }
 
     color: white;
@@ -115,9 +115,12 @@ div.artifact {
           }
 
           @include mobile-landscape() {
-            margin-top: 0;
-            display: flex;
+            margin: 0;
+            padding: 0;
+            height: 8vh;
             align-items: center;
+            justify-content: space-between;
+            background-color: var(--mobile-header-gray);
           }
           @include desktop-strong-landscape() {
             display: flex;
@@ -145,14 +148,10 @@ div.artifact {
               display: none;
             }
             @include mobile-landscape() {
-              width: 9vh;
-              height: 9vh;
-              margin: 1rem 0.5rem 0.5rem 0;
+              display: none;
             }
             @include mobile-landscape-small {
-              width: 10vh;
-              height: 10vh;
-              margin: 0.5rem 0.5rem 0.5rem 0;
+              display: none;
             }
           }
           a {
@@ -182,7 +181,9 @@ div.artifact {
               padding-bottom: 0;
             }
             @include mobile-landscape() {
-              margin: 4vh 0 4vh 0;
+              display: block;
+              margin: 3vh 0 3vh 10vw;
+              padding-bottom: 0;
             }
           }
         }
@@ -201,18 +202,19 @@ div.artifact {
             width: 30vw;
             margin: 5rem 0 0 5.5rem;
             @include mobile-portrait() {
-              margin: 0 5vw;
+              margin: 0 0 0 5vw;
               width: 70vw;
               align-self: center;
             }
             @include mobile-portrait-small() {
-              margin: 0 5vw;
+              margin: 0 0 0 5vw;
               width: 70vw;
               align-self: center;
             }
             @include mobile-landscape() {
-              width: 35vw;
-              max-width: 35vw;
+              margin: 0 0 0 5vw;
+              width: 40vw;
+              max-width: 40vw;
             }
             .header {
               @include mobile-landscape() {

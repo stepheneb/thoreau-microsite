@@ -12,6 +12,7 @@
     margin: 0 4vw 0 0;
   }
   @include mobile-landscape() {
+    margin: 0 4vw 0 0;
   }
 
   button {
@@ -39,7 +40,7 @@
       height: auto;
       stroke-width: 1.5;
       color: white;
-      @include mobile-portrait() {
+      @include mobile() {
         display: none;
       }
     }
@@ -48,7 +49,7 @@
       display: none;
     }
   }
-  @include mobile-portrait() {
+  @include mobile() {
     button {
       padding: 0.35rem 0;
       border: none;
@@ -156,7 +157,7 @@
           }
         }
       }
-      @include mobile-portrait() {
+      @include mobile() {
         position: absolute !important;
         // top: 7vh;
         // left: -87.5vw;
@@ -172,15 +173,23 @@
         margin: 0 !important;
         padding: 3vh 0 0 0 !important;
         background-color: var(--mobile-header-gray);
+
+        @include mobile-landscape() {
+          left: -94vw;
+          width: 105vw;
+          height: 100vh;
+          padding: 5vh 0 0 0 !important;
+        }
+
         .close {
           display: block;
           position: absolute;
           top: 0.5vh;
           left: 86vw;
           color: var(--navy-blue);
+          border: 1px solid white;
           width: 2.6rem;
           height: 2.6rem;
-          border: 1px solid white;
           border-radius: 1.3rem;
           padding-left: 0.7rem;
           padding-top: 0rem;
@@ -188,6 +197,19 @@
             stroke-width: 2;
             width: 1rem;
             height: 1rem;
+            vertical-align: middle;
+          }
+          @include mobile-landscape() {
+            top: 0.5vh;
+            left: 94vw;
+            width: 2.4rem;
+            height: 2.4rem;
+            border-radius: 1.2rem;
+            svg {
+              margin-bottom: -0.5rem;
+              width: 0.9rem;
+              height: 0.9rem;
+            }
           }
         }
         li {
@@ -237,6 +259,9 @@
               margin: 2rem 0;
               border: 1px solid white;
               opacity: 1;
+              @include mobile-landscape() {
+                margin: 1.2rem 0;
+              }
               &.wide {
                 width: 100%;
               }

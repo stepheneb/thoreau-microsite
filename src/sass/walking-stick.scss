@@ -79,8 +79,6 @@ div.artifact.walking-stick {
           max-width: 58vw;
         }
         @include mobile-landscape() {
-          left: 3vw;
-          max-width: 30vw;
         }
       }
 
@@ -205,6 +203,9 @@ div.artifact.walking-stick {
     opacity: 1;
     svg {
       color: black;
+    }
+    @include mobile-landscape() {
+      bottom: 6.5vh;
     }
   }
 }

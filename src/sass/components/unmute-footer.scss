@@ -35,7 +35,11 @@
     }
   }
   @include mobile-landscape() {
-    height: 6vh;
+    height: 7vh;
+    font-size: var(--unmute-footer);
+    .label {
+      margin-right: 38vw;
+    }
   }
 
   .footer-items {

@@ -116,9 +116,9 @@
   }
 
   @include mobile-landscape() {
-    --main-title: 2.4rem;
-    --main-title-world: 4.8rem;
-    --main-description: 1rem;
+    --main-title: 1.4rem;
+    --main-title-world: 1.7rem;
+    --main-description: 1.4rem;
 
     --artifact-title: 1.6rem;
     --artifact-title-line-height: 2.4rem;
@@ -126,6 +126,11 @@
     --artifact-description-letter-spacing: calc(clamp(0px, (0.2vh - 3px), 2px));
     --artifact-description-line-height: calc(clamp(20px, (8vh - 26px), 60px));
     --zoom-button-size: 1.2rem;
+
+    --about-thoreau-title: 2rem;
+    --about-thoreau-description: 1.1rem;
+    --about-thoreau-description-line-height: 1.9rem;
+    --about-thoreau-close: 1.8rem;
 
     --explore: 2rem;
     --explore-button: 0.8rem;

@@ -55,8 +55,10 @@ div.artifact.spyglass {
         }
 
         @include mobile-landscape() {
-          top: 38vh;
-          left: 72vw;
+          top: 40vh;
+          left: 7vw;
+          width: 29vw;
+          max-width: 29vw;
         }
       }
 
@@ -79,8 +81,10 @@ div.artifact.spyglass {
         }
 
         @include mobile-landscape() {
+          top: 6vh;
           left: 3vw;
-          max-width: 30vw;
+          width: 45vw;
+          max-width: 45vw;
         }
       }
 
@@ -119,8 +123,6 @@ div.artifact.spyglass {
           max-width: 58vw;
         }
         @include mobile-landscape() {
-          left: 3vw;
-          max-width: 30vw;
         }
       }
 
@@ -254,6 +256,9 @@ div.artifact.spyglass {
     bottom: 5.5vh;
     visibility: visible;
     opacity: 1;
+    @include mobile-landscape() {
+      bottom: 6.5vh;
+    }
   }
 }
 

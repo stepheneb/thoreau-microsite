@@ -32,8 +32,8 @@
       visibility: visible;
       opacity: 1;
       position: absolute;
-      width: 100%;
-      height: 100%;
+      width: 100vw;
+      height: 100vh;
       background-color: var(--white-rgba-00);
       transition: opacity var(--explore-images-timing),
         visibility var(--explore-images-timing),
@@ -45,7 +45,6 @@
       width: 100%;
     }
     @include mobile-landscape() {
-      height: 85vh;
     }
 
     .mute-button {
