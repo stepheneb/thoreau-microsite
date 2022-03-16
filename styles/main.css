@@ -1768,6 +1768,9 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.sta
   width: 100%;
   max-width: 100vw;
 }
+div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.start .content .title {
+  color: var(--thoreau-blue);
+}
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.start {
     flex-direction: column;
@@ -2408,7 +2411,7 @@ div.artifact.flute .content.flute .absolute-content-container.flute.start {
   width: 100%;
   max-width: 100vw;
 }
-div.artifact.flute .content.flute .absolute-content-container.flute.start .title {
+div.artifact.flute .content.flute .absolute-content-container.flute.start .content .title {
   color: var(--thoreau-green);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
@@ -2662,7 +2665,7 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
   width: 100%;
   max-width: 100vw;
 }
-div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.start .title {
+div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.start .content .title {
   color: var(--snowshoe-brown);
 }
 div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.start img.artifact {
