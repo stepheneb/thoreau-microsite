@@ -1,3 +1,6 @@
+@import "components/unmute-footer";
+@import "components/about-thoreau";
+
 * {
   margin: 0;
   padding: 0;
@@ -135,6 +138,8 @@ body.index {
             display: contents;
           }
         }
+        @include mobile-portrait() {
+        }
         @media only screen and (max-device-width: 570px) and (orientation: landscape) {
           width: 100%;
         }
@@ -255,6 +260,19 @@ body.index {
             }
           }
         }
+      }
+    }
+  }
+
+  .unmute-footer {
+    display: flex;
+    align-items: center;
+    .footer-items {
+      height: 100%;
+      .item.popup {
+        height: 100%;
+        line-height: 2.2rem;
+        color: var(--white);
       }
     }
   }

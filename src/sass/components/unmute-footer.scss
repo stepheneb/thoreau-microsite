@@ -19,7 +19,12 @@
   font-style: italic;
   .label {
     margin-right: 18vw;
+    margin-left: auto;
+    margin-bottom: -0.3rem;
     color: var(--navy-blue);
+    @include mobile-portrait() {
+      margin-bottom: 0;
+    }
   }
 
   &.on {
@@ -31,7 +36,7 @@
     height: 5vh;
     font-size: var(--unmute-footer);
     .label {
-      margin-right: 38vw;
+      margin-right: 42vw;
     }
   }
   @include mobile-landscape() {
