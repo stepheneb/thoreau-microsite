@@ -1,5 +1,6 @@
 @import "components/unmute-footer";
 @import "components/about-thoreau";
+@import "components/dropdown-explore";
 
 * {
   margin: 0;
@@ -12,10 +13,8 @@ body.index {
   width: 100vw;
   overflow: hidden;
   @include mobile-portrait() {
-    margin: 10px 0px;
   }
   @include mobile-landscape() {
-    margin: px 10px;
   }
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;
@@ -44,6 +43,66 @@ body.index {
     @include mobile-landscape() {
       height: 100vh;
     }
+    .menu {
+      z-index: 3;
+      display: none;
+      flex-direction: row;
+      align-items: baseline;
+      justify-content: space-between;
+
+      @include mobile-portrait() {
+        display: flex;
+        flex-direction: row;
+        margin: 0;
+        padding: 0;
+        height: 10vh;
+        min-height: 10vh;
+        align-items: center;
+        justify-content: flex-end;
+        background-color: var(--mobile-header-gray);
+        line-height: var(--explore-content-line-height);
+        letter-spacing: var(--explore-content-letter-spacing);
+        font-size: var(--explore-content);
+      }
+      @include mobile-portrait-small() {
+        display: flex;
+        margin: 0;
+        height: 7.5vh;
+        background-color: var(--mobile-header-gray);
+      }
+
+      @include mobile-landscape() {
+        margin: 0;
+        padding: 0;
+        height: 8vh;
+        align-items: center;
+        justify-content: space-between;
+        background-color: var(--mobile-header-gray);
+      }
+      @include desktop-strong-landscape() {
+        display: flex;
+        align-items: center;
+      }
+    }
+
+    img.pinetree {
+      display: none;
+      @include mobile-portrait() {
+        z-index: 10;
+        display: block;
+        margin-left: auto;
+        margin-right: auto;
+        margin-top: -2rem;
+        width: 8.5rem;
+        height: 8.5rem;
+      }
+      &.noborder {
+        margin: 0 1vw 2vh 0.25vw;
+        height: 14vh;
+        width: auto;
+      }
+    }
+
     .header {
       display: flex;
       flex-direction: row;
@@ -58,7 +117,7 @@ body.index {
       @include mobile-portrait() {
         width: 100%;
         height: auto;
-        margin: 1vh 2vw 1vh 2vw;
+        margin: 0vh 2vw 1vh 2vw;
         flex-direction: column;
       }
       @include mobile-landscape() {
@@ -69,7 +128,7 @@ body.index {
         padding-bottom: 2vh;
         font-family: "Libre Caslon Text", serif;
         font-size: var(--main-title);
-        font-weight: 600;
+        font-weight: 700;
         color: var(--navy-blue);
         .world {
           margin: 0 1vw 0 0;
@@ -77,11 +136,11 @@ body.index {
           font-family: "Libre Caslon Display", serif;
           font-size: var(--main-title-world);
           color: var(--medium-gray);
-          font-weight: 600;
+          font-weight: 700;
           padding-bottom: 0.5vh;
         }
         @include mobile-portrait() {
-          margin: 3vh 0 3vh 0;
+          margin: 1.5vh 0 3vh 0;
           padding-bottom: 0;
         }
         @include mobile-landscape() {
@@ -96,7 +155,7 @@ body.index {
         color: var(--navy-blue);
         border-left: 1px solid;
         @include mobile-portrait() {
-          width: 50%;
+          width: 35%;
           height: 1vh;
           color: var(--medium-gray);
           border-left: none;
@@ -108,19 +167,10 @@ body.index {
           height: 50%;
         }
       }
-      img.pinetree {
-        width: 5.8em;
-        height: 5.8em;
+      img.pinetree.noborder {
+        display: block;
         @include mobile-portrait() {
           display: none;
-          width: 6vmax;
-          height: 6vmax;
-          padding: 0.6vmax;
-        }
-        &.noborder {
-          margin: 0 1vw 2vh 0.25vw;
-          height: 14vh;
-          width: auto;
         }
       }
       .description {
@@ -130,10 +180,18 @@ body.index {
         color: black;
         .heading {
           font-weight: 600;
+          @include mobile-portrait() {
+            font-weight: 300;
+          }
         }
         @include mobile-portrait() {
-          width: 30rem;
+          width: 26rem;
           margin: 2vh 0;
+          letter-spacing: var(--main-description-letter-spacing);
+          br {
+            display: none;
+          }
+          text-align: center;
           div {
             display: contents;
           }

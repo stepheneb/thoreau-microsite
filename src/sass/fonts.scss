@@ -66,9 +66,10 @@
   }
 
   @include mobile-portrait() {
-    --main-title: 1.4rem;
-    --main-title-world: 1.7rem;
+    --main-title: 2.8rem;
+    --main-title-world: 3rem;
     --main-description: 1.4rem;
+    --main-description-letter-spacing: 0.25px;
 
     --artifact-title: 1.5rem;
     --artifact-description: 1.25rem;
