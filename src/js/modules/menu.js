@@ -97,9 +97,6 @@ export const generateFooterItems = () => {
       contents = `
         <div class='item ${item.type}' data-bs-toggle="offcanvas" href="#aboutThoreau" role="button" aria-controls="offcanvasExample">
           ${item.name}
-          <svg xmlns="http://www.w3.org/2000/svg" class="who-was-thoreau-svg" width="12" height="8" fill="transparent" stroke="currentColor" stroke-linecap="square" viewBox="0 0 12 8">
-            <path d="M2 1 L6 5 L10 1" />
-          </svg>
         </div>`;
       break;
     }
