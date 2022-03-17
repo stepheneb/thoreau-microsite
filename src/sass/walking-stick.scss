@@ -201,9 +201,7 @@ div.artifact.walking-stick {
     bottom: 5.25vh;
     visibility: visible;
     opacity: 1;
-    svg {
-      color: black;
-    }
+    color: var(--navy-blue);
     @include mobile-landscape() {
       bottom: 6.5vh;
     }

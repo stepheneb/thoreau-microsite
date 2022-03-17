@@ -262,6 +262,7 @@ div.artifact.spyglass {
     bottom: 5.5vh;
     visibility: visible;
     opacity: 1;
+    color: var(--navy-blue);
     @include mobile-landscape() {
       bottom: 6.5vh;
     }

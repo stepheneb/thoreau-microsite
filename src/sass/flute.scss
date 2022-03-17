@@ -204,6 +204,7 @@ div.artifact.flute {
   .arrow-scroll-down {
     bottom: 5.5vh;
     visibility: visible;
+    color: var(--navy-blue);
     opacity: 1;
     @include mobile-landscape() {
       bottom: 6.5vh;
