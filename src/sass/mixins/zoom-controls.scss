@@ -2,7 +2,7 @@
   .zoom-controls {
     pointer-events: all;
     z-index: 2;
-    position: absolute;
+    position: fixed;
     right: var(--zoom-button-right);
     bottom: var(--zoom-button-bottom);
     @include mobile-portrait-small() {
