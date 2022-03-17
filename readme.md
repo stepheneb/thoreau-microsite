@@ -151,3 +151,9 @@ ffmpeg i winter-stream-960x540-2M.mp4 -b:v 2M -crf 30 -c:a libopus -threads 8 -s
 ```
 ffmpeg -i src/media/video/walden-sunset/012315408-sun-sets-over-walden-pond_Edited_Loop_crf_22.mp4 -vf "scale=iw*sar:ih,setsar=1" -vframes 1 src/media/images/spyglass/sun-sets-over-walden-pond.jpg
 ```
+
+**Tagging**
+
+```
+git tag -a v0.1 -m "first tag, hide disabled artifacts" && git push origin v0.1
+```

@@ -315,6 +315,7 @@ div.artifact.snowshoes {
 
   .mute-button {
     bottom: 11.5vh;
+    color: var(--white);
     @include mobile-portrait() {
       bottom: 6.5vh;
     }

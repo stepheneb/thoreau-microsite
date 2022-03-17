@@ -269,7 +269,7 @@ body.index {
       }
 
       .select {
-        margin: 0;
+        margin: -1rem 0 0 0;
         width: 12vw;
         height: 20vh;
         display: flex;
@@ -282,11 +282,16 @@ body.index {
           border: 1px solid var(--medium-gray);
           border-radius: 50%;
           cursor: pointer;
-          img {
-            margin-top: 1.25vw;
-            margin-left: 1.75vw;
-            width: 2.5vw;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          svg {
+            display: block;
+            width: 2.8rem;
+            margin: 0 0 0 -0.2rem;
             height: auto;
+            stroke-width: 0.08rem;
+            transform: rotate(0.25turn);
           }
         }
         @include mobile-portrait() {
@@ -295,9 +300,10 @@ body.index {
             width: 14vw;
             height: 14vw;
             margin-left: -10vw;
-            img {
-              margin-top: 4.5vw;
-              margin-left: 8vw;
+            svg {
+              width: 1.6rem;
+              margin: 0 0 0 1.7rem;
+              stroke-width: 0.15rem;
             }
           }
         }
@@ -308,17 +314,16 @@ body.index {
       .select.right {
         justify-content: flex-end;
         .circle {
-          img {
-            margin-left: 2.25vw;
-            transform: rotate(180deg);
+          svg {
+            transform: rotate(-0.25turn);
+            margin: 0 -0.2rem 0 0;
           }
         }
         @include mobile-portrait() {
           .circle {
             margin-right: -10vw;
-            img {
-              margin-left: 3vw;
-              transform: rotate(180deg);
+            svg {
+              margin: 0 1.7rem 0 0;
             }
           }
         }
