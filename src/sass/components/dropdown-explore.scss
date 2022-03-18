@@ -245,6 +245,13 @@
                 font-family: "Nunito Sans", sans-serif;
                 font-size: 140%;
               }
+              @include mobile-landscape() {
+                font-size: 140%;
+                &.small {
+                  font-size: 120%;
+                }
+              }
+
               padding: 0.5em 1em;
               border-radius: 0;
               color: var(--navy-blue);

@@ -63,18 +63,15 @@
       }
     }
     @include mobile-landscape() {
-      height: 6vh;
-      button.close.mobile-only {
-        width: 2rem;
-        height: 2rem;
+      button.close {
+        width: 1.8rem;
+        height: 1.8rem;
         border-radius: 1.4rem;
-        padding-left: 0.7rem;
-        padding-top: 0rem;
         svg {
-          margin-left: -0.65rem;
+          display: block;
           stroke-width: 3;
-          width: 0.8rem;
-          height: 0.8rem;
+          width: 0.7rem;
+          height: 0.7rem;
         }
       }
     }

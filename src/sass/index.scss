@@ -78,6 +78,9 @@ body.index {
         align-items: center;
         justify-content: space-between;
         background-color: var(--mobile-header-gray);
+        line-height: var(--explore-content-line-height);
+        letter-spacing: var(--explore-content-letter-spacing);
+        font-size: var(--explore-content);
       }
       @include desktop-strong-landscape() {
         display: flex;
@@ -340,6 +343,9 @@ body.index {
         height: 100%;
         line-height: 2.2rem;
         color: var(--white);
+        @include mobile-landscape() {
+          line-height: 1.75rem;
+        }
       }
     }
   }
