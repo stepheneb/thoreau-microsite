@@ -2,19 +2,9 @@
   .zoom-controls {
     pointer-events: all;
     z-index: 2;
-    position: fixed;
+    position: absolute;
     right: var(--zoom-button-right);
     bottom: var(--zoom-button-bottom);
-    @include mobile-portrait-small() {
-      right: 2vw;
-      bottom: 1vh;
-      // height: 1.8rem;
-    }
-    @include mobile-landscape() {
-      right: 1vw;
-      bottom: 3vh;
-      // height: 1.8rem;
-    }
 
     display: flex;
     flex-direction: row;

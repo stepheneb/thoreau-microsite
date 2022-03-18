@@ -93,12 +93,12 @@
     --back-button-size: 1.4em;
     --unmute-footer: 0.8em;
 
-    --zoom-button-bottom: 0vh;
-    --zoom-button-right: 1vw;
-    --zoom-button-height: 2.7rem;
-    --zoom-button-width: 3.6rem;
+    --zoom-button-bottom: 47vh;
+    --zoom-button-right: 4vw;
+    --zoom-button-height: 2.6rem;
+    --zoom-button-width: 3.2rem;
     --zoom-icon-width: 1.3rem;
-    --zoom-divide-width: 0.2rem;
+    --zoom-divide-width: 0.3rem;
   }
 
   @include mobile-portrait-small() {
@@ -145,6 +145,13 @@
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
     --unmute-footer: 0.7em;
+
+    --zoom-button-right: 4vw;
+    --zoom-button-bottom: 8.5vh;
+    --zoom-button-height: 2.6rem;
+    --zoom-button-width: 3.2rem;
+    --zoom-icon-width: 1.3rem;
+    --zoom-divide-width: 0.3rem;
   }
   @include mobile-landscape-small() {
     --main-title: 2rem;
