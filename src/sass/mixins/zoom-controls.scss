@@ -4,7 +4,7 @@
     z-index: 2;
     position: absolute;
     right: var(--zoom-button-right);
-    bottom: var(--zoom-button-bottom);
+    top: var(--zoom-button-top);
 
     display: flex;
     flex-direction: row;
@@ -17,7 +17,6 @@
       margin: 0.075rem 0.25rem;
       margin: 0;
       width: var(--zoom-button-width);
-      height: calc(var(--zoom-button-size) * 1.4);
       height: var(--zoom-button-height);
       background-color: var(--navy-blue);
       border: none;
