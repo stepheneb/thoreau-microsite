@@ -116,12 +116,12 @@
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
     --unmute-footer: 0.8em;
-    --zoom-button-bottom: 0vh;
-    --zoom-button-right: 1vw;
-    --zoom-button-height: 2.7rem;
-    --zoom-button-width: 3.6rem;
+    --zoom-button-bottom: 47vh;
+    --zoom-button-right: 4vw;
+    --zoom-button-height: 2.6rem;
+    --zoom-button-width: 3.2rem;
     --zoom-icon-width: 1.3rem;
-    --zoom-divide-width: 0.2rem;
+    --zoom-divide-width: 0.3rem;
   }
 }
 @media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
@@ -165,6 +165,12 @@
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
     --unmute-footer: 0.7em;
+    --zoom-button-right: 4vw;
+    --zoom-button-bottom: 8.5vh;
+    --zoom-button-height: 2.6rem;
+    --zoom-button-width: 3.2rem;
+    --zoom-icon-width: 1.3rem;
+    --zoom-divide-width: 0.3rem;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (max-height: 320px) and (orientation: landscape) {
@@ -625,25 +631,13 @@ div.artifact .content .absolute-content-container.start .content .image-containe
 div.artifact .content .absolute-content-container.start .content .zoom-controls {
   pointer-events: all;
   z-index: 2;
-  position: fixed;
+  position: absolute;
   right: var(--zoom-button-right);
   bottom: var(--zoom-button-bottom);
   display: flex;
   flex-direction: row;
   justify-content: center;
   padding: 0em 0em;
-}
-@media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .content .zoom-controls {
-    right: 2vw;
-    bottom: 1vh;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container.start .content .zoom-controls {
-    right: 1vw;
-    bottom: 3vh;
-  }
 }
 div.artifact .content .absolute-content-container.start .content .zoom-controls button {
   padding: 0;
@@ -1170,9 +1164,21 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
     font-family: "Nunito Sans", sans-serif;
     font-size: 140%;
   }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape), only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item {
+    font-size: 140%;
+  }
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.small {
+    font-size: 120%;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.disabled {
     color: gray;
   }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider {
     width: 20%;
     margin: 2rem 0;
@@ -1438,11 +1444,6 @@ div.artifact .unmute-footer .footer-items {
     display: none;
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .unmute-footer .footer-items {
-    display: none;
-  }
-}
 div.artifact .unmute-footer .footer-items .item {
   margin: 0 0rem 0 1.5rem;
 }
@@ -1524,21 +1525,16 @@ div.artifact .about-thoreau .offcanvas-header button.close svg {
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .about-thoreau .offcanvas-header {
-    height: 6vh;
-  }
-  div.artifact .about-thoreau .offcanvas-header button.close.mobile-only {
-    width: 2rem;
-    height: 2rem;
+  div.artifact .about-thoreau .offcanvas-header button.close {
+    width: 1.8rem;
+    height: 1.8rem;
     border-radius: 1.4rem;
-    padding-left: 0.7rem;
-    padding-top: 0rem;
   }
-  div.artifact .about-thoreau .offcanvas-header button.close.mobile-only svg {
-    margin-left: -0.65rem;
+  div.artifact .about-thoreau .offcanvas-header button.close svg {
+    display: block;
     stroke-width: 3;
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 0.7rem;
+    height: 0.7rem;
   }
 }
 div.artifact .about-thoreau .offcanvas-body {
@@ -2959,11 +2955,6 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
     display: none;
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  .unmute-footer .footer-items {
-    display: none;
-  }
-}
 .unmute-footer .footer-items .item {
   margin: 0 0rem 0 1.5rem;
 }
@@ -3046,21 +3037,16 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  .about-thoreau .offcanvas-header {
-    height: 6vh;
-  }
-  .about-thoreau .offcanvas-header button.close.mobile-only {
-    width: 2rem;
-    height: 2rem;
+  .about-thoreau .offcanvas-header button.close {
+    width: 1.8rem;
+    height: 1.8rem;
     border-radius: 1.4rem;
-    padding-left: 0.7rem;
-    padding-top: 0rem;
   }
-  .about-thoreau .offcanvas-header button.close.mobile-only svg {
-    margin-left: -0.65rem;
+  .about-thoreau .offcanvas-header button.close svg {
+    display: block;
     stroke-width: 3;
-    width: 0.8rem;
-    height: 0.8rem;
+    width: 0.7rem;
+    height: 0.7rem;
   }
 }
 .about-thoreau .offcanvas-body {
@@ -3411,9 +3397,21 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
     font-family: "Nunito Sans", sans-serif;
     font-size: 140%;
   }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape), only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item {
+    font-size: 140%;
+  }
+  .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.small {
+    font-size: 120%;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.disabled {
     color: gray;
   }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider {
     width: 20%;
     margin: 2rem 0;
@@ -3511,6 +3509,9 @@ body.index {
     align-items: center;
     justify-content: space-between;
     background-color: var(--mobile-header-gray);
+    line-height: var(--explore-content-line-height);
+    letter-spacing: var(--explore-content-letter-spacing);
+    font-size: var(--explore-content);
   }
 }
 @media only screen and (min-aspect-ratio: 5/2) and (min-width: 1280px) {
@@ -3790,6 +3791,11 @@ body.index {
   height: 100%;
   line-height: 2.2rem;
   color: var(--white);
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  .content.index .unmute-footer .footer-items .item.popup {
+    line-height: 1.75rem;
+  }
 }
 
 div.viewport {
