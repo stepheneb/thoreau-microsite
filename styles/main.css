@@ -1249,6 +1249,9 @@ div.artifact .mute-button.secondary {
   bottom: 2.5vh;
   right: var(--unmute-right-distance);
   cursor: pointer;
+  font-weight: 600;
+  letter-spacing: 0.02rem;
+  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .mute-button.secondary {
