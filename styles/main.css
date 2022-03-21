@@ -3839,3 +3839,9 @@ div.viewport {
     }
   }
 }
+.offcanvas-backdrop {
+  background-color: var(--navy-blue);
+}
+.offcanvas-backdrop.show {
+  opacity: 0.6;
+}
