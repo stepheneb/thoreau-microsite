@@ -52,3 +52,10 @@ div.viewport {
     }
   }
 }
+
+.offcanvas-backdrop {
+  background-color: var(--navy-blue);
+  &.show {
+    opacity: 0.6;
+  }
+}
