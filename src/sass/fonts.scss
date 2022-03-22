@@ -60,6 +60,8 @@
   --unmute-right-distance: 5.5vw;
   --next-object-right-margin: 7vw;
 
+  --scroll-down-label: 0.9rem;
+
   @include desktop-strong-landscape() {
     --artifact-title: 2rem;
     --artifact-description: 1.2rem;

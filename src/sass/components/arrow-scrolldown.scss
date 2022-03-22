@@ -1,13 +1,26 @@
 .arrow-scroll-down {
-  pointer-events: none;
+  pointer-events: all;
   position: fixed;
   bottom: 2.5vh;
   z-index: 3;
   visibility: visible;
   opacity: 1;
+  height: 3.75rem;
   width: 100%;
   display: flex;
+  align-items: flex-start;
   justify-content: center;
+  color: var(--white);
+  .label {
+    font-size: var(--scroll-down-label);
+    opacity: 0;
+    transition: opacity var(--explore-content-timing);
+  }
+  &:hover {
+    .label {
+      opacity: 1;
+    }
+  }
   svg.arrow-scroll-down {
     display: block;
     transform: rotate(0turn);
