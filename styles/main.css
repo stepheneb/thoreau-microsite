@@ -1745,7 +1745,7 @@ div.artifact .fixed-video-container.fullscreen .video-wrapper video {
 }
 
 body#spyglass {
-  height: 1400vh;
+  height: 1200vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -1803,7 +1803,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.cur
   }
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
-  height: 400vh;
+  height: 200vh;
   position: -webkit-sticky;
   position: sticky;
   visibility: hidden;
@@ -2027,25 +2027,19 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 }
 
 #spyglass[data-content-scroll="7"] .absolute-content-container.spyglass.his-experiments,
-#spyglass[data-content-scroll="8"] .absolute-content-container.spyglass.his-experiments,
-#spyglass[data-content-scroll="9"] .absolute-content-container.spyglass.his-experiments,
-#spyglass[data-content-scroll="10"] .absolute-content-container.spyglass.his-experiments {
+#spyglass[data-content-scroll="8"] .absolute-content-container.spyglass.his-experiments {
   visibility: visible;
   opacity: 1;
   position: fixed;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #spyglass[data-content-scroll="7"] .animation-frame-container.spyglass,
-#spyglass[data-content-scroll="8"] .animation-frame-container.spyglass,
-#spyglass[data-content-scroll="9"] .animation-frame-container.spyglass,
-#spyglass[data-content-scroll="10"] .animation-frame-container.spyglass {
+#spyglass[data-content-scroll="8"] .animation-frame-container.spyglass {
     top: -10vh;
   }
 }
 #spyglass[data-content-scroll="7"] .animation-frame-container.spyglass img,
-#spyglass[data-content-scroll="8"] .animation-frame-container.spyglass img,
-#spyglass[data-content-scroll="9"] .animation-frame-container.spyglass img,
-#spyglass[data-content-scroll="10"] .animation-frame-container.spyglass img {
+#spyglass[data-content-scroll="8"] .animation-frame-container.spyglass img {
   margin: 20vh 30vw 10vh 30vw;
 }
 
@@ -2053,11 +2047,39 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   position: sticky;
 }
 
-#spyglass[data-content-scroll="11"] .absolute-content-container.spyglass.would-it-not,
-#spyglass[data-content-scroll="12"] .absolute-content-container.spyglass.would-it-not {
+#spyglass[data-content-scroll="9"] .absolute-content-container.spyglass.would-it-not,
+#spyglass[data-content-scroll="10"] .absolute-content-container.spyglass.would-it-not {
   visibility: visible;
   opacity: 1;
   position: sticky;
+}
+#spyglass[data-content-scroll="9"] .fixed-video-container.spyglass.walden-sunset,
+#spyglass[data-content-scroll="10"] .fixed-video-container.spyglass.walden-sunset {
+  visibility: visible;
+  opacity: 1;
+}
+#spyglass[data-content-scroll="9"] .fixed-video-container.spyglass.walden-sunset .tint,
+#spyglass[data-content-scroll="10"] .fixed-video-container.spyglass.walden-sunset .tint {
+  visibility: visible;
+  opacity: 1;
+  background-color: var(--thoreau-blue-rgba-80);
+}
+#spyglass[data-content-scroll="9"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="10"] .animation-frame-container.spyglass {
+  visibility: hidden;
+  opacity: 0;
+}
+
+#spyglass[data-content-scroll="10"] .absolute-content-container.spyglass.would-it-not {
+  visibility: visible;
+  opacity: 1;
+  position: fixed;
+}
+
+#spyglass[data-content-scroll="11"] .absolute-content-container.spyglass.walden-sunset,
+#spyglass[data-content-scroll="12"] .absolute-content-container.spyglass.walden-sunset {
+  visibility: visible;
+  opacity: 1;
 }
 #spyglass[data-content-scroll="11"] .fixed-video-container.spyglass.walden-sunset,
 #spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset {
@@ -2066,64 +2088,36 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 }
 #spyglass[data-content-scroll="11"] .fixed-video-container.spyglass.walden-sunset .tint,
 #spyglass[data-content-scroll="12"] .fixed-video-container.spyglass.walden-sunset .tint {
-  visibility: visible;
-  opacity: 1;
-  background-color: var(--thoreau-blue-rgba-80);
-}
-#spyglass[data-content-scroll="11"] .animation-frame-container.spyglass,
-#spyglass[data-content-scroll="12"] .animation-frame-container.spyglass {
-  visibility: hidden;
-  opacity: 0;
-}
-
-#spyglass[data-content-scroll="12"] .absolute-content-container.spyglass.would-it-not {
-  visibility: visible;
-  opacity: 1;
-  position: fixed;
-}
-
-#spyglass[data-content-scroll="13"] .absolute-content-container.spyglass.walden-sunset,
-#spyglass[data-content-scroll="14"] .absolute-content-container.spyglass.walden-sunset {
-  visibility: visible;
-  opacity: 1;
-}
-#spyglass[data-content-scroll="13"] .fixed-video-container.spyglass.walden-sunset,
-#spyglass[data-content-scroll="14"] .fixed-video-container.spyglass.walden-sunset {
-  visibility: visible;
-  opacity: 1;
-}
-#spyglass[data-content-scroll="13"] .fixed-video-container.spyglass.walden-sunset .tint,
-#spyglass[data-content-scroll="14"] .fixed-video-container.spyglass.walden-sunset .tint {
   visibility: hidden;
   opacity: 0;
   background-color: transparent;
 }
-#spyglass[data-content-scroll="13"] .animation-frame-container.spyglass,
-#spyglass[data-content-scroll="13"] .arrow-scroll-down,
-#spyglass[data-content-scroll="14"] .animation-frame-container.spyglass,
-#spyglass[data-content-scroll="14"] .arrow-scroll-down {
+#spyglass[data-content-scroll="11"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="11"] .arrow-scroll-down,
+#spyglass[data-content-scroll="12"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="12"] .arrow-scroll-down {
   visibility: hidden;
   opacity: 0;
 }
-#spyglass[data-content-scroll="13"] .next-object-footer,
-#spyglass[data-content-scroll="13"] .back-to-top,
-#spyglass[data-content-scroll="14"] .next-object-footer,
-#spyglass[data-content-scroll="14"] .back-to-top {
+#spyglass[data-content-scroll="11"] .next-object-footer,
+#spyglass[data-content-scroll="11"] .back-to-top,
+#spyglass[data-content-scroll="12"] .next-object-footer,
+#spyglass[data-content-scroll="12"] .back-to-top {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="13"] .next-object-footer,
-#spyglass[data-content-scroll="14"] .next-object-footer {
+#spyglass[data-content-scroll="11"] .next-object-footer,
+#spyglass[data-content-scroll="12"] .next-object-footer {
   visibility: visible;
 }
-#spyglass[data-content-scroll="13"] .mute-button,
-#spyglass[data-content-scroll="14"] .mute-button {
+#spyglass[data-content-scroll="11"] .mute-button,
+#spyglass[data-content-scroll="12"] .mute-button {
   bottom: 11.5vh;
   color: var(--white);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #spyglass[data-content-scroll="13"] .mute-button,
-#spyglass[data-content-scroll="14"] .mute-button {
+  #spyglass[data-content-scroll="11"] .mute-button,
+#spyglass[data-content-scroll="12"] .mute-button {
     bottom: 6.5vh;
   }
 }
