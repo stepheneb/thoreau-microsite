@@ -3,7 +3,7 @@
 //
 
 body#spyglass {
-  height: 1400vh;
+  height: 1200vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -69,7 +69,7 @@ div.artifact.spyglass {
       }
 
       &.his-experiments {
-        height: 400vh;
+        height: 200vh;
         position: -webkit-sticky;
         position: sticky;
         visibility: hidden;
@@ -338,9 +338,7 @@ div.artifact.spyglass {
 }
 
 #spyglass[data-content-scroll="7"],
-#spyglass[data-content-scroll="8"],
-#spyglass[data-content-scroll="9"],
-#spyglass[data-content-scroll="10"] {
+#spyglass[data-content-scroll="8"] {
   .absolute-content-container.spyglass.his-experiments {
     visibility: visible;
     opacity: 1;
@@ -361,8 +359,8 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-content-scroll="11"],
-#spyglass[data-content-scroll="12"] {
+#spyglass[data-content-scroll="9"],
+#spyglass[data-content-scroll="10"] {
   .absolute-content-container.spyglass.would-it-not {
     visibility: visible;
     opacity: 1;
@@ -385,7 +383,7 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-content-scroll="12"] {
+#spyglass[data-content-scroll="10"] {
   .absolute-content-container.spyglass.would-it-not {
     visibility: visible;
     opacity: 1;
@@ -393,8 +391,8 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-content-scroll="13"],
-#spyglass[data-content-scroll="14"] {
+#spyglass[data-content-scroll="11"],
+#spyglass[data-content-scroll="12"] {
   .absolute-content-container.spyglass.walden-sunset {
     visibility: visible;
     opacity: 1;

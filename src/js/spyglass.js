@@ -29,16 +29,16 @@ let animations = [{
     startScroll: 6.1,
     endScroll: 7.5,
     startPage: 6,
-    endPage: 9,
+    endPage: 8,
   },
   {
     imgPrefix: 'spyglass/trees_02_10fps/Render_Trees_10_fps_',
     startFrame: 99,
     endFrame: 119,
-    startScroll: 9,
-    endScroll: 10.9,
-    startPage: 10,
-    endPage: 11,
+    startScroll: 8,
+    endScroll: 8.9,
+    startPage: 8,
+    endPage: 10,
   }
 ];
 
