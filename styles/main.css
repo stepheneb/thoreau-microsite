@@ -209,12 +209,14 @@
 }
 
 :root {
-  --explore-images-timing: 0.75s 0s ease-in-out;
-  --explore-content-timing: 0.5s 0s ease-in-out;
-  --arrow-scroll-timing: 0.1s 0s ease-in-out;
-  --explore-video-tint-timing: 0.5s 0s ease-in-out;
-  --gallery-carousel-timing: 0.2s;
-  --explore-menu-timing: 0.2s 0s ease-in-out;
+  --explore-images-timing: 0.75s ease-in-out;
+  --explore-content-timing: 0.5s ease-in-out;
+  --next-object-footer-timing-out: 4s cubic-bezier(0, 0, 1, 1);
+  --next-object-footer-timing-in: 0.5s cubic-bezier(0, 0, 1, 1);
+  --arrow-scroll-timing: 0.1s ease-in-out;
+  --explore-video-tint-timing: 0.5s ease-in-out;
+  --gallery-carousel-timing: 0.2s ease-in-out;
+  --explore-menu-timing: 0.2s ease-in-out;
 }
 
 body {
@@ -1220,14 +1222,34 @@ div.artifact .arrow-scroll-down .label {
 div.artifact .arrow-scroll-down:hover .label {
   opacity: 1;
 }
+div.artifact .arrow-scroll-down:hover svg {
+  animation-play-state: paused;
+}
 div.artifact .arrow-scroll-down svg.arrow-scroll-down {
   display: block;
   transform: rotate(0turn);
   margin: 0;
   color: var(--white);
   stroke-width: 1.5px;
-  height: 2rem;
+  height: 1.8rem;
   width: auto;
+  animation-duration: 1s;
+  animation-iteration-count: infinite;
+  animation-name: pulse;
+}
+@keyframes pulse {
+  0% {
+    height: 1.7rem;
+    margin-bottom: 0.2rem;
+  }
+  50% {
+    height: 1.9rem;
+    margin-bottom: 0rem;
+  }
+  100% {
+    height: 1.7rem;
+    margin-bottom: 0.2rem;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .arrow-scroll-down {
@@ -1314,6 +1336,7 @@ div.artifact .mute-button > * {
 div.artifact .next-object-footer {
   display: flex;
   visibility: hidden;
+  opacity: 0;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
@@ -1321,6 +1344,7 @@ div.artifact .next-object-footer {
   position: fixed;
   z-index: 3;
   background-color: var(--medium-gray-rgba-90);
+  transition: opacity var(--next-object-footer-timing-in), visibility var(--next-object-footer-timing-in);
   bottom: 0;
   left: 0;
   width: 100vw;
@@ -1905,9 +1929,6 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   background-color: var(--thoreau-blue);
 }
 
-#spyglass[data-content-scroll="0"] .arrow-scroll-down img {
-  content: url("../media/images/arrow-scroll-down.png");
-}
 #spyglass[data-content-scroll="0"] .unmute-footer {
   display: flex;
 }
@@ -1957,7 +1978,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   opacity: 1;
 }
 #spyglass[data-content-scroll="0"] .arrow-scroll-down {
-  bottom: 5.5vh;
+  bottom: 5.75vh;
   visibility: visible;
   opacity: 1;
   color: var(--navy-blue);
@@ -2109,6 +2130,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 #spyglass[data-content-scroll="11"] .next-object-footer,
 #spyglass[data-content-scroll="12"] .next-object-footer {
   visibility: visible;
+  transition: opacity var(--next-object-footer-timing-out), visibility var(--next-object-footer-timing-out);
 }
 #spyglass[data-content-scroll="11"] .mute-button,
 #spyglass[data-content-scroll="12"] .mute-button {
@@ -2286,7 +2308,7 @@ div.artifact.walking-stick .background-image-container.walking-stick:before {
   opacity: 1;
 }
 #walking-stick[data-content-scroll="0"] .arrow-scroll-down {
-  bottom: 5.25vh;
+  bottom: 5.75vh;
   visibility: visible;
   opacity: 1;
   color: var(--navy-blue);
@@ -2496,9 +2518,6 @@ div.artifact.flute .background-image-container.flute:before {
   background-color: var(--thoreau-green);
 }
 
-#flute[data-content-scroll="0"] .arrow-scroll-down img {
-  content: url("../media/images/arrow-scroll-down.png");
-}
 #flute[data-content-scroll="0"] .unmute-footer {
   display: flex;
 }
@@ -2544,7 +2563,7 @@ div.artifact.flute .background-image-container.flute:before {
   opacity: 1;
 }
 #flute[data-content-scroll="0"] .arrow-scroll-down {
-  bottom: 5.5vh;
+  bottom: 5.75vh;
   visibility: visible;
   color: var(--navy-blue);
   opacity: 1;
@@ -2759,9 +2778,6 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
     height: auto;
   }
 }
-#snowshoes[data-content-scroll="0"] .arrow-scroll-down img {
-  content: url("../media/images/arrow-scroll-down.png");
-}
 #snowshoes[data-content-scroll="0"] .unmute-footer {
   display: flex;
 }
@@ -2807,7 +2823,7 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
   opacity: 1;
 }
 #snowshoes[data-content-scroll="0"] .arrow-scroll-down {
-  bottom: 5.5vh;
+  bottom: 5.75vh;
   visibility: visible;
   opacity: 1;
   color: var(--navy-blue);
