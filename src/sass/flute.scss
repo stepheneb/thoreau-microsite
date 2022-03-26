@@ -143,11 +143,6 @@ div.artifact.flute {
 //
 
 #flute[data-content-scroll="0"] {
-  .arrow-scroll-down {
-    img {
-      content: url("../media/images/arrow-scroll-down.png");
-    }
-  }
   .unmute-footer {
     display: flex;
   }
@@ -202,7 +197,7 @@ div.artifact.flute {
   }
 
   .arrow-scroll-down {
-    bottom: 5.5vh;
+    bottom: 5.75vh;
     visibility: visible;
     color: var(--navy-blue);
     opacity: 1;

@@ -20,15 +20,37 @@
     .label {
       opacity: 1;
     }
+    svg {
+      animation-play-state: paused;
+    }
   }
+
   svg.arrow-scroll-down {
     display: block;
     transform: rotate(0turn);
     margin: 0;
     color: var(--white);
     stroke-width: 1.5px;
-    height: 2rem;
+    height: 1.8rem;
     width: auto;
+    animation-duration: 1s;
+    animation-iteration-count: infinite;
+    animation-name: pulse;
+  }
+
+  @keyframes pulse {
+    0% {
+      height: 1.7rem;
+      margin-bottom: 0.2rem;
+    }
+    50% {
+      height: 1.9rem;
+      margin-bottom: 0rem;
+    }
+    100% {
+      height: 1.7rem;
+      margin-bottom: 0.2rem;
+    }
   }
 
   @include mobile-portrait() {
