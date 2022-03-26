@@ -1285,7 +1285,6 @@ div.artifact .mute-button.secondary {
   cursor: pointer;
   font-weight: 600;
   letter-spacing: 0.02rem;
-  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .mute-button.secondary {
@@ -2136,6 +2135,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 #spyglass[data-content-scroll="12"] .mute-button {
   bottom: 11.5vh;
   color: var(--white);
+  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #spyglass[data-content-scroll="11"] .mute-button,
@@ -2389,10 +2389,12 @@ div.artifact.walking-stick .background-image-container.walking-stick:before {
 }
 #walking-stick[data-content-scroll="4"] .next-object-footer {
   visibility: visible;
+  transition: opacity var(--next-object-footer-timing-out), visibility var(--next-object-footer-timing-out);
 }
 #walking-stick[data-content-scroll="4"] .mute-button {
   bottom: 11.5vh;
   color: var(--white);
+  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #walking-stick[data-content-scroll="4"] .mute-button {
@@ -2642,10 +2644,12 @@ div.artifact.flute .background-image-container.flute:before {
 }
 #flute[data-content-scroll="4"] .next-object-footer {
   visibility: visible;
+  transition: opacity var(--next-object-footer-timing-out), visibility var(--next-object-footer-timing-out);
 }
 #flute[data-content-scroll="4"] .mute-button {
   bottom: 11.5vh;
   color: var(--white);
+  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #flute[data-content-scroll="4"] .mute-button {
@@ -2902,10 +2906,12 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
 }
 #snowshoes[data-content-scroll="4"] .next-object-footer {
   visibility: visible;
+  transition: opacity var(--next-object-footer-timing-out), visibility var(--next-object-footer-timing-out);
 }
 #snowshoes[data-content-scroll="4"] .mute-button {
   bottom: 11.5vh;
   color: var(--white);
+  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #snowshoes[data-content-scroll="4"] .mute-button {
