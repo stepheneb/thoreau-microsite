@@ -1,6 +1,7 @@
 .next-object-footer {
   display: flex;
   visibility: hidden;
+  opacity: 0;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
@@ -8,6 +9,9 @@
   position: fixed;
   z-index: 3;
   background-color: var(--medium-gray-rgba-90);
+  transition: opacity var(--next-object-footer-timing-in),
+    visibility var(--next-object-footer-timing-in);
+
   // background: linear-gradient(
   //   0deg,
   //   var(--medium-gray-rgba-75),

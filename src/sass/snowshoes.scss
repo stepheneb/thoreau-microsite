@@ -307,6 +307,8 @@ div.artifact.snowshoes {
 
   .next-object-footer {
     visibility: visible;
+    transition: opacity var(--next-object-footer-timing-out),
+      visibility var(--next-object-footer-timing-out);
   }
 
   .mute-button {
