@@ -205,37 +205,68 @@ class MediaItem {
 class AudioPlayerItem extends MediaItem {
   constructor(audioWrapper) {
     super(audioWrapper);
-    this.playpause = this.wrapper.querySelector('.playpause');
-    this.playBtn = this.wrapper.querySelector('.play');
-    this.pauseBtn = this.wrapper.querySelector('.pause');
-    this.timeDisplay = this.wrapper.querySelector('.time-display');
-    this.currentTimeEl = this.timeDisplay.querySelector('.current')
-    this.durationEl = this.timeDisplay.querySelector('.duration')
-    this.progressDisplay = this.wrapper.querySelector('.progress-indicator');
-    this.elapsedBar = this.progressDisplay.querySelector('.elapsed');
-    this.remainingBar = this.progressDisplay.querySelector('.remaining');
-    this.playBtn.addEventListener('click', () => {
-      this.playpause.classList.add('playing');
-      this.play();
-    });
-    this.pauseBtn.addEventListener('click', () => {
-      this.playpause.classList.remove('playing');
-      this.stop();
-    });
-    this.media.addEventListener('timeupdate', () => {
+    audioWrapper
+      .insertAdjacentHTML('beforeend', `
+      <div class='playpause'>
+        <div class="play">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="11"/>
+            <path d="M 9.75 16.75 L 16.75 12 L 9.75 7.25 Z" />
+          </svg>
+        </div>
+        <div class="pause">
+          <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="currentColor" stroke="currentColor" viewBox="0 0 24 24">
+            <circle cx="12" cy="12" r="11"/>
+            <g fill-rule="evenodd" fill="currentColor" stroke-width="3.5px">
+              <path fill="currentColor" d="M 9 6.5 L 9 17.5" />
+              <path fill="currentColor" d="M 15.5 6.5 L 15.5 17.5" />
+            </g>
+          </svg>
+        </div>
+      </div>
+      <div class='time-display'>
+        <div class='span current'></div>
+        <div class='span divider'>/</div>
+        <div class='span duration'></div>
+      </div>
+      <div class='progress-indicator'>
+        <div class='elapsed'></div>
+        <div class='remaining'></div>
+      </div>
+    `);
+    setTimeout(() => {
+      this.playpause = this.wrapper.querySelector('.playpause');
+      this.playBtn = this.wrapper.querySelector('.play');
+      this.pauseBtn = this.wrapper.querySelector('.pause');
+      this.timeDisplay = this.wrapper.querySelector('.time-display');
+      this.currentTimeEl = this.timeDisplay.querySelector('.current')
+      this.durationEl = this.timeDisplay.querySelector('.duration')
+      this.progressDisplay = this.wrapper.querySelector('.progress-indicator');
+      this.elapsedBar = this.progressDisplay.querySelector('.elapsed');
+      this.remainingBar = this.progressDisplay.querySelector('.remaining');
+      this.playBtn.addEventListener('click', () => {
+        this.playpause.classList.add('playing');
+        this.play();
+      });
+      this.pauseBtn.addEventListener('click', () => {
+        this.playpause.classList.remove('playing');
+        this.stop();
+      });
+      this.media.addEventListener('timeupdate', () => {
+        this.updateCurrentTime();
+      })
+      this.media.addEventListener('durationchange', () => {
+        this.updateDuration();
+      })
+      this.media.addEventListener('ended', () => {
+        this.playpause.classList.remove('playing');
+        this.media.currentTime = 0;
+        this.updateDuration();
+        this.restoreBackgroundVolume();
+      })
       this.updateCurrentTime();
-    })
-    this.media.addEventListener('durationchange', () => {
       this.updateDuration();
-    })
-    this.media.addEventListener('ended', () => {
-      this.playpause.classList.remove('playing');
-      this.media.currentTime = 0;
-      this.updateDuration();
-      this.restoreBackgroundVolume();
-    })
-    this.updateCurrentTime();
-    this.updateDuration();
+    }, 0);
   }
 
   lowerBackgroundVolume() {
