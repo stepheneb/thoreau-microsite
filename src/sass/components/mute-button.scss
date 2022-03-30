@@ -4,7 +4,7 @@
   text-transform: uppercase;
   &.secondary {
     position: fixed;
-    bottom: 2.5vh;
+    bottom: 2vh;
     transition: bottom var(--mute-button-timing);
     right: var(--unmute-right-distance);
     cursor: pointer;
@@ -17,48 +17,45 @@
     }
   }
   pointer-events: auto;
-  height: 2em;
+  height: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
   align-items: center;
   div {
-    margin-right: 0.1em;
-    margin-bottom: -0.05em;
+    margin-right: 0.3rem;
     font-size: var(--explore-content-mute-button);
     &.off {
       display: block;
-      &.x {
-        margin-left: -0.5em;
-        margin-bottom: 0.05em;
-        font-size: 52%;
-        font-weight: bold;
-        svg {
-          height: 1em;
-          width: auto;
-        }
-      }
     }
     &.on {
       display: none;
     }
   }
   svg {
-    height: 1.8em;
-    width: auto;
+    width: 2rem;
+    height: auto;
+    margin-left: 0rem;
+    circle {
+      stroke-width: 0.75px;
+      stroke: white;
+      fill: var(--navy-blue);
+    }
+    path {
+      stroke: white;
+      fill: white;
+      transform: scale(95%) translate(2px, 5px);
+    }
     &.off {
       display: block;
     }
     &.on {
-      margin-left: 0.4em;
       display: none;
+      path {
+        transform: scale(60%) translate(5px, 5px);
+        stroke-width: 0.1px;
+      }
     }
-  }
-  svg + div {
-    display: block;
-    margin-left: -0.2em;
-    padding-bottom: 0.2em;
-    text-transform: none;
   }
   > * {
     pointer-events: none;
