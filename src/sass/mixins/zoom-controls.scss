@@ -42,6 +42,9 @@
         i {
           margin-right: -0.4rem;
           margin-bottom: -0.25rem;
+          @include mobile-portrait() {
+            margin-bottom: 0;
+          }
         }
       }
       &.zoom-plus {
@@ -50,6 +53,9 @@
         i {
           margin-left: -0.4rem;
           margin-bottom: -0.25rem;
+          @include mobile-portrait() {
+            margin-bottom: 0;
+          }
         }
       }
     }

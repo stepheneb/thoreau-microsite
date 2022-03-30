@@ -36,6 +36,9 @@
     width: 1.95rem;
     height: auto;
     margin-left: 0rem;
+    @include mobile-portrait() {
+      width: 2.25rem;
+    }
     circle {
       stroke-width: 0.75px;
       stroke: white;
@@ -44,7 +47,10 @@
     path {
       stroke: white;
       fill: white;
-      transform: scale(82%) translate(4px, 7px);
+      transform: scale(0.82) translate(4px, 7px);
+      @include mobile-portrait() {
+        transform: scale(0.9) translate(3px, 6px);
+      }
     }
     &.off {
       display: block;
@@ -52,8 +58,11 @@
     &.on {
       display: none;
       path {
-        transform: scale(55%) translate(7px, 6px);
+        transform: scale(0.55) translate(7px, 6px);
         stroke-width: 0.1px;
+        @include mobile-portrait() {
+          transform: scale(0.55) translate(7px, 6px);
+        }
       }
     }
   }
