@@ -1,7 +1,7 @@
-.arrow-scroll-down {
+div.arrow-scroll-down {
   pointer-events: all;
   position: fixed;
-  bottom: 2.5vh;
+  bottom: var(--arrow-scroll-down-bottom);
   z-index: 3;
   visibility: visible;
   opacity: 1;
@@ -10,7 +10,8 @@
   width: 20rem;
   margin-left: -10rem;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   color: var(--white);
   .label {
@@ -22,38 +23,43 @@
     .label {
       opacity: 1;
     }
-    svg {
+    .arrow svg {
       animation-play-state: paused;
     }
   }
+  .arrow {
+    width: 5rem;
+    height: 3.5rem;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-  svg.arrow-scroll-down {
-    display: block;
-    transform: rotate(0turn);
-    margin: 0;
-    color: var(--white);
-    stroke-width: 1.5px;
-    width: 3rem;
-    left: 50%;
-    margin-left: -1.5rem;
-    height: auto;
-    animation-duration: 1s;
-    animation-iteration-count: infinite;
-    animation-name: pulse;
-  }
-
-  @keyframes pulse {
-    0% {
-      height: 1.7rem;
-      margin-bottom: 0.2rem;
-    }
-    50% {
+    svg {
+      display: block;
+      transform: rotate(0turn);
+      margin: 0;
+      color: var(--white);
+      stroke-width: 1.5px;
       height: 1.9rem;
-      margin-bottom: 0rem;
+      width: auto;
+      animation-duration: 2.5s;
+      animation-iteration-count: infinite;
+      animation-name: pulse;
     }
-    100% {
-      height: 1.7rem;
-      margin-bottom: 0.2rem;
+
+    @keyframes pulse {
+      0% {
+        height: 1.7rem;
+        margin-bottom: 0.2rem;
+      }
+      50% {
+        height: 2.15rem;
+        margin-bottom: 0rem;
+      }
+      100% {
+        height: 1.7rem;
+        margin-bottom: 0.2rem;
+      }
     }
   }
 
@@ -61,13 +67,13 @@
   }
   @include mobile-landscape() {
     bottom: 3vh;
-    img {
+    svg {
       transform: scale(0.8);
     }
   }
   @include mobile-landscape-small() {
     bottom: 2vh;
-    img {
+    svg {
       transform: scale(0.7);
     }
   }
