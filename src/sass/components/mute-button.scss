@@ -33,7 +33,7 @@
     }
   }
   svg {
-    width: 2rem;
+    width: 1.95rem;
     height: auto;
     margin-left: 0rem;
     circle {
@@ -44,7 +44,7 @@
     path {
       stroke: white;
       fill: white;
-      transform: scale(95%) translate(2px, 5px);
+      transform: scale(82%) translate(4px, 7px);
     }
     &.off {
       display: block;
@@ -52,7 +52,7 @@
     &.on {
       display: none;
       path {
-        transform: scale(60%) translate(5px, 5px);
+        transform: scale(55%) translate(7px, 6px);
         stroke-width: 0.1px;
       }
     }

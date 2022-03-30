@@ -149,7 +149,6 @@ div.artifact.walking-stick {
   }
   .mute-button {
     z-index: 1;
-    color: var(--navy-blue);
     bottom: var(--unmute-footer-control-bottom);
     @include mobile-portrait() {
       bottom: calc(5vh / 2 - 1.6vh);

@@ -20,6 +20,7 @@
   .label {
     margin-right: 19vw;
     margin-left: auto;
+    margin-top: -0.05rem;
     color: var(--navy-blue);
     @include mobile-portrait() {
       margin-bottom: 0;
