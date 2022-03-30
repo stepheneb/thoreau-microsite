@@ -83,6 +83,7 @@
   --back-button-size: 2em;
   --next-object: 0.875em;
   --back-to-top: 0.87em;
+  --unmute-footer-control-bottom: 0.9vh;
   --unmute-right-distance: 6vw;
   --next-object-right-margin: 7vw;
   --scroll-down-label: 0.9rem;
@@ -1248,7 +1249,9 @@ div.artifact .arrow-scroll-down {
   visibility: visible;
   opacity: 1;
   height: 3.75rem;
-  width: 100%;
+  left: 50%;
+  width: 20rem;
+  margin-left: -10rem;
   display: flex;
   align-items: flex-start;
   justify-content: center;
@@ -1273,8 +1276,10 @@ div.artifact .arrow-scroll-down svg.arrow-scroll-down {
   margin: 0;
   color: var(--white);
   stroke-width: 1.5px;
-  height: 1.8rem;
-  width: auto;
+  width: 3rem;
+  left: 50%;
+  margin-left: -1.5rem;
+  height: auto;
   animation-duration: 1s;
   animation-iteration-count: infinite;
   animation-name: pulse;
@@ -1314,7 +1319,7 @@ div.artifact .mute-button {
   color: var(--mute-button-color);
   text-transform: uppercase;
   pointer-events: auto;
-  height: 2em;
+  height: 2rem;
   display: flex;
   flex-direction: row;
   justify-content: space-around;
@@ -1322,7 +1327,7 @@ div.artifact .mute-button {
 }
 div.artifact .mute-button.secondary {
   position: fixed;
-  bottom: 2.5vh;
+  bottom: 2vh;
   transition: bottom var(--mute-button-timing);
   right: var(--unmute-right-distance);
   cursor: pointer;
@@ -1335,42 +1340,39 @@ div.artifact .mute-button.secondary {
   }
 }
 div.artifact .mute-button div {
-  margin-right: 0.1em;
-  margin-bottom: -0.05em;
+  margin-right: 0.3rem;
   font-size: var(--explore-content-mute-button);
 }
 div.artifact .mute-button div.off {
   display: block;
 }
-div.artifact .mute-button div.off.x {
-  margin-left: -0.5em;
-  margin-bottom: 0.05em;
-  font-size: 52%;
-  font-weight: bold;
-}
-div.artifact .mute-button div.off.x svg {
-  height: 1em;
-  width: auto;
-}
 div.artifact .mute-button div.on {
   display: none;
 }
 div.artifact .mute-button svg {
-  height: 1.8em;
-  width: auto;
+  width: 2rem;
+  height: auto;
+  margin-left: 0rem;
+}
+div.artifact .mute-button svg circle {
+  stroke-width: 0.75px;
+  stroke: white;
+  fill: var(--navy-blue);
+}
+div.artifact .mute-button svg path {
+  stroke: white;
+  fill: white;
+  transform: scale(95%) translate(2px, 5px);
 }
 div.artifact .mute-button svg.off {
   display: block;
 }
 div.artifact .mute-button svg.on {
-  margin-left: 0.4em;
   display: none;
 }
-div.artifact .mute-button svg + div {
-  display: block;
-  margin-left: -0.2em;
-  padding-bottom: 0.2em;
-  text-transform: none;
+div.artifact .mute-button svg.on path {
+  transform: scale(60%) translate(5px, 5px);
+  stroke-width: 0.1px;
 }
 div.artifact .mute-button > * {
   pointer-events: none;
@@ -1479,9 +1481,8 @@ div.artifact .unmute-footer {
   font-style: italic;
 }
 div.artifact .unmute-footer .label {
-  margin-right: 18vw;
+  margin-right: 19vw;
   margin-left: auto;
-  margin-bottom: -0.3rem;
   color: var(--navy-blue);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
@@ -2312,7 +2313,7 @@ div.artifact.walking-stick .background-image-container.walking-stick:before {
 #walking-stick[data-content-scroll="0"] .mute-button {
   z-index: 1;
   color: var(--navy-blue);
-  bottom: 1.1vh;
+  bottom: var(--unmute-footer-control-bottom);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #walking-stick[data-content-scroll="0"] .mute-button {
@@ -2977,9 +2978,8 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
   font-style: italic;
 }
 .unmute-footer .label {
-  margin-right: 18vw;
+  margin-right: 19vw;
   margin-left: auto;
-  margin-bottom: -0.3rem;
   color: var(--navy-blue);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
