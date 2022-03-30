@@ -41,7 +41,7 @@
         border-bottom-left-radius: var(--zoom-button-height);
         i {
           margin-right: -0.4rem;
-          margin-bottom: -1px;
+          margin-bottom: -0.25rem;
         }
       }
       &.zoom-plus {
@@ -49,7 +49,7 @@
         border-bottom-right-radius: var(--zoom-button-height);
         i {
           margin-left: -0.4rem;
-          margin-bottom: -1px;
+          margin-bottom: -0.25rem;
         }
       }
     }
