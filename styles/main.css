@@ -120,6 +120,7 @@
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
     --unmute-footer: 0.8em;
+    --arrow-scroll-down-bottom-first-screen: 5.2vh;
     --zoom-button-top: 48.5vh;
     --zoom-button-right: 4vw;
     --zoom-button-height: 2.6rem;
@@ -679,6 +680,11 @@ div.artifact .content .absolute-content-container.start .content .zoom-controls 
   margin-right: -0.4rem;
   margin-bottom: -0.25rem;
 }
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container.start .content .zoom-controls button.zoom-minus i {
+    margin-bottom: 0;
+  }
+}
 div.artifact .content .absolute-content-container.start .content .zoom-controls button.zoom-plus {
   border-top-right-radius: var(--zoom-button-height);
   border-bottom-right-radius: var(--zoom-button-height);
@@ -686,6 +692,11 @@ div.artifact .content .absolute-content-container.start .content .zoom-controls 
 div.artifact .content .absolute-content-container.start .content .zoom-controls button.zoom-plus i {
   margin-left: -0.4rem;
   margin-bottom: -0.25rem;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container.start .content .zoom-controls button.zoom-plus i {
+    margin-bottom: 0;
+  }
 }
 div.artifact .content .absolute-content-container.start .content .zoom-controls .v-divide {
   width: var(--zoom-divide-width);
@@ -1364,6 +1375,11 @@ div.artifact .mute-button svg {
   height: auto;
   margin-left: 0rem;
 }
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .mute-button svg {
+    width: 2.25rem;
+  }
+}
 div.artifact .mute-button svg circle {
   stroke-width: 0.75px;
   stroke: white;
@@ -1372,7 +1388,12 @@ div.artifact .mute-button svg circle {
 div.artifact .mute-button svg path {
   stroke: white;
   fill: white;
-  transform: scale(82%) translate(4px, 7px);
+  transform: scale(0.82) translate(4px, 7px);
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .mute-button svg path {
+    transform: scale(0.9) translate(3px, 6px);
+  }
 }
 div.artifact .mute-button svg.off {
   display: block;
@@ -1381,8 +1402,13 @@ div.artifact .mute-button svg.on {
   display: none;
 }
 div.artifact .mute-button svg.on path {
-  transform: scale(55%) translate(7px, 6px);
+  transform: scale(0.55) translate(7px, 6px);
   stroke-width: 0.1px;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .mute-button svg.on path {
+    transform: scale(0.55) translate(7px, 6px);
+  }
 }
 div.artifact .mute-button > * {
   pointer-events: none;
