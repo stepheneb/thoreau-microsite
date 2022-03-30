@@ -61,9 +61,11 @@
   --about-thoreau-close: 2rem;
   --about-thoreau-close-radius: 1rem;
   --about-thoreau-close-svg: 1.2rem;
+  --arrow-scroll-down-bottom: 1.8vh;
+  --arrow-scroll-down-bottom-first-screen: 6.5vh;
   --zoom-button-size: 1.1rem;
   --zoom-button-top: 89.5vh;
-  --zoom-button-right: 7vw;
+  --zoom-button-right: 7.1vw;
   --zoom-button-height: 2rem;
   --zoom-button-width: 2.65rem;
   --zoom-icon-width: 0.9rem;
@@ -675,6 +677,7 @@ div.artifact .content .absolute-content-container.start .content .zoom-controls 
 }
 div.artifact .content .absolute-content-container.start .content .zoom-controls button.zoom-minus i {
   margin-right: -0.4rem;
+  margin-bottom: -1px;
 }
 div.artifact .content .absolute-content-container.start .content .zoom-controls button.zoom-plus {
   border-top-right-radius: var(--zoom-button-height);
@@ -682,6 +685,7 @@ div.artifact .content .absolute-content-container.start .content .zoom-controls 
 }
 div.artifact .content .absolute-content-container.start .content .zoom-controls button.zoom-plus i {
   margin-left: -0.4rem;
+  margin-bottom: -1px;
 }
 div.artifact .content .absolute-content-container.start .content .zoom-controls .v-divide {
   width: var(--zoom-divide-width);
@@ -1241,10 +1245,10 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
     width: 100%;
   }
 }
-div.artifact .arrow-scroll-down {
+div.artifact div.arrow-scroll-down {
   pointer-events: all;
   position: fixed;
-  bottom: 2.5vh;
+  bottom: var(--arrow-scroll-down-bottom);
   z-index: 3;
   visibility: visible;
   opacity: 1;
@@ -1253,34 +1257,40 @@ div.artifact .arrow-scroll-down {
   width: 20rem;
   margin-left: -10rem;
   display: flex;
-  align-items: flex-start;
+  flex-direction: column;
+  align-items: center;
   justify-content: center;
   color: var(--white);
   background-color: transparent;
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing), bottom var(--arrow-scroll-timing);
 }
-div.artifact .arrow-scroll-down .label {
+div.artifact div.arrow-scroll-down .label {
   font-size: var(--scroll-down-label);
   opacity: 0;
   transition: opacity var(--explore-content-timing);
 }
-div.artifact .arrow-scroll-down:hover .label {
+div.artifact div.arrow-scroll-down:hover .label {
   opacity: 1;
 }
-div.artifact .arrow-scroll-down:hover svg {
+div.artifact div.arrow-scroll-down:hover .arrow svg {
   animation-play-state: paused;
 }
-div.artifact .arrow-scroll-down svg.arrow-scroll-down {
+div.artifact div.arrow-scroll-down .arrow {
+  width: 5rem;
+  height: 3.5rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+div.artifact div.arrow-scroll-down .arrow svg {
   display: block;
   transform: rotate(0turn);
   margin: 0;
   color: var(--white);
   stroke-width: 1.5px;
-  width: 3rem;
-  left: 50%;
-  margin-left: -1.5rem;
-  height: auto;
-  animation-duration: 1s;
+  height: 1.9rem;
+  width: auto;
+  animation-duration: 2.5s;
   animation-iteration-count: infinite;
   animation-name: pulse;
 }
@@ -1290,7 +1300,7 @@ div.artifact .arrow-scroll-down svg.arrow-scroll-down {
     margin-bottom: 0.2rem;
   }
   50% {
-    height: 1.9rem;
+    height: 2.15rem;
     margin-bottom: 0rem;
   }
   100% {
@@ -1299,18 +1309,18 @@ div.artifact .arrow-scroll-down svg.arrow-scroll-down {
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .arrow-scroll-down {
+  div.artifact div.arrow-scroll-down {
     bottom: 3vh;
   }
-  div.artifact .arrow-scroll-down img {
+  div.artifact div.arrow-scroll-down svg {
     transform: scale(0.8);
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (max-height: 320px) and (orientation: landscape) {
-  div.artifact .arrow-scroll-down {
+  div.artifact div.arrow-scroll-down {
     bottom: 2vh;
   }
-  div.artifact .arrow-scroll-down img {
+  div.artifact div.arrow-scroll-down svg {
     transform: scale(0.7);
   }
 }
@@ -2351,16 +2361,19 @@ div.artifact.walking-stick .background-image-container.walking-stick:before {
   visibility: visible;
   opacity: 1;
 }
-#walking-stick[data-content-scroll="0"] .arrow-scroll-down {
-  bottom: 5.75vh;
+#walking-stick[data-content-scroll="0"] div.arrow-scroll-down {
+  bottom: var(--arrow-scroll-down-bottom-first-screen);
   visibility: visible;
   opacity: 1;
   color: var(--navy-blue);
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  #walking-stick[data-content-scroll="0"] .arrow-scroll-down {
-    bottom: 6.5vh;
+  #walking-stick[data-content-scroll="0"] div.arrow-scroll-down {
+    bottom: var(--arrow-scroll-down-bottom-first-screen);
   }
+}
+#walking-stick[data-content-scroll="0"] div.arrow-scroll-down svg {
+  color: var(--navy-blue);
 }
 
 #walking-stick[data-content-scroll="1"] .background-image-container.walking-stick:before {
