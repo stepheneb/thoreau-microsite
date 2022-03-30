@@ -62,11 +62,11 @@
   --about-thoreau-close-radius: 1rem;
   --about-thoreau-close-svg: 1.2rem;
   --arrow-scroll-down-bottom: 1.8vh;
-  --arrow-scroll-down-bottom-first-screen: 6.5vh;
+  --arrow-scroll-down-bottom-first-screen: 9.2vh;
   --zoom-button-size: 1.1rem;
-  --zoom-button-top: 89.5vh;
+  --zoom-button-top: 86.7vh;
   --zoom-button-right: 7.1vw;
-  --zoom-button-height: 2rem;
+  --zoom-button-height: 1.9rem;
   --zoom-button-width: 2.65rem;
   --zoom-icon-width: 0.9rem;
   --zoom-divide-width: 0.1rem;
@@ -566,7 +566,7 @@ div.artifact .content .absolute-content-container.start .content .about-containe
 div.artifact .content .absolute-content-container.start .content .image-container {
   position: relative;
   margin: 5vh 4vw 0 0.5vw;
-  height: 77vh;
+  height: 74vh;
   width: 75%;
   display: flex;
   flex-direction: column;
@@ -677,7 +677,7 @@ div.artifact .content .absolute-content-container.start .content .zoom-controls 
 }
 div.artifact .content .absolute-content-container.start .content .zoom-controls button.zoom-minus i {
   margin-right: -0.4rem;
-  margin-bottom: -1px;
+  margin-bottom: -0.25rem;
 }
 div.artifact .content .absolute-content-container.start .content .zoom-controls button.zoom-plus {
   border-top-right-radius: var(--zoom-button-height);
@@ -685,7 +685,7 @@ div.artifact .content .absolute-content-container.start .content .zoom-controls 
 }
 div.artifact .content .absolute-content-container.start .content .zoom-controls button.zoom-plus i {
   margin-left: -0.4rem;
-  margin-bottom: -1px;
+  margin-bottom: -0.25rem;
 }
 div.artifact .content .absolute-content-container.start .content .zoom-controls .v-divide {
   width: var(--zoom-divide-width);
@@ -1360,7 +1360,7 @@ div.artifact .mute-button div.on {
   display: none;
 }
 div.artifact .mute-button svg {
-  width: 2rem;
+  width: 1.95rem;
   height: auto;
   margin-left: 0rem;
 }
@@ -1372,7 +1372,7 @@ div.artifact .mute-button svg circle {
 div.artifact .mute-button svg path {
   stroke: white;
   fill: white;
-  transform: scale(95%) translate(2px, 5px);
+  transform: scale(82%) translate(4px, 7px);
 }
 div.artifact .mute-button svg.off {
   display: block;
@@ -1381,7 +1381,7 @@ div.artifact .mute-button svg.on {
   display: none;
 }
 div.artifact .mute-button svg.on path {
-  transform: scale(60%) translate(5px, 5px);
+  transform: scale(55%) translate(7px, 6px);
   stroke-width: 0.1px;
 }
 div.artifact .mute-button > * {
@@ -1493,6 +1493,7 @@ div.artifact .unmute-footer {
 div.artifact .unmute-footer .label {
   margin-right: 19vw;
   margin-left: auto;
+  margin-top: -0.05rem;
   color: var(--navy-blue);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
@@ -2322,7 +2323,6 @@ div.artifact.walking-stick .background-image-container.walking-stick:before {
 }
 #walking-stick[data-content-scroll="0"] .mute-button {
   z-index: 1;
-  color: var(--navy-blue);
   bottom: var(--unmute-footer-control-bottom);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
@@ -2993,6 +2993,7 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
 .unmute-footer .label {
   margin-right: 19vw;
   margin-left: auto;
+  margin-top: -0.05rem;
   color: var(--navy-blue);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
