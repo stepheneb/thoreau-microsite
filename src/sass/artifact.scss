@@ -377,12 +377,16 @@ div.artifact {
       .quote-wrapper {
         display: flex;
         flex-direction: column;
+        p,
+        q {
+          margin: 0 0 0.5rem 0;
+        }
       }
 
       hr {
         width: 20%;
         border-top: 1px solid var(--navy-blue);
-        margin: 1.75rem 0 1rem 0;
+        margin: 2.25vh 0 2vh 0;
         opacity: 1;
         @include mobile-portrait() {
           width: 30%;
@@ -400,8 +404,13 @@ div.artifact {
         .name {
           text-transform: uppercase;
           font-weight: 600;
-          &.thoreau {
-            color: black;
+          margin-top: 1.5vh;
+          height: 2vh;
+          margin-bottom: 4.25vh;
+        }
+        &.thoreau {
+          .name {
+            margin-top: 0;
           }
         }
         @include audio-player();
