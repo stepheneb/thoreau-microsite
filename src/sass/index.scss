@@ -236,6 +236,7 @@ body.index {
         flex-direction: row;
         align-items: center;
         object-fit: contain;
+        cursor: pointer;
 
         background-image: url("../media/images/main-menu-texture.png");
         background-repeat: no-repeat;
@@ -259,6 +260,7 @@ body.index {
           object-fit: contain;
           visibility: hidden;
           opacity: 0;
+          cursor: pointer;
           transition: all var(--gallery-carousel-timing);
           filter: grayscale(100%) brightness(150%) contrast(125%) opacity(75%);
           &.enabled {
