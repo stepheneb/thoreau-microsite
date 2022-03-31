@@ -147,12 +147,10 @@ div.artifact.walking-stick {
   .unmute-footer {
     display: flex;
   }
+
   .mute-button {
     z-index: 1;
     bottom: var(--unmute-footer-control-bottom);
-    @include mobile-portrait() {
-      bottom: calc(5vh / 2 - 1.6vh);
-    }
   }
 
   .background-image-container.walking-stick {

@@ -198,13 +198,10 @@ div.artifact.spyglass {
   .unmute-footer {
     display: flex;
   }
+
   .mute-button {
     z-index: 1;
-    color: var(--navy-blue);
-    bottom: 1.1vh;
-    @include mobile-portrait() {
-      bottom: calc(5vh / 2 - 1.6vh);
-    }
+    bottom: var(--unmute-footer-control-bottom);
   }
 
   .animation-frame-container.spyglass {

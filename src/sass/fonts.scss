@@ -107,6 +107,8 @@
     --zoom-button-width: 3.2rem;
     --zoom-icon-width: 1.3rem;
     --zoom-divide-width: 0.3rem;
+
+    --unmute-footer-control-bottom: 0.9vh;
   }
 
   @include mobile-portrait-small() {
