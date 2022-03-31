@@ -407,6 +407,11 @@ div.artifact {
           margin-top: 1.5vh;
           height: 2vh;
           margin-bottom: 4.25vh;
+          @include mobile-portrait() {
+            margin-top: 1vh;
+            height: 2vh;
+            margin-bottom: 3.5vh;
+          }
         }
         &.thoreau {
           .name {
@@ -430,7 +435,6 @@ div.artifact {
   @import "components/dropdown-explore";
   @import "components/arrow-scrolldown";
   @import "components/mute-button";
-  // @import "components/back-to-top";
   @import "components/next-object-footer";
   @import "components/unmute-footer";
   @import "components/about-thoreau";
