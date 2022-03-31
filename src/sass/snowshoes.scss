@@ -203,13 +203,16 @@ div.artifact.snowshoes {
     opacity: 1;
   }
 
-  .arrow-scroll-down {
-    bottom: 5.75vh;
+  div.arrow-scroll-down {
+    bottom: var(--arrow-scroll-down-bottom-first-screen);
     visibility: visible;
     opacity: 1;
     color: var(--navy-blue);
     @include mobile-landscape() {
-      bottom: 6.5vh;
+      bottom: var(--arrow-scroll-down-bottom-first-screen);
+    }
+    svg {
+      color: var(--navy-blue);
     }
   }
 }
