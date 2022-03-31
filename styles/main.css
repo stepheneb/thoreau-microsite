@@ -127,6 +127,7 @@
     --zoom-button-width: 3.2rem;
     --zoom-icon-width: 1.3rem;
     --zoom-divide-width: 0.3rem;
+    --unmute-footer-control-bottom: 0.9vh;
   }
 }
 @media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
@@ -708,10 +709,14 @@ div.artifact .content .absolute-content-container .quote-wrapper {
   display: flex;
   flex-direction: column;
 }
+div.artifact .content .absolute-content-container .quote-wrapper p,
+div.artifact .content .absolute-content-container .quote-wrapper q {
+  margin: 0 0 0.5rem 0;
+}
 div.artifact .content .absolute-content-container hr {
   width: 20%;
   border-top: 1px solid var(--navy-blue);
-  margin: 1.75rem 0 1rem 0;
+  margin: 2.25vh 0 2vh 0;
   opacity: 1;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
@@ -731,9 +736,19 @@ div.artifact .content .absolute-content-container .author {
 div.artifact .content .absolute-content-container .author .name {
   text-transform: uppercase;
   font-weight: 600;
+  margin-top: 1.5vh;
+  height: 2vh;
+  margin-bottom: 4.25vh;
 }
-div.artifact .content .absolute-content-container .author .name.thoreau {
-  color: black;
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container .author .name {
+    margin-top: 1vh;
+    height: 2vh;
+    margin-bottom: 3.5vh;
+  }
+}
+div.artifact .content .absolute-content-container .author.thoreau .name {
+  margin-top: 0;
 }
 div.artifact .content .absolute-content-container .author .audio.player {
   display: flex;
@@ -1451,6 +1466,12 @@ div.artifact .next-object-footer .back-to-top .label {
   text-transform: uppercase;
   margin-right: 0.5em;
   margin-top: -0.1rem;
+  width: 5rem;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .next-object-footer .back-to-top .label {
+    width: 5.5rem;
+  }
 }
 div.artifact .next-object-footer .back-to-top svg.back-to-top-svg {
   display: inline-block;
@@ -1885,14 +1906,14 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.cur
   position: -webkit-sticky;
   position: sticky;
   visibility: hidden;
-  top: 61vh;
+  top: 57vh;
   left: 7vw;
   width: 29vw;
   max-width: 29vw;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.curious {
-    top: 55vh;
+    top: 48vh;
     left: 10vw;
     width: 80vw;
     max-width: 80vw;
@@ -1919,7 +1940,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
-    top: 48vh;
+    top: 46vh;
     left: 10vw;
     width: 80vw;
     max-width: 80vw;
@@ -2014,13 +2035,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 }
 #spyglass[data-content-scroll="0"] .mute-button {
   z-index: 1;
-  color: var(--navy-blue);
-  bottom: 1.1vh;
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #spyglass[data-content-scroll="0"] .mute-button {
-    bottom: 0.9vh;
-  }
+  bottom: var(--unmute-footer-control-bottom);
 }
 #spyglass[data-content-scroll="0"] .animation-frame-container.spyglass {
   visibility: hidden;
@@ -2057,16 +2072,19 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   visibility: visible;
   opacity: 1;
 }
-#spyglass[data-content-scroll="0"] .arrow-scroll-down {
-  bottom: 5.75vh;
+#spyglass[data-content-scroll="0"] div.arrow-scroll-down {
+  bottom: var(--arrow-scroll-down-bottom-first-screen);
   visibility: visible;
   opacity: 1;
   color: var(--navy-blue);
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  #spyglass[data-content-scroll="0"] .arrow-scroll-down {
-    bottom: 6.5vh;
+  #spyglass[data-content-scroll="0"] div.arrow-scroll-down {
+    bottom: var(--arrow-scroll-down-bottom-first-screen);
   }
+}
+#spyglass[data-content-scroll="0"] div.arrow-scroll-down svg {
+  color: var(--navy-blue);
 }
 
 #spyglass[data-content-scroll="1"] .background-image-container.spyglass:before {
@@ -2351,11 +2369,6 @@ div.artifact.walking-stick .background-image-container.walking-stick:before {
   z-index: 1;
   bottom: var(--unmute-footer-control-bottom);
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #walking-stick[data-content-scroll="0"] .mute-button {
-    bottom: 0.9vh;
-  }
-}
 #walking-stick[data-content-scroll="0"] .background-image-container.walking-stick:before {
   background-color: white;
   background-image: url("../media/images/thoreau-handwriting-dark-background.png");
@@ -2608,13 +2621,7 @@ div.artifact.flute .background-image-container.flute:before {
 }
 #flute[data-content-scroll="0"] .mute-button {
   z-index: 1;
-  color: var(--navy-blue);
-  bottom: 1.1vh;
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #flute[data-content-scroll="0"] .mute-button {
-    bottom: 0.9vh;
-  }
+  bottom: var(--unmute-footer-control-bottom);
 }
 #flute[data-content-scroll="0"] .background-image-container.flute:before {
   background-color: white;
@@ -2647,16 +2654,19 @@ div.artifact.flute .background-image-container.flute:before {
   visibility: visible;
   opacity: 1;
 }
-#flute[data-content-scroll="0"] .arrow-scroll-down {
-  bottom: 5.75vh;
+#flute[data-content-scroll="0"] div.arrow-scroll-down {
+  bottom: var(--arrow-scroll-down-bottom-first-screen);
   visibility: visible;
-  color: var(--navy-blue);
   opacity: 1;
+  color: var(--navy-blue);
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  #flute[data-content-scroll="0"] .arrow-scroll-down {
-    bottom: 6.5vh;
+  #flute[data-content-scroll="0"] div.arrow-scroll-down {
+    bottom: var(--arrow-scroll-down-bottom-first-screen);
   }
+}
+#flute[data-content-scroll="0"] div.arrow-scroll-down svg {
+  color: var(--navy-blue);
 }
 
 #flute[data-content-scroll="1"] .background-image-container.flute:before {
@@ -2864,13 +2874,7 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
 }
 #snowshoes[data-content-scroll="0"] .mute-button {
   z-index: 1;
-  color: var(--navy-blue);
-  bottom: 1.1vh;
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #snowshoes[data-content-scroll="0"] .mute-button {
-    bottom: 0.9vh;
-  }
+  bottom: var(--unmute-footer-control-bottom);
 }
 #snowshoes[data-content-scroll="0"] .background-image-container.snowshoes:before {
   background-color: white;
@@ -2903,16 +2907,19 @@ div.artifact.snowshoes .fixed-image-container.snowshoes img.snowshoes-detail {
   visibility: visible;
   opacity: 1;
 }
-#snowshoes[data-content-scroll="0"] .arrow-scroll-down {
-  bottom: 5.75vh;
+#snowshoes[data-content-scroll="0"] div.arrow-scroll-down {
+  bottom: var(--arrow-scroll-down-bottom-first-screen);
   visibility: visible;
   opacity: 1;
   color: var(--navy-blue);
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  #snowshoes[data-content-scroll="0"] .arrow-scroll-down {
-    bottom: 6.5vh;
+  #snowshoes[data-content-scroll="0"] div.arrow-scroll-down {
+    bottom: var(--arrow-scroll-down-bottom-first-screen);
   }
+}
+#snowshoes[data-content-scroll="0"] div.arrow-scroll-down svg {
+  color: var(--navy-blue);
 }
 
 #snowshoes[data-content-scroll="1"] .background-image-container.snowshoes:before {
@@ -3790,6 +3797,7 @@ body.index {
   flex-direction: row;
   align-items: center;
   object-fit: contain;
+  cursor: pointer;
   background-image: url("../media/images/main-menu-texture.png");
   background-repeat: no-repeat;
   background-position: center;
@@ -3815,6 +3823,7 @@ body.index {
   object-fit: contain;
   visibility: hidden;
   opacity: 0;
+  cursor: pointer;
   transition: all var(--gallery-carousel-timing);
   filter: grayscale(100%) brightness(150%) contrast(125%) opacity(75%);
 }
