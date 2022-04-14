@@ -2404,10 +2404,12 @@ div.artifact.desk .fixed-image-container.desk img {
   }
 }
 div.artifact.desk .animation-frame-container.desk {
-  top: 10vh;
+  top: 4vh;
   height: 80vh;
-  left: 42vw;
-  width: 50vw;
+  left: 40vw;
+  width: 52vw;
+  visible: hidden;
+  opacity: 0;
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.desk .animation-frame-container.desk {
@@ -2505,6 +2507,11 @@ div.artifact.desk .background-image-container.desk:before {
   opacity: 1;
   position: fixed;
 }
+#desk[data-content-scroll="2"] .animation-frame-container.desk,
+#desk[data-content-scroll="3"] .animation-frame-container.desk {
+  opacity: 1;
+  visibility: visible;
+}
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #desk[data-content-scroll="2"] .animation-frame-container.desk,
 #desk[data-content-scroll="3"] .animation-frame-container.desk {
@@ -2525,6 +2532,11 @@ div.artifact.desk .background-image-container.desk:before {
   visibility: visible;
   opacity: 1;
   position: fixed;
+}
+#desk[data-content-scroll="4"] .animation-frame-container.desk,
+#desk[data-content-scroll="5"] .animation-frame-container.desk {
+  opacity: 1;
+  visibility: visible;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #desk[data-content-scroll="4"] .animation-frame-container.desk,
