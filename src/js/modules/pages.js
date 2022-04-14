@@ -75,7 +75,7 @@ export const pages = [{
   {
     id: 'desk',
     type: 'artifact',
-    enabled: false,
+    enabled: true,
     dropdownMenu: 'all',
     name: 'Thoreau’s Desk',
     location: "desk.html",
