@@ -9,9 +9,9 @@ let animations = [{
   startFrame: 0,
   endFrame: 128,
   startScroll: 2.0,
-  endScroll: 6.95,
+  endScroll: 5.95,
   startPage: 2,
-  endPage: 7,
+  endPage: 6,
 }];
 
 app.maxContentScroll = 12;
