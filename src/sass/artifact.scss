@@ -297,8 +297,8 @@ div.artifact {
 
           .image-container {
             position: relative;
-            margin: 5vh 4vw 0 0.5vw;
-            height: 74vh;
+            margin: 4vh 4vw 0 0.5vw;
+            height: 75vh;
             width: 75%;
 
             display: flex;
@@ -314,6 +314,7 @@ div.artifact {
               width: inherit;
               height: auto;
               &.artifact {
+                max-width: 80%;
               }
             }
             div.draglayer {
