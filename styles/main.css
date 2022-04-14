@@ -10,6 +10,8 @@
   --snowshoe-brown: #704b46;
   --desk-brown: rgb(175, 108, 52);
   --desk-brown-rgba-80: rgba(175, 108, 52, 0.8);
+  --lock-and-key-yellow: rgb(202, 186, 70);
+  --lock-and-key-yellow-rgba-80: rgba(202, 186, 70, 0.8);
   --snowshoe-gray: rgb(205, 215, 224);
   --snowshoe-gray-rgba-90: rgba(205, 215, 224, 0.9);
   --white-rgba-00: rgba(255, 255, 255, 0);
@@ -2621,6 +2623,431 @@ div.artifact.desk .background-image-container.desk:before {
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #desk[data-content-scroll="8"] .mute-button,
 #desk[data-content-scroll="9"] .mute-button {
+    bottom: 6.5vh;
+  }
+}
+
+body#lock-and-key {
+  height: 1100vh;
+  margin: 0;
+  padding: 0;
+  overflow-x: hidden;
+}
+
+div.artifact.lock-and-key .tint {
+  visibility: visible;
+  opacity: 1;
+  background-color: var(--lock-and-key-yellow-rgba-80);
+}
+div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.start {
+  height: 200vh;
+  width: 100%;
+  max-width: 100vw;
+}
+div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.start .content .title {
+  color: var(--lock-and-key-yellow);
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.start {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 640px) {
+  div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.start {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+}
+div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.thoreaus-friend {
+  height: 200vh;
+  position: -webkit-sticky;
+  position: sticky;
+  visibility: hidden;
+  top: 9vh;
+  left: 5vw;
+  width: 30vw;
+  max-width: 30vw;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.thoreaus-friend {
+    top: 48vh;
+    left: 10vw;
+    width: 80vw;
+    max-width: 80vw;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.thoreaus-friend {
+    top: 40vh;
+    left: 7vw;
+    width: 29vw;
+    max-width: 29vw;
+  }
+}
+div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-walked {
+  height: 200vh;
+  position: -webkit-sticky;
+  position: sticky;
+  visibility: hidden;
+  opacity: 0;
+  top: 8vh;
+  left: 5vw;
+  width: 30vw;
+  max-width: 30vw;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-walked {
+    top: 46vh;
+    left: 10vw;
+    width: 80vw;
+    max-width: 80vw;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-walked {
+    top: 6vh;
+    left: 3vw;
+    width: 45vw;
+    max-width: 45vw;
+  }
+}
+div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-wrote {
+  height: 200vh;
+  position: -webkit-sticky;
+  position: sticky;
+  visibility: hidden;
+  opacity: 0;
+  top: 6vh;
+  left: 5vw;
+  width: 30vw;
+  max-width: 30vw;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-wrote {
+    top: 46vh;
+    left: 10vw;
+    width: 80vw;
+    max-width: 80vw;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-wrote {
+    top: 6vh;
+    left: 3vw;
+    width: 45vw;
+    max-width: 45vw;
+  }
+}
+div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.i-sit-before {
+  height: 100vh;
+  position: -webkit-sticky;
+  position: sticky;
+  visibility: hidden;
+  opacity: 0;
+  top: 30vh;
+  left: 32.5vw;
+  width: 37vw;
+  max-width: 37vw;
+  font-weight: 600;
+  color: var(--white);
+  font-size: var(--explore-content-heading);
+  font-family: "Libre Caslon Text", serif;
+  text-indent: -1rem;
+}
+div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.i-sit-before hr {
+  border-color: var(--navy-blue);
+}
+div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.i-sit-before .author {
+  font-weight: 300;
+  text-indent: 0;
+}
+div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.i-sit-before .author .mute-button {
+  color: var(--navy-blue);
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.i-sit-before {
+    top: 24vh;
+    left: 20vw;
+    width: 58vw;
+    max-width: 58vw;
+  }
+}
+div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.town {
+  height: 200vh;
+  position: -webkit-sticky;
+  position: sticky;
+  visibility: hidden;
+}
+div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.town .video--wrapper .tint {
+  visibility: visible;
+  opacity: 1;
+  background-color: var(--lock-and-key-yellow-rgba-80);
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.lock-and-key .image-container img.lock-and-key-photo {
+    width: 80%;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact.lock-and-key .image-container img.lock-and-key-photo {
+    width: 60%;
+  }
+}
+div.artifact.lock-and-key .fixed-image-container.lock-and-key {
+  visibility: hidden;
+  opacity: 0;
+}
+div.artifact.lock-and-key .fixed-image-container.lock-and-key img {
+  width: unset;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.lock-and-key .fixed-image-container.lock-and-key img {
+    width: 90vw;
+    height: auto;
+    transform: rotate(-9deg) translate(1.5rem, -16vh);
+  }
+}
+div.artifact.lock-and-key .animation-frame-container.lock-and-key {
+  top: 4vh;
+  height: 80vh;
+  left: 40vw;
+  width: 52vw;
+  visible: hidden;
+  opacity: 0;
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact.lock-and-key .animation-frame-container.lock-and-key {
+    margin: 0 0 0 0;
+    padding: 2rem 0 0 0;
+    justify-content: center;
+  }
+}
+div.artifact.lock-and-key .background-image-container.lock-and-key:before {
+  background-color: var(--lock-and-key-yellow);
+}
+
+#lock-and-key[data-content-scroll="0"] .unmute-footer {
+  display: flex;
+}
+#lock-and-key[data-content-scroll="0"] .mute-button {
+  z-index: 1;
+  bottom: var(--unmute-footer-control-bottom);
+}
+#lock-and-key[data-content-scroll="0"] .animation-frame-container.lock-and-key {
+  visibility: hidden;
+  opacity: 0;
+}
+#lock-and-key[data-content-scroll="0"] .background-image-container.lock-and-key:before {
+  background-color: white;
+  background-image: url("../media/images/thoreau-handwriting-dark-background.png");
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#lock-and-key[data-content-scroll="0"] .absolute-content-container.lock-and-key.start {
+  visibility: visible;
+  opacity: 1;
+}
+#lock-and-key[data-content-scroll="0"] .absolute-content-container.lock-and-key.start .image-container {
+  -webkit-clip-path: inset(0% 0% 0% 0%);
+  clip-path: inset(0% 0% 0% 0%);
+  transition: opacity var(--explore-images-timing), background-image var(--explore-images-timing);
+  background-image: url(../media/images/lock-and-key/watercolor-background.png);
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+}
+#lock-and-key[data-content-scroll="0"] .absolute-content-container.lock-and-key.start .image-container img {
+  height: 95%;
+  width: auto;
+  transform: scale(1);
+}
+#lock-and-key[data-content-scroll="0"] .explore-another-object {
+  visibility: visible;
+  opacity: 1;
+}
+#lock-and-key[data-content-scroll="0"] div.arrow-scroll-down {
+  bottom: var(--arrow-scroll-down-bottom-first-screen);
+  visibility: visible;
+  opacity: 1;
+  color: var(--navy-blue);
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  #lock-and-key[data-content-scroll="0"] div.arrow-scroll-down {
+    bottom: var(--arrow-scroll-down-bottom-first-screen);
+  }
+}
+#lock-and-key[data-content-scroll="0"] div.arrow-scroll-down svg {
+  color: var(--navy-blue);
+}
+
+#lock-and-key[data-content-scroll="1"] .background-image-container.lock-and-key {
+  display: none;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  #lock-and-key[data-content-scroll="1"] .animation-frame-container.lock-and-key {
+    top: 15vh;
+  }
+}
+#lock-and-key[data-content-scroll="1"] .animation-frame-container.lock-and-key img {
+  margin: 5vh 10vw;
+}
+#lock-and-key[data-content-scroll="1"] .fixed-image-container {
+  visibility: visible;
+  opacity: 1;
+}
+#lock-and-key[data-content-scroll="1"] .fixed-image-container img {
+  visibility: visible;
+  opacity: 1;
+}
+
+#lock-and-key[data-content-scroll="2"] .absolute-content-container.lock-and-key.thoreaus-friend,
+#lock-and-key[data-content-scroll="3"] .absolute-content-container.lock-and-key.thoreaus-friend {
+  visibility: visible;
+  opacity: 1;
+  position: fixed;
+}
+#lock-and-key[data-content-scroll="2"] .animation-frame-container.lock-and-key,
+#lock-and-key[data-content-scroll="3"] .animation-frame-container.lock-and-key {
+  opacity: 1;
+  visibility: visible;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  #lock-and-key[data-content-scroll="2"] .animation-frame-container.lock-and-key,
+#lock-and-key[data-content-scroll="3"] .animation-frame-container.lock-and-key {
+    top: 15vh;
+  }
+}
+#lock-and-key[data-content-scroll="2"] .animation-frame-container.lock-and-key img,
+#lock-and-key[data-content-scroll="3"] .animation-frame-container.lock-and-key img {
+  margin: 5vh 10vw;
+}
+
+#lock-and-key[data-content-scroll="2"] .absolute-content-container.lock-and-key.thoreaus-friend {
+  position: sticky;
+}
+
+#lock-and-key[data-content-scroll="4"] .absolute-content-container.lock-and-key.he-walked,
+#lock-and-key[data-content-scroll="5"] .absolute-content-container.lock-and-key.he-walked {
+  visibility: visible;
+  opacity: 1;
+  position: fixed;
+}
+#lock-and-key[data-content-scroll="4"] .animation-frame-container.lock-and-key,
+#lock-and-key[data-content-scroll="5"] .animation-frame-container.lock-and-key {
+  opacity: 1;
+  visibility: visible;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  #lock-and-key[data-content-scroll="4"] .animation-frame-container.lock-and-key,
+#lock-and-key[data-content-scroll="5"] .animation-frame-container.lock-and-key {
+    top: -10vh;
+  }
+}
+#lock-and-key[data-content-scroll="4"] .animation-frame-container.lock-and-key img,
+#lock-and-key[data-content-scroll="5"] .animation-frame-container.lock-and-key img {
+  margin: 20vh 30vw 10vh 30vw;
+}
+
+#lock-and-key[data-content-scroll="4"] .absolute-content-container.lock-and-key.he-walked {
+  position: sticky;
+}
+
+#lock-and-key[data-content-scroll="6"] .absolute-content-container.lock-and-key.he-wrote,
+#lock-and-key[data-content-scroll="7"] .absolute-content-container.lock-and-key.he-wrote {
+  visibility: visible;
+  opacity: 1;
+  position: fixed;
+}
+#lock-and-key[data-content-scroll="6"] .animation-frame-container.lock-and-key,
+#lock-and-key[data-content-scroll="7"] .animation-frame-container.lock-and-key {
+  opacity: 1;
+  visibility: visible;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  #lock-and-key[data-content-scroll="6"] .animation-frame-container.lock-and-key,
+#lock-and-key[data-content-scroll="7"] .animation-frame-container.lock-and-key {
+    top: -10vh;
+  }
+}
+#lock-and-key[data-content-scroll="6"] .animation-frame-container.lock-and-key img,
+#lock-and-key[data-content-scroll="7"] .animation-frame-container.lock-and-key img {
+  margin: 20vh 30vw 10vh 30vw;
+}
+
+#lock-and-key[data-content-scroll="6"] .absolute-content-container.lock-and-key.he-wrote {
+  position: sticky;
+}
+
+#lock-and-key[data-content-scroll="8"] .absolute-content-container.lock-and-key.i-sit-before,
+#lock-and-key[data-content-scroll="9"] .absolute-content-container.lock-and-key.i-sit-before {
+  visibility: visible;
+  opacity: 1;
+  position: fixed;
+}
+#lock-and-key[data-content-scroll="8"] .fixed-video-container.lock-and-key.town,
+#lock-and-key[data-content-scroll="9"] .fixed-video-container.lock-and-key.town {
+  visibility: visible;
+  opacity: 1;
+}
+#lock-and-key[data-content-scroll="8"] .fixed-video-container.lock-and-key.town .tint,
+#lock-and-key[data-content-scroll="9"] .fixed-video-container.lock-and-key.town .tint {
+  visibility: visible;
+  opacity: 1;
+  background-color: var(--lock-and-key-yellow-rgba-80);
+}
+
+#lock-and-key[data-content-scroll="8"] .absolute-content-container.lock-and-key.i-sit-before {
+  visibility: visible;
+  opacity: 1;
+  position: sticky;
+}
+
+#lock-and-key[data-content-scroll="10"] .absolute-content-container.lock-and-key.town,
+#lock-and-key[data-content-scroll="11"] .absolute-content-container.lock-and-key.town {
+  visibility: visible;
+  opacity: 1;
+}
+#lock-and-key[data-content-scroll="10"] .fixed-video-container.lock-and-key.town,
+#lock-and-key[data-content-scroll="11"] .fixed-video-container.lock-and-key.town {
+  visibility: visible;
+  opacity: 1;
+}
+#lock-and-key[data-content-scroll="10"] .fixed-video-container.lock-and-key.town .tint,
+#lock-and-key[data-content-scroll="11"] .fixed-video-container.lock-and-key.town .tint {
+  visibility: hidden;
+  opacity: 0;
+  background-color: transparent;
+}
+#lock-and-key[data-content-scroll="10"] .animation-frame-container.lock-and-key,
+#lock-and-key[data-content-scroll="10"] .arrow-scroll-down,
+#lock-and-key[data-content-scroll="11"] .animation-frame-container.lock-and-key,
+#lock-and-key[data-content-scroll="11"] .arrow-scroll-down {
+  visibility: hidden;
+  opacity: 0;
+}
+#lock-and-key[data-content-scroll="10"] .next-object-footer,
+#lock-and-key[data-content-scroll="10"] .back-to-top,
+#lock-and-key[data-content-scroll="11"] .next-object-footer,
+#lock-and-key[data-content-scroll="11"] .back-to-top {
+  visibility: visible;
+  opacity: 1;
+}
+#lock-and-key[data-content-scroll="10"] .next-object-footer,
+#lock-and-key[data-content-scroll="11"] .next-object-footer {
+  visibility: visible;
+  transition: opacity var(--next-object-footer-timing-out), visibility var(--next-object-footer-timing-out);
+}
+#lock-and-key[data-content-scroll="10"] .mute-button,
+#lock-and-key[data-content-scroll="11"] .mute-button {
+  bottom: 11.5vh;
+  color: var(--white);
+  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  #lock-and-key[data-content-scroll="10"] .mute-button,
+#lock-and-key[data-content-scroll="11"] .mute-button {
     bottom: 6.5vh;
   }
 }
