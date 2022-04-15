@@ -25,6 +25,9 @@
     @include mobile-portrait() {
       margin-bottom: 0;
     }
+    @include desktop-portrait() {
+      margin-right: 30vw;
+    }
   }
 
   &.on {
