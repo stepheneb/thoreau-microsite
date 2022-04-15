@@ -1581,6 +1581,11 @@ div.artifact .unmute-footer .label {
     margin-bottom: 0;
   }
 }
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+  div.artifact .unmute-footer .label {
+    margin-right: 30vw;
+  }
+}
 div.artifact .unmute-footer.on .label {
   display: none;
 }
@@ -3891,6 +3896,11 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .unmute-footer .label {
     margin-bottom: 0;
+  }
+}
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+  .unmute-footer .label {
+    margin-right: 30vw;
   }
 }
 .unmute-footer.on .label {
