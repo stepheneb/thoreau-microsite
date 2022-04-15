@@ -237,7 +237,7 @@ div.artifact {
                 color: var(--thoreau-blue);
                 text-transform: capitalize;
                 @include mobile-landscape() {
-                  margin: 4vh 0 4vh 0;
+                  margin: 3vh 0 2vh 0;
                 }
                 @include mobile-portrait() {
                   margin: 1vh 0 2vh 0;

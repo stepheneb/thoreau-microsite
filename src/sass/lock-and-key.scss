@@ -61,10 +61,10 @@ div.artifact.lock-and-key {
         }
 
         @include mobile-landscape() {
-          top: 40vh;
-          left: 7vw;
-          width: 29vw;
-          max-width: 29vw;
+          top: 7vh;
+          left: 5vw;
+          width: 30vw;
+          max-width: 30vw;
         }
       }
 
@@ -87,10 +87,10 @@ div.artifact.lock-and-key {
         }
 
         @include mobile-landscape() {
-          top: 6vh;
-          left: 3vw;
-          width: 45vw;
-          max-width: 45vw;
+          top: 5vh;
+          left: 5vw;
+          width: 30vw;
+          max-width: 30vw;
         }
       }
 
@@ -113,10 +113,10 @@ div.artifact.lock-and-key {
         }
 
         @include mobile-landscape() {
-          top: 6vh;
-          left: 3vw;
-          width: 45vw;
-          max-width: 45vw;
+          top: 7vh;
+          left: 5vw;
+          width: 30vw;
+          max-width: 30vw;
         }
       }
 
@@ -212,9 +212,10 @@ div.artifact.lock-and-key {
       height: 38vh;
     }
     @include mobile-landscape() {
-      margin: 0 0 0 0;
-      padding: 2rem 0 0 0;
-      justify-content: center;
+      top: 0;
+      left: 25vw;
+      width: 80vw;
+      height: 80vh;
     }
   }
 
