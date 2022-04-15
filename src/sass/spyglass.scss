@@ -174,6 +174,8 @@ div.artifact.spyglass {
   }
 
   .animation-frame-container.spyglass {
+    visible: hidden;
+    opacity: 0;
     @include mobile-portrait() {
     }
     @include mobile-landscape() {
@@ -185,7 +187,7 @@ div.artifact.spyglass {
 
   .background-image-container.spyglass {
     &:before {
-      background-color: var(--thoreau-blue);
+      background-color: transparent;
     }
   }
 }
@@ -275,6 +277,8 @@ div.artifact.spyglass {
     }
   }
   .animation-frame-container.spyglass {
+    visibility: visible;
+    opacity: 1;
     @include mobile-portrait() {
       top: 15vh;
     }
@@ -290,7 +294,15 @@ div.artifact.spyglass {
 
 #spyglass[data-content-scroll="2"],
 #spyglass[data-content-scroll="3"] {
+  .background-image-container.spyglass {
+    &:before {
+      background-color: var(--thoreau-blue);
+    }
+  }
+
   .animation-frame-container.spyglass {
+    visibility: visible;
+    opacity: 1;
     @include mobile-portrait() {
       top: 15vh;
     }
@@ -302,12 +314,20 @@ div.artifact.spyglass {
 
 #spyglass[data-content-scroll="4"],
 #spyglass[data-content-scroll="5"] {
+  .background-image-container.spyglass {
+    &:before {
+      background-color: var(--thoreau-blue);
+    }
+  }
+
   .absolute-content-container.spyglass.curious {
     visibility: visible;
     opacity: 1;
     position: fixed;
   }
   .animation-frame-container.spyglass {
+    visibility: visible;
+    opacity: 1;
     @include mobile-portrait() {
       top: 15vh;
     }
@@ -324,6 +344,8 @@ div.artifact.spyglass {
 
 #spyglass[data-content-scroll="6"] {
   .animation-frame-container.spyglass {
+    visibility: visible;
+    opacity: 1;
     @include desktop() {
       img {
         margin: 20vh 30vw 10vh 30vw;
@@ -334,12 +356,20 @@ div.artifact.spyglass {
 
 #spyglass[data-content-scroll="7"],
 #spyglass[data-content-scroll="8"] {
+  .background-image-container.spyglass {
+    &:before {
+      background-color: var(--thoreau-blue);
+    }
+  }
+
   .absolute-content-container.spyglass.his-experiments {
     visibility: visible;
     opacity: 1;
     position: fixed;
   }
   .animation-frame-container.spyglass {
+    visibility: visible;
+    opacity: 1;
     @include mobile-portrait() {
       top: -10vh;
     }
@@ -356,6 +386,12 @@ div.artifact.spyglass {
 
 #spyglass[data-content-scroll="9"],
 #spyglass[data-content-scroll="10"] {
+  .background-image-container.spyglass {
+    &:before {
+      background-color: var(--thoreau-blue);
+    }
+  }
+
   .absolute-content-container.spyglass.would-it-not {
     visibility: visible;
     opacity: 1;
@@ -370,11 +406,6 @@ div.artifact.spyglass {
       opacity: 1;
       background-color: var(--thoreau-blue-rgba-80);
     }
-  }
-
-  .animation-frame-container.spyglass {
-    visibility: hidden;
-    opacity: 0;
   }
 }
 

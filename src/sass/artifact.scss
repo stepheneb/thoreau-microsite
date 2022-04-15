@@ -52,13 +52,14 @@ div.artifact {
 
     .absolute-content-container {
       pointer-events: none;
-      position: relative;
+      position: sticky;
       visibility: hidden;
       opacity: 0;
       width: 100%;
       max-width: 100vw;
       transition: opacity var(--explore-content-timing),
-        visibility var(--explore-content-timing);
+        visibility var(--explore-content-timing),
+        position var(--explore-content-timing);
 
       line-height: var(--explore-content-line-height);
       letter-spacing: var(--explore-content-letter-spacing);

@@ -140,7 +140,7 @@ div.artifact.snowshoes {
 
   .background-image-container.snowshoes {
     &:before {
-      // background-color: var(--thoreau-green);
+      background-color: transparent;
     }
   }
 }
@@ -270,6 +270,7 @@ div.artifact.snowshoes {
 #snowshoes[data-content-scroll="4"] {
   .background-image-container.snowshoes {
     &:before {
+      background-color: var(--snowshoe-brown);
       background-image: url("../media/images/snowshoes/snowy-leaves-david-lindahl-IcEB7ExxMew-unsplash.png");
       background-repeat: no-repeat;
       background-position: center;

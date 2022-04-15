@@ -133,7 +133,7 @@ div.artifact.flute {
 
   .background-image-container.flute {
     &:before {
-      background-color: var(--thoreau-green);
+      background-color: transparent;
     }
   }
 }
@@ -263,6 +263,7 @@ div.artifact.flute {
 #flute[data-content-scroll="4"] {
   .background-image-container.flute {
     &:before {
+      background-color: var(--thoreau-green);
       background-image: url("../media/images/flute/forest-stream-david-lindahl-IcEB7ExxMew-unsplash.png");
       background-repeat: no-repeat;
       background-position: center;

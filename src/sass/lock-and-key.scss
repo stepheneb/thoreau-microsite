@@ -191,7 +191,7 @@ div.artifact.lock-and-key {
     visibility: hidden;
     opacity: 0;
     img {
-      width: unset;
+      width: 100%;
 
       @include mobile-portrait() {
         width: 90vw;
@@ -205,10 +205,8 @@ div.artifact.lock-and-key {
   .animation-frame-container.lock-and-key {
     top: 4vh;
     height: 80vh;
-    left: 40vw;
-    width: 52vw;
-    visible: hidden;
-    opacity: 0;
+    left: 32vw;
+    width: 50vw;
     @include mobile-portrait() {
     }
     @include mobile-landscape() {
@@ -220,7 +218,7 @@ div.artifact.lock-and-key {
 
   .background-image-container.lock-and-key {
     &:before {
-      background-color: var(--lock-and-key-yellow);
+      background-color: transparent;
     }
   }
 }
@@ -237,11 +235,6 @@ div.artifact.lock-and-key {
   .mute-button {
     z-index: 1;
     bottom: var(--unmute-footer-control-bottom);
-  }
-
-  .animation-frame-container.lock-and-key {
-    visibility: hidden;
-    opacity: 0;
   }
 
   .background-image-container.lock-and-key {
@@ -298,16 +291,11 @@ div.artifact.lock-and-key {
 
 #lock-and-key[data-content-scroll="1"] {
   .background-image-container.lock-and-key {
-    display: none;
-  }
-  .animation-frame-container.lock-and-key {
-    @include mobile-portrait() {
-      top: 15vh;
-    }
-    img {
-      margin: 5vh 10vw;
+    &:before {
+      background-color: var(--lock-and-key-yellow);
     }
   }
+
   .fixed-image-container {
     visibility: visible;
     opacity: 1;
@@ -320,11 +308,18 @@ div.artifact.lock-and-key {
 
 #lock-and-key[data-content-scroll="2"],
 #lock-and-key[data-content-scroll="3"] {
+  .background-image-container.lock-and-key {
+    &:before {
+      background-color: var(--lock-and-key-yellow);
+    }
+  }
+
   .absolute-content-container.lock-and-key.thoreaus-friend {
     visibility: visible;
     opacity: 1;
     position: fixed;
   }
+
   .animation-frame-container.lock-and-key {
     opacity: 1;
     visibility: visible;
@@ -344,6 +339,12 @@ div.artifact.lock-and-key {
 
 #lock-and-key[data-content-scroll="4"],
 #lock-and-key[data-content-scroll="5"] {
+  .background-image-container.lock-and-key {
+    &:before {
+      background-color: var(--lock-and-key-yellow);
+    }
+  }
+
   .absolute-content-container.lock-and-key.he-walked {
     visibility: visible;
     opacity: 1;
@@ -368,6 +369,12 @@ div.artifact.lock-and-key {
 
 #lock-and-key[data-content-scroll="6"],
 #lock-and-key[data-content-scroll="7"] {
+  .background-image-container.lock-and-key {
+    &:before {
+      background-color: var(--lock-and-key-yellow);
+    }
+  }
+
   .absolute-content-container.lock-and-key.he-wrote {
     visibility: visible;
     opacity: 1;
@@ -392,6 +399,12 @@ div.artifact.lock-and-key {
 
 #lock-and-key[data-content-scroll="8"],
 #lock-and-key[data-content-scroll="9"] {
+  .background-image-container.lock-and-key {
+    &:before {
+      background-color: var(--lock-and-key-yellow);
+    }
+  }
+
   .absolute-content-container.lock-and-key.i-sit-before {
     visibility: visible;
     opacity: 1;

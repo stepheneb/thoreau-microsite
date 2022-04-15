@@ -23,6 +23,7 @@
     background-size: cover;
 
     transition: opacity var(--explore-images-timing),
+      background-color var(--explore-images-timing),
       background-image var(--explore-images-timing);
   }
 }

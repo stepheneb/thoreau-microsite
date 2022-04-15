@@ -94,7 +94,7 @@ div.artifact.desk {
         }
       }
 
-      &.would-it-not {
+      &.i-sit-before {
         height: 100vh;
         position: -webkit-sticky;
         position: sticky;
@@ -165,7 +165,7 @@ div.artifact.desk {
     visibility: hidden;
     opacity: 0;
     img {
-      width: unset;
+      width: 100%;
 
       @include mobile-portrait() {
         width: 90vw;
@@ -181,8 +181,6 @@ div.artifact.desk {
     height: 80vh;
     left: 40vw;
     width: 52vw;
-    visible: hidden;
-    opacity: 0;
     @include mobile-portrait() {
     }
     @include mobile-landscape() {
@@ -194,7 +192,7 @@ div.artifact.desk {
 
   .background-image-container.desk {
     &:before {
-      background-color: var(--desk-brown);
+      background-color: transparent;
     }
   }
 }
@@ -211,11 +209,6 @@ div.artifact.desk {
   .mute-button {
     z-index: 1;
     bottom: var(--unmute-footer-control-bottom);
-  }
-
-  .animation-frame-container.desk {
-    visibility: hidden;
-    opacity: 0;
   }
 
   .background-image-container.desk {
@@ -280,14 +273,6 @@ div.artifact.desk {
       background-size: cover;
     }
   }
-  .animation-frame-container.desk {
-    @include mobile-portrait() {
-      top: 15vh;
-    }
-    img {
-      margin: 5vh 10vw;
-    }
-  }
   .fixed-image-container {
     visibility: visible;
     opacity: 1;
@@ -300,6 +285,11 @@ div.artifact.desk {
 
 #desk[data-content-scroll="2"],
 #desk[data-content-scroll="3"] {
+  .background-image-container.desk {
+    &:before {
+      background-color: var(--desk-brown);
+    }
+  }
   .absolute-content-container.desk.the-more {
     visibility: visible;
     opacity: 1;
@@ -324,6 +314,11 @@ div.artifact.desk {
 
 #desk[data-content-scroll="4"],
 #desk[data-content-scroll="5"] {
+  .background-image-container.desk {
+    &:before {
+      background-color: var(--desk-brown);
+    }
+  }
   .absolute-content-container.desk.and-once {
     visibility: visible;
     opacity: 1;
@@ -348,7 +343,12 @@ div.artifact.desk {
 
 #desk[data-content-scroll="6"],
 #desk[data-content-scroll="7"] {
-  .absolute-content-container.desk.would-it-not {
+  .background-image-container.desk {
+    &:before {
+      background-color: var(--desk-brown);
+    }
+  }
+  .absolute-content-container.desk.i-sit-before {
     visibility: visible;
     opacity: 1;
     position: sticky;
@@ -366,7 +366,7 @@ div.artifact.desk {
 }
 
 #desk[data-content-scroll="7"] {
-  .absolute-content-container.desk.would-it-not {
+  .absolute-content-container.desk.i-sit-before {
     visibility: visible;
     opacity: 1;
     position: fixed;

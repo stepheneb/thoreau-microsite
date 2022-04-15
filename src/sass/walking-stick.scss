@@ -134,7 +134,7 @@ div.artifact.walking-stick {
 
   .background-image-container.walking-stick {
     &:before {
-      background-color: var(--thoreau-purple);
+      background-color: transparent;
     }
   }
 }
@@ -211,7 +211,7 @@ div.artifact.walking-stick {
 #walking-stick[data-content-scroll="1"] {
   .background-image-container.walking-stick {
     &:before {
-      background-color: var(--thoreau-purple);
+      background-color: transparent;
       background-image: url("../media/images/thoreau-handwriting-light-background.png");
       background-repeat: no-repeat;
       background-position: center;
@@ -266,6 +266,7 @@ div.artifact.walking-stick {
 #walking-stick[data-content-scroll="4"] {
   .background-image-container.walking-stick {
     &:before {
+      background-color: var(--thoreau-purple);
       background-image: url("../media/images/walking-stick/forest-path-istockphoto-182508042-1024x1024.png");
       background-repeat: no-repeat;
       background-position: center;

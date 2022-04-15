@@ -12,6 +12,8 @@
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
+  visible: hidden;
+  opacity: 0;
 
   @include mobile-portrait() {
     width: 100vw;
