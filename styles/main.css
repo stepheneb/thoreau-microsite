@@ -124,7 +124,8 @@
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
     --unmute-footer: 0.8em;
-    --arrow-scroll-down-bottom-first-screen: 5.2vh;
+    --arrow-scroll-down-bottom: 1.8vh;
+    --arrow-scroll-down-bottom-first-screen: 5.8vh;
     --zoom-button-top: 48.5vh;
     --zoom-button-right: 4vw;
     --zoom-button-height: 2.6rem;
@@ -593,7 +594,15 @@ div.artifact .content .absolute-content-container.start .content .image-containe
   height: auto;
 }
 div.artifact .content .absolute-content-container.start .content .image-container img.artifact {
+  height: 95%;
+  width: auto;
+  transform: scale(1);
   max-width: 80%;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container.start .content .image-container img.artifact {
+    height: 85%;
+  }
 }
 div.artifact .content .absolute-content-container.start .content .image-container div.draglayer {
   position: absolute;
@@ -920,8 +929,8 @@ div.artifact .animation-frame-container img {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .animation-frame-container img {
-    width: 95vw;
-    margin: 20% 0;
+    width: 100vw;
+    margin: 0;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
@@ -1342,6 +1351,11 @@ div.artifact div.arrow-scroll-down .arrow svg {
   100% {
     height: 1.7rem;
     margin-bottom: 0.2rem;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact div.arrow-scroll-down {
+    bottom: var(--arrow-scroll-down-bottom);
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
@@ -2335,7 +2349,7 @@ div.artifact.desk .content.desk .absolute-content-container.desk.the-more {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.desk .content.desk .absolute-content-container.desk.the-more {
-    top: 48vh;
+    top: 45vh;
     left: 10vw;
     width: 80vw;
     max-width: 80vw;
@@ -2440,9 +2454,8 @@ div.artifact.desk .fixed-image-container.desk img {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.desk .fixed-image-container.desk img {
-    width: 90vw;
-    height: auto;
-    transform: rotate(-9deg) translate(1.5rem, -16vh);
+    height: 100%;
+    width: auto;
   }
 }
 div.artifact.desk .animation-frame-container.desk {
@@ -2450,6 +2463,14 @@ div.artifact.desk .animation-frame-container.desk {
   height: 80vh;
   left: 40vw;
   width: 52vw;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.desk .animation-frame-container.desk {
+    top: 1vh;
+    width: 100vw;
+    left: 0;
+    height: 38vh;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.desk .animation-frame-container.desk {
@@ -2488,11 +2509,6 @@ div.artifact.desk .background-image-container.desk:before {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-}
-#desk[data-content-scroll="0"] .absolute-content-container.desk.start .image-container img {
-  height: 95%;
-  width: auto;
-  transform: scale(1);
 }
 #desk[data-content-scroll="0"] .explore-another-object {
   visibility: visible;
@@ -2544,12 +2560,6 @@ div.artifact.desk .background-image-container.desk:before {
   opacity: 1;
   visibility: visible;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #desk[data-content-scroll="2"] .animation-frame-container.desk,
-#desk[data-content-scroll="3"] .animation-frame-container.desk {
-    top: 15vh;
-  }
-}
 #desk[data-content-scroll="2"] .animation-frame-container.desk img,
 #desk[data-content-scroll="3"] .animation-frame-container.desk img {
   margin: 5vh 10vw;
@@ -2573,12 +2583,6 @@ div.artifact.desk .background-image-container.desk:before {
 #desk[data-content-scroll="5"] .animation-frame-container.desk {
   opacity: 1;
   visibility: visible;
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #desk[data-content-scroll="4"] .animation-frame-container.desk,
-#desk[data-content-scroll="5"] .animation-frame-container.desk {
-    top: -10vh;
-  }
 }
 #desk[data-content-scroll="4"] .animation-frame-container.desk img,
 #desk[data-content-scroll="5"] .animation-frame-container.desk img {
@@ -2633,9 +2637,7 @@ div.artifact.desk .background-image-container.desk:before {
   opacity: 0;
   background-color: transparent;
 }
-#desk[data-content-scroll="8"] .animation-frame-container.desk,
 #desk[data-content-scroll="8"] .arrow-scroll-down,
-#desk[data-content-scroll="9"] .animation-frame-container.desk,
 #desk[data-content-scroll="9"] .arrow-scroll-down {
   visibility: hidden;
   opacity: 0;
@@ -2709,7 +2711,7 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.thoreaus-friend {
-    top: 48vh;
+    top: 45vh;
     left: 10vw;
     width: 80vw;
     max-width: 80vw;
@@ -2736,7 +2738,7 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-walked {
-    top: 46vh;
+    top: 41vh;
     left: 10vw;
     width: 80vw;
     max-width: 80vw;
@@ -2763,7 +2765,7 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-wrote {
-    top: 46vh;
+    top: 45vh;
     left: 10vw;
     width: 80vw;
     max-width: 80vw;
@@ -2841,9 +2843,8 @@ div.artifact.lock-and-key .fixed-image-container.lock-and-key img {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.lock-and-key .fixed-image-container.lock-and-key img {
-    width: 90vw;
-    height: auto;
-    transform: rotate(-9deg) translate(1.5rem, -16vh);
+    height: 100%;
+    width: auto;
   }
 }
 div.artifact.lock-and-key .animation-frame-container.lock-and-key {
@@ -2851,6 +2852,14 @@ div.artifact.lock-and-key .animation-frame-container.lock-and-key {
   height: 80vh;
   left: 32vw;
   width: 50vw;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact.lock-and-key .animation-frame-container.lock-and-key {
+    top: 1vh;
+    width: 100vw;
+    left: 0;
+    height: 38vh;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.lock-and-key .animation-frame-container.lock-and-key {
@@ -2941,12 +2950,6 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
   opacity: 1;
   visibility: visible;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #lock-and-key[data-content-scroll="2"] .animation-frame-container.lock-and-key,
-#lock-and-key[data-content-scroll="3"] .animation-frame-container.lock-and-key {
-    top: 15vh;
-  }
-}
 #lock-and-key[data-content-scroll="2"] .animation-frame-container.lock-and-key img,
 #lock-and-key[data-content-scroll="3"] .animation-frame-container.lock-and-key img {
   margin: 5vh 10vw;
@@ -2971,12 +2974,6 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
   opacity: 1;
   visibility: visible;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #lock-and-key[data-content-scroll="4"] .animation-frame-container.lock-and-key,
-#lock-and-key[data-content-scroll="5"] .animation-frame-container.lock-and-key {
-    top: -10vh;
-  }
-}
 #lock-and-key[data-content-scroll="4"] .animation-frame-container.lock-and-key img,
 #lock-and-key[data-content-scroll="5"] .animation-frame-container.lock-and-key img {
   margin: 20vh 30vw 10vh 30vw;
@@ -3000,12 +2997,6 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
 #lock-and-key[data-content-scroll="7"] .animation-frame-container.lock-and-key {
   opacity: 1;
   visibility: visible;
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #lock-and-key[data-content-scroll="6"] .animation-frame-container.lock-and-key,
-#lock-and-key[data-content-scroll="7"] .animation-frame-container.lock-and-key {
-    top: -10vh;
-  }
 }
 #lock-and-key[data-content-scroll="6"] .animation-frame-container.lock-and-key img,
 #lock-and-key[data-content-scroll="7"] .animation-frame-container.lock-and-key img {
@@ -3060,9 +3051,7 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
   opacity: 0;
   background-color: transparent;
 }
-#lock-and-key[data-content-scroll="10"] .animation-frame-container.lock-and-key,
 #lock-and-key[data-content-scroll="10"] .arrow-scroll-down,
-#lock-and-key[data-content-scroll="11"] .animation-frame-container.lock-and-key,
 #lock-and-key[data-content-scroll="11"] .arrow-scroll-down {
   visibility: hidden;
   opacity: 0;
