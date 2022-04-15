@@ -8,10 +8,10 @@ let animations = [{
   imgPrefix: 'desk/Journal_',
   startFrame: 0,
   endFrame: 128,
-  startScroll: 2.0,
-  endScroll: 5.95,
+  startScroll: 2.2,
+  endScroll: 6.98,
   startPage: 2,
-  endPage: 6,
+  endPage: 7,
 }];
 
 app.maxContentScroll = 12;

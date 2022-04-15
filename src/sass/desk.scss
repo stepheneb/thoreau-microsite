@@ -3,7 +3,7 @@
 //
 
 body#desk {
-  height: 900vh;
+  height: 1000vh;
   margin: 0;
   padding: 0;
   overflow-x: hidden;
@@ -40,6 +40,10 @@ div.artifact.desk {
           flex-direction: column;
           justify-content: flex-start;
         }
+      }
+
+      &.before-the-more {
+        height: 100vh;
       }
 
       &.the-more {
@@ -177,7 +181,7 @@ div.artifact.desk {
   .animation-frame-container.desk {
     top: 4vh;
     height: 80vh;
-    left: 40vw;
+    left: 36vw;
     width: 52vw;
     @include mobile-portrait() {
       top: 1vh;
@@ -280,8 +284,23 @@ div.artifact.desk {
   }
 }
 
-#desk[data-content-scroll="2"],
-#desk[data-content-scroll="3"] {
+#desk[data-content-scroll="2"] {
+  .background-image-container.desk {
+    &:before {
+      background-color: var(--desk-brown);
+    }
+  }
+  .animation-frame-container.desk {
+    opacity: 1;
+    visibility: visible;
+    img {
+      margin: 5vh 10vw;
+    }
+  }
+}
+
+#desk[data-content-scroll="3"],
+#desk[data-content-scroll="4"] {
   .background-image-container.desk {
     &:before {
       background-color: var(--desk-brown);
@@ -300,19 +319,26 @@ div.artifact.desk {
     }
   }
 }
-#desk[data-content-scroll="2"] {
-  .absolute-content-container.desk.the-more {
-    position: sticky;
-  }
-}
-
-#desk[data-content-scroll="4"],
-#desk[data-content-scroll="5"] {
+#desk[data-content-scroll="3"] {
   .background-image-container.desk {
     &:before {
       background-color: var(--desk-brown);
     }
   }
+
+  .absolute-content-container.desk.the-more {
+    position: sticky;
+  }
+}
+
+#desk[data-content-scroll="5"],
+#desk[data-content-scroll="6"] {
+  .background-image-container.desk {
+    &:before {
+      background-color: var(--desk-brown);
+    }
+  }
+
   .absolute-content-container.desk.and-once {
     visibility: visible;
     opacity: 1;
@@ -326,14 +352,14 @@ div.artifact.desk {
     }
   }
 }
-#desk[data-content-scroll="4"] {
+#desk[data-content-scroll="5"] {
   .absolute-content-container.desk.and-once {
     position: sticky;
   }
 }
 
-#desk[data-content-scroll="6"],
-#desk[data-content-scroll="7"] {
+#desk[data-content-scroll="7"],
+#desk[data-content-scroll="8"] {
   .background-image-container.desk {
     &:before {
       background-color: var(--desk-brown);
