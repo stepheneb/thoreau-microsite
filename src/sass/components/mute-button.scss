@@ -20,6 +20,9 @@
   height: 2rem;
   display: flex;
   flex-direction: row;
+  &.hide {
+    display: none;
+  }
   justify-content: space-around;
   align-items: center;
   div {
