@@ -182,6 +182,11 @@
   }
 
   @include desktop-portrait() {
+    --main-title: 2.6rem;
+    --main-title-world: 4rem;
+    --main-description: 1.1rem;
+    --main-description-line-height: 2rem;
+
     --artifact-title: 1.9rem;
     --artifact-title-line-height: 2rem;
     --artifact-description: 1.2rem;

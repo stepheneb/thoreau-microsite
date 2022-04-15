@@ -106,6 +106,9 @@ body.index {
         margin: 0 1vw 2vh 0.25vw;
         height: 14vh;
         width: auto;
+        @include desktop-portrait() {
+          height: 12vh;
+        }
       }
     }
 
@@ -115,11 +118,11 @@ body.index {
       align-self: center;
       align-items: center;
       justify-content: flex-end;
-      padding: 0 0;
       line-height: normal;
       width: 90vw;
-      height: 24vh;
       margin: 1vh 2vw;
+      padding: 0 0;
+      height: 24vh;
       @include mobile-portrait() {
         width: 100%;
         height: auto;
@@ -127,6 +130,13 @@ body.index {
         flex-direction: column;
       }
       @include mobile-landscape() {
+      }
+      @include desktop-portrait() {
+        align-self: start;
+        justify-content: center;
+        width: 95vw;
+        margin: 1vh 0vw;
+        padding: 0 0;
       }
       .title {
         margin: 0vh 0.4vw;
@@ -177,6 +187,8 @@ body.index {
         @include mobile-portrait() {
           display: none;
         }
+        @include desktop-portrait() {
+        }
       }
       .description {
         width: 30vw;
@@ -206,6 +218,12 @@ body.index {
         }
         @media only screen and (max-device-width: 570px) and (orientation: landscape) {
           width: 100%;
+        }
+        @include desktop-portrait() {
+          width: 36vw;
+          br {
+            display: none;
+          }
         }
       }
     }
@@ -341,12 +359,25 @@ body.index {
     align-items: center;
     .footer-items {
       height: 100%;
-      .item.popup {
+      display: flex;
+      flex-direction: row;
+      justify-content: start;
+      .item {
         height: 100%;
-        line-height: 2.2rem;
-        color: var(--white);
-        @include mobile-landscape() {
-          line-height: 1.75rem;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        margin: 0 0rem 0 1.5rem;
+        &.popup {
+          margin-left: 0;
+          display: flex;
+          flex-direction: column;
+          justify-content: center;
+          padding: 0.45rem 2.5rem;
+          color: var(--white);
+          @include mobile-landscape() {
+            line-height: 1.75rem;
+          }
         }
       }
     }
