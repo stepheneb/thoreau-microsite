@@ -54,7 +54,7 @@ div.artifact.desk {
         max-width: 25vw;
 
         @include mobile-portrait() {
-          top: 48vh;
+          top: 45vh;
           left: 10vw;
           width: 80vw;
           max-width: 80vw;
@@ -168,10 +168,8 @@ div.artifact.desk {
       width: 100%;
 
       @include mobile-portrait() {
-        width: 90vw;
-        height: auto;
-        // height: 19%;
-        transform: rotate(-9deg) translate(1.5rem, -16vh);
+        height: 100%;
+        width: auto;
       }
     }
   }
@@ -182,6 +180,10 @@ div.artifact.desk {
     left: 40vw;
     width: 52vw;
     @include mobile-portrait() {
+      top: 1vh;
+      width: 100vw;
+      left: 0;
+      height: 38vh;
     }
     @include mobile-landscape() {
       margin: 0 0 0 0;
@@ -230,12 +232,6 @@ div.artifact.desk {
       clip-path: inset(0% 0% 0% 0%);
       transition: opacity var(--explore-images-timing),
         background-image var(--explore-images-timing);
-
-      img {
-        height: 95%;
-        width: auto;
-        transform: scale(1);
-      }
 
       background-image: url(../media/images/desk/watercolor-background.png);
       background-repeat: no-repeat;
@@ -298,9 +294,6 @@ div.artifact.desk {
   .animation-frame-container.desk {
     opacity: 1;
     visibility: visible;
-    @include mobile-portrait() {
-      top: 15vh;
-    }
     img {
       margin: 5vh 10vw;
     }
@@ -327,9 +320,6 @@ div.artifact.desk {
   .animation-frame-container.desk {
     opacity: 1;
     visibility: visible;
-    @include mobile-portrait() {
-      top: -10vh;
-    }
     img {
       margin: 20vh 30vw 10vh 30vw;
     }
@@ -390,7 +380,6 @@ div.artifact.desk {
     }
   }
 
-  .animation-frame-container.desk,
   .arrow-scroll-down {
     visibility: hidden;
     opacity: 0;

@@ -315,7 +315,13 @@ div.artifact {
               width: inherit;
               height: auto;
               &.artifact {
+                height: 95%;
+                width: auto;
+                transform: scale(1);
                 max-width: 80%;
+                @include mobile-portrait() {
+                  height: 85%;
+                }
               }
             }
             div.draglayer {
