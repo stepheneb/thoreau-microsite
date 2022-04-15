@@ -202,6 +202,10 @@
 }
 @media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
   :root {
+    --main-title: 2.6rem;
+    --main-title-world: 4rem;
+    --main-description: 1.1rem;
+    --main-description-line-height: 2rem;
     --artifact-title: 1.9rem;
     --artifact-title-line-height: 2rem;
     --artifact-description: 1.2rem;
@@ -1240,13 +1244,13 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
     display: flex;
   }
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item.popup {
-    font-size: 160%;
+    font-size: 140%;
   }
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item {
     display: inline-block;
     margin-right: auto;
     margin-left: auto;
-    font-size: 160%;
+    font-size: 140%;
     padding: 0.5em 1em;
     border-radius: 0;
     color: var(--navy-blue);
@@ -1255,33 +1259,32 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
   }
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.small {
     font-family: "Nunito Sans", sans-serif;
-    font-size: 140%;
+    font-size: 130%;
+  }
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.disabled {
+    color: gray;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape), only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item {
-    font-size: 140%;
-  }
-  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.small {
+    padding: 0.35em 1em;
     font-size: 120%;
   }
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.disabled {
-    color: gray;
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.small {
+    font-size: 100%;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider {
     width: 20%;
-    margin: 2rem 0;
+    margin: 1.2rem 0;
     border: 1px solid white;
     opacity: 1;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape), only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider {
-    margin: 1.2rem 0;
+    margin: 0.8rem 0;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
@@ -1594,9 +1597,10 @@ div.artifact .unmute-footer.on .label {
   }
 }
 div.artifact .unmute-footer .footer-items {
+  height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: start;
   align-items: center;
   font-size: var(--unmute-footer-items);
   font-family: "Nunito Sans", sans-serif;
@@ -1609,12 +1613,14 @@ div.artifact .unmute-footer .footer-items {
 }
 div.artifact .unmute-footer .footer-items .item {
   margin: 0 0rem 0 1.5rem;
+  vertical-align: middle;
+  line-height: var(--unmute-footer-items);
 }
 div.artifact .unmute-footer .footer-items .item a {
   color: var(--white);
 }
 div.artifact .unmute-footer .footer-items .item.popup {
-  margin: 0 0.5rem 0 0;
+  margin-left: 0;
   padding: 0.45rem 2.5rem;
   background-color: var(--navy-blue);
 }
@@ -3903,9 +3909,10 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
   }
 }
 .unmute-footer .footer-items {
+  height: 100%;
   display: flex;
   flex-direction: row;
-  justify-content: flex-start;
+  justify-content: start;
   align-items: center;
   font-size: var(--unmute-footer-items);
   font-family: "Nunito Sans", sans-serif;
@@ -3918,16 +3925,17 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
 }
 .unmute-footer .footer-items .item {
   margin: 0 0rem 0 1.5rem;
+  vertical-align: middle;
+  line-height: var(--unmute-footer-items);
 }
 .unmute-footer .footer-items .item a {
   color: var(--white);
 }
 .unmute-footer .footer-items .item.popup {
-  margin: 0 0.5rem 0 0;
+  margin-left: 0;
   padding: 0.45rem 2.5rem;
   background-color: var(--navy-blue);
 }
-
 .about-thoreau {
   width: 30vw;
   overflow-y: auto;
@@ -4341,13 +4349,13 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
     display: flex;
   }
   .dropdown.explore-another-object ul.dropdown-menu.show li .item.popup {
-    font-size: 160%;
+    font-size: 140%;
   }
   .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item {
     display: inline-block;
     margin-right: auto;
     margin-left: auto;
-    font-size: 160%;
+    font-size: 140%;
     padding: 0.5em 1em;
     border-radius: 0;
     color: var(--navy-blue);
@@ -4356,33 +4364,32 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
   }
   .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.small {
     font-family: "Nunito Sans", sans-serif;
-    font-size: 140%;
+    font-size: 130%;
+  }
+  .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.disabled {
+    color: gray;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape), only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item {
-    font-size: 140%;
-  }
-  .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.small {
+    padding: 0.35em 1em;
     font-size: 120%;
   }
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.disabled {
-    color: gray;
+  .dropdown.explore-another-object ul.dropdown-menu.show li .item a.dropdown-item.small {
+    font-size: 100%;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider {
     width: 20%;
-    margin: 2rem 0;
+    margin: 1.2rem 0;
     border: 1px solid white;
     opacity: 1;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape), only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider {
-    margin: 1.2rem 0;
+    margin: 0.8rem 0;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
@@ -4503,17 +4510,22 @@ body.index {
   height: 14vh;
   width: auto;
 }
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+  .content.index .main img.pinetree.noborder {
+    height: 12vh;
+  }
+}
 .content.index .main .header {
   display: flex;
   flex-direction: row;
   align-self: center;
   align-items: center;
   justify-content: flex-end;
-  padding: 0 0;
   line-height: normal;
   width: 90vw;
-  height: 24vh;
   margin: 1vh 2vw;
+  padding: 0 0;
+  height: 24vh;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .header {
@@ -4521,6 +4533,15 @@ body.index {
     height: auto;
     margin: 0vh 2vw 1vh 2vw;
     flex-direction: column;
+  }
+}
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+  .content.index .main .header {
+    align-self: start;
+    justify-content: center;
+    width: 95vw;
+    margin: 1vh 0vw;
+    padding: 0 0;
   }
 }
 .content.index .main .header .title {
@@ -4615,6 +4636,14 @@ body.index {
 @media only screen and (max-device-width: 570px) and (orientation: landscape) {
   .content.index .main .header .description {
     width: 100%;
+  }
+}
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+  .content.index .main .header .description {
+    width: 36vw;
+  }
+  .content.index .main .header .description br {
+    display: none;
   }
 }
 .content.index .main .gallery {
@@ -4749,10 +4778,23 @@ body.index {
 }
 .content.index .unmute-footer .footer-items {
   height: 100%;
+  display: flex;
+  flex-direction: row;
+  justify-content: start;
+}
+.content.index .unmute-footer .footer-items .item {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin: 0 0rem 0 1.5rem;
 }
 .content.index .unmute-footer .footer-items .item.popup {
-  height: 100%;
-  line-height: 2.2rem;
+  margin-left: 0;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  padding: 0.45rem 2.5rem;
   color: var(--white);
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
