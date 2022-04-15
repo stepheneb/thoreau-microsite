@@ -54,7 +54,7 @@ div.artifact.lock-and-key {
         max-width: 30vw;
 
         @include mobile-portrait() {
-          top: 48vh;
+          top: 45vh;
           left: 10vw;
           width: 80vw;
           max-width: 80vw;
@@ -80,7 +80,7 @@ div.artifact.lock-and-key {
         max-width: 30vw;
 
         @include mobile-portrait() {
-          top: 46vh;
+          top: 41vh;
           left: 10vw;
           width: 80vw;
           max-width: 80vw;
@@ -106,7 +106,7 @@ div.artifact.lock-and-key {
         max-width: 30vw;
 
         @include mobile-portrait() {
-          top: 46vh;
+          top: 45vh;
           left: 10vw;
           width: 80vw;
           max-width: 80vw;
@@ -194,10 +194,8 @@ div.artifact.lock-and-key {
       width: 100%;
 
       @include mobile-portrait() {
-        width: 90vw;
-        height: auto;
-        // height: 19%;
-        transform: rotate(-9deg) translate(1.5rem, -16vh);
+        height: 100%;
+        width: auto;
       }
     }
   }
@@ -208,6 +206,10 @@ div.artifact.lock-and-key {
     left: 32vw;
     width: 50vw;
     @include mobile-portrait() {
+      top: 1vh;
+      width: 100vw;
+      left: 0;
+      height: 38vh;
     }
     @include mobile-landscape() {
       margin: 0 0 0 0;
@@ -324,7 +326,6 @@ div.artifact.lock-and-key {
     opacity: 1;
     visibility: visible;
     @include mobile-portrait() {
-      top: 15vh;
     }
     img {
       margin: 5vh 10vw;
@@ -350,12 +351,10 @@ div.artifact.lock-and-key {
     opacity: 1;
     position: fixed;
   }
+
   .animation-frame-container.lock-and-key {
     opacity: 1;
     visibility: visible;
-    @include mobile-portrait() {
-      top: -10vh;
-    }
     img {
       margin: 20vh 30vw 10vh 30vw;
     }
@@ -384,7 +383,6 @@ div.artifact.lock-and-key {
     opacity: 1;
     visibility: visible;
     @include mobile-portrait() {
-      top: -10vh;
     }
     img {
       margin: 20vh 30vw 10vh 30vw;
@@ -447,7 +445,6 @@ div.artifact.lock-and-key {
     }
   }
 
-  .animation-frame-container.lock-and-key,
   .arrow-scroll-down {
     visibility: hidden;
     opacity: 0;
