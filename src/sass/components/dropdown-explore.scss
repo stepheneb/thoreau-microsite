@@ -234,24 +234,17 @@
           }
           .item {
             &.popup {
-              font-size: 160%;
+              font-size: 140%;
             }
             a.dropdown-item {
               display: inline-block;
               margin-right: auto;
               margin-left: auto;
-              font-size: 160%;
+              font-size: 140%;
               &.small {
                 font-family: "Nunito Sans", sans-serif;
-                font-size: 140%;
+                font-size: 130%;
               }
-              @include mobile-landscape() {
-                font-size: 140%;
-                &.small {
-                  font-size: 120%;
-                }
-              }
-
               padding: 0.5em 1em;
               border-radius: 0;
               color: var(--navy-blue);
@@ -260,14 +253,22 @@
               }
               background-color: var(--mobile-header-gray);
               border: none;
+
+              @include mobile-landscape() {
+                padding: 0.35em 1em;
+                font-size: 120%;
+                &.small {
+                  font-size: 100%;
+                }
+              }
             }
             &.dropdown-divider {
               width: 20%;
-              margin: 2rem 0;
+              margin: 1.2rem 0;
               border: 1px solid white;
               opacity: 1;
               @include mobile-landscape() {
-                margin: 1.2rem 0;
+                margin: 0.8rem 0;
               }
               &.wide {
                 width: 100%;
