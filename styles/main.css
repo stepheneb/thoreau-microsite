@@ -1310,6 +1310,9 @@ div.artifact div.arrow-scroll-down {
   color: var(--white);
   transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing), bottom var(--arrow-scroll-timing);
 }
+div.artifact div.arrow-scroll-down.hide {
+  display: none;
+}
 div.artifact div.arrow-scroll-down .label {
   padding: 0.5rem;
   font-size: var(--scroll-down-label);
@@ -1401,6 +1404,9 @@ div.artifact .mute-button.secondary {
   div.artifact .mute-button.secondary {
     bottom: 2.5vh;
   }
+}
+div.artifact .mute-button.hide {
+  display: none;
 }
 div.artifact .mute-button div {
   margin-right: 0.3rem;
