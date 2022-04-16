@@ -30,6 +30,10 @@ div.artifact.walking-stick {
         .title {
           color: var(--navy-blue);
         }
+        .image-container img.artifact {
+          height: 90%;
+          width: auto;
+        }
 
         @include mobile-portrait() {
           flex-direction: column;

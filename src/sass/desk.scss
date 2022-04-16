@@ -27,6 +27,10 @@ div.artifact.desk {
           .title {
             color: var(--desk-brown);
           }
+          .image-container img.artifact {
+            height: 90%;
+            width: auto;
+          }
         }
 
         @include mobile-portrait() {

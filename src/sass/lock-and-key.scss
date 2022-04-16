@@ -27,6 +27,10 @@ div.artifact.lock-and-key {
           .title {
             color: var(--lock-and-key-yellow);
           }
+          .image-container img.artifact {
+            height: 90%;
+            width: auto;
+          }
         }
 
         @include mobile-portrait() {
