@@ -184,22 +184,6 @@
     --zoom-divide-width: 0.3rem;
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 915px) and (max-height: 320px) and (orientation: landscape) {
-  :root {
-    --main-title: 2rem;
-    --main-title-world: 4.2rem;
-    --main-description: 0.9rem;
-    --explore-content: 1rem;
-    --artifact-title: 1.4rem;
-    --artifact-title-line-height: 2.4rem;
-    --artifact-description: 1rem;
-    --artifact-description-letter-spacing: calc(
-      clamp(0px, (0.4vh - 2.6px), 2px)
-    );
-    --artifact-description-line-height: calc(clamp(20px, (8vh - 20px), 60px));
-    --zoom-button-size: 1.2rem;
-  }
-}
 @media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
   :root {
     --main-title: 2.6rem;
@@ -401,11 +385,6 @@ div.artifact .content .absolute-content-container.start .menu .home a img {
     display: none;
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 915px) and (max-height: 320px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container.start .menu .home {
-    display: none;
-  }
-}
 div.artifact .content .absolute-content-container.start .menu a {
   text-decoration: none;
 }
@@ -528,11 +507,6 @@ div.artifact .content .absolute-content-container.start .content .about-containe
     display: block;
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 915px) and (max-height: 320px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container.start .content .about-container hr {
-    display: none;
-  }
-}
 div.artifact .content .absolute-content-container.start .content .about-container .description {
   margin: 2.5rem 0;
   width: 100%;
@@ -565,14 +539,6 @@ div.artifact .content .absolute-content-container.start .content .about-containe
     width: 100%;
     max-width: 25rem;
     letter-spacing: 0.2px;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (max-height: 320px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container.start .content .about-container .description {
-    width: 110%;
-    letter-spacing: 0px;
-    max-width: 20rem;
-    margin: 2vh 0;
   }
 }
 div.artifact .content .absolute-content-container.start .content .image-container {
@@ -1371,14 +1337,6 @@ div.artifact div.arrow-scroll-down .arrow svg {
   }
   div.artifact div.arrow-scroll-down svg {
     transform: scale(0.8);
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (max-height: 320px) and (orientation: landscape) {
-  div.artifact div.arrow-scroll-down {
-    bottom: 2vh;
-  }
-  div.artifact div.arrow-scroll-down svg {
-    transform: scale(0.7);
   }
 }
 div.artifact .mute-button {
@@ -2735,6 +2693,11 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
   height: 90%;
   width: auto;
 }
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.start .content .image-container img.artifact {
+    height: 75%;
+  }
+}
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.start {
     flex-direction: column;
@@ -2770,10 +2733,10 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.thoreaus-friend {
-    top: 7vh;
+    top: 10vh;
     left: 5vw;
-    width: 30vw;
-    max-width: 30vw;
+    width: 35vw;
+    max-width: 35vw;
   }
 }
 div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.before-he-walked {
@@ -2800,10 +2763,10 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-walked {
-    top: 5vh;
+    top: 10vh;
     left: 5vw;
-    width: 30vw;
-    max-width: 30vw;
+    width: 35vw;
+    max-width: 35vw;
   }
 }
 div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.before-he-wrote {
@@ -2830,10 +2793,10 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-wrote {
-    top: 7vh;
-    left: 5vw;
-    width: 30vw;
-    max-width: 30vw;
+    top: 5vh;
+    left: 10vw;
+    width: 45vw;
+    max-width: 45vw;
   }
 }
 div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.i-sit-before {
@@ -2902,6 +2865,7 @@ div.artifact.lock-and-key .fixed-image-container.lock-and-key img {
   div.artifact.lock-and-key .fixed-image-container.lock-and-key img {
     height: 100%;
     width: auto;
+    transform: scale(1.2) translate(2%, -15vh);
   }
 }
 div.artifact.lock-and-key .animation-frame-container.lock-and-key {
@@ -2918,18 +2882,22 @@ div.artifact.lock-and-key .animation-frame-container.lock-and-key img {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.lock-and-key .animation-frame-container.lock-and-key {
-    top: 1vh;
+    top: 0vh;
     width: 100vw;
     left: 0;
-    height: 38vh;
+    height: 50vh;
+  }
+  div.artifact.lock-and-key .animation-frame-container.lock-and-key img {
+    margin: 4vh 0 0 0;
+    width: 100%;
+    height: auto;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact.lock-and-key .animation-frame-container.lock-and-key {
-    top: 0;
-    left: 25vw;
-    width: 80vw;
-    height: 80vh;
+  div.artifact.lock-and-key .animation-frame-container.lock-and-key img {
+    margin: 8vh 0 0 32vw;
+    width: 70%;
+    height: auto;
   }
 }
 div.artifact.lock-and-key .background-image-container.lock-and-key:before {
@@ -2962,11 +2930,6 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-}
-#lock-and-key[data-content-scroll="0"] .absolute-content-container.lock-and-key.start .image-container img {
-  height: 95%;
-  width: auto;
-  transform: scale(1);
 }
 #lock-and-key[data-content-scroll="0"] .explore-another-object {
   visibility: visible;
@@ -3068,6 +3031,14 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
   height: auto;
   transform: scale(1.06);
 }
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  #lock-and-key[data-content-scroll="8"] .animation-frame-container.lock-and-key img {
+    margin: -6vh 0 0 0;
+    width: 100%;
+    height: auto;
+    transform: scale(1);
+  }
+}
 
 #lock-and-key[data-content-scroll="9"] .background-image-container.lock-and-key:before,
 #lock-and-key[data-content-scroll="10"] .background-image-container.lock-and-key:before {
@@ -3084,30 +3055,21 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
   opacity: 1;
   visibility: visible;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #lock-and-key[data-content-scroll="9"] .animation-frame-container.lock-and-key,
-#lock-and-key[data-content-scroll="10"] .animation-frame-container.lock-and-key {
-    top: 1vh;
-    width: 100vw;
-    left: 0;
-    height: 38vh;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  #lock-and-key[data-content-scroll="9"] .animation-frame-container.lock-and-key,
-#lock-and-key[data-content-scroll="10"] .animation-frame-container.lock-and-key {
-    top: 0;
-    left: 25vw;
-    width: 80vw;
-    height: 80vh;
-  }
-}
 #lock-and-key[data-content-scroll="9"] .animation-frame-container.lock-and-key img,
 #lock-and-key[data-content-scroll="10"] .animation-frame-container.lock-and-key img {
   margin: 8vh 0 0 0;
   width: 100%;
   height: auto;
   transform: scale(1.06);
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  #lock-and-key[data-content-scroll="9"] .animation-frame-container.lock-and-key img,
+#lock-and-key[data-content-scroll="10"] .animation-frame-container.lock-and-key img {
+    margin: -6vh 0 0 0;
+    width: 100%;
+    height: auto;
+    transform: scale(1);
+  }
 }
 
 #lock-and-key[data-content-scroll="9"] .absolute-content-container.lock-and-key.he-wrote {
