@@ -224,12 +224,13 @@
 
 :root {
   --explore-images-timing: 0.75s ease-in-out;
+  --explore-video-timing: 0.5s ease-in-out;
+  --explore-video-tint-timing: 0.5s ease-in-out;
   --explore-content-timing: 0s ease-in-out;
   --next-object-footer-timing-out: 2s cubic-bezier(0, 0, 1, 1);
   --next-object-footer-timing-in: 0.5s cubic-bezier(0, 0, 1, 1);
   --arrow-scroll-timing: 0.1s ease-in-out;
   --mute-button-timing: 0.25s ease-in-out;
-  --explore-video-tint-timing: 0.5s ease-in-out;
   --gallery-carousel-timing: 0.2s ease-in-out;
   --explore-menu-timing: 0.2s ease-in-out;
 }
@@ -906,7 +907,7 @@ div.artifact .animation-frame-container {
   flex-direction: column;
   align-items: center;
   justify-content: space-around;
-  visible: hidden;
+  visibility: hidden;
   opacity: 0;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
@@ -1825,7 +1826,7 @@ div.artifact .fixed-video-container {
   padding: 0;
   visibility: hidden;
   opacity: 0;
-  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
+  transition: opacity var(--explore-video-timing), visibility var(--explore-video-timing);
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -1855,7 +1856,7 @@ div.artifact .fixed-video-container .video-wrapper .tint {
   width: 100vw;
   height: 100vh;
   background-color: var(--white-rgba-00);
-  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing), background-color var(--explore-video-tint-timing);
+  transition: opacity var(--explore-video-tint-timing), visibility var(--explore-video-tint-timing), background-color var(--explore-video-tint-timing);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .fixed-video-container .video-wrapper {
@@ -1929,6 +1930,10 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.sta
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.start .content .title {
   color: var(--thoreau-blue);
+}
+div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.start .content .image-container img.artifact {
+  width: 100%;
+  height: auto;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.start {
@@ -2061,7 +2066,7 @@ div.artifact.spyglass .fixed-image-container.spyglass img.spyglass-photo-rotated
   }
 }
 div.artifact.spyglass .animation-frame-container.spyglass {
-  visible: hidden;
+  visibility: hidden;
   opacity: 0;
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
@@ -2341,6 +2346,10 @@ div.artifact.desk .content.desk .absolute-content-container.desk.start {
 }
 div.artifact.desk .content.desk .absolute-content-container.desk.start .content .title {
   color: var(--desk-brown);
+}
+div.artifact.desk .content.desk .absolute-content-container.desk.start .content .image-container img.artifact {
+  height: 90%;
+  width: auto;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.desk .content.desk .absolute-content-container.desk.start {
@@ -2722,6 +2731,10 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
 div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.start .content .title {
   color: var(--lock-and-key-yellow);
 }
+div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.start .content .image-container img.artifact {
+  height: 90%;
+  width: auto;
+}
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.start {
     flex-direction: column;
@@ -2892,10 +2905,16 @@ div.artifact.lock-and-key .fixed-image-container.lock-and-key img {
   }
 }
 div.artifact.lock-and-key .animation-frame-container.lock-and-key {
-  top: 4vh;
-  height: 80vh;
-  left: 32vw;
-  width: 50vw;
+  display: block;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+}
+div.artifact.lock-and-key .animation-frame-container.lock-and-key img {
+  margin: 4vh 0 0 16vw;
+  width: 88vw;
+  height: auto;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.lock-and-key .animation-frame-container.lock-and-key {
@@ -2987,9 +3006,6 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
   opacity: 1;
   visibility: visible;
 }
-#lock-and-key[data-content-scroll="2"] .animation-frame-container.lock-and-key img {
-  margin: 5vh 10vw;
-}
 
 #lock-and-key[data-content-scroll="3"] .background-image-container.lock-and-key:before,
 #lock-and-key[data-content-scroll="4"] .background-image-container.lock-and-key:before {
@@ -3006,10 +3022,6 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
   opacity: 1;
   visibility: visible;
 }
-#lock-and-key[data-content-scroll="3"] .animation-frame-container.lock-and-key img,
-#lock-and-key[data-content-scroll="4"] .animation-frame-container.lock-and-key img {
-  margin: 5vh 10vw;
-}
 
 #lock-and-key[data-content-scroll="3"] .absolute-content-container.lock-and-key.thoreaus-friend {
   position: sticky;
@@ -3021,9 +3033,6 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
 #lock-and-key[data-content-scroll="5"] .animation-frame-container.lock-and-key {
   opacity: 1;
   visibility: visible;
-}
-#lock-and-key[data-content-scroll="5"] .animation-frame-container.lock-and-key img {
-  margin: 5vh 10vw;
 }
 
 #lock-and-key[data-content-scroll="6"] .background-image-container.lock-and-key:before,
@@ -3041,10 +3050,6 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
   opacity: 1;
   visibility: visible;
 }
-#lock-and-key[data-content-scroll="6"] .animation-frame-container.lock-and-key img,
-#lock-and-key[data-content-scroll="7"] .animation-frame-container.lock-and-key img {
-  margin: 20vh 30vw 10vh 30vw;
-}
 
 #lock-and-key[data-content-scroll="6"] .absolute-content-container.lock-and-key.he-walked {
   position: sticky;
@@ -3054,31 +3059,14 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
   background-color: var(--lock-and-key-yellow);
 }
 #lock-and-key[data-content-scroll="8"] .animation-frame-container.lock-and-key {
-  top: 0vh;
-  height: 100vh;
-  left: 0vw;
-  width: 100vw;
   opacity: 1;
   visibility: visible;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #lock-and-key[data-content-scroll="8"] .animation-frame-container.lock-and-key {
-    top: 1vh;
-    width: 100vw;
-    left: 0;
-    height: 38vh;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  #lock-and-key[data-content-scroll="8"] .animation-frame-container.lock-and-key {
-    top: 0;
-    left: 25vw;
-    width: 80vw;
-    height: 80vh;
-  }
-}
 #lock-and-key[data-content-scroll="8"] .animation-frame-container.lock-and-key img {
-  margin: 5vh 10vw;
+  margin: 8vh 0 0 0;
+  width: 100%;
+  height: auto;
+  transform: scale(1.06);
 }
 
 #lock-and-key[data-content-scroll="9"] .background-image-container.lock-and-key:before,
@@ -3093,10 +3081,6 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
 }
 #lock-and-key[data-content-scroll="9"] .animation-frame-container.lock-and-key,
 #lock-and-key[data-content-scroll="10"] .animation-frame-container.lock-and-key {
-  top: 0vh;
-  height: 100vh;
-  left: 0vw;
-  width: 100vw;
   opacity: 1;
   visibility: visible;
 }
@@ -3120,7 +3104,10 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
 }
 #lock-and-key[data-content-scroll="9"] .animation-frame-container.lock-and-key img,
 #lock-and-key[data-content-scroll="10"] .animation-frame-container.lock-and-key img {
-  margin: 0;
+  margin: 8vh 0 0 0;
+  width: 100%;
+  height: auto;
+  transform: scale(1.06);
 }
 
 #lock-and-key[data-content-scroll="9"] .absolute-content-container.lock-and-key.he-wrote {
@@ -3144,6 +3131,7 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
 }
 #lock-and-key[data-content-scroll="11"] .fixed-video-container.lock-and-key.town .tint,
 #lock-and-key[data-content-scroll="12"] .fixed-video-container.lock-and-key.town .tint {
+  transition: opacity var(--explore-images-timing), visibility var(--explore-images-timing);
   visibility: visible;
   opacity: 1;
   background-color: var(--lock-and-key-yellow-rgba-80);
@@ -3224,6 +3212,10 @@ div.artifact.walking-stick .content.walking-stick .absolute-content-container.wa
 }
 div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.start .title {
   color: var(--navy-blue);
+}
+div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.start .image-container img.artifact {
+  height: 90%;
+  width: auto;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.start {
@@ -3480,6 +3472,10 @@ div.artifact.flute .content.flute .absolute-content-container.flute.start {
 }
 div.artifact.flute .content.flute .absolute-content-container.flute.start .content .title {
   color: var(--thoreau-green);
+}
+div.artifact.flute .content.flute .absolute-content-container.flute.start .content .image-container img.artifact {
+  width: 100%;
+  height: auto;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.flute .content.flute .absolute-content-container.flute.start {
@@ -4927,7 +4923,7 @@ div.viewport {
   z-index: -99;
   height: 100vh;
   width: 100vw;
-  visible: hidden;
+  visibility: hidden;
 }
 
 @supports (font-size: clamp(10px, 1.8vmin, 36px)) {
