@@ -151,9 +151,6 @@ div.artifact {
             @include mobile-landscape() {
               display: none;
             }
-            @include mobile-landscape-small {
-              display: none;
-            }
           }
           a {
             text-decoration: none;
@@ -256,9 +253,6 @@ div.artifact {
               @include mobile-landscape() {
                 display: block;
               }
-              @include mobile-landscape-small {
-                display: none;
-              }
             }
             .description {
               margin: 2.5rem 0;
@@ -287,12 +281,12 @@ div.artifact {
                 max-width: 25rem;
                 letter-spacing: 0.2px;
               }
-              @include mobile-landscape-small {
-                width: 110%;
-                letter-spacing: 0px;
-                max-width: 20rem;
-                margin: 2vh 0;
-              }
+              // @include mobile-landscape-small {
+              //   width: 110%;
+              //   letter-spacing: 0px;
+              //   max-width: 20rem;
+              //   margin: 2vh 0;
+              // }
             }
           }
 

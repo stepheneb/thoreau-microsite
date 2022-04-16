@@ -30,6 +30,11 @@ div.artifact.lock-and-key {
           .image-container img.artifact {
             height: 90%;
             width: auto;
+            @include mobile-portrait() {
+            }
+            @include mobile-landscape() {
+              height: 75%;
+            }
           }
         }
 
@@ -69,10 +74,10 @@ div.artifact.lock-and-key {
         }
 
         @include mobile-landscape() {
-          top: 7vh;
+          top: 10vh;
           left: 5vw;
-          width: 30vw;
-          max-width: 30vw;
+          width: 35vw;
+          max-width: 35vw;
         }
       }
 
@@ -99,10 +104,10 @@ div.artifact.lock-and-key {
         }
 
         @include mobile-landscape() {
-          top: 5vh;
+          top: 10vh;
           left: 5vw;
-          width: 30vw;
-          max-width: 30vw;
+          width: 35vw;
+          max-width: 35vw;
         }
       }
 
@@ -129,10 +134,10 @@ div.artifact.lock-and-key {
         }
 
         @include mobile-landscape() {
-          top: 7vh;
-          left: 5vw;
-          width: 30vw;
-          max-width: 30vw;
+          top: 5vh;
+          left: 10vw;
+          width: 45vw;
+          max-width: 45vw;
         }
       }
 
@@ -212,6 +217,7 @@ div.artifact.lock-and-key {
       @include mobile-portrait() {
         height: 100%;
         width: auto;
+        transform: scale(1.2) translate(2%, -15vh);
       }
     }
   }
@@ -228,16 +234,22 @@ div.artifact.lock-and-key {
       height: auto;
     }
     @include mobile-portrait() {
-      top: 1vh;
+      top: 0vh;
       width: 100vw;
       left: 0;
-      height: 38vh;
+      height: 50vh;
+      img {
+        margin: 4vh 0 0 0;
+        width: 100%;
+        height: auto;
+      }
     }
     @include mobile-landscape() {
-      top: 0;
-      left: 25vw;
-      width: 80vw;
-      height: 80vh;
+      img {
+        margin: 8vh 0 0 32vw;
+        width: 70%;
+        height: auto;
+      }
     }
   }
 
@@ -281,12 +293,6 @@ div.artifact.lock-and-key {
       clip-path: inset(0% 0% 0% 0%);
       transition: opacity var(--explore-images-timing),
         background-image var(--explore-images-timing);
-
-      img {
-        height: 95%;
-        width: auto;
-        transform: scale(1);
-      }
 
       background-image: url(../media/images/lock-and-key/watercolor-background.png);
       background-repeat: no-repeat;
@@ -415,19 +421,21 @@ div.artifact.lock-and-key {
   }
 
   .animation-frame-container.lock-and-key {
-    @include mobile-portrait() {
-    }
-    @include mobile-landscape() {
-    }
     opacity: 1;
     visibility: visible;
-    @include mobile-portrait() {
-    }
     img {
       margin: 8vh 0 0 0;
       width: 100%;
       height: auto;
       transform: scale(1.06);
+      @include mobile-portrait() {
+      }
+      @include mobile-landscape() {
+        margin: -6vh 0 0 0;
+        width: 100%;
+        height: auto;
+        transform: scale(1);
+      }
     }
   }
 }
@@ -446,27 +454,21 @@ div.artifact.lock-and-key {
     position: fixed;
   }
   .animation-frame-container.lock-and-key {
-    @include mobile-portrait() {
-      top: 1vh;
-      width: 100vw;
-      left: 0;
-      height: 38vh;
-    }
-    @include mobile-landscape() {
-      top: 0;
-      left: 25vw;
-      width: 80vw;
-      height: 80vh;
-    }
     opacity: 1;
     visibility: visible;
-    @include mobile-portrait() {
-    }
     img {
       margin: 8vh 0 0 0;
       width: 100%;
       height: auto;
       transform: scale(1.06);
+      @include mobile-portrait() {
+      }
+      @include mobile-landscape() {
+        margin: -6vh 0 0 0;
+        width: 100%;
+        height: auto;
+        transform: scale(1);
+      }
     }
   }
 }

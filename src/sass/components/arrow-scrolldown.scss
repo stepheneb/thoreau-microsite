@@ -81,10 +81,10 @@ div.arrow-scroll-down {
     }
   }
 
-  @include mobile-landscape-small() {
-    bottom: 2vh;
-    svg {
-      transform: scale(0.7);
-    }
-  }
+  // @include mobile-landscape-small() {
+  //   bottom: 2vh;
+  //   svg {
+  //     transform: scale(0.7);
+  //   }
+  // }
 }

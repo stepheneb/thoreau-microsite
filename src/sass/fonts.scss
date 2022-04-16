@@ -164,22 +164,23 @@
     --zoom-icon-width: 1.3rem;
     --zoom-divide-width: 0.3rem;
   }
-  @include mobile-landscape-small() {
-    --main-title: 2rem;
-    --main-title-world: 4.2rem;
-    --main-description: 0.9rem;
 
-    --explore-content: 1rem;
-
-    --artifact-title: 1.4rem;
-    --artifact-title-line-height: 2.4rem;
-    --artifact-description: 1rem;
-    --artifact-description-letter-spacing: calc(
-      clamp(0px, (0.4vh - 2.6px), 2px)
-    );
-    --artifact-description-line-height: calc(clamp(20px, (8vh - 20px), 60px));
-    --zoom-button-size: 1.2rem;
-  }
+  // @include mobile-landscape-small() {
+  //   --main-title: 2rem;
+  //   --main-title-world: 4.2rem;
+  //   --main-description: 0.9rem;
+  //
+  //   --explore-content: 1rem;
+  //
+  //   --artifact-title: 1.4rem;
+  //   --artifact-title-line-height: 2.4rem;
+  //   --artifact-description: 1rem;
+  //   --artifact-description-letter-spacing: calc(
+  //     clamp(0px, (0.4vh - 2.6px), 2px)
+  //   );
+  //   --artifact-description-line-height: calc(clamp(20px, (8vh - 20px), 60px));
+  //   --zoom-button-size: 1.2rem;
+  // }
 
   @include desktop-portrait() {
     --main-title: 2.6rem;
