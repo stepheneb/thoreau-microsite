@@ -9,8 +9,8 @@
   padding: 0;
   visibility: hidden;
   opacity: 0;
-  transition: opacity var(--explore-images-timing),
-    visibility var(--explore-images-timing);
+  transition: opacity var(--explore-video-timing),
+    visibility var(--explore-video-timing);
   @include mobile-portrait() {
     width: 100vw;
   }
@@ -35,8 +35,8 @@
       width: 100vw;
       height: 100vh;
       background-color: var(--white-rgba-00);
-      transition: opacity var(--explore-images-timing),
-        visibility var(--explore-images-timing),
+      transition: opacity var(--explore-video-tint-timing),
+        visibility var(--explore-video-tint-timing),
         background-color var(--explore-video-tint-timing);
     }
     video {

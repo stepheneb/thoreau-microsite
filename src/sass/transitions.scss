@@ -1,11 +1,12 @@
 :root {
   --explore-images-timing: 0.75s ease-in-out;
+  --explore-video-timing: 0.5s ease-in-out;
+  --explore-video-tint-timing: 0.5s ease-in-out;
   --explore-content-timing: 0s ease-in-out;
   --next-object-footer-timing-out: 2s cubic-bezier(0, 0, 1, 1);
   --next-object-footer-timing-in: 0.5s cubic-bezier(0, 0, 1, 1);
   --arrow-scroll-timing: 0.1s ease-in-out;
   --mute-button-timing: 0.25s ease-in-out;
-  --explore-video-tint-timing: 0.5s ease-in-out;
   --gallery-carousel-timing: 0.2s ease-in-out;
   --explore-menu-timing: 0.2s ease-in-out;
 }
