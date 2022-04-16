@@ -20,7 +20,7 @@ div.viewport {
   z-index: -99;
   height: 100vh;
   width: 100vw;
-  visible: hidden;
+  visibility: hidden;
 }
 
 @supports (font-size: clamp(10px, 1.8vmin, 36px)) {

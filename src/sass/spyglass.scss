@@ -178,7 +178,7 @@ div.artifact.spyglass {
   }
 
   .animation-frame-container.spyglass {
-    visible: hidden;
+    visibility: hidden;
     opacity: 0;
     @include mobile-portrait() {
     }
