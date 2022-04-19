@@ -2750,8 +2750,8 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
   opacity: 0;
   top: 8vh;
   left: 5vw;
-  width: 30vw;
-  max-width: 30vw;
+  width: 27rem;
+  max-width: 27rem;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-walked {
