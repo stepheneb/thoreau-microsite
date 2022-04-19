@@ -63,8 +63,8 @@ div.artifact.lock-and-key {
         visibility: hidden;
         top: 9vh;
         left: 5vw;
-        width: 30vw;
-        max-width: 30vw;
+        width: 27rem;
+        max-width: 27rem;
 
         @include mobile-portrait() {
           top: 45vh;
@@ -93,8 +93,8 @@ div.artifact.lock-and-key {
         opacity: 0;
         top: 8vh;
         left: 5vw;
-        width: 30vw;
-        max-width: 30vw;
+        width: 27rem;
+        max-width: 27rem;
 
         @include mobile-portrait() {
           top: 41vh;
