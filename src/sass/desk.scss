@@ -58,8 +58,8 @@ div.artifact.desk {
         visibility: hidden;
         top: 10vh;
         left: 7vw;
-        width: 25vw;
-        max-width: 25vw;
+        width: 22rem;
+        max-width: 22rem;
 
         @include mobile-portrait() {
           top: 45vh;
@@ -84,8 +84,8 @@ div.artifact.desk {
         opacity: 0;
         top: 10vh;
         left: 7vw;
-        width: 25vw;
-        max-width: 25vw;
+        width: 22rem;
+        max-width: 22rem;
 
         @include mobile-portrait() {
           top: 46vh;
@@ -110,8 +110,8 @@ div.artifact.desk {
         opacity: 0;
         top: 30vh;
         left: 32.5vw;
-        width: 37vw;
-        max-width: 37vw;
+        width: var(--thoreau-quote-width);
+        max-width: var(--thoreau-quote-width);
 
         font-weight: 600;
         color: var(--white);

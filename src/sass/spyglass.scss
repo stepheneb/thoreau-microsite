@@ -54,8 +54,8 @@ div.artifact.spyglass {
         visibility: hidden;
         top: 57vh;
         left: 7vw;
-        width: 29vw;
-        max-width: 29vw;
+        width: 27rem;
+        max-width: 27rem;
 
         @include mobile-portrait() {
           top: 48vh;
@@ -80,8 +80,8 @@ div.artifact.spyglass {
         opacity: 0;
         top: 9vh;
         left: 7vw;
-        width: 28vw;
-        max-width: 28vw;
+        width: 27rem;
+        max-width: 27rem;
 
         @include mobile-portrait() {
           top: 46vh;
@@ -106,8 +106,8 @@ div.artifact.spyglass {
         opacity: 0;
         top: 30vh;
         left: 32.5vw;
-        width: 37vw;
-        max-width: 37vw;
+        width: var(--thoreau-quote-width);
+        max-width: var(--thoreau-quote-width);
 
         font-weight: 600;
         color: var(--white);

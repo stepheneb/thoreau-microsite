@@ -58,8 +58,8 @@ div.artifact.snowshoes {
         opacity: 0;
         top: 30vh;
         left: 32.5vw;
-        width: 37vw;
-        max-width: 37vw;
+        width: var(--thoreau-quote-width);
+        max-width: var(--thoreau-quote-width);
 
         font-weight: 600;
         color: var(--snowshoe-brown);

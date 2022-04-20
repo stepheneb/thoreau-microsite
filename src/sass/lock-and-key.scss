@@ -141,7 +141,7 @@ div.artifact.lock-and-key {
         }
       }
 
-      &.i-sit-before {
+      &.under-a-government {
         height: 100vh;
         position: -webkit-sticky;
         position: sticky;
@@ -149,8 +149,8 @@ div.artifact.lock-and-key {
         opacity: 0;
         top: 30vh;
         left: 32.5vw;
-        width: 37vw;
-        max-width: 37vw;
+        width: var(--thoreau-quote-width);
+        max-width: var(--thoreau-quote-width);
 
         font-weight: 600;
         color: var(--white);
@@ -486,7 +486,7 @@ div.artifact.lock-and-key {
     }
   }
 
-  .absolute-content-container.lock-and-key.i-sit-before {
+  .absolute-content-container.lock-and-key.under-a-government {
     visibility: visible;
     opacity: 1;
     position: fixed;
@@ -506,7 +506,7 @@ div.artifact.lock-and-key {
 }
 
 #lock-and-key[data-content-scroll="11"] {
-  .absolute-content-container.lock-and-key.i-sit-before {
+  .absolute-content-container.lock-and-key.under-a-government {
     visibility: visible;
     opacity: 1;
     position: sticky;
