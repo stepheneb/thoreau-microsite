@@ -347,6 +347,12 @@ div.artifact.spyglass {
 }
 
 #spyglass[data-content-scroll="6"] {
+  .background-image-container.spyglass {
+    &:before {
+      background-color: var(--thoreau-blue);
+    }
+  }
+
   .animation-frame-container.spyglass {
     visibility: visible;
     opacity: 1;
