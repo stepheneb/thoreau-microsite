@@ -2,9 +2,11 @@
 /*global  */
 
 import { app } from "./modules/globals.js"
+import { preFetchNotSupported, preFetchAnimationImagesManually } from "./modules/animation-cache.js"
+
 import { startup } from './modules/artifact.js';
 
-let animations = [{
+const animations = [{
     imgPrefix: 'lock-and-key/Coin+Jail+Town_',
     startFrame: 0,
     peakFrame: 45,
@@ -35,28 +37,19 @@ let animations = [{
   }
 ];
 
+const animationCacheData = [{
+  imgPrefix: 'lock-and-key/Coin+Jail+Town_',
+  startFrame: 0,
+  endFrame: 254
+}]
+
 app.maxContentScroll = 12;
 
 app.dev = true;
 
-const cacheAnimationImages = () => {
-  app.logger('browser doesn\'t support <link rel="prefetch">, caching animatipn images manually with JavaScript');
-  let frame, image, src, paddednum;
-  let images = [];
-  for (frame = 0; frame <= 254; frame++) {
-    image = new Image();
-    paddednum = frame.toString().padStart(5, '0');
-    src = `./media/animations/lock-and-key/Coin+Jail+Town_${paddednum}.png`
-    image.src = src;
-    images.push(image);
-  }
-}
-
-const prefetchLink = document.querySelector('link[rel="prefetch"]');
-if (!prefetchLink.relList.supports('prefetch')) {
-  cacheAnimationImages();
-}
-
 app.domReady(() => {
   startup('lock-and-key', animations);
+  if (preFetchNotSupported()) {
+    preFetchAnimationImagesManually(animationCacheData);
+  }
 });

@@ -3,6 +3,7 @@
 
 import { app } from "./modules/globals.js"
 import { startup } from './modules/artifact.js';
+import { preFetchNotSupported, preFetchAnimationImagesManually } from "./modules/animation-cache.js"
 
 let animations = [{
     imgPrefix: 'spyglass/spyglass_animals_10fps/Render_Spyglass+Animals_10_fps_',
@@ -42,10 +43,25 @@ let animations = [{
   }
 ];
 
+const animationCacheData = [{
+    imgPrefix: 'spyglass/spyglass_animals_10fps/Render_Spyglass+Animals_10_fps_',
+    startFrame: 0,
+    endFrame: 144
+  },
+  {
+    imgPrefix: 'spyglass/trees_02_10fps/Render_Trees_10_fps_',
+    startFrame: 0,
+    endFrame: 119
+  }
+]
+
 app.maxContentScroll = 12;
 
 app.dev = true;
 
 app.domReady(() => {
   startup('spyglass', animations);
+  if (preFetchNotSupported()) {
+    preFetchAnimationImagesManually(animationCacheData);
+  }
 });
