@@ -86,23 +86,23 @@
     }
 
     &.dark {
-      .playpause {
-        .play,
-        .pause {
-          svg {
-            fill: var(--navy-blue);
-            circle {
-              stroke-width: 0.75px;
-              stroke: var(--navy-blue);
-              fill: white;
-            }
-            path {
-              stroke: var(--navy-blue);
-              fill: var(--navy-blue);
-            }
-          }
-        }
-      }
+      // .playpause {
+      //   .play,
+      //   .pause {
+      //     svg {
+      //       fill: var(--navy-blue);
+      //       circle {
+      //         stroke-width: 0.75px;
+      //         stroke: var(--navy-blue);
+      //         fill: white;
+      //       }
+      //       path {
+      //         stroke: var(--navy-blue);
+      //         fill: var(--navy-blue);
+      //       }
+      //     }
+      //   }
+      // }
       .time-display {
         color: var(--navy-blue);
       }
