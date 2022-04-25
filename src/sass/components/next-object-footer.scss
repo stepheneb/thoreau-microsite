@@ -42,6 +42,7 @@
     flex-direction: row;
     justify-content: flex-start;
     align-items: center;
+    cursor: pointer;
     @include mobile-portrait() {
     }
     @include mobile-landscape() {
