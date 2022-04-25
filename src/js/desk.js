@@ -3,8 +3,9 @@
 
 import { app } from "./modules/globals.js"
 import { startup } from './modules/artifact.js';
+import { preFetchNotSupported, preFetchAnimationImagesManually } from "./modules/animation-cache.js"
 
-let animations = [{
+const animations = [{
   imgPrefix: 'desk/Journal_',
   startFrame: 0,
   endFrame: 128,
@@ -14,10 +15,19 @@ let animations = [{
   endPage: 7,
 }];
 
+const animationCacheData = [{
+  imgPrefix: 'desk/Journal_',
+  startFrame: 0,
+  endFrame: 128
+}]
+
 app.maxContentScroll = 12;
 
 app.dev = true;
 
 app.domReady(() => {
   startup('desk', animations);
+  if (preFetchNotSupported()) {
+    preFetchAnimationImagesManually(animationCacheData);
+  }
 });
