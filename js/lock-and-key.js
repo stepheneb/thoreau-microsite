@@ -40,6 +40,7 @@ app.maxContentScroll = 12;
 app.dev = true;
 
 const cacheAnimationImages = () => {
+  app.logger('browser doesn\'t support <link rel="prefetch">, caching animatipn images manually with JavaScript');
   let frame, image, src, paddednum;
   let images = [];
   for (frame = 0; frame <= 254; frame++) {
@@ -51,7 +52,10 @@ const cacheAnimationImages = () => {
   }
 }
 
-cacheAnimationImages();
+const prefetchLink = document.querySelector('link[rel="prefetch"]');
+if (!prefetchLink.relList.supports('prefetch')) {
+  cacheAnimationImages();
+}
 
 app.domReady(() => {
   startup('lock-and-key', animations);
