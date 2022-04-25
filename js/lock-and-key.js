@@ -39,6 +39,20 @@ app.maxContentScroll = 12;
 
 app.dev = true;
 
+const cacheAnimationImages = () => {
+  let frame, image, src, paddednum;
+  let images = [];
+  for (frame = 0; frame <= 254; frame++) {
+    image = new Image();
+    paddednum = frame.toString().padStart(5, '0');
+    src = `./media/animations/lock-and-key/Coin+Jail+Town_${paddednum}.png`
+    image.src = src;
+    images.push(image);
+  }
+}
+
+cacheAnimationImages();
+
 app.domReady(() => {
   startup('lock-and-key', animations);
 });

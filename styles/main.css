@@ -815,21 +815,6 @@ div.artifact .content .absolute-content-container .author .audio.player .progres
   height: 100%;
   background-color: var(--progress-indicator-remaining);
 }
-div.artifact .content .absolute-content-container .author .audio.player.dark .playpause .play svg,
-div.artifact .content .absolute-content-container .author .audio.player.dark .playpause .pause svg {
-  fill: var(--navy-blue);
-}
-div.artifact .content .absolute-content-container .author .audio.player.dark .playpause .play svg circle,
-div.artifact .content .absolute-content-container .author .audio.player.dark .playpause .pause svg circle {
-  stroke-width: 0.75px;
-  stroke: var(--navy-blue);
-  fill: white;
-}
-div.artifact .content .absolute-content-container .author .audio.player.dark .playpause .play svg path,
-div.artifact .content .absolute-content-container .author .audio.player.dark .playpause .pause svg path {
-  stroke: var(--navy-blue);
-  fill: var(--navy-blue);
-}
 div.artifact .content .absolute-content-container .author .audio.player.dark .time-display {
   color: var(--navy-blue);
 }
@@ -1454,6 +1439,7 @@ div.artifact .next-object-footer .back-to-top {
   flex-direction: row;
   justify-content: flex-start;
   align-items: center;
+  cursor: pointer;
 }
 div.artifact .next-object-footer .back-to-top .label {
   text-transform: uppercase;
