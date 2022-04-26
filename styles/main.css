@@ -14,6 +14,7 @@
   --lock-and-key-yellow-rgba-80: rgba(202, 186, 70, 0.8);
   --snowshoe-gray: rgb(205, 215, 224);
   --snowshoe-gray-rgba-90: rgba(205, 215, 224, 0.9);
+  --walking-stick-slate: #4b5a74;
   --white-rgba-00: rgba(255, 255, 255, 0);
   --november-skies: #a7bbca;
   --writing-mask: #cdd7e0;
@@ -3318,7 +3319,7 @@ div.artifact.walking-stick .background-image-container.walking-stick:before {
 }
 
 #walking-stick[data-content-scroll="1"] .background-image-container.walking-stick:before {
-  background-color: transparent;
+  background-color: var(--walking-stick-slate);
   background-image: url("../media/images/thoreau-handwriting-light-background.png");
   background-repeat: no-repeat;
   background-position: center;
