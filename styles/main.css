@@ -828,14 +828,15 @@ div.artifact .content .absolute-content-container .author .audio.player.dark .pr
   background-color: var(--progress-indicator-elapsed);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container .author .audio.player .playpause {
-    font-size: 2.4rem;
+  div.artifact .content .absolute-content-container .author .audio.player .playpause .play svg,
+div.artifact .content .absolute-content-container .author .audio.player .playpause .pause svg {
+    width: 3.2rem;
   }
   div.artifact .content .absolute-content-container .author .audio.player .time-display {
-    margin-left: 0.5rem;
+    margin-left: 1rem;
   }
   div.artifact .content .absolute-content-container .author .audio.player .time-display div.span {
-    font-size: 1.2rem;
+    font-size: 1.3rem;
   }
   div.artifact .content .absolute-content-container .author .audio.player .progress-indicator {
     height: 0.4rem;
