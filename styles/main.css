@@ -1712,7 +1712,7 @@ div.artifact .about-thoreau .offcanvas-body .about .description p:last-of-type {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .about-thoreau .offcanvas-body {
-    margin: 0;
+    margin: -3vh 0 0 0;
     padding: 0vh 8vw;
     display: flex;
     flex-direction: column;
@@ -4131,7 +4131,7 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .about-thoreau .offcanvas-body {
-    margin: 0;
+    margin: -3vh 0 0 0;
     padding: 0vh 8vw;
     display: flex;
     flex-direction: column;
