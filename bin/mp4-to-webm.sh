@@ -36,6 +36,12 @@ else
   WEBM_OUTPUT="$NAME.webm"
 fi
 
+if [ $# -eq 3 ]; then
+  AUDIO="-c:a libopus"
+else
+  AUDIO="-an"
+fi
+
 SPEEDUP="-threads 8 -speed 4 -row-mt 1"
 
 # Constant quality 2-pass is invoked by setting -b:v to zero and
@@ -51,8 +57,9 @@ SPEEDUP="-threads 8 -speed 4 -row-mt 1"
 
 # -threads 8 -speed 4 -row-mt 1
 
-CMD="ffmpeg -i $MP4 -c:v libvpx-vp9 -b:v $BITRATE -crf 30  -pass 1  -an -f null /dev/null &&
-ffmpeg -i $MP4 -c:v libvpx-vp9 -b:v $BITRATE -crf 30  -pass 2 -c:a libopus $SPEEDUP -y $WEBM_OUTPUT"
+CMD="ffmpeg -i $MP4 -c:v libvpx-vp9 -b:v $BITRATE -crf 30 -pass 1 -an -f null /dev/null &&
+ffmpeg -i $MP4 -c:v libvpx-vp9 -b:v $BITRATE -crf 30 -pass 2 $AUDIO $SPEEDUP -y $WEBM_OUTPUT"
+
 
 echo ""
 echo "Command: 2-pass MP4 to WEBM$BITRATE_DESC"
@@ -61,15 +68,15 @@ echo ""
 
 eval "$CMD"
 
-if [ "$BITRATE_FLAG" = "true" ]; then
-  MP4_OUTPUT="$NAME-$BITRATE.mp4"
-  MP4_CMD="ffmpeg -i $MP4 -c:v libx264 -b:v $BITRATE -pass 1 -an -f null /dev/null &&
-  ffmpeg -i $MP4 -c:v libx264 -b:v $BITRATE -pass 2 -c:a aac -b:a 128k $SPEEDUP -y $MP4_OUTPUT"
-  echo ""
-  echo "Command: 2-pass MP4$BITRATE_DESC"
-  echo $MP4_CMD
-  echo ""
-  eval "$MP4_CMD"
-fi
+# if [ "$BITRATE_FLAG" = "true" ]; then
+#   MP4_OUTPUT="$NAME-$BITRATE.mp4"
+#   MP4_CMD="ffmpeg -i $MP4 -c:v libx264 -b:v $BITRATE -pass 1 -an -f null /dev/null &&
+#   ffmpeg -i $MP4 -c:v libx264 -b:v $BITRATE -pass 2 -c:a aac -b:a 128k $SPEEDUP -y $MP4_OUTPUT"
+#   echo ""
+#   echo "Command: 2-pass MP4$BITRATE_DESC"
+#   echo $MP4_CMD
+#   echo ""
+#   eval "$MP4_CMD"
+# fi
 
 rm -f -- ffmpeg2pass*.log*
