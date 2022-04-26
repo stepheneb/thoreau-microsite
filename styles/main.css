@@ -137,6 +137,7 @@
     --unmute-footer-height: 5vh;
     --unmute-footer-items: 1.15rem;
     --unmute-footer-control-bottom: 1vh;
+    --scroll-down-label: 1.1rem;
   }
 }
 @media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
