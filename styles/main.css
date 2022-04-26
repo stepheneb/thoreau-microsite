@@ -1923,7 +1923,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.cur
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.curious {
-    top: 48vh;
+    top: 44vh;
     left: 10vw;
     width: 80vw;
     max-width: 80vw;
@@ -1950,7 +1950,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
-    top: 46vh;
+    top: 42vh;
     left: 10vw;
     width: 80vw;
     max-width: 80vw;
@@ -2137,7 +2137,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #spyglass[data-content-scroll="2"] .animation-frame-container.spyglass,
 #spyglass[data-content-scroll="3"] .animation-frame-container.spyglass {
-    top: 15vh;
+    top: 10vh;
   }
 }
 #spyglass[data-content-scroll="2"] .animation-frame-container.spyglass img,
@@ -2163,7 +2163,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #spyglass[data-content-scroll="4"] .animation-frame-container.spyglass,
 #spyglass[data-content-scroll="5"] .animation-frame-container.spyglass {
-    top: 15vh;
+    top: 10vh;
   }
 }
 #spyglass[data-content-scroll="4"] .animation-frame-container.spyglass img,
@@ -2184,8 +2184,16 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 }
 @media only screen and (min-aspect-ratio: 3/2) and (min-width: 1280px) {
   #spyglass[data-content-scroll="6"] .animation-frame-container.spyglass img {
-    margin: 20vh 30vw 10vh 30vw;
+    margin: 15vh 30vw 10vh 30vw;
   }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  #spyglass[data-content-scroll="6"] .animation-frame-container.spyglass {
+    top: -10vh;
+  }
+}
+#spyglass[data-content-scroll="6"] .animation-frame-container.spyglass img {
+  margin: 15vh 30vw 10vh 30vw;
 }
 
 #spyglass[data-content-scroll="7"] .background-image-container.spyglass:before,
@@ -2211,7 +2219,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 }
 #spyglass[data-content-scroll="7"] .animation-frame-container.spyglass img,
 #spyglass[data-content-scroll="8"] .animation-frame-container.spyglass img {
-  margin: 20vh 30vw 10vh 30vw;
+  margin: 15vh 30vw 10vh 30vw;
 }
 
 #spyglass[data-content-scroll="7"] .absolute-content-container.spyglass.his-experiments {
