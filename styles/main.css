@@ -135,7 +135,7 @@
     --zoom-icon-width: 1.3rem;
     --zoom-divide-width: 0.3rem;
     --unmute-footer-height: 5vh;
-    --unmute-footer-items: 0.9rem;
+    --unmute-footer-items: 1.15rem;
     --unmute-footer-control-bottom: 1vh;
   }
 }
@@ -4876,6 +4876,14 @@ body.index {
   justify-content: center;
   padding: 0.45rem 2.5rem;
   color: var(--white);
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  .content.index .unmute-footer .footer-items .item {
+    margin: 0 0rem 0 1.25rem;
+  }
+  .content.index .unmute-footer .footer-items .item.popup {
+    padding: 0.45rem 1.5rem;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   .content.index .unmute-footer .footer-items .item.popup {
