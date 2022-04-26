@@ -58,7 +58,7 @@ div.artifact.spyglass {
         max-width: 27rem;
 
         @include mobile-portrait() {
-          top: 48vh;
+          top: 44vh;
           left: 10vw;
           width: 80vw;
           max-width: 80vw;
@@ -84,7 +84,7 @@ div.artifact.spyglass {
         max-width: 27rem;
 
         @include mobile-portrait() {
-          top: 46vh;
+          top: 42vh;
           left: 10vw;
           width: 80vw;
           max-width: 80vw;
@@ -308,7 +308,7 @@ div.artifact.spyglass {
     visibility: visible;
     opacity: 1;
     @include mobile-portrait() {
-      top: 15vh;
+      top: 10vh;
     }
     img {
       margin: 5vh 10vw;
@@ -332,8 +332,9 @@ div.artifact.spyglass {
   .animation-frame-container.spyglass {
     visibility: visible;
     opacity: 1;
+
     @include mobile-portrait() {
-      top: 15vh;
+      top: 10vh;
     }
     img {
       margin: 5vh 10vw;
@@ -358,8 +359,14 @@ div.artifact.spyglass {
     opacity: 1;
     @include desktop() {
       img {
-        margin: 20vh 30vw 10vh 30vw;
+        margin: 15vh 30vw 10vh 30vw;
       }
+    }
+    @include mobile-portrait() {
+      top: -10vh;
+    }
+    img {
+      margin: 15vh 30vw 10vh 30vw;
     }
   }
 }
@@ -384,7 +391,7 @@ div.artifact.spyglass {
       top: -10vh;
     }
     img {
-      margin: 20vh 30vw 10vh 30vw;
+      margin: 15vh 30vw 10vh 30vw;
     }
   }
 }
