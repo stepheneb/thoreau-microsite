@@ -215,7 +215,7 @@ div.artifact.walking-stick {
 #walking-stick[data-content-scroll="1"] {
   .background-image-container.walking-stick {
     &:before {
-      background-color: transparent;
+      background-color: var(--walking-stick-slate);
       background-image: url("../media/images/thoreau-handwriting-light-background.png");
       background-repeat: no-repeat;
       background-position: center;
