@@ -1,17 +1,39 @@
-.mute-button {
+.mute-button-wrapper {
   font-size: var(--explore-content-mute-button);
   color: var(--mute-button-color);
   text-transform: uppercase;
   &.secondary {
     position: fixed;
-    bottom: 2vh;
+    bottom: 0vh;
+    height: var(--unmute-footer-height);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
     transition: bottom var(--mute-button-timing);
     right: var(--unmute-right-distance);
     cursor: pointer;
     font-weight: 600;
     letter-spacing: 0.02rem;
     @include mobile-portrait() {
-      bottom: 2.5vh;
+    }
+    @include mobile-landscape() {
+    }
+  }
+}
+
+.mute-button {
+  font-size: var(--explore-content-mute-button);
+  color: var(--mute-button-color);
+  text-transform: uppercase;
+  &.secondary {
+    position: fixed;
+    bottom: 0vh;
+    transition: bottom var(--mute-button-timing);
+    right: var(--unmute-right-distance);
+    cursor: pointer;
+    font-weight: 600;
+    letter-spacing: 0.02rem;
+    @include mobile-portrait() {
     }
     @include mobile-landscape() {
     }

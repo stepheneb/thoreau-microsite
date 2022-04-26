@@ -36,7 +36,7 @@
     }
   }
   @include mobile-portrait() {
-    height: 5vh;
+    height: var(--unmute-footer-height);
     font-size: var(--unmute-footer);
     .label {
       margin-right: 42vw;

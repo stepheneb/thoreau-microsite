@@ -49,9 +49,6 @@
   --explore-content-letter-spacing: 0.75px;
   --explore-content-author: 0.88rem;
 
-  --unmute-footer: 0.76rem;
-  --unmute-footer-height: 5.5vh;
-  --unmute-footer-items: 0.9rem;
   --explore-content-mute-button: 0.76rem;
 
   --explore-content-weight: 400;
@@ -62,6 +59,9 @@
   --next-object: 0.875em;
   --back-to-top: 0.87em;
 
+  --unmute-footer: 0.76rem;
+  --unmute-footer-height: 5.5vh;
+  --unmute-footer-items: 0.9rem;
   --unmute-footer-control-bottom: 0.9vh;
   --unmute-right-distance: 6vw;
   --next-object-right-margin: 7vw;
@@ -111,7 +111,9 @@
     --zoom-icon-width: 1.3rem;
     --zoom-divide-width: 0.3rem;
 
-    --unmute-footer-control-bottom: 0.9vh;
+    --unmute-footer-height: 5vh;
+    --unmute-footer-items: 0.9rem;
+    --unmute-footer-control-bottom: 1vh;
   }
 
   @include mobile-portrait-small() {

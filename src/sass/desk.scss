@@ -428,12 +428,12 @@ div.artifact.desk {
       visibility var(--next-object-footer-timing-out);
   }
 
-  .mute-button {
-    bottom: 11.5vh;
+  .mute-button-wrapper {
+    bottom: 10.5vh;
     color: var(--white);
     filter: drop-shadow(0 0 0.5rem var(--navy-blue));
     @include mobile-portrait() {
-      bottom: 6.5vh;
+      bottom: 6vh;
     }
   }
 }
