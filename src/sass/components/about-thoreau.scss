@@ -43,7 +43,6 @@
       width: 100vw;
       height: 8vh;
       padding: 0;
-      border-bottom: 1px solid var(--white);
       display: flex;
       flex-direction: row;
       justify-content: flex-end;
@@ -128,8 +127,8 @@
     }
 
     @include mobile-portrait() {
-      margin: 0;
-      padding: 4vh 8vw;
+      margin: -3vh 0 0 0;
+      padding: 0vh 8vw;
       display: flex;
       flex-direction: column;
       overflow-y: visible !important;
