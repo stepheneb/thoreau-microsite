@@ -120,7 +120,7 @@
     --explore-content: 1.65rem;
     --explore-content-line-height: 160%;
     --explore-content-author: 1.35rem;
-    --explore-content-mute-button: 1rem;
+    --explore-content-mute-button: 1.1rem;
     --explore-content-weight: 600;
     --explore-content-heading: 2rem;
     --explore-content-heading-weight: 600;
@@ -1392,7 +1392,7 @@ div.artifact .mute-button svg {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .mute-button svg {
-    width: 2.25rem;
+    width: 2.75rem;
   }
 }
 div.artifact .mute-button svg circle {
