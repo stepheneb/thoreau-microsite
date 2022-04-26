@@ -215,9 +215,7 @@ div.artifact.lock-and-key {
       width: 100%;
 
       @include mobile-portrait() {
-        height: 100%;
-        width: auto;
-        transform: scale(1.2) translate(2%, -15vh);
+        object-position: 45%;
       }
     }
   }

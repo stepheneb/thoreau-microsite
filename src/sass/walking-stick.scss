@@ -128,10 +128,15 @@ div.artifact.walking-stick {
   .fixed-image-container.walking-stick {
     img.walking-stick-detail {
       width: 90%;
-      margin-right: -10%;
+      object-fit: scale-down;
+      object-position: 90%;
       @include mobile-portrait() {
-        width: 90vw;
-        height: auto;
+        object-fit: unset;
+        object-position: unset;
+        min-height: unset;
+        min-width: unset;
+        height: unset;
+        margin-right: -10vw;
       }
     }
   }
@@ -225,8 +230,6 @@ div.artifact.walking-stick {
   img.walking-stick-detail {
     visibility: visible;
     opacity: 1;
-    width: 90%;
-    margin-right: -10%;
   }
 }
 

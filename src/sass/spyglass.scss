@@ -167,11 +167,14 @@ div.artifact.spyglass {
 
   .fixed-image-container.spyglass {
     img.spyglass-photo-rotated {
+      min-height: unset;
+      min-width: unset;
+      object-fit: contain;
+      width: 80%;
       transform: rotate(-9deg);
       @include mobile-portrait() {
         width: 90vw;
         height: auto;
-        // height: 19%;
         transform: rotate(-9deg) translate(1.5rem, -16vh);
       }
     }

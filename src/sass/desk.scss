@@ -176,8 +176,7 @@ div.artifact.desk {
       width: 100%;
 
       @include mobile-portrait() {
-        height: 100%;
-        width: auto;
+        object-position: 60%;
       }
     }
   }
