@@ -12,6 +12,10 @@
 
     padding: 0em 0em;
 
+    @include mobile() {
+      display: none;
+    }
+
     button {
       padding: 0;
       margin: 0.075rem 0.25rem;

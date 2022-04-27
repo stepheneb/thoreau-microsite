@@ -321,6 +321,7 @@ div.artifact {
             div.draglayer {
               position: absolute;
               pointer-events: all;
+              touch-action: none;
               top: 0;
               left: 0;
               width: 100%;
