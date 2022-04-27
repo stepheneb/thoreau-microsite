@@ -583,6 +583,7 @@ div.artifact .content .absolute-content-container.start .content .image-containe
 div.artifact .content .absolute-content-container.start .content .image-container div.draglayer {
   position: absolute;
   pointer-events: all;
+  touch-action: none;
   top: 0;
   left: 0;
   width: 100%;
@@ -639,6 +640,11 @@ div.artifact .content .absolute-content-container.start .content .zoom-controls 
   flex-direction: row;
   justify-content: center;
   padding: 0em 0em;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact .content .absolute-content-container.start .content .zoom-controls {
+    display: none;
+  }
 }
 div.artifact .content .absolute-content-container.start .content .zoom-controls button {
   padding: 0;
