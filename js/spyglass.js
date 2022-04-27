@@ -44,12 +44,12 @@ let animations = [{
 ];
 
 const animationCacheData = [{
-    imgPrefix: 'spyglass/spyglass_animals_10fps/Render_Spyglass+Animals_10_fps_',
+    imgPrefix: 'spyglass/spyglass_animals_10fps/Render_Spyglass+Animals_10_fps',
     startFrame: 0,
     endFrame: 144
   },
   {
-    imgPrefix: 'spyglass/trees_02_10fps/Render_Trees_10_fps_',
+    imgPrefix: 'spyglass/trees_02_10fps/Render_Trees_10_fps',
     startFrame: 0,
     endFrame: 119
   }

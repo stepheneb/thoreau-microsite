@@ -16,7 +16,7 @@ const animations = [{
 }];
 
 const animationCacheData = [{
-  imgPrefix: 'desk/Journal_',
+  imgPrefix: 'desk/Journal',
   startFrame: 0,
   endFrame: 128
 }]
