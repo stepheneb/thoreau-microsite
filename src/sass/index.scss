@@ -233,6 +233,7 @@ body.index {
       flex-direction: row;
       align-items: center;
       justify-content: space-around;
+      pointer-events: all;
       margin: 0;
       width: 95vw;
       height: 63vh;
@@ -255,6 +256,7 @@ body.index {
         align-items: center;
         object-fit: contain;
         cursor: pointer;
+        touch-action: none;
 
         background-image: url("../media/images/main-menu-texture.png");
         background-repeat: no-repeat;
