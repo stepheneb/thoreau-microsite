@@ -38,7 +38,7 @@ const animations = [{
 ];
 
 const animationCacheData = [{
-  imgPrefix: 'lock-and-key/Coin+Jail+Town_',
+  imgPrefix: 'lock-and-key/Coin+Jail+Town',
   startFrame: 0,
   endFrame: 254
 }]
