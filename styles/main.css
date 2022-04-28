@@ -548,6 +548,7 @@ div.artifact .content .absolute-content-container.start .content .about-containe
 }
 div.artifact .content .absolute-content-container.start .content .image-container {
   position: relative;
+  overflow: hidden;
   margin: 4vh 4vw 0 0.5vw;
   height: 75vh;
   width: 75%;
