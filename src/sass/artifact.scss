@@ -200,14 +200,11 @@ div.artifact {
             width: 30vw;
             margin: 5rem 0 0 5.5rem;
             @include mobile-portrait() {
-              margin: 0 0 0 5vw;
-              width: 70vw;
+              margin: 0;
+              width: 85vw;
               align-self: center;
             }
             @include mobile-portrait-small() {
-              margin: 0 0 0 5vw;
-              width: 70vw;
-              align-self: center;
             }
             @include mobile-landscape() {
               margin: 0 0 0 5vw;
@@ -268,12 +265,12 @@ div.artifact {
               }
               @include mobile-portrait() {
                 width: 100%;
-                max-width: 25rem;
-                margin: 2vh 0;
+                margin: 0.75rem 0 0.75rem 0;
+                br {
+                  display: none;
+                }
               }
               @include mobile-portrait-small() {
-                margin: 1vh 0;
-                max-width: 20rem;
               }
               @include mobile-landscape() {
                 margin: 1.5rem 0;

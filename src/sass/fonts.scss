@@ -75,14 +75,15 @@
   }
 
   @include mobile-portrait() {
-    --main-title: 1.6rem;
-    --main-title-world: 1.9rem;
+    --main-title: 1.7rem;
+    --main-title-world: 2.2rem;
     --main-description: 1.4rem;
     --main-description-letter-spacing: 0.25px;
 
-    --artifact-title: 1.5rem;
-    --artifact-description: 1.25rem;
-    --artifact-description-line-height: 1.9rem;
+    --artifact-title: 1.9rem;
+    --artifact-description: 1.5rem;
+    --artifact-description-line-height: 2.3rem;
+    --artifact-description-letter-spacing: 0.05rem;
 
     --about-thoreau-title: 2.3rem;
     --about-thoreau-description: 1.5rem;
@@ -122,9 +123,10 @@
     --explore-button: 1rem;
     --explore-content: 1.1rem;
 
-    --main-title: 2.2rem;
-    --main-title-world: 4.2rem;
-    --main-description: 1.2rem;
+    --main-title: 1.5rem;
+    --main-title-world: 1.9rem;
+    --main-description: 1.4rem;
+    --main-description-letter-spacing: 0.25px;
 
     --artifact-title: 1.4rem;
     --artifact-title-line-height: 2rem;
