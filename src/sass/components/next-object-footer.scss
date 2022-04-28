@@ -24,7 +24,7 @@
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 9vh;
+  height: var(--next-object-footer-height);
   padding: 0;
   font-size: var(--next-object);
   font-weight: 300;
@@ -53,7 +53,7 @@
       margin-top: -0.1rem;
       width: 5rem;
       @include mobile-portrait() {
-        width: 5.5rem;
+        width: 7rem;
       }
     }
     svg.back-to-top-svg {
@@ -89,7 +89,7 @@
     }
   }
   @include mobile-portrait() {
-    height: 5vh;
+    height: var(--next-object-footer-height);
     font-size: var(--next-object);
     .label {
       margin-right: 38vw;

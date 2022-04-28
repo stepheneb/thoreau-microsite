@@ -20,10 +20,12 @@
   .label {
     margin-right: 20vw;
     margin-left: auto;
-    margin-top: -0.05rem;
+    margin-top: -0.1rem;
     color: var(--navy-blue);
     @include mobile-portrait() {
       margin-bottom: 0;
+      margin-left: 1.5rem;
+      margin-right: auto;
     }
     @include desktop-portrait() {
       margin-right: 30vw;

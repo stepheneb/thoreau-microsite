@@ -4,7 +4,7 @@
   text-transform: uppercase;
   &.secondary {
     position: fixed;
-    bottom: 0vh;
+    bottom: var(--unmute-bottom);
     height: var(--unmute-footer-height);
     display: flex;
     flex-direction: column;

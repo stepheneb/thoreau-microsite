@@ -157,9 +157,10 @@ div.artifact.walking-stick {
     display: flex;
   }
 
-  .mute-button {
+  .mute-button-wrapper {
     z-index: 1;
-    bottom: var(--unmute-footer-control-bottom);
+    bottom: var(--unmute-bottom-first-page);
+    bottom: 0;
   }
 
   .background-image-container.walking-stick {
@@ -309,11 +310,10 @@ div.artifact.walking-stick {
   }
 
   .mute-button-wrapper {
-    bottom: 10.5vh;
+    bottom: var(--unmute-bottom-last-page);
     color: var(--white);
-    filter: drop-shadow(0 0 0.5rem var(--navy-blue));
-    @include mobile-portrait() {
-      bottom: 6vh;
+    .mute-button div {
+      filter: drop-shadow(0 0 0.5rem var(--navy-blue));
     }
   }
 }

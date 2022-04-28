@@ -58,13 +58,17 @@
 
   --next-object: 0.875em;
   --back-to-top: 0.87em;
+  --next-object-right-margin: 7vw;
+  --next-object-footer-height: 8vh;
 
   --unmute-footer: 0.76rem;
   --unmute-footer-height: 5.5vh;
   --unmute-footer-items: 0.9rem;
-  --unmute-footer-control-bottom: 0.9vh;
   --unmute-right-distance: 6vw;
-  --next-object-right-margin: 7vw;
+
+  --unmute-bottom-first-page: 0;
+  --unmute-bottom: 1vh;
+  --unmute-bottom-last-page: 9vh;
 
   --scroll-down-label: 0.9rem;
 
@@ -102,9 +106,6 @@
     --back-button-size: 1.4em;
     --unmute-footer: 0.8em;
 
-    --arrow-scroll-down-bottom: 1.8vh;
-    --arrow-scroll-down-bottom-first-screen: 5.8vh;
-
     --zoom-button-top: 48.5vh;
     --zoom-button-right: 4vw;
     --zoom-button-height: 2.6rem;
@@ -112,9 +113,22 @@
     --zoom-icon-width: 1.3rem;
     --zoom-divide-width: 0.3rem;
 
-    --unmute-footer-height: 5vh;
+    --unmute-footer: 1.15rem;
+    --unmute-footer-height: 6vh;
     --unmute-footer-items: 1.15rem;
     --unmute-footer-control-bottom: 1vh;
+    --unmute-right-distance: 7vw;
+
+    --unmute-bottom-first-page: 0;
+    --unmute-bottom: 1vh;
+    --unmute-bottom-last-page: 8.5vh;
+
+    --next-object: 1.1rem;
+    --back-to-top: 1.05rem;
+    --next-object-footer-height: 7vh;
+
+    --arrow-scroll-down-bottom: 2.8vh;
+    --arrow-scroll-down-bottom-first-screen: 6.8vh;
 
     --scroll-down-label: 1.1rem;
   }

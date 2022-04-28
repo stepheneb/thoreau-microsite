@@ -166,7 +166,7 @@
         // height: 83vh;
         top: 0;
         left: -90vw;
-        width: 102vw;
+        width: 101vw;
         height: 100vh;
         z-index: 5;
 
@@ -275,6 +275,7 @@
               }
               &.wide {
                 width: 100%;
+                margin-bottom: 3rem;
               }
             }
           }
