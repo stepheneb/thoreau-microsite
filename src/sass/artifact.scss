@@ -392,6 +392,7 @@ div.artifact {
         border-top: 1px solid var(--navy-blue);
         margin: 2.25vh 0 2vh 0;
         opacity: 1;
+        background: none;
         @include mobile-portrait() {
           width: 30%;
         }
