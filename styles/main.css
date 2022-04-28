@@ -88,12 +88,15 @@
   --back-button-size: 2em;
   --next-object: 0.875em;
   --back-to-top: 0.87em;
+  --next-object-right-margin: 7vw;
+  --next-object-footer-height: 8vh;
   --unmute-footer: 0.76rem;
   --unmute-footer-height: 5.5vh;
   --unmute-footer-items: 0.9rem;
-  --unmute-footer-control-bottom: 0.9vh;
   --unmute-right-distance: 6vw;
-  --next-object-right-margin: 7vw;
+  --unmute-bottom-first-page: 0;
+  --unmute-bottom: 1vh;
+  --unmute-bottom-last-page: 9vh;
   --scroll-down-label: 0.9rem;
 }
 @media only screen and (min-aspect-ratio: 5/2) and (min-width: 1280px) {
@@ -127,17 +130,25 @@
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
     --unmute-footer: 0.8em;
-    --arrow-scroll-down-bottom: 1.8vh;
-    --arrow-scroll-down-bottom-first-screen: 5.8vh;
     --zoom-button-top: 48.5vh;
     --zoom-button-right: 4vw;
     --zoom-button-height: 2.6rem;
     --zoom-button-width: 3.2rem;
     --zoom-icon-width: 1.3rem;
     --zoom-divide-width: 0.3rem;
-    --unmute-footer-height: 5vh;
+    --unmute-footer: 1.15rem;
+    --unmute-footer-height: 6vh;
     --unmute-footer-items: 1.15rem;
     --unmute-footer-control-bottom: 1vh;
+    --unmute-right-distance: 7vw;
+    --unmute-bottom-first-page: 0;
+    --unmute-bottom: 1vh;
+    --unmute-bottom-last-page: 8.5vh;
+    --next-object: 1.1rem;
+    --back-to-top: 1.05rem;
+    --next-object-footer-height: 7vh;
+    --arrow-scroll-down-bottom: 2.8vh;
+    --arrow-scroll-down-bottom-first-screen: 6.8vh;
     --scroll-down-label: 1.1rem;
   }
 }
@@ -1129,7 +1140,7 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
     position: absolute !important;
     top: 0;
     left: -90vw;
-    width: 102vw;
+    width: 101vw;
     height: 100vh;
     z-index: 5;
     transform: none !important;
@@ -1252,6 +1263,7 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider.wide {
     width: 100%;
+    margin-bottom: 3rem;
   }
 }
 div.artifact div.arrow-scroll-down {
@@ -1341,7 +1353,7 @@ div.artifact .mute-button-wrapper {
 }
 div.artifact .mute-button-wrapper.secondary {
   position: fixed;
-  bottom: 0vh;
+  bottom: var(--unmute-bottom);
   height: var(--unmute-footer-height);
   display: flex;
   flex-direction: column;
@@ -1443,7 +1455,7 @@ div.artifact .next-object-footer {
   bottom: 0;
   left: 0;
   width: 100vw;
-  height: 9vh;
+  height: var(--next-object-footer-height);
   padding: 0;
   font-size: var(--next-object);
   font-weight: 300;
@@ -1471,7 +1483,7 @@ div.artifact .next-object-footer .back-to-top .label {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .next-object-footer .back-to-top .label {
-    width: 5.5rem;
+    width: 7rem;
   }
 }
 div.artifact .next-object-footer .back-to-top svg.back-to-top-svg {
@@ -1506,7 +1518,7 @@ div.artifact .next-object-footer button svg.next-object-svg {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .next-object-footer {
-    height: 5vh;
+    height: var(--next-object-footer-height);
     font-size: var(--next-object);
   }
   div.artifact .next-object-footer .label {
@@ -1541,12 +1553,14 @@ div.artifact .unmute-footer {
 div.artifact .unmute-footer .label {
   margin-right: 20vw;
   margin-left: auto;
-  margin-top: -0.05rem;
+  margin-top: -0.1rem;
   color: var(--navy-blue);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .unmute-footer .label {
     margin-bottom: 0;
+    margin-left: 1.5rem;
+    margin-right: auto;
   }
 }
 @media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
@@ -2053,9 +2067,10 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 #spyglass[data-content-scroll="0"] .unmute-footer {
   display: flex;
 }
-#spyglass[data-content-scroll="0"] .mute-button {
+#spyglass[data-content-scroll="0"] .mute-button-wrapper {
   z-index: 1;
-  bottom: var(--unmute-footer-control-bottom);
+  bottom: var(--unmute-bottom-first-page);
+  bottom: 0;
 }
 #spyglass[data-content-scroll="0"] .animation-frame-container.spyglass {
   visibility: hidden;
@@ -2297,15 +2312,12 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 }
 #spyglass[data-content-scroll="11"] .mute-button-wrapper,
 #spyglass[data-content-scroll="12"] .mute-button-wrapper {
-  bottom: 10.5vh;
+  bottom: var(--unmute-bottom-last-page);
   color: var(--white);
-  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #spyglass[data-content-scroll="11"] .mute-button-wrapper,
-#spyglass[data-content-scroll="12"] .mute-button-wrapper {
-    bottom: 6vh;
-  }
+#spyglass[data-content-scroll="11"] .mute-button-wrapper .mute-button div,
+#spyglass[data-content-scroll="12"] .mute-button-wrapper .mute-button div {
+  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
 
 body#desk {
@@ -2496,9 +2508,10 @@ div.artifact.desk .background-image-container.desk:before {
 #desk[data-content-scroll="0"] .unmute-footer {
   display: flex;
 }
-#desk[data-content-scroll="0"] .mute-button {
+#desk[data-content-scroll="0"] .mute-button-wrapper {
   z-index: 1;
-  bottom: var(--unmute-footer-control-bottom);
+  bottom: var(--unmute-bottom-first-page);
+  bottom: 0;
 }
 #desk[data-content-scroll="0"] .background-image-container.desk:before {
   background-color: white;
@@ -2680,15 +2693,12 @@ div.artifact.desk .background-image-container.desk:before {
 }
 #desk[data-content-scroll="8"] .mute-button-wrapper,
 #desk[data-content-scroll="9"] .mute-button-wrapper {
-  bottom: 10.5vh;
+  bottom: var(--unmute-bottom-last-page);
   color: var(--white);
-  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #desk[data-content-scroll="8"] .mute-button-wrapper,
-#desk[data-content-scroll="9"] .mute-button-wrapper {
-    bottom: 6vh;
-  }
+#desk[data-content-scroll="8"] .mute-button-wrapper .mute-button div,
+#desk[data-content-scroll="9"] .mute-button-wrapper .mute-button div {
+  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
 
 body#lock-and-key {
@@ -2927,9 +2937,10 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
 #lock-and-key[data-content-scroll="0"] .unmute-footer {
   display: flex;
 }
-#lock-and-key[data-content-scroll="0"] .mute-button {
+#lock-and-key[data-content-scroll="0"] .mute-button-wrapper {
   z-index: 1;
-  bottom: var(--unmute-footer-control-bottom);
+  bottom: var(--unmute-bottom-first-page);
+  bottom: 0;
 }
 #lock-and-key[data-content-scroll="0"] .background-image-container.lock-and-key:before {
   background-color: white;
@@ -3160,15 +3171,12 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
 }
 #lock-and-key[data-content-scroll="13"] .mute-button-wrapper,
 #lock-and-key[data-content-scroll="14"] .mute-button-wrapper {
-  bottom: 10.5vh;
+  bottom: var(--unmute-bottom-last-page);
   color: var(--white);
-  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #lock-and-key[data-content-scroll="13"] .mute-button-wrapper,
-#lock-and-key[data-content-scroll="14"] .mute-button-wrapper {
-    bottom: 6vh;
-  }
+#lock-and-key[data-content-scroll="13"] .mute-button-wrapper .mute-button div,
+#lock-and-key[data-content-scroll="14"] .mute-button-wrapper .mute-button div {
+  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
 
 body#walking-stick {
@@ -3563,9 +3571,10 @@ div.artifact.flute .background-image-container.flute:before {
 #flute[data-content-scroll="0"] .unmute-footer {
   display: flex;
 }
-#flute[data-content-scroll="0"] .mute-button {
+#flute[data-content-scroll="0"] .mute-button-wrapper {
   z-index: 1;
-  bottom: var(--unmute-footer-control-bottom);
+  bottom: var(--unmute-bottom-first-page);
+  bottom: 0;
 }
 #flute[data-content-scroll="0"] .background-image-container.flute:before {
   background-color: white;
@@ -3685,14 +3694,11 @@ div.artifact.flute .background-image-container.flute:before {
   transition: opacity var(--next-object-footer-timing-out), visibility var(--next-object-footer-timing-out);
 }
 #flute[data-content-scroll="4"] .mute-button-wrapper {
-  bottom: 10.5vh;
+  bottom: var(--unmute-bottom-last-page);
   color: var(--white);
-  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #flute[data-content-scroll="4"] .mute-button-wrapper {
-    bottom: 6vh;
-  }
+#flute[data-content-scroll="4"] .mute-button-wrapper .mute-button div {
+  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
 
 body#snowshoes {
@@ -3821,9 +3827,10 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
 #snowshoes[data-content-scroll="0"] .unmute-footer {
   display: flex;
 }
-#snowshoes[data-content-scroll="0"] .mute-button {
+#snowshoes[data-content-scroll="0"] .mute-button-wrapper {
   z-index: 1;
-  bottom: var(--unmute-footer-control-bottom);
+  bottom: var(--unmute-bottom-first-page);
+  bottom: 0;
 }
 #snowshoes[data-content-scroll="0"] .background-image-container.snowshoes:before {
   background-color: white;
@@ -3943,14 +3950,11 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
   transition: opacity var(--next-object-footer-timing-out), visibility var(--next-object-footer-timing-out);
 }
 #snowshoes[data-content-scroll="4"] .mute-button-wrapper {
-  bottom: 10.5vh;
+  bottom: var(--unmute-bottom-last-page);
   color: var(--white);
-  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #snowshoes[data-content-scroll="4"] .mute-button-wrapper {
-    bottom: 6vh;
-  }
+#snowshoes[data-content-scroll="4"] .mute-button-wrapper .mute-button div {
+  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
 
 .unmute-footer {
@@ -3976,12 +3980,14 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
 .unmute-footer .label {
   margin-right: 20vw;
   margin-left: auto;
-  margin-top: -0.05rem;
+  margin-top: -0.1rem;
   color: var(--navy-blue);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .unmute-footer .label {
     margin-bottom: 0;
+    margin-left: 1.5rem;
+    margin-right: auto;
   }
 }
 @media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
@@ -4376,7 +4382,7 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
     position: absolute !important;
     top: 0;
     left: -90vw;
-    width: 102vw;
+    width: 101vw;
     height: 100vh;
     z-index: 5;
     transform: none !important;
@@ -4499,6 +4505,7 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider.wide {
     width: 100%;
+    margin-bottom: 3rem;
   }
 }
 
