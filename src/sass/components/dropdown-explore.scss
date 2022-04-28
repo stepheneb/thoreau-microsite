@@ -95,6 +95,7 @@
     visibility: hidden;
     display: none;
     opacity: 0;
+    color: var(--navy-blue);
     background-color: var(--mobile-header-gray);
     transition: opacity var(--explore-menu-timing),
       visibility var(--explore-menu-timing);
