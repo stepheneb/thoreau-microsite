@@ -3310,9 +3310,10 @@ div.artifact.walking-stick .background-image-container.walking-stick:before {
 #walking-stick[data-content-scroll="0"] .unmute-footer {
   display: flex;
 }
-#walking-stick[data-content-scroll="0"] .mute-button {
+#walking-stick[data-content-scroll="0"] .mute-button-wrapper {
   z-index: 1;
-  bottom: var(--unmute-footer-control-bottom);
+  bottom: var(--unmute-bottom-first-page);
+  bottom: 0;
 }
 #walking-stick[data-content-scroll="0"] .background-image-container.walking-stick:before {
   background-color: white;
@@ -3432,14 +3433,11 @@ div.artifact.walking-stick .background-image-container.walking-stick:before {
   transition: opacity var(--next-object-footer-timing-out), visibility var(--next-object-footer-timing-out);
 }
 #walking-stick[data-content-scroll="4"] .mute-button-wrapper {
-  bottom: 10.5vh;
+  bottom: var(--unmute-bottom-last-page);
   color: var(--white);
-  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #walking-stick[data-content-scroll="4"] .mute-button-wrapper {
-    bottom: 6vh;
-  }
+#walking-stick[data-content-scroll="4"] .mute-button-wrapper .mute-button div {
+  filter: drop-shadow(0 0 0.5rem var(--navy-blue));
 }
 
 body#flute {
