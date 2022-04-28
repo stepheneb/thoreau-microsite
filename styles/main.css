@@ -717,6 +717,7 @@ div.artifact .content .absolute-content-container hr {
   border-top: 1px solid var(--navy-blue);
   margin: 2.25vh 0 2vh 0;
   opacity: 1;
+  background: none;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container hr {
