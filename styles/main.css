@@ -1174,8 +1174,8 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 0vh;
-    left: 86vw;
+    top: 1vh;
+    left: 90vw;
     color: var(--navy-blue);
     border: 1px solid white;
     width: 2.6rem;
@@ -1260,7 +1260,7 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider {
     width: 20%;
-    margin: 1.8rem 0;
+    margin: 2.5rem 0;
     color: white;
     border: 1px solid white;
     opacity: 1;
@@ -4435,8 +4435,8 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
     align-items: center;
     justify-content: center;
     position: absolute;
-    top: 0vh;
-    left: 86vw;
+    top: 1vh;
+    left: 90vw;
     color: var(--navy-blue);
     border: 1px solid white;
     width: 2.6rem;
@@ -4521,7 +4521,7 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider {
     width: 20%;
-    margin: 1.8rem 0;
+    margin: 2.5rem 0;
     color: white;
     border: 1px solid white;
     opacity: 1;
