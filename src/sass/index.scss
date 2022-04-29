@@ -399,6 +399,9 @@ body.index {
   .unmute-footer {
     display: flex;
     align-items: center;
+    @include mobile-portrait() {
+      display: none;
+    }
     .footer-items {
       height: 100%;
       display: flex;
