@@ -188,8 +188,8 @@
           align-items: center;
           justify-content: center;
           position: absolute;
-          top: 0vh;
-          left: 86vw;
+          top: 1vh;
+          left: 90vw;
           color: var(--navy-blue);
           border: 1px solid white;
           width: 2.6rem;
@@ -267,7 +267,7 @@
             }
             &.dropdown-divider {
               width: 20%;
-              margin: 1.8rem 0;
+              margin: 2.5rem 0;
               color: white;
               border: 1px solid white;
               opacity: 1;
