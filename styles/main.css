@@ -233,7 +233,8 @@
   --next-object-footer-timing-in: 0.5s cubic-bezier(0, 0, 1, 1);
   --arrow-scroll-timing: 0.1s ease-in-out;
   --mute-button-timing: 0.25s ease-in-out;
-  --gallery-carousel-timing: 0.2s ease-in-out;
+  --gallery-carousel-timing: 0.5s ease-in-out;
+  --gallery-carousel-shift: 33%;
   --explore-menu-timing: 0.2s ease-in-out;
 }
 
@@ -4792,7 +4793,7 @@ body.index {
   display: flex;
   flex-direction: row;
   align-items: center;
-  justify-content: space-around;
+  justify-content: space-between;
   pointer-events: all;
   margin: 0;
   width: 95vw;
@@ -4801,14 +4802,16 @@ body.index {
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .gallery {
     width: 100vw;
-    margin-top: 0;
-    padding: 0;
-    height: auto;
-    justify-content: center;
   }
 }
 .content.index .main .gallery .image-container {
-  margin-top: 0;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  overflow: auto;
   height: 74vh;
   width: 70vw;
   display: flex;
@@ -4821,6 +4824,7 @@ body.index {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
+  transition: opacity var(--gallery-carousel-timing);
   justify-content: space-around;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
@@ -4842,7 +4846,7 @@ body.index {
   visibility: hidden;
   opacity: 0;
   cursor: pointer;
-  transition: all var(--gallery-carousel-timing);
+  transition: opacity var(--gallery-carousel-timing);
   filter: grayscale(100%) brightness(150%) contrast(125%) opacity(75%);
 }
 .content.index .main .gallery .image-container img.enabled {
@@ -4870,6 +4874,12 @@ body.index {
 }
 .content.index .main .gallery .image-container img.selected.flute {
   padding: 5rem 5rem;
+}
+.content.index .main .gallery .image-container img.selected.left {
+  right: var(--gallery-carousel-shift);
+}
+.content.index .main .gallery .image-container img.selected.right {
+  left: var(--gallery-carousel-shift);
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .gallery .image-container img.selected {
@@ -4923,6 +4933,7 @@ body.index {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .gallery .select {
+    margin: -1rem 0 0 1.25rem;
     justify-content: flex-start;
   }
   .content.index .main .gallery .select .circle {
@@ -4942,6 +4953,7 @@ body.index {
   }
 }
 .content.index .main .gallery .select.right {
+  margin: -1rem 1.25rem 0 0;
   justify-content: flex-end;
 }
 .content.index .main .gallery .select.right .circle svg {
