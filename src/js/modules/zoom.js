@@ -249,8 +249,8 @@ export const setupDragHandling = () => {
     zoom.dx = originalPos.x + (zoom.endpos.x - zoom.startpos.x) / zoom.scale;
     zoom.dy = originalPos.y + (zoom.endpos.y - zoom.startpos.y) / zoom.scale;
 
-    let xExtent = dragLayer.clientWidth / 2;
-    let yExtent = dragLayer.clientHeight / 2;
+    let xExtent = (dragLayer.clientWidth / 2) / zoom.scale;
+    let yExtent = (dragLayer.clientHeight / 2) / zoom.scale;
 
     zoom.dx = Math.min(xExtent, Math.max(-xExtent, zoom.dx));
     zoom.dy = Math.min(yExtent, Math.max(-yExtent, zoom.dy));
