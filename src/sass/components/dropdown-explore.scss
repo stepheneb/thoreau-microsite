@@ -248,7 +248,7 @@
                 font-family: "Nunito Sans", sans-serif;
                 font-size: 130%;
               }
-              padding: 0.5em 1em;
+              padding: 0.5rem 1rem;
               border-radius: 0;
               color: var(--navy-blue);
               &.disabled {
@@ -267,7 +267,8 @@
             }
             &.dropdown-divider {
               width: 20%;
-              margin: 1.2rem 0;
+              margin: 1.8rem 0;
+              color: white;
               border: 1px solid white;
               opacity: 1;
               @include mobile-landscape() {
