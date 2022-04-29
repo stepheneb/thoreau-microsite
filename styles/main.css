@@ -4804,7 +4804,6 @@ body.index {
 .content.index .main .gallery .image-container img {
   position: absolute;
   margin: 0;
-  padding: 4rem 5rem;
   height: inherit;
   width: inherit;
   object-fit: contain;
@@ -4820,6 +4819,48 @@ body.index {
 .content.index .main .gallery .image-container img.selected {
   visibility: visible;
   opacity: 1;
+  padding: 4rem 5rem;
+}
+.content.index .main .gallery .image-container img.selected.desk {
+  padding: 4rem 5rem;
+}
+.content.index .main .gallery .image-container img.selected.snowshoes {
+  padding: 3rem 5rem;
+}
+.content.index .main .gallery .image-container img.selected.lock-and-key {
+  padding: 4rem 5rem;
+}
+.content.index .main .gallery .image-container img.selected.walking-stick {
+  padding: 4rem 5rem;
+}
+.content.index .main .gallery .image-container img.selected.spyglass {
+  padding: 5rem 5rem;
+}
+.content.index .main .gallery .image-container img.selected.flute {
+  padding: 5rem 5rem;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  .content.index .main .gallery .image-container img.selected {
+    padding: 1rem 1rem;
+  }
+  .content.index .main .gallery .image-container img.selected.desk {
+    padding: 2rem 1rem;
+  }
+  .content.index .main .gallery .image-container img.selected.snowshoes {
+    padding: 1rem 0rem;
+  }
+  .content.index .main .gallery .image-container img.selected.lock-and-key {
+    padding: 0rem 4rem;
+  }
+  .content.index .main .gallery .image-container img.selected.walking-stick {
+    padding: 4rem 2rem;
+  }
+  .content.index .main .gallery .image-container img.selected.spyglass {
+    padding: 0rem 0rem;
+  }
+  .content.index .main .gallery .image-container img.selected.flute {
+    padding: 0rem 1rem;
+  }
 }
 .content.index .main .gallery .select {
   margin: -1rem 0 0 0;
