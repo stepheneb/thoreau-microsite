@@ -148,7 +148,7 @@
     --back-to-top: 1.2rem;
     --next-object-footer-height: 7vh;
     --arrow-scroll-down-bottom: 2.8vh;
-    --arrow-scroll-down-bottom-first-screen: 6.8vh;
+    --arrow-scroll-down-bottom-first-screen: 6.9vh;
     --scroll-down-label: 1.1rem;
   }
 }
@@ -1224,7 +1224,7 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
     margin-right: auto;
     margin-left: auto;
     font-size: 140%;
-    padding: 0.5em 1em;
+    padding: 0.5rem 1rem;
     border-radius: 0;
     color: var(--navy-blue);
     background-color: var(--mobile-header-gray);
@@ -1250,7 +1250,8 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider {
     width: 20%;
-    margin: 1.2rem 0;
+    margin: 1.8rem 0;
+    color: white;
     border: 1px solid white;
     opacity: 1;
   }
@@ -4484,7 +4485,7 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
     margin-right: auto;
     margin-left: auto;
     font-size: 140%;
-    padding: 0.5em 1em;
+    padding: 0.5rem 1rem;
     border-radius: 0;
     color: var(--navy-blue);
     background-color: var(--mobile-header-gray);
@@ -4510,7 +4511,8 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider {
     width: 20%;
-    margin: 1.2rem 0;
+    margin: 1.8rem 0;
+    color: white;
     border: 1px solid white;
     opacity: 1;
   }
@@ -4947,6 +4949,11 @@ body.index {
 .content.index .unmute-footer {
   display: flex;
   align-items: center;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  .content.index .unmute-footer {
+    display: none;
+  }
 }
 .content.index .unmute-footer .footer-items {
   height: 100%;
