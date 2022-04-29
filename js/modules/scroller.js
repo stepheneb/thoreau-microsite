@@ -1,4 +1,5 @@
 import { app } from "./globals.js"
+import { zoom, resetZoom } from "./zoom.js";
 
 import { MediaCollection, AudioPlayerItem, AudioBackgroundItem, VideoBackgroundItem } from './media.js';
 
@@ -148,6 +149,10 @@ const storeScroll = (animations, animationFrameImg) => {
   container.dataset.innerHeight = getFullVh();
   container.dataset.innerWidth = window.innerWidth;
   container.dataset.aspectRatio = aspectRatio;
+
+  if (contentScrollFLoat >= 1 && zoom.changed) {
+    resetZoom();
+  }
 
   if (app.dev) {
     if (Math.abs(contentScrollFLoat - previousContentScrollFLoat) >= 0.01) {

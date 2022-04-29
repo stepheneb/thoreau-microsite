@@ -1,4 +1,5 @@
 import { app } from "./globals.js";
+import { u } from "./utilities.js";
 
 const zoomMinus = document.getElementById('zoom-minus');
 const zoomPlus = document.getElementById('zoom-plus');
@@ -24,6 +25,7 @@ export const zoom = {
   intervalID: null,
   interval: 45,
   zooming: false,
+  changed: false,
   dx: 0,
   dy: 0,
   startpos: {
@@ -35,6 +37,8 @@ export const zoom = {
     y: 0
   }
 }
+
+const zoomBackup = u.deepClone(zoom);
 
 // Log events flag
 let logEvents = false;
@@ -108,6 +112,14 @@ const scaleAndTranslate = () => {
   } else {
     artifactWrapper.classList.remove('zoomed');
   }
+  zoom.changed = true;
+}
+
+export const resetZoom = () => {
+  for (const [key, value] of Object.entries(zoomBackup)) {
+    zoom[key] = value;
+  }
+  scaleAndTranslate();
 }
 
 const handleZoomButtons = () => {
@@ -237,8 +249,8 @@ export const setupDragHandling = () => {
     zoom.dx = originalPos.x + (zoom.endpos.x - zoom.startpos.x) / zoom.scale;
     zoom.dy = originalPos.y + (zoom.endpos.y - zoom.startpos.y) / zoom.scale;
 
-    let xExtent = dragLayer.clientWidth / 2;
-    let yExtent = dragLayer.clientHeight / 2;
+    let xExtent = (dragLayer.clientWidth / 2) / zoom.scale;
+    let yExtent = (dragLayer.clientHeight / 2) / zoom.scale;
 
     zoom.dx = Math.min(xExtent, Math.max(-xExtent, zoom.dx));
     zoom.dy = Math.min(yExtent, Math.max(-yExtent, zoom.dy));
