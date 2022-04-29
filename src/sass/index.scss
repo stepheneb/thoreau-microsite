@@ -274,7 +274,6 @@ body.index {
         img {
           position: absolute;
           margin: 0;
-          padding: 4rem 5rem;
           height: inherit;
           width: inherit;
           object-fit: contain;
@@ -289,6 +288,47 @@ body.index {
           &.selected {
             visibility: visible;
             opacity: 1;
+            padding: 4rem 5rem;
+            &.desk {
+              padding: 4rem 5rem;
+            }
+            &.snowshoes {
+              padding: 3rem 5rem;
+            }
+            &.lock-and-key {
+              padding: 4rem 5rem;
+            }
+            &.walking-stick {
+              padding: 4rem 5rem;
+            }
+            &.spyglass {
+              padding: 5rem 5rem;
+            }
+            &.flute {
+              padding: 5rem 5rem;
+            }
+
+            @include mobile-portrait() {
+              padding: 1rem 1rem;
+              &.desk {
+                padding: 2rem 1rem;
+              }
+              &.snowshoes {
+                padding: 1rem 0rem;
+              }
+              &.lock-and-key {
+                padding: 0rem 4rem;
+              }
+              &.walking-stick {
+                padding: 4rem 2rem;
+              }
+              &.spyglass {
+                padding: 0rem 0rem;
+              }
+              &.flute {
+                padding: 0rem 1rem;
+              }
+            }
           }
         }
       }
