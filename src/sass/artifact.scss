@@ -190,7 +190,9 @@ div.artifact {
           flex-direction: row;
           @include mobile-portrait() {
             width: 100vw;
+            height: 72vh;
             flex-direction: column-reverse;
+            justify-content: space-evenly;
           }
           @include mobile-portrait-small() {
             flex-direction: column-reverse;
@@ -201,7 +203,10 @@ div.artifact {
             margin: 5rem 0 0 5.5rem;
             @include mobile-portrait() {
               margin: 0;
-              width: 85vw;
+              width: 34rem;
+              max-width: 90vw;
+              height: 24rem;
+              overflow: auto;
               align-self: center;
             }
             @include mobile-portrait-small() {
@@ -243,9 +248,10 @@ div.artifact {
               display: block;
               width: 10vw;
               height: 1px;
-              margin: 0.5rem 0;
+              margin: 0.5rem 0 1rem 0;
               color: var(--november-skies);
               @include mobile-portrait() {
+                margin: 0.5rem 0 1.25rem 0;
               }
               @include mobile-landscape() {
                 display: block;
@@ -332,7 +338,7 @@ div.artifact {
 
             @include mobile-portrait() {
               margin: 0 0 0 0;
-              height: 40vh;
+              height: 39vh;
               width: 90vw;
               padding: 0;
               align-self: center;
