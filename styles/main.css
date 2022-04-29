@@ -446,7 +446,7 @@ div.artifact .content .absolute-content-container.start .content {
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container.start .content {
     width: 100vw;
-    height: 74vh;
+    height: 72vh;
     flex-direction: column-reverse;
     justify-content: space-evenly;
   }
@@ -465,7 +465,7 @@ div.artifact .content .absolute-content-container.start .content .about-containe
     margin: 0;
     width: 34rem;
     max-width: 90vw;
-    height: 22rem;
+    height: 24rem;
     overflow: auto;
     align-self: center;
   }
