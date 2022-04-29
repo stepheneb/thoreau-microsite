@@ -113,7 +113,7 @@
     --main-description: 1.4rem;
     --main-description-letter-spacing: 0.25px;
     --artifact-title: 1.9rem;
-    --artifact-description: 1.5rem;
+    --artifact-description: 1.425rem;
     --artifact-description-line-height: 2.3rem;
     --artifact-description-letter-spacing: 0.05rem;
     --about-thoreau-title: 2.3rem;
@@ -148,7 +148,7 @@
     --back-to-top: 1.2rem;
     --next-object-footer-height: 7vh;
     --arrow-scroll-down-bottom: 2.8vh;
-    --arrow-scroll-down-bottom-first-screen: 6.9vh;
+    --arrow-scroll-down-bottom-first-screen: 7.5vh;
     --scroll-down-label: 1.1rem;
   }
 }
@@ -446,7 +446,9 @@ div.artifact .content .absolute-content-container.start .content {
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container.start .content {
     width: 100vw;
+    height: 74vh;
     flex-direction: column-reverse;
+    justify-content: space-evenly;
   }
 }
 @media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
@@ -461,7 +463,10 @@ div.artifact .content .absolute-content-container.start .content .about-containe
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container.start .content .about-container {
     margin: 0;
-    width: 85vw;
+    width: 34rem;
+    max-width: 90vw;
+    height: 22rem;
+    overflow: auto;
     align-self: center;
   }
 }
@@ -510,8 +515,13 @@ div.artifact .content .absolute-content-container.start .content .about-containe
   display: block;
   width: 10vw;
   height: 1px;
-  margin: 0.5rem 0;
+  margin: 0.5rem 0 1rem 0;
   color: var(--november-skies);
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .content .absolute-content-container.start .content .about-container hr {
+    margin: 0.5rem 0 1.25rem 0;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .content .absolute-content-container.start .content .about-container hr {
@@ -599,7 +609,7 @@ div.artifact .content .absolute-content-container.start .content .image-containe
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container.start .content .image-container {
     margin: 0 0 0 0;
-    height: 40vh;
+    height: 39vh;
     width: 90vw;
     padding: 0;
     align-self: center;
