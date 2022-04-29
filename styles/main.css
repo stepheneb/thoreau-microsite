@@ -5035,3 +5035,8 @@ div.viewport {
 .offcanvas-backdrop.show {
   opacity: 0.6;
 }
+
+span.who-was-question {
+  color: var(--november-skies);
+  font-weight: 500;
+}
