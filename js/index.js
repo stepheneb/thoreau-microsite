@@ -16,7 +16,7 @@ let selectedPage = artifactPages[pageIndex];
 let swipeCompleted = false;
 
 const swipeActiveDistance = 10;
-const swipeCompletionFraction = 0.20;
+const swipeCompletionFraction = 0.15;
 
 const removeStyles = () => {
   carouselImageContainer.style.left = ``;
