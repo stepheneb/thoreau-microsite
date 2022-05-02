@@ -4841,7 +4841,7 @@ body.index {
   position: absolute;
   margin: 0;
   height: inherit;
-  width: inherit;
+  width: 70vw;
   object-fit: contain;
   visibility: hidden;
   opacity: 0;
@@ -4905,7 +4905,13 @@ body.index {
   }
 }
 .content.index .main .gallery .select {
-  margin: -1rem 0 0 0;
+  margin: auto;
+  position: absolute;
+  top: 0;
+  left: 0;
+  bottom: 0;
+  right: auto;
+  overflow: hidden;
   width: 12vw;
   height: 20vh;
   display: flex;
@@ -4933,13 +4939,12 @@ body.index {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .gallery .select {
-    margin: -1rem 0 0 1.25rem;
     justify-content: flex-start;
   }
   .content.index .main .gallery .select .circle {
     width: 14vw;
     height: 14vw;
-    margin-left: -10vw;
+    margin-left: -7vw;
   }
   .content.index .main .gallery .select .circle svg {
     width: 1.6rem;
@@ -4953,7 +4958,9 @@ body.index {
   }
 }
 .content.index .main .gallery .select.right {
-  margin: -1rem 1.25rem 0 0;
+  left: auto;
+  right: 0;
+  margin: auto;
   justify-content: flex-end;
 }
 .content.index .main .gallery .select.right .circle svg {
@@ -4962,7 +4969,7 @@ body.index {
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .gallery .select.right .circle {
-    margin-right: -10vw;
+    margin-right: -7vw;
   }
   .content.index .main .gallery .select.right .circle svg {
     margin: 0 1.7rem 0 0;
