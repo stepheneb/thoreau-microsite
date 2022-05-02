@@ -239,10 +239,6 @@ body.index {
       height: 63vh;
       @include mobile-portrait() {
         width: 100vw;
-        // margin-top: 0;
-        // padding: 0;
-        // height: auto;
-        // justify-content: center;
       }
       @include mobile-landscape() {
       }
@@ -285,7 +281,7 @@ body.index {
           position: absolute;
           margin: 0;
           height: inherit;
-          width: inherit;
+          width: 70vw;
           object-fit: contain;
           visibility: hidden;
           opacity: 0;
@@ -351,7 +347,13 @@ body.index {
       }
 
       .select {
-        margin: -1rem 0 0 0;
+        margin: auto;
+        position: absolute;
+        top: 0;
+        left: 0;
+        bottom: 0;
+        right: auto;
+        overflow: hidden;
         width: 12vw;
         height: 20vh;
         display: flex;
@@ -377,12 +379,11 @@ body.index {
           }
         }
         @include mobile-portrait() {
-          margin: -1rem 0 0 1.25rem;
           justify-content: flex-start;
           .circle {
             width: 14vw;
             height: 14vw;
-            margin-left: -10vw;
+            margin-left: -7vw;
             svg {
               width: 1.6rem;
               margin: 0 0 0 1.7rem;
@@ -395,7 +396,9 @@ body.index {
         }
       }
       .select.right {
-        margin: -1rem 1.25rem 0 0;
+        left: auto;
+        right: 0;
+        margin: auto;
         justify-content: flex-end;
         .circle {
           svg {
@@ -405,7 +408,7 @@ body.index {
         }
         @include mobile-portrait() {
           .circle {
-            margin-right: -10vw;
+            margin-right: -7vw;
             svg {
               margin: 0 1.7rem 0 0;
             }

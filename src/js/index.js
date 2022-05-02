@@ -15,6 +15,15 @@ let pageIndex = 1;
 let selectedPage = artifactPages[pageIndex];
 let swipeCompleted = false;
 
+const swipeActiveDistance = 10;
+const swipeCompletionFraction = 0.15;
+
+const removeStyles = () => {
+  carouselImageContainer.style.left = ``;
+  carouselImageContainer.style.right = '';
+  carouselImageContainer.style.opacity = '';
+}
+
 const updateSelectedPage = (direction) => {
   selectedImage.classList.remove('selected');
   selectedImage.style.opacity = 0;
@@ -23,24 +32,22 @@ const updateSelectedPage = (direction) => {
     selectedPage = artifactPages[pageIndex];
     selectedImage = selectedPage.element;
 
-    let shift = 33;
-    let decrement = 1;
+    let shift = 60;
+    let decrement = 3;
 
     switch (direction) {
     case 'left':
       // carouselImageContainer.classList.add('left');
-      carouselImageContainer.style.left = `${shift}%`;
-      carouselImageContainer.style.right = '';
+      carouselImageContainer.style.right = `-${shift}%`;
+      carouselImageContainer.style.left = '';
       break;
     case 'right':
       // carouselImageContainer.classList.add('right');
-      carouselImageContainer.style.right = `${shift}%`;
-      carouselImageContainer.style.left = '';
+      carouselImageContainer.style.left = `-${shift}%`;
+      carouselImageContainer.style.right = '';
       break;
     case false:
-      carouselImageContainer.style.left = ``;
-      carouselImageContainer.style.right = '';
-      carouselImageContainer.style.opacity = '';
+      removeStyles();
       break;
     }
 
@@ -53,19 +60,27 @@ const updateSelectedPage = (direction) => {
         carouselImageContainer.style.opacity = '';
         switch (direction) {
         case 'left':
-          carouselImageContainer.style.left = `${shift}%`;
-          carouselImageContainer.style.right = '';
+          carouselImageContainer.style.right = `-${shift}%`;
+          carouselImageContainer.style.left = '';
+          // carouselImageContainer.style.left = `${shift}%`;
+          // carouselImageContainer.style.right = '';
           break;
         case 'right':
-          carouselImageContainer.style.right = `${shift}%`;
-          carouselImageContainer.style.left = '';
+          carouselImageContainer.style.left = `-${shift}%`;
+          carouselImageContainer.style.right = '';
+          // carouselImageContainer.style.right = `${shift}%`;
+          // carouselImageContainer.style.left = '';
         }
         selectedImage.classList.add('selected');
         shift -= decrement;
-        if (shift > 0) {
-          window.requestAnimationFrame(slide);
+        if (shift > 1) {
+          if (shift > decrement) {
+            window.requestAnimationFrame(slide);
+          } else {
+            decrement = 1;
+          }
         } else {
-          carouselImageContainer.classList.remove('left', 'right');
+          removeStyles();
         }
       }
       shift -= decrement;
@@ -153,7 +168,7 @@ app.domReady(() => {
   }
 
   const swipeIsActive = () => {
-    let active = swipeDragStarted && Math.abs(currentSwipeDistance) > 10;
+    let active = swipeDragStarted && Math.abs(currentSwipeDistance) > swipeActiveDistance;
     return active;
   }
 
@@ -167,7 +182,7 @@ app.domReady(() => {
   }
 
   const swipeIsComplete = () => {
-    let completion = carouselImageContainer.clientWidth / 3;
+    let completion = carouselImageContainer.clientWidth * swipeCompletionFraction;
     swipeCompleted = swipeDragStarted && Math.abs(currentSwipeDistance) > completion;
     if (swipeCompleted) {
       swipeEnd();
@@ -210,6 +225,7 @@ app.domReady(() => {
       location = selectedPage.location;
     }
     swipeEnd();
+    removeStyles();
   }
 
   const carouselSwipeStartEvents = [
