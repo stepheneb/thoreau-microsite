@@ -32,7 +32,7 @@ const updateSelectedPage = (direction) => {
     selectedPage = artifactPages[pageIndex];
     selectedImage = selectedPage.element;
 
-    let shift = 80;
+    let shift = 60;
     let decrement = 3;
 
     switch (direction) {
@@ -73,8 +73,12 @@ const updateSelectedPage = (direction) => {
         }
         selectedImage.classList.add('selected');
         shift -= decrement;
-        if (shift > decrement) {
-          window.requestAnimationFrame(slide);
+        if (shift > 1) {
+          if (shift > decrement) {
+            window.requestAnimationFrame(slide);
+          } else {
+            decrement = 1;
+          }
         } else {
           removeStyles();
         }
