@@ -49,6 +49,8 @@
 /* font sizes */
 :root {
   --content: 2rem;
+  --main-menu-title: 3.6rem;
+  --main-menu-title-world: 7.8rem;
   --main-title: 3.6rem;
   --main-title-world: 7.8rem;
   --main-description: 1.2rem;
@@ -91,7 +93,7 @@
   --next-object-right-margin: 7vw;
   --next-object-footer-height: 8vh;
   --unmute-footer: 0.76rem;
-  --unmute-footer-height: 5.5vh;
+  --unmute-footer-height: 8vh;
   --unmute-footer-items: 0.9rem;
   --unmute-right-distance: 6vw;
   --unmute-bottom-first-page: 0;
@@ -108,6 +110,8 @@
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   :root {
+    --main-menu-title: 3.2rem;
+    --main-menu-title-world: 3.2rem;
     --main-title: 1.7rem;
     --main-title-world: 2.2rem;
     --main-description: 1.4rem;
@@ -137,7 +141,7 @@
     --zoom-icon-width: 1.3rem;
     --zoom-divide-width: 0.3rem;
     --unmute-footer: 1.15rem;
-    --unmute-footer-height: 6vh;
+    --unmute-footer-height: 7vh;
     --unmute-footer-items: 1.15rem;
     --unmute-footer-control-bottom: 1vh;
     --unmute-right-distance: 7vw;
@@ -148,7 +152,7 @@
     --back-to-top: 1.2rem;
     --next-object-footer-height: 7vh;
     --arrow-scroll-down-bottom: 2.8vh;
-    --arrow-scroll-down-bottom-first-screen: 7.5vh;
+    --arrow-scroll-down-bottom-first-screen: 8vh;
     --scroll-down-label: 1.1rem;
   }
 }
@@ -2154,48 +2158,71 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   color: var(--navy-blue);
 }
 
-#spyglass[data-content-scroll="1"] .background-image-container.spyglass:before {
+#spyglass[data-content-scroll="1"] .background-image-container.spyglass:before,
+#spyglass[data-content-scroll="2"] .background-image-container.spyglass:before {
   background-color: var(--thoreau-blue);
   background-image: url("../media/images/thoreau-handwriting-light-background.png");
   background-repeat: no-repeat;
   background-position: center;
   background-size: cover;
 }
-#spyglass[data-content-scroll="1"] .animation-frame-container.spyglass {
+#spyglass[data-content-scroll="1"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="2"] .animation-frame-container.spyglass {
   visibility: visible;
   opacity: 1;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #spyglass[data-content-scroll="1"] .animation-frame-container.spyglass {
-    top: 15vh;
+@media only screen and (min-aspect-ratio: 3/2) and (min-width: 1280px) {
+  #spyglass[data-content-scroll="1"] .animation-frame-container.spyglass img,
+#spyglass[data-content-scroll="2"] .animation-frame-container.spyglass img {
+    width: 110%;
+    height: auto;
   }
 }
-#spyglass[data-content-scroll="1"] .animation-frame-container.spyglass img {
-  margin: 5vh 10vw;
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  #spyglass[data-content-scroll="1"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="2"] .animation-frame-container.spyglass {
+    top: 15vh;
+  }
+  #spyglass[data-content-scroll="1"] .animation-frame-container.spyglass img,
+#spyglass[data-content-scroll="2"] .animation-frame-container.spyglass img {
+    width: 110%;
+    height: auto;
+  }
 }
-#spyglass[data-content-scroll="1"] img.spyglass-photo-rotated {
+#spyglass[data-content-scroll="1"] img.spyglass-photo-rotated,
+#spyglass[data-content-scroll="2"] img.spyglass-photo-rotated {
   visibility: visible;
   opacity: 1;
 }
 
-#spyglass[data-content-scroll="2"] .background-image-container.spyglass:before,
+#spyglass[data-content-scroll="2"] img.spyglass-photo-rotated {
+  visibility: hidden;
+  opacity: 0;
+}
+
 #spyglass[data-content-scroll="3"] .background-image-container.spyglass:before {
   background-color: var(--thoreau-blue);
 }
-#spyglass[data-content-scroll="2"] .animation-frame-container.spyglass,
 #spyglass[data-content-scroll="3"] .animation-frame-container.spyglass {
   visibility: visible;
   opacity: 1;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #spyglass[data-content-scroll="2"] .animation-frame-container.spyglass,
-#spyglass[data-content-scroll="3"] .animation-frame-container.spyglass {
-    top: 10vh;
+@media only screen and (min-aspect-ratio: 3/2) and (min-width: 1280px) {
+  #spyglass[data-content-scroll="3"] .animation-frame-container.spyglass {
+    padding: 1vw 5vw 20vh 30vw;
+  }
+  #spyglass[data-content-scroll="3"] .animation-frame-container.spyglass img {
+    width: 100%;
   }
 }
-#spyglass[data-content-scroll="2"] .animation-frame-container.spyglass img,
-#spyglass[data-content-scroll="3"] .animation-frame-container.spyglass img {
-  margin: 5vh 10vw;
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  #spyglass[data-content-scroll="3"] .animation-frame-container.spyglass {
+    top: 3vh;
+    padding: 0 5vw;
+  }
+  #spyglass[data-content-scroll="3"] .animation-frame-container.spyglass img {
+    width: 100%;
+  }
 }
 
 #spyglass[data-content-scroll="4"] .background-image-container.spyglass:before,
@@ -2213,15 +2240,28 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   visibility: visible;
   opacity: 1;
 }
+@media only screen and (min-aspect-ratio: 3/2) and (min-width: 1280px) {
+  #spyglass[data-content-scroll="4"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="5"] .animation-frame-container.spyglass {
+    padding: 2vw 5vw 22vh 30vw;
+  }
+  #spyglass[data-content-scroll="4"] .animation-frame-container.spyglass img,
+#spyglass[data-content-scroll="5"] .animation-frame-container.spyglass img {
+    width: 100%;
+    height: auto;
+  }
+}
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #spyglass[data-content-scroll="4"] .animation-frame-container.spyglass,
 #spyglass[data-content-scroll="5"] .animation-frame-container.spyglass {
-    top: 10vh;
+    top: 3vh;
+    padding: 0 5vw;
   }
-}
-#spyglass[data-content-scroll="4"] .animation-frame-container.spyglass img,
+  #spyglass[data-content-scroll="4"] .animation-frame-container.spyglass img,
 #spyglass[data-content-scroll="5"] .animation-frame-container.spyglass img {
-  margin: 5vh 10vw;
+    width: 100%;
+    height: auto;
+  }
 }
 
 #spyglass[data-content-scroll="4"] .absolute-content-container.spyglass.curious {
@@ -2235,6 +2275,9 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   visibility: visible;
   opacity: 1;
 }
+#spyglass[data-content-scroll="6"] .animation-frame-container.spyglass img {
+  margin: 15vh 30vw 10vh 30vw;
+}
 @media only screen and (min-aspect-ratio: 3/2) and (min-width: 1280px) {
   #spyglass[data-content-scroll="6"] .animation-frame-container.spyglass img {
     margin: 15vh 30vw 10vh 30vw;
@@ -2243,10 +2286,11 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #spyglass[data-content-scroll="6"] .animation-frame-container.spyglass {
     top: -10vh;
+    padding: 0 7vw;
   }
-}
-#spyglass[data-content-scroll="6"] .animation-frame-container.spyglass img {
-  margin: 15vh 30vw 10vh 30vw;
+  #spyglass[data-content-scroll="6"] .animation-frame-container.spyglass img {
+    width: 100%;
+  }
 }
 
 #spyglass[data-content-scroll="7"] .background-image-container.spyglass:before,
@@ -2264,15 +2308,20 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   visibility: visible;
   opacity: 1;
 }
+#spyglass[data-content-scroll="7"] .animation-frame-container.spyglass img,
+#spyglass[data-content-scroll="8"] .animation-frame-container.spyglass img {
+  margin: 15vh 30vw 10vh 30vw;
+}
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #spyglass[data-content-scroll="7"] .animation-frame-container.spyglass,
 #spyglass[data-content-scroll="8"] .animation-frame-container.spyglass {
     top: -10vh;
+    padding: 0 7vw;
   }
-}
-#spyglass[data-content-scroll="7"] .animation-frame-container.spyglass img,
+  #spyglass[data-content-scroll="7"] .animation-frame-container.spyglass img,
 #spyglass[data-content-scroll="8"] .animation-frame-container.spyglass img {
-  margin: 15vh 30vw 10vh 30vw;
+    width: 100%;
+  }
 }
 
 #spyglass[data-content-scroll="7"] .absolute-content-container.spyglass.his-experiments {
@@ -4593,8 +4642,8 @@ body.index {
     flex-direction: row;
     margin: 0;
     padding: 0;
-    height: 10vh;
-    min-height: 10vh;
+    height: 8vh;
+    min-height: 8vh;
     align-items: center;
     justify-content: flex-end;
     background-color: var(--mobile-header-gray);
@@ -4690,17 +4739,17 @@ body.index {
   margin: 0vh 0.4vw;
   padding-bottom: 2vh;
   font-family: "Libre Caslon Text", serif;
-  font-size: var(--main-title);
+  font-size: var(--main-menu-title);
   font-weight: 700;
   color: var(--navy-blue);
 }
 .content.index .main .header .title .world {
   margin: 0 1vw 0 0;
   padding: 0;
-  font-family: "Libre Caslon Display", serif;
-  font-size: var(--main-title-world);
+  font-family: "Libre Caslon Text", serif;
+  font-size: var(--main-menu-title-world);
   color: var(--medium-gray);
-  font-weight: 600;
+  font-weight: 700;
   padding-bottom: 0.5vh;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
