@@ -274,7 +274,8 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-content-scroll="1"] {
+#spyglass[data-content-scroll="1"],
+#spyglass[data-content-scroll="2"] {
   .background-image-container.spyglass {
     &:before {
       background-color: var(--thoreau-blue);
@@ -287,11 +288,19 @@ div.artifact.spyglass {
   .animation-frame-container.spyglass {
     visibility: visible;
     opacity: 1;
+    @include desktop() {
+      img {
+        width: 110%;
+        height: auto;
+      }
+    }
+
     @include mobile-portrait() {
       top: 15vh;
-    }
-    img {
-      margin: 5vh 10vw;
+      img {
+        width: 110%;
+        height: auto;
+      }
     }
   }
   img.spyglass-photo-rotated {
@@ -300,7 +309,13 @@ div.artifact.spyglass {
   }
 }
 
-#spyglass[data-content-scroll="2"],
+#spyglass[data-content-scroll="2"] {
+  img.spyglass-photo-rotated {
+    visibility: hidden;
+    opacity: 0;
+  }
+}
+
 #spyglass[data-content-scroll="3"] {
   .background-image-container.spyglass {
     &:before {
@@ -311,11 +326,18 @@ div.artifact.spyglass {
   .animation-frame-container.spyglass {
     visibility: visible;
     opacity: 1;
-    @include mobile-portrait() {
-      top: 10vh;
+    @include desktop() {
+      padding: 1vw 5vw 20vh 30vw;
+      img {
+        width: 100%;
+      }
     }
-    img {
-      margin: 5vh 10vw;
+    @include mobile-portrait() {
+      top: 3vh;
+      padding: 0 5vw;
+      img {
+        width: 100%;
+      }
     }
   }
 }
@@ -337,11 +359,20 @@ div.artifact.spyglass {
     visibility: visible;
     opacity: 1;
 
-    @include mobile-portrait() {
-      top: 10vh;
+    @include desktop() {
+      padding: 2vw 5vw 22vh 30vw;
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
-    img {
-      margin: 5vh 10vw;
+    @include mobile-portrait() {
+      top: 3vh;
+      padding: 0 5vw;
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 }
@@ -361,6 +392,9 @@ div.artifact.spyglass {
   .animation-frame-container.spyglass {
     visibility: visible;
     opacity: 1;
+    img {
+      margin: 15vh 30vw 10vh 30vw;
+    }
     @include desktop() {
       img {
         margin: 15vh 30vw 10vh 30vw;
@@ -368,9 +402,10 @@ div.artifact.spyglass {
     }
     @include mobile-portrait() {
       top: -10vh;
-    }
-    img {
-      margin: 15vh 30vw 10vh 30vw;
+      padding: 0 7vw;
+      img {
+        width: 100%;
+      }
     }
   }
 }
@@ -391,11 +426,15 @@ div.artifact.spyglass {
   .animation-frame-container.spyglass {
     visibility: visible;
     opacity: 1;
-    @include mobile-portrait() {
-      top: -10vh;
-    }
     img {
       margin: 15vh 30vw 10vh 30vw;
+    }
+    @include mobile-portrait() {
+      top: -10vh;
+      padding: 0 7vw;
+      img {
+        width: 100%;
+      }
     }
   }
 }

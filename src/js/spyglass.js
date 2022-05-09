@@ -6,25 +6,25 @@ import { startup } from './modules/artifact.js';
 import { preFetchNotSupported, preFetchAnimationImagesManually } from "./modules/animation-cache.js"
 
 let animations = [{
-    imgPrefix: 'spyglass/spyglass_animals_10fps/Render_Spyglass+Animals_10_fps_',
+    imgPrefix: 'spyglass/1-spyglass_10fps/_Render_Spyglass_10 fps_',
     startFrame: 0,
-    endFrame: 109,
+    endFrame: 67,
     startScroll: 1.9,
-    endScroll: 3.95,
+    endScroll: 2.99,
     startPage: 1,
-    endPage: 3,
+    endPage: 2,
   },
   {
-    imgPrefix: 'spyglass/spyglass_animals_10fps/Render_Spyglass+Animals_10_fps_',
-    startFrame: 110,
-    endFrame: 144,
-    startScroll: 4,
+    imgPrefix: 'spyglass/2-animals_10fps/_Render_Animals_10 fps_',
+    startFrame: 0,
+    endFrame: 95,
+    startScroll: 3.1,
     endScroll: 5.90,
     startPage: 4,
     endPage: 5,
   },
   {
-    imgPrefix: 'spyglass/trees_02_10fps/Render_Trees_10_fps_',
+    imgPrefix: 'spyglass/3-trees_10fps/Render_Trees_10_fps_',
     startFrame: 0,
     endFrame: 99,
     startScroll: 6.1,
@@ -33,7 +33,7 @@ let animations = [{
     endPage: 8,
   },
   {
-    imgPrefix: 'spyglass/trees_02_10fps/Render_Trees_10_fps_',
+    imgPrefix: 'spyglass/3-trees_10fps/Render_Trees_10_fps_',
     startFrame: 99,
     endFrame: 119,
     startScroll: 8,
@@ -44,12 +44,17 @@ let animations = [{
 ];
 
 const animationCacheData = [{
-    imgPrefix: 'spyglass/spyglass_animals_10fps/Render_Spyglass+Animals_10_fps',
+    imgPrefix: 'spyglass/spyglass/1-spyglass_10fps/_Render_Spyglass_10 fps',
     startFrame: 0,
-    endFrame: 144
+    endFrame: 67
   },
   {
-    imgPrefix: 'spyglass/trees_02_10fps/Render_Trees_10_fps',
+    imgPrefix: 'spyglass/2-animals_10fps/_Render_Animals_10 fps',
+    startFrame: 0,
+    endFrame: 95
+  },
+  {
+    imgPrefix: 'spyglass/3-trees_10fps/Render_Trees_10_fps',
     startFrame: 0,
     endFrame: 119
   }

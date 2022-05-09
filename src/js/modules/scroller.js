@@ -140,7 +140,10 @@ const storeScroll = (animations, animationFrameImg) => {
   if (animation) {
     animation.callback(result.frameNum, animationFrameImg, animation.imgPrefix, result.visible);
     sLogger.animationFrameNum = result.frameNum;
-
+  } else {
+    if (animationFrameImg) {
+      animationFrameImg.src = './media/images/transparent.png';
+    }
   }
   contentScrollFLoat = Math.min(app.maxContentScroll, contentScrollFLoat);
   container.dataset.contentScrollFloat = contentScrollFLoat;
