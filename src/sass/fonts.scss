@@ -8,6 +8,10 @@
 
 :root {
   --content: 2rem;
+
+  --main-menu-title: 3.6rem;
+  --main-menu-title-world: 7.8rem;
+
   --main-title: 3.6rem;
   --main-title-world: 7.8rem;
   --main-description: 1.2rem;
@@ -62,7 +66,7 @@
   --next-object-footer-height: 8vh;
 
   --unmute-footer: 0.76rem;
-  --unmute-footer-height: 5.5vh;
+  --unmute-footer-height: 8vh;
   --unmute-footer-items: 0.9rem;
   --unmute-right-distance: 6vw;
 
@@ -79,6 +83,9 @@
   }
 
   @include mobile-portrait() {
+    --main-menu-title: 3.2rem;
+    --main-menu-title-world: 3.2rem;
+
     --main-title: 1.7rem;
     --main-title-world: 2.2rem;
     --main-description: 1.4rem;
@@ -114,7 +121,7 @@
     --zoom-divide-width: 0.3rem;
 
     --unmute-footer: 1.15rem;
-    --unmute-footer-height: 6vh;
+    --unmute-footer-height: 7vh;
     --unmute-footer-items: 1.15rem;
     --unmute-footer-control-bottom: 1vh;
     --unmute-right-distance: 7vw;
@@ -128,7 +135,7 @@
     --next-object-footer-height: 7vh;
 
     --arrow-scroll-down-bottom: 2.8vh;
-    --arrow-scroll-down-bottom-first-screen: 7.5vh;
+    --arrow-scroll-down-bottom-first-screen: 8vh;
 
     --scroll-down-label: 1.1rem;
   }

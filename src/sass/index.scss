@@ -55,8 +55,8 @@ body.index {
         flex-direction: row;
         margin: 0;
         padding: 0;
-        height: 10vh;
-        min-height: 10vh;
+        height: 8vh;
+        min-height: 8vh;
         align-items: center;
         justify-content: flex-end;
         background-color: var(--mobile-header-gray);
@@ -142,16 +142,16 @@ body.index {
         margin: 0vh 0.4vw;
         padding-bottom: 2vh;
         font-family: "Libre Caslon Text", serif;
-        font-size: var(--main-title);
+        font-size: var(--main-menu-title);
         font-weight: 700;
         color: var(--navy-blue);
         .world {
           margin: 0 1vw 0 0;
           padding: 0;
-          font-family: "Libre Caslon Display", serif;
-          font-size: var(--main-title-world);
+          font-family: "Libre Caslon Text", serif;
+          font-size: var(--main-menu-title-world);
           color: var(--medium-gray);
-          font-weight: 600;
+          font-weight: 700;
           padding-bottom: 0.5vh;
         }
         @include mobile-portrait() {
