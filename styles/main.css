@@ -4746,16 +4746,20 @@ body.index {
 .content.index .main .header .title .world {
   margin: 0 1vw 0 0;
   padding: 0;
-  font-family: "Libre Caslon Text", serif;
+  font-family: "Libre Caslon Display", serif;
   font-size: var(--main-menu-title-world);
   color: var(--medium-gray);
-  font-weight: 700;
+  font-weight: 600;
   padding-bottom: 0.5vh;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .header .title {
     margin: 1.5vh 0 3vh 0;
     padding-bottom: 0;
+  }
+  .content.index .main .header .title .world {
+    font-family: "Libre Caslon Text", serif;
+    font-weight: 700;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
