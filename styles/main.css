@@ -175,6 +175,8 @@
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   :root {
+    --main-menu-title: 2rem;
+    --main-menu-title-world: 2.8rem;
     --main-title: 1.4rem;
     --main-title-world: 1.7rem;
     --main-description: 1.2rem;
@@ -205,6 +207,21 @@
     --zoom-button-width: 3.2rem;
     --zoom-icon-width: 1.3rem;
     --zoom-divide-width: 0.3rem;
+    --unmute-footer: 1.15rem;
+    --unmute-footer-height: 9vh;
+    --unmute-footer-items: 1.15rem;
+    --unmute-footer-control-bottom: 1vh;
+    --unmute-right-distance: 7vw;
+    --unmute-bottom-first-page: 0;
+    --unmute-bottom: 1vh;
+    --unmute-bottom-last-page: 12vh;
+    --next-object: 1.1rem;
+    --next-object-right-margin: 7vw;
+    --back-to-top: 1rem;
+    --next-object-footer-height: 9vh;
+    --arrow-scroll-down-bottom: 2.8vh;
+    --arrow-scroll-down-bottom-first-screen: 11vh;
+    --scroll-down-label: 1.1rem;
   }
 }
 @media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
@@ -367,7 +384,7 @@ div.artifact .content .absolute-content-container.start .menu {
   div.artifact .content .absolute-content-container.start .menu {
     margin: 0;
     padding: 0;
-    height: 8vh;
+    height: var(--unmute-footer-height);
     align-items: center;
     justify-content: space-between;
     background-color: var(--mobile-header-gray);
@@ -485,7 +502,7 @@ div.artifact .content .absolute-content-container.start .content .about-containe
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .content .absolute-content-container.start .content .about-container .header {
-    margin-top: 0;
+    margin-top: 0.5rem;
     display: flex;
     align-items: center;
   }
@@ -1085,6 +1102,12 @@ div.artifact .dropdown.explore-another-object button::after {
     display: none;
   }
 }
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape), only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact .dropdown.explore-another-object button span.toggler-icon {
+    width: 5vh;
+    height: 5vh;
+  }
+}
 div.artifact .dropdown.explore-another-object ul.dropdown-menu {
   z-index: -1;
   top: 1rem;
@@ -1200,12 +1223,11 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show .close {
     top: 0.5vh;
     left: 94vw;
-    width: 2.4rem;
-    height: 2.4rem;
-    border-radius: 1.2rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 1.1rem;
   }
   div.artifact .dropdown.explore-another-object ul.dropdown-menu.show .close svg {
-    margin-bottom: -0.5rem;
     width: 0.9rem;
     height: 0.9rem;
   }
@@ -1502,7 +1524,7 @@ div.artifact .next-object-footer .back-to-top .label {
   text-transform: uppercase;
   margin-right: 0.2rem;
   margin-top: -0.1rem;
-  width: 5rem;
+  width: auto;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .next-object-footer .back-to-top .label {
@@ -1565,7 +1587,8 @@ div.artifact .next-object-footer button svg.next-object-svg {
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .next-object-footer {
-    height: 10vh;
+    height: var(--next-object-footer-height);
+    font-size: var(--next-object);
   }
 }
 div.artifact .unmute-footer {
@@ -1620,7 +1643,7 @@ div.artifact .unmute-footer.on .label {
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .unmute-footer {
-    height: 7vh;
+    height: var(--unmute-footer-height);
     font-size: var(--unmute-footer);
   }
   div.artifact .unmute-footer .label {
@@ -4090,7 +4113,7 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   .unmute-footer {
-    height: 7vh;
+    height: var(--unmute-footer-height);
     font-size: var(--unmute-footer);
   }
   .unmute-footer .label {
@@ -4392,6 +4415,12 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
     display: none;
   }
 }
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape), only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  .dropdown.explore-another-object button span.toggler-icon {
+    width: 5vh;
+    height: 5vh;
+  }
+}
 .dropdown.explore-another-object ul.dropdown-menu {
   z-index: -1;
   top: 1rem;
@@ -4507,12 +4536,11 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
   .dropdown.explore-another-object ul.dropdown-menu.show .close {
     top: 0.5vh;
     left: 94vw;
-    width: 2.4rem;
-    height: 2.4rem;
-    border-radius: 1.2rem;
+    width: 2.2rem;
+    height: 2.2rem;
+    border-radius: 1.1rem;
   }
   .dropdown.explore-another-object ul.dropdown-menu.show .close svg {
-    margin-bottom: -0.5rem;
     width: 0.9rem;
     height: 0.9rem;
   }
@@ -4713,7 +4741,7 @@ body.index {
   flex-direction: row;
   align-self: center;
   align-items: center;
-  justify-content: flex-end;
+  justify-content: center;
   line-height: normal;
   width: 90vw;
   margin: 1vh 2vw;
@@ -4768,6 +4796,10 @@ body.index {
   .content.index .main .header .title {
     margin: 4vh 0 4vh 0;
   }
+  .content.index .main .header .title .world {
+    font-family: "Libre Caslon Text", serif;
+    font-weight: 700;
+  }
 }
 .content.index .main .header .separator {
   width: 2.25vw;
@@ -4802,7 +4834,7 @@ body.index {
   }
 }
 .content.index .main .header .description {
-  width: 30vw;
+  width: 28rem;
   font-weight: 300;
   font-size: var(--main-description);
   line-height: var(--main-description-line-height);
@@ -4828,6 +4860,11 @@ body.index {
   }
   .content.index .main .header .description div {
     display: contents;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  .content.index .main .header .description {
+    width: 26rem;
   }
 }
 @media only screen and (max-device-width: 570px) and (orientation: landscape) {

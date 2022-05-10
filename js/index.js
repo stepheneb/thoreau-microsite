@@ -78,13 +78,13 @@ const updateSelectedPage = (direction) => {
             window.requestAnimationFrame(slide);
           } else {
             decrement = 1;
+            window.requestAnimationFrame(slide);
           }
         } else {
           removeStyles();
         }
       }
       shift -= decrement;
-
       window.requestAnimationFrame(slide);
     }
   }
