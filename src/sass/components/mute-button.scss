@@ -13,7 +13,8 @@
     flex-direction: column;
     justify-content: center;
     transition: bottom var(--mute-button-timing);
-    right: var(--unmute-right-distance);
+    right: 0;
+    margin-right: var(--unmute-right-distance);
     cursor: pointer;
     font-weight: 600;
     letter-spacing: 0.02rem;
