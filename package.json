@@ -14,18 +14,18 @@
   "private": false,
   "dependencies": {},
   "devDependencies": {
-    "browser-sync": "^2.27.5",
+    "browser-sync": "^2.27.9",
     "esm": "^3.2.25",
     "gulp": "^4.0.2",
-    "@babel/core": "^7.15.5",
-    "@babel/preset-env": "^7.15.5",
-    "babel-jest": "^27.2.1",
-    "eslint": "^7.32.0",
+    "@babel/core": "^7.17.10",
+    "@babel/preset-env": "^7.17.10",
+    "babel-jest": "^28.1.0",
+    "eslint": "^8.15.0",
     "gulp-jest": "^4.0.4",
-    "gulp-sass": "^5.0.0",
-    "jest": "^27.2.1",
-    "jest-cli": "^27.2.1",
-    "sass": "^1.42.1",
+    "gulp-sass": "^5.1.0",
+    "jest": "^28.1.0",
+    "jest-cli": "^28.1.0",
+    "sass": "^1.51.0",
     "del": "^6.0.0"
   }
 }
