@@ -52,7 +52,7 @@
       text-transform: uppercase;
       margin-right: 0.2rem;
       margin-top: -0.1rem;
-      width: 5rem;
+      width: auto;
       @include mobile-portrait() {
         margin-top: 0rem;
         margin-bottom: -0.1rem;
@@ -108,6 +108,7 @@
     }
   }
   @include mobile-landscape() {
-    height: 10vh;
+    height: var(--next-object-footer-height);
+    font-size: var(--next-object);
   }
 }

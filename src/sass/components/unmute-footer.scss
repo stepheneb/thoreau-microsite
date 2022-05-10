@@ -45,7 +45,7 @@
     }
   }
   @include mobile-landscape() {
-    height: 7vh;
+    height: var(--unmute-footer-height);
     font-size: var(--unmute-footer);
     .label {
       margin-right: 38vw;

@@ -118,7 +118,7 @@ div.artifact {
           @include mobile-landscape() {
             margin: 0;
             padding: 0;
-            height: 8vh;
+            height: var(--unmute-footer-height);
             align-items: center;
             justify-content: space-between;
             background-color: var(--mobile-header-gray);
@@ -218,7 +218,7 @@ div.artifact {
             }
             .header {
               @include mobile-landscape() {
-                margin-top: 0;
+                margin-top: 0.5rem;
                 display: flex;
                 align-items: center;
               }

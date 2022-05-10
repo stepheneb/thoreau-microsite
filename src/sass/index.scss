@@ -117,7 +117,7 @@ body.index {
       flex-direction: row;
       align-self: center;
       align-items: center;
-      justify-content: flex-end;
+      justify-content: center;
       line-height: normal;
       width: 90vw;
       margin: 1vh 2vw;
@@ -164,6 +164,10 @@ body.index {
         }
         @include mobile-landscape() {
           margin: 4vh 0 4vh 0;
+          .world {
+            font-family: "Libre Caslon Text", serif;
+            font-weight: 700;
+          }
         }
       }
       .separator {
@@ -195,7 +199,7 @@ body.index {
         }
       }
       .description {
-        width: 30vw;
+        width: 28rem;
         font-weight: 300;
         font-size: var(--main-description);
         line-height: var(--main-description-line-height);
@@ -218,7 +222,8 @@ body.index {
             display: contents;
           }
         }
-        @include mobile-portrait() {
+        @include mobile-landscape() {
+          width: 26rem;
         }
         @media only screen and (max-device-width: 570px) and (orientation: landscape) {
           width: 100%;
