@@ -1862,8 +1862,8 @@ div.artifact .about-thoreau .offcanvas-body .about .description p:last-of-type {
     align-items: center;
   }
   div.artifact .about-thoreau .offcanvas-body img {
-    height: 80%;
-    width: auto;
+    width: 100%;
+    height: auto;
   }
   div.artifact .about-thoreau .offcanvas-body .about {
     margin-left: 4rem;
@@ -4466,8 +4466,8 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
     align-items: center;
   }
   .about-thoreau .offcanvas-body img {
-    height: 80%;
-    width: auto;
+    width: 100%;
+    height: auto;
   }
   .about-thoreau .offcanvas-body .about {
     margin-left: 4rem;
