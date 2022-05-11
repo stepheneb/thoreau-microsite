@@ -55,7 +55,7 @@ div.artifact.flute {
         visibility: hidden;
         opacity: 0;
         top: 30vh;
-        left: 32.5vw;
+        left: calc(50vw - var(--thoreau-quote-width) / 2);
         width: var(--thoreau-quote-width);
         max-width: var(--thoreau-quote-width);
 

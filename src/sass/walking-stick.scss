@@ -55,9 +55,10 @@ div.artifact.walking-stick {
         visibility: hidden;
         opacity: 0;
         top: 30vh;
-        left: 32.5vw;
-        width: 34rem;
-        max-width: 34rem;
+
+        left: calc(50vw - var(--thoreau-quote-width) / 2);
+        width: var(--thoreau-quote-width);
+        max-width: var(--thoreau-quote-width);
 
         font-weight: 600;
         color: var(--white);
