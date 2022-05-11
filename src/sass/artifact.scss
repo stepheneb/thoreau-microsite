@@ -362,6 +362,13 @@ div.artifact {
                 width: 60%;
               }
             }
+            @include mobile-landscape() {
+              width: 70%;
+              margin-top: 0;
+              img {
+                width: 60%;
+              }
+            }
             @include desktop-strong-landscape() {
               height: 85vh;
               img {
@@ -377,6 +384,16 @@ div.artifact {
             transition: opacity var(--explore-images-timing),
               visibility var(--explore-images-timing);
           }
+
+          @include desktop-portrait() {
+            .about-container {
+              width: 35vw;
+            }
+            .image-container {
+              width: 65vw;
+            }
+          }
+
           @include zoom-controls();
         }
       }

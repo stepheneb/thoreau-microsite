@@ -258,7 +258,7 @@
     --artifact-title-line-height: 2rem;
     --artifact-description: 1.2rem;
     --artifact-description-letter-spacing: calc(clamp(0px, (0.2vh - 3px), 2px));
-    --artifact-description-line-height: calc(clamp(25px, (6vh - 30px), 60px));
+    --artifact-description-line-height: calc(clamp(25px, (6.5vh - 30px), 60px));
   }
 
   @include desktop-strong-portrait() {
