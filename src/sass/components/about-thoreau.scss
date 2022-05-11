@@ -1,5 +1,7 @@
 .about-thoreau {
-  width: 30vw;
+  width: var(--about-thoreau-width);
+  min-width: var(--about-thoreau-min-width);
+
   overflow-y: auto;
   overflow-x: hidden;
   bottom: calc(var(--unmute-footer-height) + 2px);
@@ -13,7 +15,8 @@
     position: absolute;
     top: 0;
     left: 0;
-    width: 30vw;
+    width: var(--about-thoreau-width);
+    min-width: var(--about-thoreau-min-width);
     height: 8vh;
     min-height: 8vh;
     display: flex;
@@ -85,6 +88,7 @@
     // overflow: hidden;
     img {
       width: 84%;
+      max-width: var(--about-thoreau-max-img-width);
       height: auto;
     }
 
@@ -92,7 +96,7 @@
       display: flex;
       flex-direction: column;
       .title {
-        margin: 1.9rem 0 1rem 0;
+        margin: 1.6rem 0 1rem 0;
         font-family: "Libre Caslon Text";
         font-weight: 700;
         font-size: var(--about-thoreau-title);
