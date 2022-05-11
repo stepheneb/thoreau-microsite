@@ -127,9 +127,7 @@ div.artifact.flute {
 
   .fixed-image-container.flute {
     img.flute-detail {
-      // width: 90%;
       object-fit: none;
-      // object-position: 90%;
       @include mobile-portrait() {
         object-fit: contain;
         min-height: unset;
@@ -139,11 +137,14 @@ div.artifact.flute {
         transform: scale(1.5);
       }
 
-      // width: 147%;
-      // @include mobile-portrait() {
-      //   width: 150vw;
-      //   height: auto;
-      // }
+      @include mobile-landscape() {
+        object-fit: contain;
+        min-height: unset;
+        min-width: unset;
+        height: unset;
+        width: 100%;
+        transform: scale(1.5);
+      }
     }
   }
 

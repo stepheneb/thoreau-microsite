@@ -43,48 +43,55 @@ body.index {
     @include mobile-landscape() {
       height: 100vh;
     }
+
     .menu {
-      z-index: 3;
       display: none;
-      flex-direction: row;
-      align-items: baseline;
-      justify-content: space-between;
-
-      @include mobile-portrait() {
-        display: flex;
+    }
+    @include mobile-portrait() {
+      height: 90vh;
+      .menu {
+        z-index: 3;
+        display: none;
         flex-direction: row;
-        margin: 0;
-        padding: 0;
-        height: 8vh;
-        min-height: 8vh;
-        align-items: center;
-        justify-content: flex-end;
-        background-color: var(--mobile-header-gray);
-        line-height: var(--explore-content-line-height);
-        letter-spacing: var(--explore-content-letter-spacing);
-        font-size: var(--explore-content);
-      }
-      @include mobile-portrait-small() {
-        display: flex;
-        margin: 0;
-        height: 7.5vh;
-        background-color: var(--mobile-header-gray);
-      }
-
-      @include mobile-landscape() {
-        margin: 0;
-        padding: 0;
-        height: 8vh;
-        align-items: center;
+        align-items: baseline;
         justify-content: space-between;
-        background-color: var(--mobile-header-gray);
-        line-height: var(--explore-content-line-height);
-        letter-spacing: var(--explore-content-letter-spacing);
-        font-size: var(--explore-content);
-      }
-      @include desktop-strong-landscape() {
-        display: flex;
-        align-items: center;
+
+        @include mobile-portrait() {
+          display: flex;
+          flex-direction: row;
+          margin: 0;
+          padding: 0;
+          height: 8vh;
+          min-height: 8vh;
+          align-items: center;
+          justify-content: flex-end;
+          background-color: var(--mobile-header-gray);
+          line-height: var(--explore-content-line-height);
+          letter-spacing: var(--explore-content-letter-spacing);
+          font-size: var(--explore-content);
+        }
+        @include mobile-portrait-small() {
+          display: flex;
+          margin: 0;
+          height: 7.5vh;
+          background-color: var(--mobile-header-gray);
+        }
+
+        @include mobile-landscape() {
+          margin: 0;
+          padding: 0;
+          height: 8vh;
+          align-items: center;
+          justify-content: space-between;
+          background-color: var(--mobile-header-gray);
+          line-height: var(--explore-content-line-height);
+          letter-spacing: var(--explore-content-letter-spacing);
+          font-size: var(--explore-content);
+        }
+        @include desktop-strong-landscape() {
+          display: flex;
+          align-items: center;
+        }
       }
     }
 
@@ -291,6 +298,7 @@ body.index {
           margin: 0;
           height: inherit;
           width: 70vw;
+          max-width: 70rem;
           object-fit: contain;
           visibility: hidden;
           opacity: 0;
@@ -370,8 +378,8 @@ body.index {
         align-items: center;
         justify-content: flex-end;
         .circle {
-          width: 7vw;
-          height: 7vw;
+          width: 7rem;
+          height: 7rem;
           border: 1px solid var(--medium-gray);
           border-radius: 50%;
           cursor: pointer;

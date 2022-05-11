@@ -76,11 +76,9 @@
 
   --scroll-down-label: 0.9rem;
 
-  @include desktop-strong-landscape() {
-    --artifact-title: 2rem;
-    --artifact-description: 1.2rem;
-    --artifact-description-line-height: 2.2rem;
-  }
+  --about-thoreau-width: 30vw;
+  --about-thoreau-min-width: 32rem;
+  --about-thoreau-max-img-width: 22rem;
 
   @include mobile-portrait() {
     --main-menu-title: 3.2rem;
@@ -235,7 +233,22 @@
   //   --zoom-button-size: 1.2rem;
   // }
 
+  // @include desktop-landscape() {
+  //   --artifact-title: 2rem;
+  //   --artifact-description: 1.2rem;
+  //   --artifact-description-line-height: 2.2rem;
+  // }
+
+  @include desktop-strong-landscape() {
+    --artifact-title: 2rem;
+    --artifact-description: 1.2rem;
+    --artifact-description-line-height: 2.2rem;
+  }
+
   @include desktop-portrait() {
+    --main-menu-title: 2.4rem;
+    --main-menu-title-world: 4.4rem;
+
     --main-title: 2.6rem;
     --main-title-world: 4rem;
     --main-description: 1.1rem;
@@ -249,6 +262,9 @@
   }
 
   @include desktop-strong-portrait() {
+    --main-menu-title: 2rem;
+    --main-menu-title-world: 3rem;
+
     --artifact-title: 2rem;
     --artifact-title-line-height: 2rem;
     --artifact-description: 0.9rem;

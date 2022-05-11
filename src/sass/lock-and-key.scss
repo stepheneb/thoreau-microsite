@@ -73,6 +73,13 @@ div.artifact.lock-and-key {
           max-width: 80vw;
         }
 
+        @include desktop-portrait() {
+          top: 50vh;
+          left: 10vw;
+          width: 80vw;
+          max-width: 80vw;
+        }
+
         @include mobile-landscape() {
           top: 10vh;
           left: 5vw;
@@ -103,6 +110,13 @@ div.artifact.lock-and-key {
           max-width: 80vw;
         }
 
+        @include desktop-portrait() {
+          top: 50vh;
+          left: 10vw;
+          width: 80vw;
+          max-width: 80vw;
+        }
+
         @include mobile-landscape() {
           top: 10vh;
           left: 5vw;
@@ -128,6 +142,13 @@ div.artifact.lock-and-key {
 
         @include mobile-portrait() {
           top: 42vh;
+          left: 10vw;
+          width: 80vw;
+          max-width: 80vw;
+        }
+
+        @include desktop-portrait() {
+          top: 60vh;
           left: 10vw;
           width: 80vw;
           max-width: 80vw;
@@ -226,9 +247,10 @@ div.artifact.lock-and-key {
     left: 0;
     width: 100vw;
     height: 100vh;
+    padding: 4vh 0 12vh 16vw;
     img {
-      margin: 4vh 0 0 16vw;
-      width: 88vw;
+      margin: 0;
+      width: 100%;
       height: auto;
     }
     @include mobile-portrait() {
@@ -236,10 +258,23 @@ div.artifact.lock-and-key {
       width: 100vw;
       left: 0;
       height: 50vh;
+      padding: 0;
       img {
         margin: 4vh 0 0 0;
         width: 100%;
         height: auto;
+      }
+    }
+    @include desktop-portrait() {
+      top: 0vh;
+      width: 100vw;
+      left: 0;
+      height: 50vh;
+      padding: 0;
+      img {
+        margin: 0;
+        height: 100%;
+        width: auto;
       }
     }
     @include mobile-landscape() {
@@ -422,15 +457,40 @@ div.artifact.lock-and-key {
   .animation-frame-container.lock-and-key {
     opacity: 1;
     visibility: visible;
+    padding: 6vh 0 0 0;
     img {
-      margin: 8vh 0 0 0;
-      width: 100%;
-      height: auto;
+      height: 100%;
+      width: auto;
       transform: scale(1.06);
-      @include mobile-portrait() {
+    }
+    @include mobile-portrait() {
+      top: 0vh;
+      width: 100vw;
+      left: 0;
+      height: 50vh;
+      img {
+        margin: 0;
+        width: 100%;
+        height: auto;
       }
-      @include mobile-landscape() {
-        margin: -6vh 0 0 0;
+    }
+    @include desktop-portrait() {
+      top: 0vh;
+      width: 100vw;
+      left: 0;
+      height: 55vh;
+      padding: 0;
+      img {
+        margin: 0;
+        height: 100%;
+        width: auto;
+      }
+    }
+
+    @include mobile-landscape() {
+      padding: 8vh 0 0 0;
+      img {
+        margin: 0;
         width: 100%;
         height: auto;
         transform: scale(1);
@@ -455,15 +515,40 @@ div.artifact.lock-and-key {
   .animation-frame-container.lock-and-key {
     opacity: 1;
     visibility: visible;
+    padding: 6vh 0 0 0;
     img {
-      margin: 8vh 0 0 0;
-      width: 100%;
-      height: auto;
+      height: 100%;
+      width: auto;
       transform: scale(1.06);
-      @include mobile-portrait() {
+    }
+    @include mobile-portrait() {
+      top: 0vh;
+      width: 100vw;
+      left: 0;
+      height: 50vh;
+      img {
+        margin: 0;
+        width: 100%;
+        height: auto;
       }
-      @include mobile-landscape() {
-        margin: -6vh 0 0 0;
+    }
+    @include desktop-portrait() {
+      top: 0vh;
+      width: 100vw;
+      left: 0;
+      height: 55vh;
+      padding: 0;
+      img {
+        margin: 0;
+        height: 100%;
+        width: auto;
+      }
+    }
+
+    @include mobile-landscape() {
+      padding: 8vh 0 0 0;
+      img {
+        margin: 0;
         width: 100%;
         height: auto;
         transform: scale(1);
