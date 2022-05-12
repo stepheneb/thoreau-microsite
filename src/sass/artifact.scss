@@ -72,7 +72,7 @@ div.artifact {
           z-index: 3;
           width: 100vw;
           margin-top: 1.5vh;
-          padding-right: 6.5vw;
+          padding-right: var(--zoom-button-right);
           height: 5vh;
           display: flex;
           flex-direction: row;
