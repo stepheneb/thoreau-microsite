@@ -1554,7 +1554,6 @@ div.artifact .next-object-footer .back-to-top .label {
   div.artifact .next-object-footer .back-to-top .label {
     margin-top: 0rem;
     margin-bottom: -0.1rem;
-    width: 8rem;
   }
 }
 div.artifact .next-object-footer .back-to-top svg.back-to-top-svg {
@@ -2041,6 +2040,14 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.cur
     max-width: 29vw;
   }
 }
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.curious {
+    top: 60vh;
+    left: 15vw;
+    width: 75vw;
+    max-width: 80vw;
+  }
+}
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
   height: 200vh;
   position: -webkit-sticky;
@@ -2066,6 +2073,14 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
     left: 3vw;
     width: 45vw;
     max-width: 45vw;
+  }
+}
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
+    top: 60vh;
+    left: 10vw;
+    width: 80vw;
+    max-width: 80vw;
   }
 }
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.would-it-not {
@@ -2358,6 +2373,15 @@ div.artifact.spyglass .background-image-container.spyglass:before {
     width: 100%;
   }
 }
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+  #spyglass[data-content-scroll="6"] .animation-frame-container.spyglass {
+    padding: 0vw 5vw 45vh 5vw;
+  }
+  #spyglass[data-content-scroll="6"] .animation-frame-container.spyglass img {
+    height: 100%;
+    width: auto;
+  }
+}
 
 #spyglass[data-content-scroll="7"] .background-image-container.spyglass:before,
 #spyglass[data-content-scroll="8"] .background-image-container.spyglass:before {
@@ -2389,6 +2413,17 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   #spyglass[data-content-scroll="7"] .animation-frame-container.spyglass img,
 #spyglass[data-content-scroll="8"] .animation-frame-container.spyglass img {
     width: 100%;
+  }
+}
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+  #spyglass[data-content-scroll="7"] .animation-frame-container.spyglass,
+#spyglass[data-content-scroll="8"] .animation-frame-container.spyglass {
+    padding: 0vw 5vw 45vh 5vw;
+  }
+  #spyglass[data-content-scroll="7"] .animation-frame-container.spyglass img,
+#spyglass[data-content-scroll="8"] .animation-frame-container.spyglass img {
+    height: 100%;
+    width: auto;
   }
 }
 
