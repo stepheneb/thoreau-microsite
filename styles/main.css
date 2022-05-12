@@ -5120,7 +5120,6 @@ body.index {
   background-repeat: no-repeat;
   background-position: center;
   background-size: contain;
-  transition: opacity var(--gallery-carousel-timing);
   justify-content: space-around;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
@@ -5143,7 +5142,6 @@ body.index {
   visibility: hidden;
   opacity: 0;
   cursor: pointer;
-  transition: opacity var(--gallery-carousel-timing);
   filter: grayscale(100%) brightness(150%) contrast(125%) opacity(75%);
 }
 .content.index .main .gallery .image-container img.enabled {
