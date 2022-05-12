@@ -283,7 +283,7 @@ body.index {
         background-repeat: no-repeat;
         background-position: center;
         background-size: contain;
-        transition: opacity var(--gallery-carousel-timing);
+        // transition: opacity var(--gallery-carousel-timing);
 
         justify-content: space-around;
 
@@ -303,7 +303,7 @@ body.index {
           visibility: hidden;
           opacity: 0;
           cursor: pointer;
-          transition: opacity var(--gallery-carousel-timing);
+          // transition: opacity var(--gallery-carousel-timing);
           // visibility var(--gallery-carousel-timing);
           filter: grayscale(100%) brightness(150%) contrast(125%) opacity(75%);
           &.enabled {
