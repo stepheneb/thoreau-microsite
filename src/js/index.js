@@ -7,6 +7,11 @@ import { generateFooterItems, generateDropdownUL } from "./modules/menu.js";
 
 app.dev = true;
 
+const isReduced = window.matchMedia(`(prefers-reduced-motion: reduce)`) === true || window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
+
+const shiftDistance = isReduced ? 20 : 60;
+const shiftStep = isReduced ? 1 : 3;
+
 const artifactPages = pages.filter(p => p.type == 'artifact' && p.enabled);
 
 let selectRight, selectLeft, selectedImage, carouselImageContainer;
@@ -53,9 +58,9 @@ const startSlideOut = (direction, absPixelShift, callback) => {
   let shift = Math.abs(absPixelShift / elemWidth) * 100;
 
   const slideOut = () => {
-    const shiftEnd = 60;
+    const shiftEnd = shiftDistance;
     let opacity = 1;
-    let increment = 3;
+    let increment = shiftStep;
 
     switch (direction) {
     case 'left':
@@ -109,11 +114,11 @@ const updateSelectedPage = (direction) => {
     selectedPage = artifactPages[pageIndex];
     selectedImage = selectedPage.element;
 
-    const shiftStart = 60;
+    const shiftStart = shiftDistance;
     let shift = shiftStart;
     let opacity = 0;
     let opacityShift = 0;
-    let decrement = 3;
+    let decrement = shiftStep;
 
     switch (direction) {
     case 'left':
