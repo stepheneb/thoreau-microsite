@@ -69,11 +69,11 @@
   --about-thoreau-close-radius: 1rem;
   --about-thoreau-close-svg: 1.2rem;
   --thoreau-quote-width: 33.5rem;
-  --arrow-scroll-down-bottom: 1.8vh;
-  --arrow-scroll-down-bottom-first-screen: 9.2vh;
+  --zoom-button-right: 6vw;
+  --next-object-right-margin: 6vw;
+  --unmute-right-distance: 6vw;
   --zoom-button-size: 1.1rem;
   --zoom-button-top: 86.7vh;
-  --zoom-button-right: 7.1vw;
   --zoom-button-height: 1.9rem;
   --zoom-button-width: 2.65rem;
   --zoom-icon-width: 0.9rem;
@@ -84,21 +84,25 @@
   --explore-content-letter-spacing: 0.75px;
   --explore-content-author: 0.88rem;
   --explore-content-mute-button: 0.76rem;
+  --thoreau-quote: 2.2rem;
   --explore-content-weight: 400;
   --explore-content-heading: 2.2rem;
   --explore-content-heading-weight: 600;
   --back-button-size: 2em;
   --next-object: 0.875em;
   --back-to-top: 0.87em;
-  --next-object-right-margin: 6vw;
   --next-object-footer-height: 8vh;
   --unmute-footer: 0.76rem;
   --unmute-footer-height: 8vh;
   --unmute-footer-items: 0.9rem;
-  --unmute-right-distance: 6vw;
+  --unmute-footer-label-right: 18rem;
   --unmute-bottom-first-page: 0;
   --unmute-bottom: 1vh;
   --unmute-bottom-last-page: 9vh;
+  --arrow-scroll-down-bottom: calc(var(--unmute-bottom) + 2.8vh);
+  --arrow-scroll-down-bottom-first-screen: calc(
+    var(--unmute-footer-height) + 1.8vh
+  );
   --scroll-down-label: 0.9rem;
   --about-thoreau-width: 30vw;
   --about-thoreau-min-width: 32rem;
@@ -130,8 +134,10 @@
     --explore-content-heading-weight: 600;
     --back-button-size: 1.4em;
     --unmute-footer: 0.8em;
+    --zoom-button-right: 7vw;
+    --next-object-right-margin: 7vw;
+    --unmute-right-distance: 7vw;
     --zoom-button-top: 48.5vh;
-    --zoom-button-right: 4vw;
     --zoom-button-height: 2.6rem;
     --zoom-button-width: 3.2rem;
     --zoom-icon-width: 1.3rem;
@@ -145,11 +151,12 @@
     --unmute-bottom: 1vh;
     --unmute-bottom-last-page: 8.5vh;
     --next-object: 1.3rem;
-    --next-object-right-margin: 7vw;
     --back-to-top: 1.2rem;
     --next-object-footer-height: 7vh;
-    --arrow-scroll-down-bottom: 2.8vh;
-    --arrow-scroll-down-bottom-first-screen: 8vh;
+    --arrow-scroll-down-bottom: calc(var(--unmute-bottom) + 2.8vh);
+    --arrow-scroll-down-bottom-first-screen: calc(
+      var(--unmute-footer-height) + 1.4vh
+    );
     --scroll-down-label: 1.1rem;
   }
 }
@@ -220,14 +227,7 @@
     --scroll-down-label: 1.1rem;
   }
 }
-@media only screen and (min-aspect-ratio: 2/1) and (min-width: 1280px) {
-  :root {
-    --artifact-title: 2rem;
-    --artifact-description: 1.2rem;
-    --artifact-description-line-height: 2.2rem;
-  }
-}
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   :root {
     --main-menu-title: 2.4rem;
     --main-menu-title-world: 4.4rem;
@@ -239,17 +239,73 @@
     --artifact-title-line-height: 2rem;
     --artifact-description: 1.2rem;
     --artifact-description-letter-spacing: calc(clamp(0px, (0.2vh - 3px), 2px));
-    --artifact-description-line-height: calc(clamp(25px, (6.5vh - 30px), 60px));
+    --artifact-description-line-height: calc(clamp(25px, (7.5vh - 36px), 60px));
+    --zoom-button-height: 1.8rem;
+    --zoom-button-width: 2.4rem;
+    --zoom-icon-width: 1rem;
+    --zoom-divide-width: 0.15rem;
+    --unmute-footer: 0.8rem;
+    --unmute-footer-height: 6vh;
+    --unmute-footer-label-right: 16rem;
+    --explore-content-mute-button: 0.8rem;
+    --unmute-bottom: 0vh;
+    --unmute-bottom-last-page: 5.5vh;
+    --next-object: 0.9rem;
+    --back-to-top: 0.8rem;
+    --next-object-footer-height: 6vh;
+    --zoom-button-top: calc(100vh - (var(--unmute-footer-height) + 5vh));
+    --arrow-scroll-down-bottom: calc(var(--unmute-bottom) + 2.8vh);
+    --arrow-scroll-down-bottom-first-screen: calc(
+      var(--unmute-footer-height) + 2.4vh
+    );
+    --scroll-down-label: 0.9rem;
   }
 }
-@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 1/3) and (max-aspect-ratio: 3/4) and (min-width: 560px) {
   :root {
-    --main-menu-title: 2rem;
-    --main-menu-title-world: 3rem;
-    --artifact-title: 2rem;
+    --main-menu-title: 2.4rem;
+    --main-menu-title-world: 4.4rem;
+    --main-title: 2.6rem;
+    --main-title-world: 4rem;
+    --main-description: 1.1rem;
+    --main-description-line-height: 2rem;
+    --artifact-title: 1.9rem;
     --artifact-title-line-height: 2rem;
-    --artifact-description: 0.9rem;
-    --artifact-description-line-height: 2rem;
+    --artifact-description: 1.2rem;
+    --artifact-description-letter-spacing: calc(clamp(0px, (0.2vh - 3px), 2px));
+    --artifact-description-line-height: calc(clamp(25px, (7.5vh - 36px), 60px));
+    --zoom-button-height: 2.5rem;
+    --zoom-button-width: 3rem;
+    --zoom-icon-width: 1rem;
+    --zoom-divide-width: 0.15rem;
+    --unmute-footer: 1rem;
+    --unmute-footer-height: 6vh;
+    --unmute-footer-label-right: 17rem;
+    --explore-content-mute-button: 1rem;
+    --unmute-bottom: 0vh;
+    --unmute-bottom-last-page: 5.5vh;
+    --next-object: 1.2rem;
+    --back-to-top: 1.1rem;
+    --next-object-footer-height: 6vh;
+    --zoom-button-top: calc(100vh - (var(--unmute-footer-height) + 5vh));
+    --arrow-scroll-down-bottom: calc(var(--unmute-bottom) + 2.8vh);
+    --arrow-scroll-down-bottom-first-screen: calc(
+      var(--unmute-footer-height) + 2.4vh
+    );
+    --scroll-down-label: 0.9rem;
+  }
+}
+@media only screen and (min-aspect-ratio: 9/5) and (min-width: 1280px) {
+  :root {
+    --artifact-title: 1.8rem;
+    --artifact-title-line-height: 2rem;
+    --artifact-description: 1.2rem;
+    --thoreau-quote: 1.8rem;
+    --zoom-button-top: 85vh;
+    --zoom-button-height: 1.8rem;
+    --zoom-button-width: 2.6rem;
+    --zoom-icon-width: 1rem;
+    --zoom-divide-width: 0.15rem;
   }
 }
 
@@ -312,16 +368,6 @@ div.artifact .content {
   color: white;
   background-color: transparent;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content {
-    padding: 0;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .content {
-    padding: 0;
-  }
-}
 div.artifact .content .absolute-content-container {
   pointer-events: none;
   position: sticky;
@@ -335,29 +381,12 @@ div.artifact .content .absolute-content-container {
   font-size: var(--explore-content);
   font-weight: 300;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container {
-    font-weight: 400;
-  }
-}
 div.artifact .content .absolute-content-container.end {
   height: 100vh;
 }
 div.artifact .content .absolute-content-container.start {
   display: flex;
   flex-direction: column;
-}
-@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 640px) {
-  div.artifact .content .absolute-content-container.start {
-    flex-direction: column;
-    justify-content: flex-start;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start {
-    flex-direction: column;
-    justify-content: flex-start;
-  }
 }
 div.artifact .content .absolute-content-container.start .menu {
   z-index: 3;
@@ -370,37 +399,11 @@ div.artifact .content .absolute-content-container.start .menu {
   align-items: baseline;
   justify-content: space-between;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .menu {
-    margin: 0;
-    padding: 0;
-    height: 8vh;
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--mobile-header-gray);
-  }
-}
 @media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container.start .menu {
     margin: 0;
     height: 7.5vh;
     background-color: var(--mobile-header-gray);
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container.start .menu {
-    margin: 0;
-    padding: 0;
-    height: var(--unmute-footer-height);
-    align-items: center;
-    justify-content: space-between;
-    background-color: var(--mobile-header-gray);
-  }
-}
-@media only screen and (min-aspect-ratio: 2/1) and (min-width: 1280px) {
-  div.artifact .content .absolute-content-container.start .menu {
-    display: flex;
-    align-items: center;
   }
 }
 div.artifact .content .absolute-content-container.start .menu .home {
@@ -411,24 +414,14 @@ div.artifact .content .absolute-content-container.start .menu .home a img {
   height: 5.6rem;
   padding: 0rem;
 }
-@media only screen and (min-aspect-ratio: 2/1) and (min-width: 1280px) {
+@media only screen and (min-aspect-ratio: 9/5) and (min-width: 1280px) {
   div.artifact .content .absolute-content-container.start .menu .home a img {
     width: 6rem;
     height: 6rem;
     padding: 0.5rem;
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .menu .home {
-    display: none;
-  }
-}
 @media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .menu .home {
-    display: none;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .content .absolute-content-container.start .menu .home {
     display: none;
   }
@@ -455,31 +448,9 @@ div.artifact .content .absolute-content-container.start .menu .title .world {
   font-weight: 600;
   padding-bottom: 0.5vh;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .menu .title {
-    display: block;
-    margin: 3vh 0 3vh 10vw;
-    padding-bottom: 0;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container.start .menu .title {
-    display: block;
-    margin: 3vh 0 3vh 10vw;
-    padding-bottom: 0;
-  }
-}
 div.artifact .content .absolute-content-container.start .content {
   display: flex;
   flex-direction: row;
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .content {
-    width: 100vw;
-    height: 72vh;
-    flex-direction: column-reverse;
-    justify-content: space-evenly;
-  }
 }
 @media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container.start .content {
@@ -490,31 +461,7 @@ div.artifact .content .absolute-content-container.start .content .about-containe
   width: 30vw;
   margin: 5rem 0 0 5.5rem;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .content .about-container {
-    margin: 0;
-    width: 34rem;
-    max-width: 90vw;
-    height: 24rem;
-    overflow: auto;
-    align-self: center;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container.start .content .about-container {
-    margin: 0 0 0 5vw;
-    width: 40vw;
-    max-width: 40vw;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container.start .content .about-container .header {
-    margin-top: 0.5rem;
-    display: flex;
-    align-items: center;
-  }
-}
-@media only screen and (min-aspect-ratio: 2/1) and (min-width: 1280px) {
+@media only screen and (min-aspect-ratio: 9/5) and (min-width: 1280px) {
   div.artifact .content .absolute-content-container.start .content .about-container .header {
     display: flex;
     align-items: center;
@@ -530,33 +477,12 @@ div.artifact .content .absolute-content-container.start .content .about-containe
   color: var(--thoreau-blue);
   text-transform: capitalize;
 }
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container.start .content .about-container .header .title {
-    margin: 3vh 0 2vh 0;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .content .about-container .header .title {
-    margin: 1vh 0 2vh 0;
-    width: 70vw;
-  }
-}
 div.artifact .content .absolute-content-container.start .content .about-container hr {
   display: block;
   width: 10vw;
   height: 1px;
   margin: 0.5rem 0 1rem 0;
   color: var(--november-skies);
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .content .about-container hr {
-    margin: 0.5rem 0 1.25rem 0;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container.start .content .about-container hr {
-    display: block;
-  }
 }
 div.artifact .content .absolute-content-container.start .content .about-container .description {
   margin: 2.5rem 0;
@@ -570,23 +496,6 @@ div.artifact .content .absolute-content-container.start .content .about-containe
 div.artifact .content .absolute-content-container.start .content .about-container .description span.first-line,
 div.artifact .content .absolute-content-container.start .content .about-container .description span.bold {
   font-weight: 700;
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .content .about-container .description {
-    width: 100%;
-    margin: 0.75rem 0 0.75rem 0;
-  }
-  div.artifact .content .absolute-content-container.start .content .about-container .description br {
-    display: none;
-  }
-}
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container.start .content .about-container .description {
-    margin: 1.5rem 0;
-    width: 100%;
-    max-width: 25rem;
-    letter-spacing: 0.2px;
-  }
 }
 div.artifact .content .absolute-content-container.start .content .image-container {
   position: relative;
@@ -618,11 +527,6 @@ div.artifact .content .absolute-content-container.start .content .image-containe
   transform: scale(1);
   max-width: 80%;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .content .image-container img.artifact {
-    height: 85%;
-  }
-}
 div.artifact .content .absolute-content-container.start .content .image-container div.draglayer {
   position: absolute;
   pointer-events: all;
@@ -635,18 +539,6 @@ div.artifact .content .absolute-content-container.start .content .image-containe
 }
 div.artifact .content .absolute-content-container.start .content .image-container div.draglayer.dragging {
   cursor: grabbing;
-}
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  div.artifact .content .absolute-content-container.start .content .image-container {
-    margin: 0 0 0 0;
-    height: 39vh;
-    width: 90vw;
-    padding: 0;
-    align-self: center;
-  }
-  div.artifact .content .absolute-content-container.start .content .image-container img {
-    width: 85%;
-  }
 }
 @media only screen and (max-width: 320px) and (max-height: 570px) and (orientation: portrait) {
   div.artifact .content .absolute-content-container.start .content .image-container {
@@ -668,33 +560,12 @@ div.artifact .content .absolute-content-container.start .content .image-containe
     width: 60%;
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .content .absolute-content-container.start .content .image-container {
-    width: 70%;
-    margin-top: 0;
-  }
-  div.artifact .content .absolute-content-container.start .content .image-container img {
-    width: 60%;
-  }
-}
-@media only screen and (min-aspect-ratio: 2/1) and (min-width: 1280px) {
-  div.artifact .content .absolute-content-container.start .content .image-container {
-    height: 85vh;
-  }
-}
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
-  div.artifact .content .absolute-content-container.start .content .about-container {
-    width: 35vw;
-  }
-  div.artifact .content .absolute-content-container.start .content .image-container {
-    width: 65vw;
-  }
-}
 div.artifact .content .absolute-content-container.start .content .zoom-controls {
   pointer-events: all;
   z-index: 2;
-  position: absolute;
-  right: var(--zoom-button-right);
+  position: fixed;
+  right: 0;
+  margin-right: var(--zoom-button-right);
   top: var(--zoom-button-top);
   display: flex;
   flex-direction: row;
@@ -913,6 +784,169 @@ div.artifact .content .absolute-content-container .author .audio.player .playpau
 }
 div.artifact .content .absolute-content-container .author .audio.player audio {
   display: none;
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  div.artifact .content {
+    padding: 0;
+  }
+  div.artifact .content .absolute-content-container {
+    font-weight: 400;
+  }
+  div.artifact .content .absolute-content-container.start {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  div.artifact .content .absolute-content-container.start .menu {
+    margin: 0;
+    padding: 0;
+    height: 8vh;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--mobile-header-gray);
+  }
+  div.artifact .content .absolute-content-container.start .menu .home {
+    display: none;
+  }
+  div.artifact .content .absolute-content-container.start .menu .title {
+    display: block;
+    margin: 3vh 0 3vh 10vw;
+    padding-bottom: 0;
+  }
+  div.artifact .content .absolute-content-container.start .content {
+    width: 100vw;
+    height: 72vh;
+    flex-direction: column-reverse;
+    justify-content: space-evenly;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container {
+    margin: 0;
+    width: 34rem;
+    max-width: 90vw;
+    height: 24rem;
+    overflow: auto;
+    align-self: center;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container .header .title {
+    margin: 1vh 0 2vh 0;
+    width: 70vw;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container hr {
+    margin: 0.5rem 0 1.25rem 0;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container .description {
+    width: 100%;
+    margin: 0.75rem 0 0.75rem 0;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container .description br {
+    display: none;
+  }
+  div.artifact .content .absolute-content-container.start .content .image-container {
+    margin: 0 0 0 0;
+    height: 39vh;
+    width: 90vw;
+    padding: 0;
+    align-self: center;
+  }
+  div.artifact .content .absolute-content-container.start .content .image-container img {
+    width: 85%;
+  }
+  div.artifact .content .absolute-content-container.start .content .image-container img.artifact {
+    height: 85%;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact .content {
+    padding: 0;
+  }
+  div.artifact .content .absolute-content-container.start .menu {
+    margin: 0;
+    padding: 0;
+    height: var(--unmute-footer-height);
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--mobile-header-gray);
+  }
+  div.artifact .content .absolute-content-container.start .menu .home {
+    display: none;
+  }
+  div.artifact .content .absolute-content-container.start .menu .title {
+    display: block;
+    margin: 3vh 0 3vh 10vw;
+    padding-bottom: 0;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container {
+    margin: 0 0 0 5vw;
+    width: 40vw;
+    max-width: 40vw;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container .header {
+    margin-top: 0.5rem;
+    display: flex;
+    align-items: center;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container .header .title {
+    margin: 3vh 0 2vh 0;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container hr {
+    display: block;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container .description {
+    margin: 1.5rem 0;
+    width: 100%;
+    max-width: 25rem;
+    letter-spacing: 0.2px;
+  }
+  div.artifact .content .absolute-content-container.start .content .image-container {
+    width: 70%;
+    margin-top: 0;
+  }
+  div.artifact .content .absolute-content-container.start .content .image-container img {
+    width: 60%;
+  }
+}
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
+  div.artifact .content .absolute-content-container.start .content .about-container {
+    width: 35vw;
+  }
+  div.artifact .content .absolute-content-container.start .content .image-container {
+    width: 65vw;
+  }
+}
+@media only screen and (min-aspect-ratio: 1/3) and (max-aspect-ratio: 3/4) and (min-width: 560px) {
+  div.artifact .content .absolute-content-container.start {
+    flex-direction: column;
+    justify-content: flex-start;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container {
+    width: 40vw;
+  }
+  div.artifact .content .absolute-content-container.start .content .image-container {
+    width: 60vw;
+  }
+}
+@media only screen and (min-aspect-ratio: 9/5) and (min-width: 1280px) {
+  div.artifact .content .absolute-content-container.start .menu {
+    min-height: 4rem;
+    display: flex;
+    align-items: center;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container {
+    width: 50vw;
+    margin: 3rem 0 0 5.5rem;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container .header .title {
+    margin: 0 0 1rem 0;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container .description {
+    margin: 1.5rem 0;
+  }
+  div.artifact .content .absolute-content-container.start .content .image-container {
+    width: 50vw;
+    height: 64vh;
+  }
+  div.artifact .content .absolute-content-container.start .content .image-container img {
+    height: 75vh;
+  }
 }
 div.artifact body[data-content-scroll="0"] .mute-button {
   display: none;
@@ -1635,7 +1669,7 @@ div.artifact .unmute-footer {
   font-style: italic;
 }
 div.artifact .unmute-footer .label {
-  margin-right: 20vw;
+  margin-right: var(--unmute-footer-label-right);
   margin-left: auto;
   margin-top: -0.1rem;
   color: var(--navy-blue);
@@ -1647,7 +1681,7 @@ div.artifact .unmute-footer .label {
     margin-right: auto;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   div.artifact .unmute-footer .label {
     margin-right: 30vw;
   }
@@ -2008,7 +2042,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.sta
     justify-content: flex-start;
   }
 }
-@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 1/3) and (max-aspect-ratio: 3/4) and (min-width: 560px) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.start {
     flex-direction: column;
     justify-content: flex-start;
@@ -2040,7 +2074,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.cur
     max-width: 29vw;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.curious {
     top: 60vh;
     left: 15vw;
@@ -2075,7 +2109,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his
     max-width: 45vw;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
     top: 60vh;
     left: 10vw;
@@ -2095,7 +2129,7 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.wou
   max-width: var(--thoreau-quote-width);
   font-weight: 600;
   color: var(--white);
-  font-size: var(--explore-content-heading);
+  font-size: var(--thoreau-quote);
   font-family: "Libre Caslon Text", serif;
   text-indent: -1rem;
 }
@@ -2243,7 +2277,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   width: 110%;
   height: auto;
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   #spyglass[data-content-scroll="1"] .animation-frame-container.spyglass img,
 #spyglass[data-content-scroll="2"] .animation-frame-container.spyglass img {
     width: 110%;
@@ -2284,7 +2318,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   width: 100%;
   height: auto;
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   #spyglass[data-content-scroll="3"] .animation-frame-container.spyglass {
     padding: 0vw 5vw 45vh 5vw;
   }
@@ -2324,7 +2358,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
   width: 100%;
   height: auto;
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   #spyglass[data-content-scroll="4"] .animation-frame-container.spyglass,
 #spyglass[data-content-scroll="5"] .animation-frame-container.spyglass {
     padding: 0vw 5vw 45vh 5vw;
@@ -2373,7 +2407,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
     width: 100%;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   #spyglass[data-content-scroll="6"] .animation-frame-container.spyglass {
     padding: 0vw 5vw 45vh 5vw;
   }
@@ -2415,7 +2449,7 @@ div.artifact.spyglass .background-image-container.spyglass:before {
     width: 100%;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   #spyglass[data-content-scroll="7"] .animation-frame-container.spyglass,
 #spyglass[data-content-scroll="8"] .animation-frame-container.spyglass {
     padding: 0vw 5vw 45vh 5vw;
@@ -2534,7 +2568,7 @@ div.artifact.desk .content.desk .absolute-content-container.desk.start .content 
     justify-content: flex-start;
   }
 }
-@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 1/3) and (max-aspect-ratio: 3/4) and (min-width: 560px) {
   div.artifact.desk .content.desk .absolute-content-container.desk.start {
     flex-direction: column;
     justify-content: flex-start;
@@ -2608,7 +2642,7 @@ div.artifact.desk .content.desk .absolute-content-container.desk.i-sit-before {
   max-width: var(--thoreau-quote-width);
   font-weight: 600;
   color: var(--white);
-  font-size: var(--explore-content-heading);
+  font-size: var(--thoreau-quote);
   font-family: "Libre Caslon Text", serif;
   text-indent: -1rem;
 }
@@ -2920,7 +2954,7 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
     justify-content: flex-start;
   }
 }
-@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 1/3) and (max-aspect-ratio: 3/4) and (min-width: 560px) {
   div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.start {
     flex-direction: column;
     justify-content: flex-start;
@@ -2947,7 +2981,7 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
     max-width: 80vw;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.thoreaus-friend {
     top: 50vh;
     left: 10vw;
@@ -2985,7 +3019,7 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
     max-width: 80vw;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-walked {
     top: 50vh;
     left: 10vw;
@@ -3023,7 +3057,7 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
     max-width: 80vw;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-wrote {
     top: 60vh;
     left: 10vw;
@@ -3051,7 +3085,7 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
   max-width: var(--thoreau-quote-width);
   font-weight: 600;
   color: var(--white);
-  font-size: var(--explore-content-heading);
+  font-size: var(--thoreau-quote);
   font-family: "Libre Caslon Text", serif;
   text-indent: -1rem;
 }
@@ -3133,7 +3167,7 @@ div.artifact.lock-and-key .animation-frame-container.lock-and-key img {
     height: auto;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   div.artifact.lock-and-key .animation-frame-container.lock-and-key {
     top: 0vh;
     width: 100vw;
@@ -3299,7 +3333,7 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
     height: auto;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   #lock-and-key[data-content-scroll="8"] .animation-frame-container.lock-and-key {
     top: 0vh;
     width: 100vw;
@@ -3362,7 +3396,7 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
     height: auto;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   #lock-and-key[data-content-scroll="9"] .animation-frame-container.lock-and-key,
 #lock-and-key[data-content-scroll="10"] .animation-frame-container.lock-and-key {
     top: 0vh;
@@ -3493,8 +3527,20 @@ div.artifact.walking-stick .content.walking-stick .absolute-content-container.wa
   color: var(--navy-blue);
 }
 div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.start .image-container img.artifact {
-  width: 100%;
-  height: auto;
+  height: 100%;
+  width: auto;
+}
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
+  div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.start .image-container img.artifact {
+    width: 100%;
+    height: auto;
+  }
+}
+@media only screen and (min-aspect-ratio: 1/3) and (max-aspect-ratio: 3/4) and (min-width: 560px) {
+  div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.start .image-container img.artifact {
+    width: 100%;
+    height: auto;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.start {
@@ -3502,7 +3548,7 @@ div.artifact.walking-stick .content.walking-stick .absolute-content-container.wa
     justify-content: flex-start;
   }
 }
-@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 1/3) and (max-aspect-ratio: 3/4) and (min-width: 560px) {
   div.artifact.walking-stick .content.walking-stick .absolute-content-container.walking-stick.start {
     flex-direction: column;
     justify-content: flex-start;
@@ -3520,7 +3566,7 @@ div.artifact.walking-stick .content.walking-stick .absolute-content-container.wa
   max-width: var(--thoreau-quote-width);
   font-weight: 600;
   color: var(--white);
-  font-size: var(--explore-content-heading);
+  font-size: var(--thoreau-quote);
   font-family: "Libre Caslon Text", serif;
   text-indent: -1rem;
 }
@@ -3763,7 +3809,7 @@ div.artifact.flute .content.flute .absolute-content-container.flute.start .conte
     justify-content: flex-start;
   }
 }
-@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 1/3) and (max-aspect-ratio: 3/4) and (min-width: 560px) {
   div.artifact.flute .content.flute .absolute-content-container.flute.start {
     flex-direction: column;
     justify-content: flex-start;
@@ -3781,7 +3827,7 @@ div.artifact.flute .content.flute .absolute-content-container.flute.my-music {
   max-width: var(--thoreau-quote-width);
   font-weight: 600;
   color: var(--white);
-  font-size: var(--explore-content-heading);
+  font-size: var(--thoreau-quote);
   font-family: "Libre Caslon Text", serif;
   text-indent: -1rem;
 }
@@ -4032,7 +4078,7 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
     justify-content: flex-start;
   }
 }
-@media only screen and (3/4 <= aspect-ratio <= 1/1) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 1/3) and (max-aspect-ratio: 3/4) and (min-width: 560px) {
   div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.start {
     flex-direction: column;
     justify-content: flex-start;
@@ -4050,7 +4096,7 @@ div.artifact.snowshoes .content.snowshoes .absolute-content-container.snowshoes.
   max-width: var(--thoreau-quote-width);
   font-weight: 600;
   color: var(--snowshoe-brown);
-  font-size: var(--explore-content-heading);
+  font-size: var(--thoreau-quote);
   font-family: "Libre Caslon Text", serif;
   text-indent: -1rem;
 }
@@ -4275,7 +4321,7 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
   font-style: italic;
 }
 .unmute-footer .label {
-  margin-right: 20vw;
+  margin-right: var(--unmute-footer-label-right);
   margin-left: auto;
   margin-top: -0.1rem;
   color: var(--navy-blue);
@@ -4287,7 +4333,7 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
     margin-right: auto;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   .unmute-footer .label {
     margin-right: 30vw;
   }
@@ -4907,7 +4953,7 @@ body.index {
     font-size: var(--explore-content);
   }
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) and (min-aspect-ratio: 2/1) and (min-width: 1280px) {
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) and (min-aspect-ratio: 9/5) and (min-width: 1280px) {
   .content.index .main .menu {
     display: flex;
     align-items: center;
@@ -4935,7 +4981,7 @@ body.index {
   height: 14vh;
   width: auto;
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   .content.index .main img.pinetree.noborder {
     height: 12vh;
   }
@@ -4960,7 +5006,7 @@ body.index {
     flex-direction: column;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   .content.index .main .header {
     align-self: start;
     justify-content: center;
@@ -5076,7 +5122,7 @@ body.index {
     width: 100%;
   }
 }
-@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 7/5) and (min-width: 640px) {
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   .content.index .main .header .description {
     width: 36vw;
   }
@@ -5252,6 +5298,18 @@ body.index {
     justify-content: center;
   }
 }
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
+  .content.index .main .gallery .select .circle {
+    width: 10vw;
+    height: 10vw;
+  }
+}
+@media only screen and (min-aspect-ratio: 1/3) and (max-aspect-ratio: 3/4) and (min-width: 560px) {
+  .content.index .main .gallery .select .circle {
+    width: 10vw;
+    height: 10vw;
+  }
+}
 .content.index .main .gallery .select.right {
   left: auto;
   right: 0;
@@ -5351,6 +5409,16 @@ div.viewport {
     html {
       font-size: 12px;
     }
+  }
+}
+@media only screen and (min-aspect-ratio: 9/5) and (min-width: 1280px) {
+  html {
+    font-size: 110%;
+  }
+}
+@media only screen and (min-aspect-ratio: 3/4) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
+  html {
+    font-size: 100%;
   }
 }
 .offcanvas-backdrop {
