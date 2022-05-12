@@ -88,7 +88,7 @@ body.index {
           letter-spacing: var(--explore-content-letter-spacing);
           font-size: var(--explore-content);
         }
-        @include desktop-strong-landscape() {
+        @include desktop-landscape() {
           display: flex;
           align-items: center;
         }
@@ -410,6 +410,20 @@ body.index {
         }
         @include mobile-landscape() {
           justify-content: center;
+        }
+        @include mobile-landscape() {
+        }
+        @include desktop-portrait() {
+          .circle {
+            width: 10vw;
+            height: 10vw;
+          }
+        }
+        @include desktop-strong-portrait() {
+          .circle {
+            width: 10vw;
+            height: 10vw;
+          }
         }
       }
       .select.right {

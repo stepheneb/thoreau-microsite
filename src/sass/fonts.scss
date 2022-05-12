@@ -34,13 +34,13 @@
 
   --thoreau-quote-width: 33.5rem;
 
-  --arrow-scroll-down-bottom: 1.8vh;
-  --arrow-scroll-down-bottom-first-screen: 9.2vh;
+  --zoom-button-right: 6vw;
+  --next-object-right-margin: 6vw;
+  --unmute-right-distance: 6vw;
 
   --zoom-button-size: 1.1rem;
 
   --zoom-button-top: 86.7vh;
-  --zoom-button-right: 7.1vw;
 
   --zoom-button-height: 1.9rem;
   --zoom-button-width: 2.65rem;
@@ -55,6 +55,8 @@
 
   --explore-content-mute-button: 0.76rem;
 
+  --thoreau-quote: 2.2rem;
+
   --explore-content-weight: 400;
   --explore-content-heading: 2.2rem;
   --explore-content-heading-weight: 600;
@@ -62,18 +64,21 @@
 
   --next-object: 0.875em;
   --back-to-top: 0.87em;
-  --next-object-right-margin: 6vw;
   --next-object-footer-height: 8vh;
 
   --unmute-footer: 0.76rem;
   --unmute-footer-height: 8vh;
   --unmute-footer-items: 0.9rem;
-  --unmute-right-distance: 6vw;
+  --unmute-footer-label-right: 18rem;
 
   --unmute-bottom-first-page: 0;
   --unmute-bottom: 1vh;
   --unmute-bottom-last-page: 9vh;
 
+  --arrow-scroll-down-bottom: calc(var(--unmute-bottom) + 2.8vh);
+  --arrow-scroll-down-bottom-first-screen: calc(
+    var(--unmute-footer-height) + 1.8vh
+  );
   --scroll-down-label: 0.9rem;
 
   --about-thoreau-width: 30vw;
@@ -111,8 +116,11 @@
     --back-button-size: 1.4em;
     --unmute-footer: 0.8em;
 
+    --zoom-button-right: 7vw;
+    --next-object-right-margin: 7vw;
+    --unmute-right-distance: 7vw;
+
     --zoom-button-top: 48.5vh;
-    --zoom-button-right: 4vw;
     --zoom-button-height: 2.6rem;
     --zoom-button-width: 3.2rem;
     --zoom-icon-width: 1.3rem;
@@ -129,12 +137,13 @@
     --unmute-bottom-last-page: 8.5vh;
 
     --next-object: 1.3rem;
-    --next-object-right-margin: 7vw;
     --back-to-top: 1.2rem;
     --next-object-footer-height: 7vh;
 
-    --arrow-scroll-down-bottom: 2.8vh;
-    --arrow-scroll-down-bottom-first-screen: 8vh;
+    --arrow-scroll-down-bottom: calc(var(--unmute-bottom) + 2.8vh);
+    --arrow-scroll-down-bottom-first-screen: calc(
+      var(--unmute-footer-height) + 1.4vh
+    );
 
     --scroll-down-label: 1.1rem;
   }
@@ -216,35 +225,6 @@
     --scroll-down-label: 1.1rem;
   }
 
-  // @include mobile-landscape-small() {
-  //   --main-title: 2rem;
-  //   --main-title-world: 4.2rem;
-  //   --main-description: 0.9rem;
-  //
-  //   --explore-content: 1rem;
-  //
-  //   --artifact-title: 1.4rem;
-  //   --artifact-title-line-height: 2.4rem;
-  //   --artifact-description: 1rem;
-  //   --artifact-description-letter-spacing: calc(
-  //     clamp(0px, (0.4vh - 2.6px), 2px)
-  //   );
-  //   --artifact-description-line-height: calc(clamp(20px, (8vh - 20px), 60px));
-  //   --zoom-button-size: 1.2rem;
-  // }
-
-  // @include desktop-landscape() {
-  //   --artifact-title: 2rem;
-  //   --artifact-description: 1.2rem;
-  //   --artifact-description-line-height: 2.2rem;
-  // }
-
-  @include desktop-strong-landscape() {
-    --artifact-title: 2rem;
-    --artifact-description: 1.2rem;
-    --artifact-description-line-height: 2.2rem;
-  }
-
   @include desktop-portrait() {
     --main-menu-title: 2.4rem;
     --main-menu-title-world: 4.4rem;
@@ -258,16 +238,88 @@
     --artifact-title-line-height: 2rem;
     --artifact-description: 1.2rem;
     --artifact-description-letter-spacing: calc(clamp(0px, (0.2vh - 3px), 2px));
-    --artifact-description-line-height: calc(clamp(25px, (6.5vh - 30px), 60px));
+    --artifact-description-line-height: calc(clamp(25px, (7.5vh - 36px), 60px));
+
+    --zoom-button-height: 1.8rem;
+    --zoom-button-width: 2.4rem;
+    --zoom-icon-width: 1rem;
+    --zoom-divide-width: 0.15rem;
+
+    --unmute-footer: 0.8rem;
+    --unmute-footer-height: 6vh;
+    --unmute-footer-label-right: 16rem;
+
+    --explore-content-mute-button: 0.8rem;
+
+    --unmute-bottom: 0vh;
+    --unmute-bottom-last-page: 5.5vh;
+
+    --next-object: 0.9rem;
+    --back-to-top: 0.8rem;
+    --next-object-footer-height: 6vh;
+
+    --zoom-button-top: calc(100vh - (var(--unmute-footer-height) + 5vh));
+    --arrow-scroll-down-bottom: calc(var(--unmute-bottom) + 2.8vh);
+    --arrow-scroll-down-bottom-first-screen: calc(
+      var(--unmute-footer-height) + 2.4vh
+    );
+    --scroll-down-label: 0.9rem;
   }
 
   @include desktop-strong-portrait() {
-    --main-menu-title: 2rem;
-    --main-menu-title-world: 3rem;
+    --main-menu-title: 2.4rem;
+    --main-menu-title-world: 4.4rem;
 
-    --artifact-title: 2rem;
+    --main-title: 2.6rem;
+    --main-title-world: 4rem;
+    --main-description: 1.1rem;
+    --main-description-line-height: 2rem;
+
+    --artifact-title: 1.9rem;
     --artifact-title-line-height: 2rem;
-    --artifact-description: 0.9rem;
-    --artifact-description-line-height: 2rem;
+    --artifact-description: 1.2rem;
+    --artifact-description-letter-spacing: calc(clamp(0px, (0.2vh - 3px), 2px));
+    --artifact-description-line-height: calc(clamp(25px, (7.5vh - 36px), 60px));
+
+    --zoom-button-height: 2.5rem;
+    --zoom-button-width: 3rem;
+    --zoom-icon-width: 1rem;
+    --zoom-divide-width: 0.15rem;
+
+    --unmute-footer: 1rem;
+    --unmute-footer-height: 6vh;
+    --unmute-footer-label-right: 17rem;
+
+    --explore-content-mute-button: 1rem;
+
+    --unmute-bottom: 0vh;
+    --unmute-bottom-last-page: 5.5vh;
+
+    --next-object: 1.2rem;
+    --back-to-top: 1.1rem;
+    --next-object-footer-height: 6vh;
+
+    --zoom-button-top: calc(100vh - (var(--unmute-footer-height) + 5vh));
+    --arrow-scroll-down-bottom: calc(var(--unmute-bottom) + 2.8vh);
+    --arrow-scroll-down-bottom-first-screen: calc(
+      var(--unmute-footer-height) + 2.4vh
+    );
+
+    --scroll-down-label: 0.9rem;
+  }
+
+  @include desktop-landscape() {
+    --artifact-title: 1.8rem;
+    --artifact-title-line-height: 2rem;
+    --artifact-description: 1.2rem;
+
+    --thoreau-quote: 1.8rem;
+
+    --zoom-button-top: 85vh;
+
+    --zoom-button-height: 1.8rem;
+    --zoom-button-width: 2.6rem;
+    --zoom-icon-width: 1rem;
+    --zoom-divide-width: 0.15rem;
   }
 }

@@ -2,8 +2,9 @@
   .zoom-controls {
     pointer-events: all;
     z-index: 2;
-    position: absolute;
-    right: var(--zoom-button-right);
+    position: fixed;
+    right: 0;
+    margin-right: var(--zoom-button-right);
     top: var(--zoom-button-top);
 
     display: flex;

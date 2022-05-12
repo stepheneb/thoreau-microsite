@@ -40,12 +40,6 @@ div.artifact {
     z-index: 1;
     margin: 0;
     padding: 0;
-    @include mobile-portrait() {
-      padding: 0;
-    }
-    @include mobile-landscape() {
-      padding: 0;
-    }
 
     color: white;
     background-color: transparent;
@@ -65,9 +59,6 @@ div.artifact {
       letter-spacing: var(--explore-content-letter-spacing);
       font-size: var(--explore-content);
       font-weight: 300;
-      @include mobile-portrait() {
-        font-weight: 400;
-      }
 
       &.end {
         height: 100vh;
@@ -76,19 +67,6 @@ div.artifact {
       &.start {
         display: flex;
         flex-direction: column;
-
-        @include desktop-strong-portrait() {
-          flex-direction: column;
-          justify-content: flex-start;
-        }
-
-        @include mobile-portrait() {
-          flex-direction: column;
-          justify-content: flex-start;
-        }
-
-        @include mobile-landscape() {
-        }
 
         .menu {
           z-index: 3;
@@ -101,31 +79,10 @@ div.artifact {
           align-items: baseline;
           justify-content: space-between;
 
-          @include mobile-portrait() {
-            margin: 0;
-            padding: 0;
-            height: 8vh;
-            align-items: center;
-            justify-content: space-between;
-            background-color: var(--mobile-header-gray);
-          }
           @include mobile-portrait-small() {
             margin: 0;
             height: 7.5vh;
             background-color: var(--mobile-header-gray);
-          }
-
-          @include mobile-landscape() {
-            margin: 0;
-            padding: 0;
-            height: var(--unmute-footer-height);
-            align-items: center;
-            justify-content: space-between;
-            background-color: var(--mobile-header-gray);
-          }
-          @include desktop-strong-landscape() {
-            display: flex;
-            align-items: center;
           }
 
           .home {
@@ -135,20 +92,14 @@ div.artifact {
                 width: 5.6rem;
                 height: 5.6rem;
                 padding: 0rem;
-                @include desktop-strong-landscape() {
+                @include desktop-landscape() {
                   width: 6rem;
                   height: 6rem;
                   padding: 0.5rem;
                 }
               }
             }
-            @include mobile-portrait() {
-              display: none;
-            }
             @include mobile-portrait-small() {
-              display: none;
-            }
-            @include mobile-landscape() {
               display: none;
             }
           }
@@ -173,27 +124,11 @@ div.artifact {
               font-weight: 600;
               padding-bottom: 0.5vh;
             }
-            @include mobile-portrait() {
-              display: block;
-              margin: 3vh 0 3vh 10vw;
-              padding-bottom: 0;
-            }
-            @include mobile-landscape() {
-              display: block;
-              margin: 3vh 0 3vh 10vw;
-              padding-bottom: 0;
-            }
           }
         }
         .content {
           display: flex;
           flex-direction: row;
-          @include mobile-portrait() {
-            width: 100vw;
-            height: 72vh;
-            flex-direction: column-reverse;
-            justify-content: space-evenly;
-          }
           @include mobile-portrait-small() {
             flex-direction: column-reverse;
           }
@@ -201,28 +136,10 @@ div.artifact {
           .about-container {
             width: 30vw;
             margin: 5rem 0 0 5.5rem;
-            @include mobile-portrait() {
-              margin: 0;
-              width: 34rem;
-              max-width: 90vw;
-              height: 24rem;
-              overflow: auto;
-              align-self: center;
-            }
             @include mobile-portrait-small() {
             }
-            @include mobile-landscape() {
-              margin: 0 0 0 5vw;
-              width: 40vw;
-              max-width: 40vw;
-            }
             .header {
-              @include mobile-landscape() {
-                margin-top: 0.5rem;
-                display: flex;
-                align-items: center;
-              }
-              @include desktop-strong-landscape() {
+              @include desktop-landscape() {
                 display: flex;
                 align-items: center;
               }
@@ -235,13 +152,6 @@ div.artifact {
                 font-weight: 600;
                 color: var(--thoreau-blue);
                 text-transform: capitalize;
-                @include mobile-landscape() {
-                  margin: 3vh 0 2vh 0;
-                }
-                @include mobile-portrait() {
-                  margin: 1vh 0 2vh 0;
-                  width: 70vw;
-                }
               }
             }
             hr {
@@ -250,12 +160,6 @@ div.artifact {
               height: 1px;
               margin: 0.5rem 0 1rem 0;
               color: var(--november-skies);
-              @include mobile-portrait() {
-                margin: 0.5rem 0 1.25rem 0;
-              }
-              @include mobile-landscape() {
-                display: block;
-              }
             }
             .description {
               margin: 2.5rem 0;
@@ -269,20 +173,7 @@ div.artifact {
               span.bold {
                 font-weight: 700;
               }
-              @include mobile-portrait() {
-                width: 100%;
-                margin: 0.75rem 0 0.75rem 0;
-                br {
-                  display: none;
-                }
-              }
               @include mobile-portrait-small() {
-              }
-              @include mobile-landscape() {
-                margin: 1.5rem 0;
-                width: 100%;
-                max-width: 25rem;
-                letter-spacing: 0.2px;
               }
               // @include mobile-landscape-small {
               //   width: 110%;
@@ -317,9 +208,6 @@ div.artifact {
                 width: auto;
                 transform: scale(1);
                 max-width: 80%;
-                @include mobile-portrait() {
-                  height: 85%;
-                }
               }
             }
             div.draglayer {
@@ -336,16 +224,6 @@ div.artifact {
               }
             }
 
-            @include mobile-portrait() {
-              margin: 0 0 0 0;
-              height: 39vh;
-              width: 90vw;
-              padding: 0;
-              align-self: center;
-              img {
-                width: 85%;
-              }
-            }
             @include mobile-portrait-small() {
               margin: 2vh 0 0 0;
               height: 40vh;
@@ -362,19 +240,6 @@ div.artifact {
                 width: 60%;
               }
             }
-            @include mobile-landscape() {
-              width: 70%;
-              margin-top: 0;
-              img {
-                width: 60%;
-              }
-            }
-            @include desktop-strong-landscape() {
-              height: 85vh;
-              img {
-                // width: 60%;
-              }
-            }
 
             display: flex;
             flex-direction: column;
@@ -383,15 +248,6 @@ div.artifact {
             opacity: 1;
             transition: opacity var(--explore-images-timing),
               visibility var(--explore-images-timing);
-          }
-
-          @include desktop-portrait() {
-            .about-container {
-              width: 35vw;
-            }
-            .image-container {
-              width: 65vw;
-            }
           }
 
           @include zoom-controls();
@@ -444,6 +300,196 @@ div.artifact {
           }
         }
         @include audio-player();
+      }
+    }
+
+    @include mobile-portrait() {
+      padding: 0;
+      .absolute-content-container {
+        font-weight: 400;
+        &.start {
+          flex-direction: column;
+          justify-content: flex-start;
+          .menu {
+            margin: 0;
+            padding: 0;
+            height: 8vh;
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--mobile-header-gray);
+            .home {
+              display: none;
+            }
+            .title {
+              display: block;
+              margin: 3vh 0 3vh 10vw;
+              padding-bottom: 0;
+            }
+          }
+          .content {
+            width: 100vw;
+            height: 72vh;
+            flex-direction: column-reverse;
+            justify-content: space-evenly;
+            .about-container {
+              margin: 0;
+              width: 34rem;
+              max-width: 90vw;
+              height: 24rem;
+              overflow: auto;
+              align-self: center;
+              .header {
+                .title {
+                  margin: 1vh 0 2vh 0;
+                  width: 70vw;
+                }
+              }
+              hr {
+                margin: 0.5rem 0 1.25rem 0;
+              }
+              .description {
+                width: 100%;
+                margin: 0.75rem 0 0.75rem 0;
+                br {
+                  display: none;
+                }
+              }
+            }
+            .image-container {
+              margin: 0 0 0 0;
+              height: 39vh;
+              width: 90vw;
+              padding: 0;
+              align-self: center;
+              img {
+                width: 85%;
+                &.artifact {
+                  height: 85%;
+                }
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include mobile-landscape() {
+      padding: 0;
+      .absolute-content-container {
+        &.start {
+          .menu {
+            margin: 0;
+            padding: 0;
+            height: var(--unmute-footer-height);
+            align-items: center;
+            justify-content: space-between;
+            background-color: var(--mobile-header-gray);
+            .home {
+              display: none;
+            }
+            .title {
+              display: block;
+              margin: 3vh 0 3vh 10vw;
+              padding-bottom: 0;
+            }
+          }
+          .content {
+            .about-container {
+              margin: 0 0 0 5vw;
+              width: 40vw;
+              max-width: 40vw;
+              .header {
+                margin-top: 0.5rem;
+                display: flex;
+                align-items: center;
+                .title {
+                  margin: 3vh 0 2vh 0;
+                }
+              }
+              hr {
+                display: block;
+              }
+              .description {
+                margin: 1.5rem 0;
+                width: 100%;
+                max-width: 25rem;
+                letter-spacing: 0.2px;
+              }
+            }
+            .image-container {
+              width: 70%;
+              margin-top: 0;
+              img {
+                width: 60%;
+              }
+            }
+          }
+        }
+      }
+    }
+
+    @include desktop-portrait() {
+      .absolute-content-container {
+        &.start {
+          .content {
+            .about-container {
+              width: 35vw;
+            }
+            .image-container {
+              width: 65vw;
+            }
+          }
+        }
+      }
+    }
+
+    @include desktop-strong-portrait() {
+      .absolute-content-container {
+        &.start {
+          flex-direction: column;
+          justify-content: flex-start;
+          .content {
+            .about-container {
+              width: 40vw;
+            }
+            .image-container {
+              width: 60vw;
+            }
+          }
+        }
+      }
+    }
+
+    @include desktop-landscape() {
+      .absolute-content-container {
+        &.start {
+          .menu {
+            min-height: 4rem;
+            display: flex;
+            align-items: center;
+          }
+          .content {
+            .about-container {
+              width: 50vw;
+              margin: 3rem 0 0 5.5rem;
+              .header {
+                .title {
+                  margin: 0 0 1rem 0;
+                }
+              }
+              .description {
+                margin: 1.5rem 0;
+              }
+            }
+            .image-container {
+              width: 50vw;
+              height: 64vh;
+              img {
+                height: 75vh;
+              }
+            }
+          }
+        }
       }
     }
   }

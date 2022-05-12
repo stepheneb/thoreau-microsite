@@ -31,8 +31,16 @@ div.artifact.walking-stick {
           color: var(--navy-blue);
         }
         .image-container img.artifact {
-          width: 100%;
-          height: auto;
+          height: 100%;
+          width: auto;
+          @include desktop-portrait() {
+            width: 100%;
+            height: auto;
+          }
+          @include desktop-strong-portrait() {
+            width: 100%;
+            height: auto;
+          }
         }
 
         @include mobile-portrait() {
@@ -62,7 +70,7 @@ div.artifact.walking-stick {
 
         font-weight: 600;
         color: var(--white);
-        font-size: var(--explore-content-heading);
+        font-size: var(--thoreau-quote);
         font-family: "Libre Caslon Text", serif;
 
         text-indent: -1rem;

@@ -55,6 +55,18 @@ div.viewport {
   }
 }
 
+@include desktop-landscape() {
+  html {
+    font-size: 110%;
+  }
+}
+
+@include desktop-portrait() {
+  html {
+    font-size: 100%;
+  }
+}
+
 .offcanvas-backdrop {
   background-color: var(--navy-blue);
   &.show {

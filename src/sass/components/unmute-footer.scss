@@ -18,7 +18,7 @@
   font-family: "Nunito Sans", sans-serif;
   font-style: italic;
   .label {
-    margin-right: 20vw;
+    margin-right: var(--unmute-footer-label-right);
     margin-left: auto;
     margin-top: -0.1rem;
     color: var(--navy-blue);
