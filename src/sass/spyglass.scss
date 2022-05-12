@@ -70,6 +70,13 @@ div.artifact.spyglass {
           width: 29vw;
           max-width: 29vw;
         }
+
+        @include desktop-portrait() {
+          top: 60vh;
+          left: 15vw;
+          width: 75vw;
+          max-width: 80vw;
+        }
       }
 
       &.his-experiments {
@@ -95,6 +102,13 @@ div.artifact.spyglass {
           left: 3vw;
           width: 45vw;
           max-width: 45vw;
+        }
+
+        @include desktop-portrait() {
+          top: 60vh;
+          left: 10vw;
+          width: 80vw;
+          max-width: 80vw;
         }
       }
 
@@ -419,6 +433,13 @@ div.artifact.spyglass {
         width: 100%;
       }
     }
+    @include desktop-portrait() {
+      padding: 0vw 5vw 45vh 5vw;
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
   }
 }
 
@@ -448,6 +469,14 @@ div.artifact.spyglass {
       padding: 0 7vw;
       img {
         width: 100%;
+      }
+    }
+
+    @include desktop-portrait() {
+      padding: 0vw 5vw 45vh 5vw;
+      img {
+        height: 100%;
+        width: auto;
       }
     }
   }
