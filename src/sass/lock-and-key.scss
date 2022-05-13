@@ -243,15 +243,16 @@ div.artifact.lock-and-key {
 
   .animation-frame-container.lock-and-key {
     display: block;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    padding: 4vh 0 12vh 16vw;
+    top: 2vh;
+    left: 24vw;
+    width: 75vw;
+    height: 84vh;
+    padding: 0;
     img {
-      margin: 0;
       width: 100%;
-      height: auto;
+      object-fit: cover;
+      margin: auto;
+      display: block;
     }
     @include mobile-portrait() {
       top: 0vh;
@@ -265,24 +266,20 @@ div.artifact.lock-and-key {
         height: auto;
       }
     }
+    @include mobile-landscape() {
+    }
     @include desktop-portrait() {
       top: 0vh;
       width: 100vw;
       left: 0;
       height: 50vh;
       padding: 0;
-      img {
-        margin: 0;
-        height: 100%;
-        width: auto;
-      }
     }
-    @include mobile-landscape() {
-      img {
-        margin: 8vh 0 0 32vw;
-        width: 70%;
-        height: auto;
-      }
+    @include desktop-landscape() {
+      top: 0;
+      left: 30vw;
+      width: 70vw;
+      height: 100vh;
     }
   }
 
@@ -457,7 +454,12 @@ div.artifact.lock-and-key {
   .animation-frame-container.lock-and-key {
     opacity: 1;
     visibility: visible;
-    padding: 6vh 0 0 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 95vh;
+    margin: 0;
+    padding: 0;
     img {
       height: 100%;
       width: auto;
@@ -474,6 +476,17 @@ div.artifact.lock-and-key {
         height: auto;
       }
     }
+
+    @include mobile-landscape() {
+      padding: 8vh 0 0 0;
+      img {
+        margin: 0;
+        width: 100%;
+        height: auto;
+        transform: scale(1);
+      }
+    }
+
     @include desktop-portrait() {
       top: 0vh;
       width: 100vw;
@@ -486,14 +499,16 @@ div.artifact.lock-and-key {
         width: auto;
       }
     }
-
-    @include mobile-landscape() {
-      padding: 8vh 0 0 0;
+    @include desktop-landscape() {
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 95vh;
+      margin: 0;
+      padding: 0;
       img {
-        margin: 0;
-        width: 100%;
-        height: auto;
-        transform: scale(1);
+        margin: auto;
+        display: block;
       }
     }
   }
@@ -515,7 +530,12 @@ div.artifact.lock-and-key {
   .animation-frame-container.lock-and-key {
     opacity: 1;
     visibility: visible;
-    padding: 6vh 0 0 0;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 95vh;
+    margin: 0;
+    padding: 0;
     img {
       height: 100%;
       width: auto;
@@ -532,6 +552,17 @@ div.artifact.lock-and-key {
         height: auto;
       }
     }
+
+    @include mobile-landscape() {
+      padding: 8vh 0 0 0;
+      img {
+        margin: 0;
+        width: 100%;
+        height: auto;
+        transform: scale(1);
+      }
+    }
+
     @include desktop-portrait() {
       top: 0vh;
       width: 100vw;
@@ -545,13 +576,16 @@ div.artifact.lock-and-key {
       }
     }
 
-    @include mobile-landscape() {
-      padding: 8vh 0 0 0;
+    @include desktop-landscape() {
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 95vh;
+      margin: 0;
+      padding: 0;
       img {
-        margin: 0;
-        width: 100%;
-        height: auto;
-        transform: scale(1);
+        margin: auto;
+        display: block;
       }
     }
   }
