@@ -3164,7 +3164,6 @@ div.artifact.lock-and-key .fixed-image-container.lock-and-key img {
   }
 }
 div.artifact.lock-and-key .animation-frame-container.lock-and-key {
-  display: block;
   top: 2vh;
   left: 24vw;
   width: 75vw;
@@ -3182,7 +3181,7 @@ div.artifact.lock-and-key .animation-frame-container.lock-and-key img {
     top: 0vh;
     width: 100vw;
     left: 0;
-    height: 50vh;
+    height: 38vh;
     padding: 0;
   }
   div.artifact.lock-and-key .animation-frame-container.lock-and-key img {
