@@ -285,6 +285,9 @@
               &.wide {
                 width: 100%;
                 margin-bottom: 3rem;
+                @include mobile-landscape() {
+                  margin-bottom: 2rem;
+                }
               }
             }
           }
