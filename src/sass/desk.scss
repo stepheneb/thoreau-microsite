@@ -182,21 +182,43 @@ div.artifact.desk {
   }
 
   .animation-frame-container.desk {
-    top: 4vh;
+    top: 8vh;
     height: 80vh;
-    left: 36vw;
-    width: 52vw;
+    left: 27vw;
+    width: 73vw;
+    img {
+      width: 100%;
+      height: auto;
+    }
     @include mobile-portrait() {
       top: 1vh;
       width: 100vw;
       left: 0;
       height: 38vh;
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
     @include mobile-landscape() {
-      top: 0;
-      left: 25vw;
-      width: 80vw;
+      top: 5vh;
+      left: 30vw;
+      width: 70vw;
+      height: 70vh;
+      img {
+        width: 100%;
+        height: auto;
+      }
+    }
+    @include desktop-portrait() {
+      top: 12vh;
       height: 80vh;
+      left: 30vw;
+      width: 70vw;
+      img {
+        width: 100%;
+        height: auto;
+      }
     }
   }
 
@@ -297,9 +319,6 @@ div.artifact.desk {
   .animation-frame-container.desk {
     opacity: 1;
     visibility: visible;
-    img {
-      margin: 5vh 10vw;
-    }
   }
 }
 
@@ -318,9 +337,6 @@ div.artifact.desk {
   .animation-frame-container.desk {
     opacity: 1;
     visibility: visible;
-    img {
-      margin: 5vh 10vw;
-    }
   }
 }
 #desk[data-content-scroll="3"] {
@@ -351,9 +367,6 @@ div.artifact.desk {
   .animation-frame-container.desk {
     opacity: 1;
     visibility: visible;
-    img {
-      margin: 20vh 30vw 10vh 30vw;
-    }
   }
 }
 #desk[data-content-scroll="5"] {
