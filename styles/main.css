@@ -1366,6 +1366,11 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
     margin-bottom: 3rem;
   }
 }
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape), only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider.wide {
+    margin-bottom: 2rem;
+  }
+}
 div.artifact div.arrow-scroll-down {
   pointer-events: all;
   position: fixed;
@@ -1827,11 +1832,6 @@ div.artifact .about-thoreau .offcanvas-body {
   display: flex;
   flex-direction: column;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  div.artifact .about-thoreau .offcanvas-body {
-    padding-bottom: 12rem;
-  }
-}
 div.artifact .about-thoreau .offcanvas-body img {
   width: 84%;
   max-width: var(--about-thoreau-max-img-width);
@@ -1877,7 +1877,7 @@ div.artifact .about-thoreau .offcanvas-body .about .description p:last-of-type {
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   div.artifact .about-thoreau .offcanvas-body {
     margin: -3vh 0 0 0;
-    padding: 0vh 8vw;
+    padding: 0vh 8vw 16rem 8vh;
     display: flex;
     flex-direction: column;
     overflow-y: visible !important;
@@ -1897,10 +1897,11 @@ div.artifact .about-thoreau .offcanvas-body .about .description p:last-of-type {
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   div.artifact .about-thoreau .offcanvas-body {
     margin: 0;
-    padding: 2vh 4vw;
+    padding: 2vw 4vw 2vw 4vw;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: end;
+    overflow-y: visible !important;
   }
   div.artifact .about-thoreau .offcanvas-body img {
     width: 100%;
@@ -1911,9 +1912,10 @@ div.artifact .about-thoreau .offcanvas-body .about .description p:last-of-type {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    max-width: 45rem;
   }
   div.artifact .about-thoreau .offcanvas-body .about .title {
-    margin: 1rem 0 0.6rem 0;
+    margin: 0rem 0 0.6rem 0;
     font-family: "Libre Caslon Text";
     font-weight: 700;
     font-size: var(--about-thoreau-title);
@@ -4534,11 +4536,6 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
   display: flex;
   flex-direction: column;
 }
-@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
-  .about-thoreau .offcanvas-body {
-    padding-bottom: 12rem;
-  }
-}
 .about-thoreau .offcanvas-body img {
   width: 84%;
   max-width: var(--about-thoreau-max-img-width);
@@ -4584,7 +4581,7 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .about-thoreau .offcanvas-body {
     margin: -3vh 0 0 0;
-    padding: 0vh 8vw;
+    padding: 0vh 8vw 16rem 8vh;
     display: flex;
     flex-direction: column;
     overflow-y: visible !important;
@@ -4604,10 +4601,11 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
 @media only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
   .about-thoreau .offcanvas-body {
     margin: 0;
-    padding: 2vh 4vw;
+    padding: 2vw 4vw 2vw 4vw;
     display: flex;
     flex-direction: row;
-    align-items: center;
+    align-items: end;
+    overflow-y: visible !important;
   }
   .about-thoreau .offcanvas-body img {
     width: 100%;
@@ -4618,9 +4616,10 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
+    max-width: 45rem;
   }
   .about-thoreau .offcanvas-body .about .title {
-    margin: 1rem 0 0.6rem 0;
+    margin: 0rem 0 0.6rem 0;
     font-family: "Libre Caslon Text";
     font-weight: 700;
     font-size: var(--about-thoreau-title);
@@ -4922,6 +4921,11 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
   .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider.wide {
     width: 100%;
     margin-bottom: 3rem;
+  }
+}
+@media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape), only screen and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) and (min-width: 320px) and (max-width: 915px) and (orientation: landscape) {
+  .dropdown.explore-another-object ul.dropdown-menu.show li .item.dropdown-divider.wide {
+    margin-bottom: 2rem;
   }
 }
 
