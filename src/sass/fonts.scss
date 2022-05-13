@@ -309,6 +309,9 @@
   }
 
   @include desktop-landscape() {
+    --main-menu-title: 3.2rem;
+    --main-menu-title-world: 6.2rem;
+
     --artifact-title: 1.8rem;
     --artifact-title-line-height: 2rem;
     --artifact-description: 1.2rem;

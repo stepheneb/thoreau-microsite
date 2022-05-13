@@ -130,6 +130,7 @@ body.index {
       margin: 1vh 2vw;
       padding: 0 0;
       height: 24vh;
+      text-align: center;
       @include mobile-portrait() {
         width: 100%;
         height: auto;
@@ -141,7 +142,14 @@ body.index {
       @include desktop-portrait() {
         align-self: start;
         justify-content: center;
-        width: 95vw;
+        width: 100vw;
+        margin: 1vh 0vw;
+        padding: 0 0;
+      }
+      @include desktop-strong-portrait() {
+        align-self: start;
+        justify-content: center;
+        width: 100vw;
         margin: 1vh 0vw;
         padding: 0 0;
       }
