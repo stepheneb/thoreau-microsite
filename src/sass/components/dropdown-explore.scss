@@ -168,7 +168,7 @@
         position: absolute !important;
         top: 0;
         left: -90vw;
-        width: 101vw;
+        width: 102vw;
         height: 100vh;
         z-index: 5;
 
@@ -239,7 +239,7 @@
           .item {
             &.popup {
               font-size: 140%;
-              padding: 0.5rem 2rem;
+              padding: 1rem 2rem;
             }
             a.dropdown-item {
               display: inline-block;
@@ -269,18 +269,21 @@
             }
             &.dropdown-divider {
               width: 20%;
-              margin: 2.5rem 0;
+              margin: 2rem 0;
               color: white;
               border: 1px solid white;
               opacity: 1;
-              @include mobile-landscape() {
-                margin: 0.8rem 0;
-              }
               &.wide {
                 width: 100%;
-                margin-bottom: 1rem;
-                @include mobile-landscape() {
-                  margin-bottom: 2rem;
+                margin: 2.25rem 0 1.5rem 0;
+              }
+              @include mobile-portrait() {
+                margin: 1.5rem 0;
+              }
+              @include mobile-landscape() {
+                margin: 0.8rem 0;
+                &.wide {
+                  margin: 1.25rem 0 1rem 0;
                 }
               }
             }
