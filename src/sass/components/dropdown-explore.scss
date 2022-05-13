@@ -145,7 +145,7 @@
           display: inline-block;
           visibility: visible;
           opacity: 1;
-          padding: 0.1rem 1rem;
+          padding: 0.1rem 0.75rem;
           border-radius: 0;
           color: var(--navy-blue);
           &.disabled {
@@ -153,9 +153,6 @@
           }
           &.selected {
             font-weight: 700;
-            // &:after {
-            //   content: " ✓";
-            // }
           }
           background-color: var(--mobile-header-gray);
           border: none;
@@ -169,10 +166,6 @@
       }
       @include mobile() {
         position: absolute !important;
-        // top: 7vh;
-        // left: -87.5vw;
-        // width: 97vw;
-        // height: 83vh;
         top: 0;
         left: -90vw;
         width: 101vw;
@@ -246,6 +239,7 @@
           .item {
             &.popup {
               font-size: 140%;
+              padding: 0.5rem 2rem;
             }
             a.dropdown-item {
               display: inline-block;
@@ -256,7 +250,7 @@
                 font-family: "Nunito Sans", sans-serif;
                 font-size: 130%;
               }
-              padding: 0.5rem 1rem;
+              padding: 0.5rem 0.75rem;
               border-radius: 0;
               color: var(--navy-blue);
               &.disabled {
@@ -284,7 +278,7 @@
               }
               &.wide {
                 width: 100%;
-                margin-bottom: 3rem;
+                margin-bottom: 1rem;
                 @include mobile-landscape() {
                   margin-bottom: 2rem;
                 }
