@@ -6,10 +6,6 @@
   overflow-x: hidden;
   bottom: calc(var(--unmute-footer-height) + 2px);
   background-color: var(--navy-blue);
-  @include mobile {
-    width: 100vw;
-    min-height: 100vh;
-  }
 
   .offcanvas-header {
     position: absolute;
@@ -41,42 +37,6 @@
         height: 0.8rem;
       }
     }
-    @include mobile {
-      position: sticky;
-      width: 100vw;
-      height: 8vh;
-      padding: 0;
-      display: flex;
-      flex-direction: row;
-      justify-content: flex-end;
-      button.close {
-        width: 2.6rem;
-        height: 2.6rem;
-        margin-right: 4vh;
-        border: 1px solid white;
-        border-radius: 1.3rem;
-        color: var(--navy-blue);
-        background-color: var(--november-skies);
-        svg {
-          stroke-width: 3;
-          width: 1rem;
-          height: 1rem;
-        }
-      }
-    }
-    @include mobile-landscape() {
-      button.close {
-        width: 1.8rem;
-        height: 1.8rem;
-        border-radius: 1.4rem;
-        svg {
-          display: block;
-          stroke-width: 3;
-          width: 0.7rem;
-          height: 0.7rem;
-        }
-      }
-    }
   }
 
   .offcanvas-body {
@@ -84,8 +44,6 @@
     padding: 4.5vh 2vw 0 2vw;
     display: flex;
     flex-direction: column;
-
-    // overflow: hidden;
     img {
       width: 84%;
       max-width: var(--about-thoreau-max-img-width);
@@ -128,17 +86,48 @@
           margin-bottom: 0;
         }
       }
+      @include desktop-landscape() {
+        display: flex;
+        flex-direction: row;
+      }
     }
+  }
 
-    @include mobile-portrait() {
+  @include mobile {
+    width: 100vw;
+    min-height: 100vh;
+    .offcanvas-header {
+      position: sticky;
+      width: 100vw;
+      height: 8vh;
+      padding: 0;
+      display: flex;
+      flex-direction: row;
+      justify-content: flex-end;
+      button.close {
+        width: 2.6rem;
+        height: 2.6rem;
+        margin-right: 4vh;
+        border: 1px solid white;
+        border-radius: 1.3rem;
+        color: var(--navy-blue);
+        background-color: var(--november-skies);
+        svg {
+          stroke-width: 3;
+          width: 1rem;
+          height: 1rem;
+        }
+      }
+    }
+  }
+
+  @include mobile-portrait() {
+    .offcanvas-body {
       margin: -3vh 0 0 0;
       padding: 0vh 8vw 16rem 8vh;
       display: flex;
       flex-direction: column;
       overflow-y: visible !important;
-      img {
-        // align-self: center;
-      }
       .about {
         .title {
           margin: 2.2rem 0 0.8rem 0;
@@ -153,8 +142,22 @@
         }
       }
     }
-
-    @include mobile-landscape() {
+  }
+  @include mobile-landscape() {
+    .offcanvas-header {
+      button.close {
+        width: 1.8rem;
+        height: 1.8rem;
+        border-radius: 1.4rem;
+        svg {
+          display: block;
+          stroke-width: 3;
+          width: 0.7rem;
+          height: 0.7rem;
+        }
+      }
+    }
+    .offcanvas-body {
       margin: 0;
       padding: 2vw 4vw 2vw 4vw;
       display: flex;
@@ -186,5 +189,10 @@
         }
       }
     }
+  }
+
+  @include desktop-landscape {
+    width: 100vw;
+    min-height: 100vh;
   }
 }
