@@ -5262,6 +5262,7 @@ body.index {
   font-size: var(--main-description);
   line-height: var(--main-description-line-height);
   color: var(--navy-blue);
+  text-align: left;
 }
 .content.index .main .header .description .heading {
   font-weight: 600;
