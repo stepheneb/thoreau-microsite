@@ -219,6 +219,7 @@ body.index {
         font-size: var(--main-description);
         line-height: var(--main-description-line-height);
         color: var(--navy-blue);
+        text-align: left;
         .heading {
           font-weight: 600;
           @include mobile-portrait() {
