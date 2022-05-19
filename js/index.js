@@ -14,20 +14,29 @@ const shiftStep = isReduced ? 1 : 3;
 
 const artifactPages = pages.filter(p => p.type == 'artifact' && p.enabled);
 
+const getSelectedPage = () => {
+  return artifactPages.find((p) => p.index == pageIndex);
+}
+
 let selectRight, selectLeft, selectedImage, carouselImageContainer;
 
-let pageIndex = 1;
-let selectedPage = artifactPages[pageIndex];
+let pageIndex = 0;
+let selectedPage = getSelectedPage();
 
 const updatePageIndexFromHash = () => {
   let hash = window.location.hash.slice(1);
-  let index;
+  let page;
+
   if (hash.length > 0) {
-    index = artifactPages.findIndex((p) => p.id == hash);
-    if (index >= 0) {
-      pageIndex = index;
-    }
+    page = artifactPages.find((p) => p.id == hash);
+    pageIndex = page.index;
+    selectedPage = getSelectedPage();
+  } else {
+    pageIndex = 0;
+    selectedPage = getSelectedPage();
   }
+  window.location.hash = selectedPage.id;
+  window.location.pathname = '';
 }
 
 const addDropDownListeners = () => {
@@ -47,7 +56,7 @@ let swipeCompleted = false;
 const swipeActiveDistance = 10;
 const swipeCompletionFraction = 0.15;
 
-const removeStyles = () => {
+const removeCarouselImageContainerStyles = () => {
   carouselImageContainer.style.left = ``;
   carouselImageContainer.style.right = '';
   carouselImageContainer.style.opacity = '';
@@ -72,7 +81,7 @@ const startSlideOut = (direction, absPixelShift, callback) => {
       carouselImageContainer.style.left = '';
       break;
     case false:
-      removeStyles();
+      removeCarouselImageContainerStyles();
       break;
     }
 
@@ -95,7 +104,7 @@ const startSlideOut = (direction, absPixelShift, callback) => {
         if (shift < shiftEnd) {
           window.requestAnimationFrame(slide);
         } else {
-          removeStyles();
+          removeCarouselImageContainerStyles();
           callback();
         }
       }
@@ -130,13 +139,15 @@ const updateSelectedPage = (direction) => {
       carouselImageContainer.style.right = '';
       break;
     case false:
-      removeStyles();
+      removeCarouselImageContainerStyles();
       break;
     }
 
     window.location.hash = selectedPage.id;
     selectedImage.classList.add('selected');
     selectedImage.style.opacity = '';
+
+    // first slide currently selected out ...
 
     if (direction) {
       const slide = () => {
@@ -163,7 +174,7 @@ const updateSelectedPage = (direction) => {
             window.requestAnimationFrame(slide);
           }
         } else {
-          removeStyles();
+          removeCarouselImageContainerStyles();
         }
       }
       shift -= decrement;
@@ -192,19 +203,38 @@ const previousPage = (absPixelShift) => {
   });
 }
 
-const generateCarouselImgElements = () => {
-  artifactPages.forEach((page, index) => {
+const generateCarouselImageElements = () => {
+  const selectedPage = artifactPages.find((p) => { return p.index == pageIndex });
+  const unselectedPages = artifactPages.filter((p) => { return p.index != pageIndex });
+
+  const addPageImage = (p) => {
     let img = document.createElement("img");
-    img.classList.add(page.id);
-    img.src = page.src;
-    if (page.enabled) img.classList.add('enabled');
-    if (index == pageIndex) {
-      img.classList.add('selected');
-      selectedImage = img;
-    }
     carouselImageContainer.append(img);
-    page.element = img;
-  })
+    img.classList.add(p.id);
+    if (p.enabled) img.classList.add('enabled');
+    img.width = p.width;
+    img.height = p.height;
+    img.src = p.src;
+    p.element = img;
+    return img;
+  }
+
+  const finishImageLoading = () => {
+    selectedImage.classList.add('selected');
+    unselectedPages.forEach((p) => {
+      addPageImage(p);
+    });
+  }
+
+  selectedImage = addPageImage(selectedPage);
+
+  if (selectedImage.complete) {
+    finishImageLoading();
+  } else {
+    selectedImage.addEventListener('load', () => {
+      finishImageLoading();
+    });
+  }
 };
 
 app.domReady(() => {
@@ -214,10 +244,10 @@ app.domReady(() => {
 
   carouselImageContainer = document.getElementById('carousel-image-container');
 
-  generateCarouselImgElements();
-
   updatePageIndexFromHash();
-  selectedPage = artifactPages[pageIndex];
+  selectedPage = getSelectedPage();
+
+  generateCarouselImageElements();
 
   selectRight = document.getElementById('select-right');
   selectLeft = document.getElementById('select-left');
@@ -303,7 +333,7 @@ app.domReady(() => {
       location = selectedPage.location;
     }
     swipeEnd();
-    removeStyles();
+    removeCarouselImageContainerStyles();
   }
 
   const carouselSwipeStartEvents = [
@@ -332,5 +362,4 @@ app.domReady(() => {
     carouselImageContainer.addEventListener(event, carouselPointerEnd);
   })
 
-  updateSelectedPage(false);
 });

@@ -530,6 +530,7 @@ div.artifact .content .absolute-content-container.start .content .image-containe
   width: auto;
   transform: scale(1);
   max-width: 80%;
+  object-fit: contain;
 }
 div.artifact .content .absolute-content-container.start .content .image-container div.draglayer {
   position: absolute;
@@ -5157,9 +5158,8 @@ body.index {
   justify-content: center;
   line-height: normal;
   width: 90vw;
-  margin: 1vh 2vw;
-  padding: 0 0;
-  height: 24vh;
+  margin: 1vh 2vw 0 2vw;
+  padding: 1rem 0 0 0;
   text-align: center;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
@@ -5190,7 +5190,7 @@ body.index {
 }
 .content.index .main .header .title {
   margin: 0vh 0.4vw;
-  padding-bottom: 2vh;
+  padding-bottom: 0;
   font-family: "Libre Caslon Text", serif;
   font-size: var(--main-menu-title);
   font-weight: 700;
@@ -5312,8 +5312,8 @@ body.index {
   justify-content: space-between;
   pointer-events: all;
   margin: 0;
-  width: 95vw;
-  height: 63vh;
+  width: 100vw;
+  height: 72vh;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   .content.index .main .gallery {
@@ -5328,8 +5328,8 @@ body.index {
   bottom: 0;
   right: 0;
   overflow: hidden;
-  height: 74vh;
-  width: 70vw;
+  height: 100%;
+  width: 72vw;
   display: flex;
   flex-direction: row;
   align-items: center;
@@ -5355,9 +5355,8 @@ body.index {
 .content.index .main .gallery .image-container img {
   position: absolute;
   margin: 0;
-  height: inherit;
-  width: 70vw;
-  max-width: 70rem;
+  width: 100%;
+  height: 100%;
   object-fit: contain;
   visibility: hidden;
   opacity: 0;
@@ -5488,13 +5487,16 @@ body.index {
   left: auto;
   right: 0;
   margin: auto;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
 .content.index .main .gallery .select.right .circle svg {
   transform: rotate(-0.25turn);
   margin: 0 -0.2rem 0 0;
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
+  .content.index .main .gallery .select.right {
+    justify-content: flex-end;
+  }
   .content.index .main .gallery .select.right .circle {
     margin-right: -7vw;
   }
