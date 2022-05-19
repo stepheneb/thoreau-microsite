@@ -208,6 +208,7 @@ div.artifact {
                 width: auto;
                 transform: scale(1);
                 max-width: 80%;
+                object-fit: contain;
               }
             }
             div.draglayer {
