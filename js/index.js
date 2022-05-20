@@ -35,8 +35,10 @@ const updatePageIndexFromHash = () => {
     pageIndex = 0;
     selectedPage = getSelectedPage();
   }
+  let path = window.location.pathname;
+  path = path.replace(/\/index.html/, '');
   window.location.hash = selectedPage.id;
-  window.location.pathname = '';
+  window.location.pathname = path;
 }
 
 const addDropDownListeners = () => {
