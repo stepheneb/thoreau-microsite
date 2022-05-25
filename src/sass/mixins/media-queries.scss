@@ -1,3 +1,5 @@
+// *** Mobile ***
+
 @mixin mobile-portrait() {
   @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
     @content;
@@ -29,7 +31,7 @@
   }
 }
 
-// desktop
+// *** Desktop ***
 
 @mixin desktop() {
   @media only screen and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 10/5) and (min-width: 720px) {

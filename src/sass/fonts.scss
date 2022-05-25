@@ -9,8 +9,8 @@
 :root {
   --content: 2rem;
 
-  --main-menu-title: 3.6rem;
-  --main-menu-title-world: 7.8rem;
+  --main-menu-title: 3.2rem;
+  --main-menu-title-world: 6rem;
 
   --main-title: 3.6rem;
   --main-title-world: 7.8rem;
@@ -226,13 +226,13 @@
   }
 
   @include desktop-square() {
-    --main-menu-title: 2.4rem;
-    --main-menu-title-world: 4.4rem;
+    --main-menu-title: 2.2rem;
+    --main-menu-title-world: 3.8rem;
 
     --main-title: 2.6rem;
     --main-title-world: 4rem;
-    --main-description: 1.1rem;
-    --main-description-line-height: 2rem;
+    --main-description: 0.95rem;
+    --main-description-line-height: 1.6rem;
 
     --artifact-title: 1.9rem;
     --artifact-title-line-height: 2rem;
@@ -247,6 +247,7 @@
 
     --unmute-footer: 0.8rem;
     --unmute-footer-height: 6vh;
+    --unmute-footer-items: 0.75rem;
     --unmute-footer-label-right: 16rem;
 
     --explore-content-mute-button: 0.8rem;
@@ -267,13 +268,21 @@
   }
 
   @include desktop-portrait() {
-    --main-menu-title: 2.4rem;
-    --main-menu-title-world: 4.4rem;
+    --main-menu-title: 3.2rem;
+    --main-menu-title-world: 4.2rem;
 
     --main-title: 2.6rem;
     --main-title-world: 4rem;
-    --main-description: 1.1rem;
-    --main-description-line-height: 2rem;
+    --main-description: 1.3rem;
+    --main-description-line-height: 2.4rem;
+
+    // --main-menu-title: 2.4rem;
+    // --main-menu-title-world: 4.4rem;
+    //
+    // --main-title: 2.6rem;
+    // --main-title-world: 4rem;
+    // --main-description: 1.1rem;
+    // --main-description-line-height: 2rem;
 
     --artifact-title: 1.9rem;
     --artifact-title-line-height: 2rem;
@@ -289,6 +298,7 @@
     --unmute-footer: 1rem;
     --unmute-footer-height: 6vh;
     --unmute-footer-label-right: 17rem;
+    --unmute-footer-items: 1rem;
 
     --explore-content-mute-button: 1rem;
 

@@ -55,15 +55,35 @@ div.viewport {
   }
 }
 
-@include desktop-landscape() {
-  html {
-    font-size: 110%;
+@include desktop() {
+  @supports (font-size: clamp(10px, 1.2vw, 36px)) {
+    html {
+      font-size: clamp(10px, 1.2vw, 36px);
+    }
   }
 }
 
 @include desktop-square() {
-  html {
-    font-size: 100%;
+  @supports (font-size: clamp(10px, 2vw, 36px)) {
+    html {
+      font-size: clamp(10px, 2vw, 36px);
+    }
+  }
+}
+
+@include desktop-landscape() {
+  @supports (font-size: clamp(10px, 2.3vh, 36px)) {
+    html {
+      font-size: clamp(10px, 2.3vh, 36px);
+    }
+  }
+}
+
+@include desktop-portrait() {
+  @supports (font-size: clamp(10px, 2vw, 36px)) {
+    html {
+      font-size: clamp(10px, 2vw, 36px);
+    }
   }
 }
 
