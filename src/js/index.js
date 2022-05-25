@@ -4,8 +4,8 @@
 import { app } from "./modules/globals.js";
 import { pages } from "./modules/pages.js";
 import { generateFooterItems, generateDropdownUL } from "./modules/menu.js";
-
-app.dev = true;
+import { router } from "./modules/router.js";
+import { dev } from "./modules/dev.js";
 
 const isReduced = window.matchMedia(`(prefers-reduced-motion: reduce)`) === true || window.matchMedia(`(prefers-reduced-motion: reduce)`).matches === true;
 
@@ -24,20 +24,28 @@ let pageIndex = 0;
 let selectedPage = getSelectedPage();
 
 const updatePageIndexFromHash = () => {
-  let hash = window.location.hash.slice(1);
+  let [hashpath, searchProps] = router.getHash(window.location.hash);
+  let hash;
+  let searchPropsStr;
   let page;
+  pageIndex = 0;
 
-  if (hash.length > 0) {
+  if (hashpath.length > 0) {
+    hash = hashpath[0];
     page = artifactPages.find((p) => p.id == hash);
-    pageIndex = page.index;
-    selectedPage = getSelectedPage();
-  } else {
-    pageIndex = 0;
-    selectedPage = getSelectedPage();
+    if (page) {
+      pageIndex = page.index;
+    }
   }
+  selectedPage = getSelectedPage();
+
   let path = window.location.pathname;
   path = path.replace(/\/index.html/, '');
-  window.location.hash = selectedPage.id;
+  searchPropsStr = searchProps.toString();
+  if (searchPropsStr.length > 0) {
+    searchPropsStr = `?${searchPropsStr}`;
+  }
+  window.location.hash = selectedPage.id + searchPropsStr;
   window.location.pathname = path;
 }
 
@@ -248,6 +256,10 @@ app.domReady(() => {
 
   updatePageIndexFromHash();
   selectedPage = getSelectedPage();
+
+  if (app.dev) {
+    dev.setupWindowSizeListener();
+  }
 
   generateCarouselImageElements();
 

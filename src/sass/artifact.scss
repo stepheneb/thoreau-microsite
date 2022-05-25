@@ -429,7 +429,7 @@ div.artifact {
       }
     }
 
-    @include desktop-portrait() {
+    @include desktop-square() {
       .absolute-content-container {
         &.start {
           .content {
@@ -444,7 +444,7 @@ div.artifact {
       }
     }
 
-    @include desktop-strong-portrait() {
+    @include desktop-portrait() {
       .absolute-content-container {
         &.start {
           flex-direction: column;

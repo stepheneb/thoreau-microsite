@@ -40,7 +40,7 @@ div.artifact.desk {
 
         @include mobile-landscape() {
         }
-        @include desktop-strong-portrait() {
+        @include desktop-portrait() {
           flex-direction: column;
           justify-content: flex-start;
         }
@@ -210,7 +210,7 @@ div.artifact.desk {
         height: auto;
       }
     }
-    @include desktop-portrait() {
+    @include desktop-square() {
       top: 12vh;
       height: 80vh;
       left: 30vw;

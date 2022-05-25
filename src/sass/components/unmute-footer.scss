@@ -27,7 +27,7 @@
       margin-left: 1.5rem;
       margin-right: auto;
     }
-    @include desktop-portrait() {
+    @include desktop-square() {
       margin-right: 30vw;
     }
   }

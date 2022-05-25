@@ -40,7 +40,7 @@ div.artifact.spyglass {
 
         @include mobile-landscape() {
         }
-        @include desktop-strong-portrait() {
+        @include desktop-portrait() {
           flex-direction: column;
           justify-content: flex-start;
         }
@@ -71,7 +71,7 @@ div.artifact.spyglass {
           max-width: 29vw;
         }
 
-        @include desktop-portrait() {
+        @include desktop-square() {
           top: 60vh;
           left: 15vw;
           width: 75vw;
@@ -104,7 +104,7 @@ div.artifact.spyglass {
           max-width: 45vw;
         }
 
-        @include desktop-portrait() {
+        @include desktop-square() {
           top: 60vh;
           left: 10vw;
           width: 80vw;
@@ -306,7 +306,7 @@ div.artifact.spyglass {
       width: 110%;
       height: auto;
     }
-    @include desktop-portrait() {
+    @include desktop-square() {
       img {
         width: 110%;
         height: auto;
@@ -349,7 +349,7 @@ div.artifact.spyglass {
       width: 100%;
       height: auto;
     }
-    @include desktop-portrait() {
+    @include desktop-square() {
       padding: 0vw 5vw 45vh 5vw;
       img {
         height: 100%;
@@ -388,7 +388,7 @@ div.artifact.spyglass {
       height: auto;
     }
 
-    @include desktop-portrait() {
+    @include desktop-square() {
       padding: 0vw 5vw 45vh 5vw;
       img {
         height: 100%;
@@ -433,7 +433,7 @@ div.artifact.spyglass {
         width: 100%;
       }
     }
-    @include desktop-portrait() {
+    @include desktop-square() {
       padding: 0vw 5vw 45vh 5vw;
       img {
         height: 100%;
@@ -472,7 +472,7 @@ div.artifact.spyglass {
       }
     }
 
-    @include desktop-portrait() {
+    @include desktop-square() {
       padding: 0vw 5vw 45vh 5vw;
       img {
         height: 100%;

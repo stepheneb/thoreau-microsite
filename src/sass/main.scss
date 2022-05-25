@@ -61,7 +61,7 @@ div.viewport {
   }
 }
 
-@include desktop-portrait() {
+@include desktop-square() {
   html {
     font-size: 100%;
   }

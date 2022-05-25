@@ -225,7 +225,7 @@
     --scroll-down-label: 1.1rem;
   }
 
-  @include desktop-portrait() {
+  @include desktop-square() {
     --main-menu-title: 2.4rem;
     --main-menu-title-world: 4.4rem;
 
@@ -266,7 +266,7 @@
     --scroll-down-label: 0.9rem;
   }
 
-  @include desktop-strong-portrait() {
+  @include desktop-portrait() {
     --main-menu-title: 2.4rem;
     --main-menu-title-world: 4.4rem;
 
