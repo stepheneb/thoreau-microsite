@@ -49,6 +49,8 @@
 
 /* font sizes */
 :root {
+  --minimum-font-size: 10px;
+  --maximum-font-size: 36px;
   --content: 2rem;
   --main-menu-title: 3.2rem;
   --main-menu-title-world: 6rem;
@@ -234,8 +236,8 @@
     --main-menu-title-world: 3.8rem;
     --main-title: 2.6rem;
     --main-title-world: 4rem;
-    --main-description: 0.95rem;
-    --main-description-line-height: 1.6rem;
+    --main-description: 0.8rem;
+    --main-description-line-height: 1.4rem;
     --artifact-title: 1.9rem;
     --artifact-title-line-height: 2rem;
     --artifact-description: 1.2rem;
@@ -247,7 +249,7 @@
     --zoom-divide-width: 0.15rem;
     --unmute-footer: 0.8rem;
     --unmute-footer-height: 6vh;
-    --unmute-footer-items: 0.75rem;
+    --unmute-footer-items: 0.6rem;
     --unmute-footer-label-right: 16rem;
     --explore-content-mute-button: 0.8rem;
     --unmute-bottom: 0vh;
@@ -5401,23 +5403,19 @@ body.index {
 }
 @media only screen and (min-aspect-ratio: 7/8) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   .content.index .main img.pinetree.noborder {
-    height: 12vh;
+    height: 9vw;
   }
   .content.index .main .header {
-    align-self: start;
-    justify-content: center;
     width: 100vw;
-    margin: 2vh 0vw;
-    padding: 0 0;
   }
   .content.index .main .header .separator {
-    width: 0.5rem;
+    width: 1.5vw;
     height: 50%;
     margin-left: 0;
   }
   .content.index .main .header .description {
-    width: 36vw;
-    min-width: 22rem;
+    width: 32vw;
+    min-width: 18rem;
   }
   .content.index .main .gallery .select {
     min-width: 14%;
@@ -5668,17 +5666,18 @@ div.viewport {
     }
   }
 }
-@media only screen and (min-aspect-ratio: 7/8) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
-  @supports (font-size: clamp(10px, 2vw, 36px)) {
-    html {
-      font-size: clamp(10px, 2vw, 36px);
-    }
-  }
-}
 @media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
   @supports (font-size: clamp(10px, 2.3vh, 36px)) {
     html {
       font-size: clamp(10px, 2.3vh, 36px);
+    }
+  }
+}
+@media only screen and (min-aspect-ratio: 7/8) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
+  @supports (font-size: clamp(var(--minimum-font-size), 1.8vw, var(--maximum-font-size))) {
+    html {
+      font-size: clamp(10px, 1.8vw, 36px);
+      font-size: clamp(var(--minimum-font-size), 1.8vw, var(--maximum-font-size));
     }
   }
 }
