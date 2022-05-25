@@ -7,6 +7,9 @@
 /* font sizes */
 
 :root {
+  --minimum-font-size: 10px;
+  --maximum-font-size: 36px;
+
   --content: 2rem;
 
   --main-menu-title: 3.2rem;
@@ -231,8 +234,8 @@
 
     --main-title: 2.6rem;
     --main-title-world: 4rem;
-    --main-description: 0.95rem;
-    --main-description-line-height: 1.6rem;
+    --main-description: 0.8rem;
+    --main-description-line-height: 1.4rem;
 
     --artifact-title: 1.9rem;
     --artifact-title-line-height: 2rem;
@@ -247,7 +250,7 @@
 
     --unmute-footer: 0.8rem;
     --unmute-footer-height: 6vh;
-    --unmute-footer-items: 0.75rem;
+    --unmute-footer-items: 0.6rem;
     --unmute-footer-label-right: 16rem;
 
     --explore-content-mute-button: 0.8rem;

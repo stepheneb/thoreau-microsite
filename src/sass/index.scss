@@ -394,23 +394,19 @@ body.index {
     @include desktop-square() {
       img.pinetree {
         &.noborder {
-          height: 12vh;
+          height: 9vw;
         }
       }
       .header {
-        align-self: start;
-        justify-content: center;
         width: 100vw;
-        margin: 2vh 0vw;
-        padding: 0 0;
         .separator {
-          width: 0.5rem;
+          width: 1.5vw;
           height: 50%;
           margin-left: 0;
         }
         .description {
-          width: 36vw;
-          min-width: 22rem;
+          width: 32vw;
+          min-width: 18rem;
         }
       }
 

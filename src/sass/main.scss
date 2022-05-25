@@ -63,18 +63,25 @@ div.viewport {
   }
 }
 
-@include desktop-square() {
-  @supports (font-size: clamp(10px, 2vw, 36px)) {
-    html {
-      font-size: clamp(10px, 2vw, 36px);
-    }
-  }
-}
-
 @include desktop-landscape() {
   @supports (font-size: clamp(10px, 2.3vh, 36px)) {
     html {
       font-size: clamp(10px, 2.3vh, 36px);
+    }
+  }
+}
+
+@include desktop-square() {
+  @supports (
+    font-size: clamp(var(--minimum-font-size), 1.8vw, var(--maximum-font-size))
+  ) {
+    html {
+      font-size: clamp(10px, 1.8vw, 36px);
+      font-size: clamp(
+        var(--minimum-font-size),
+        1.8vw,
+        var(--maximum-font-size)
+      );
     }
   }
 }
