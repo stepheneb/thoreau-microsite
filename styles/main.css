@@ -2438,6 +2438,12 @@ div.artifact.spyglass .background-image-container.spyglass:before {
     width: 100%;
   }
 }
+@media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
+  #spyglass[data-content-scroll="3"] .animation-frame-container.spyglass img {
+    height: 100%;
+    width: auto;
+  }
+}
 
 #spyglass[data-content-scroll="4"] .background-image-container.spyglass:before,
 #spyglass[data-content-scroll="5"] .background-image-container.spyglass:before {
