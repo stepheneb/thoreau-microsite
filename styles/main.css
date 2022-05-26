@@ -58,8 +58,8 @@
   --main-title-world: 7.8rem;
   --main-description: 1.2rem;
   --main-description-line-height: 2rem;
-  --artifact-title: 2.1rem;
-  --artifact-title-line-height: 2.4rem;
+  --artifact-title: 1.75rem;
+  --artifact-title-line-height: 2rem;
   --artifact-description: 1.2rem;
   --artifact-description-letter-spacing: calc(
     clamp(0px, (0.4vh - 3.61px), 2px)
@@ -77,17 +77,17 @@
   --unmute-right-distance: 6vw;
   --zoom-button-size: 1.1rem;
   --zoom-button-top: 86.7vh;
-  --zoom-button-height: 1.9rem;
-  --zoom-button-width: 2.65rem;
+  --zoom-button-height: 1.65rem;
+  --zoom-button-width: 2.35rem;
   --zoom-icon-width: 0.9rem;
   --zoom-divide-width: 0.1rem;
-  --explore-button: 0.85rem;
-  --explore-content: 1.28rem;
-  --explore-content-line-height: 168%;
+  --explore-button: 0.735rem;
+  --explore-content: 1.1rem;
+  --explore-content-line-height: 165%;
   --explore-content-letter-spacing: 0.75px;
-  --explore-content-author: 0.88rem;
-  --explore-content-mute-button: 0.76rem;
-  --thoreau-quote: 2.2rem;
+  --explore-content-author: 0.77rem;
+  --explore-content-mute-button: 0.675rem;
+  --thoreau-quote: 1.9rem;
   --explore-content-weight: 400;
   --explore-content-heading: 2.2rem;
   --explore-content-heading-weight: 600;
@@ -95,7 +95,7 @@
   --next-object: 0.875em;
   --back-to-top: 0.87em;
   --next-object-footer-height: 8vh;
-  --unmute-footer: 0.76rem;
+  --unmute-footer: 0.7rem;
   --unmute-footer-height: 8vh;
   --unmute-footer-items: 0.9rem;
   --unmute-footer-label-right: 18rem;
@@ -236,33 +236,15 @@
     --main-menu-title-world: 3.8rem;
     --main-title: 2.6rem;
     --main-title-world: 4rem;
-    --main-description: 0.8rem;
+    --main-description: max(0.8rem, var(--minimum-font-size));
     --main-description-line-height: 1.4rem;
-    --artifact-title: 1.9rem;
+    --artifact-title: 1.4rem;
     --artifact-title-line-height: 2rem;
-    --artifact-description: 1.2rem;
-    --artifact-description-letter-spacing: calc(clamp(0px, (0.2vh - 3px), 2px));
-    --artifact-description-line-height: calc(clamp(25px, (7.5vh - 36px), 60px));
-    --zoom-button-height: 1.8rem;
-    --zoom-button-width: 2.4rem;
-    --zoom-icon-width: 1rem;
-    --zoom-divide-width: 0.15rem;
-    --unmute-footer: 0.8rem;
-    --unmute-footer-height: 6vh;
-    --unmute-footer-items: 0.6rem;
-    --unmute-footer-label-right: 16rem;
-    --explore-content-mute-button: 0.8rem;
-    --unmute-bottom: 0vh;
-    --unmute-bottom-last-page: 5.5vh;
-    --next-object: 0.9rem;
-    --back-to-top: 0.8rem;
-    --next-object-footer-height: 6vh;
-    --zoom-button-top: calc(100vh - (var(--unmute-footer-height) + 5vh));
-    --arrow-scroll-down-bottom: calc(var(--unmute-bottom) + 2.8vh);
-    --arrow-scroll-down-bottom-first-screen: calc(
-      var(--unmute-footer-height) + 2.4vh
+    --artifact-description: 1rem;
+    --artifact-description-letter-spacing: calc(
+      clamp(0px, (0.4vh - 3.61px), 2px)
     );
-    --scroll-down-label: 0.9rem;
+    --artifact-description-line-height: calc(clamp(30px, (8vh - 26px), 60px));
   }
 }
 @media only screen and (max-aspect-ratio: 7/8) and (min-width: 500px) {
@@ -308,11 +290,7 @@
     --artifact-title-line-height: 2rem;
     --artifact-description: 1.2rem;
     --thoreau-quote: 1.8rem;
-    --zoom-button-top: 85vh;
-    --zoom-button-height: 1.8rem;
-    --zoom-button-width: 2.6rem;
-    --zoom-icon-width: 1rem;
-    --zoom-divide-width: 0.15rem;
+    --zoom-button-top: 84vh;
     --about-thoreau-width: 70vw;
     --about-thoreau-max-img-width: 32rem;
   }
@@ -332,7 +310,7 @@
   --explore-menu-timing: 0.2s ease-in-out;
 }
 
-body {
+body.artifact {
   width: 100vw;
   font-family: "Nunito Sans", sans-serif;
 }
@@ -416,12 +394,21 @@ div.artifact .content .absolute-content-container.start .menu {
   }
 }
 div.artifact .content .absolute-content-container.start .menu .home {
-  margin: 2rem 0 0 5.5rem;
+  margin: 1.5rem 0 0 4.75rem;
 }
 div.artifact .content .absolute-content-container.start .menu .home a img {
-  width: 5.6rem;
-  height: 5.6rem;
+  width: 4.8rem;
+  height: 4.8rem;
   padding: 0rem;
+}
+@media only screen and (min-aspect-ratio: 7/8) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
+  div.artifact .content .absolute-content-container.start .menu .home {
+    margin: 0.9rem 0 0 4rem;
+  }
+  div.artifact .content .absolute-content-container.start .menu .home a img {
+    width: 4rem;
+    height: 4rem;
+  }
 }
 @media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
   div.artifact .content .absolute-content-container.start .menu .home a img {
@@ -468,7 +455,7 @@ div.artifact .content .absolute-content-container.start .content {
 }
 div.artifact .content .absolute-content-container.start .content .about-container {
   width: 30vw;
-  margin: 5rem 0 0 5.5rem;
+  margin: 4.1rem 0 0 4.5rem;
 }
 @media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
   div.artifact .content .absolute-content-container.start .content .about-container .header {
@@ -478,13 +465,18 @@ div.artifact .content .absolute-content-container.start .content .about-containe
 }
 div.artifact .content .absolute-content-container.start .content .about-container .header .title {
   width: 100%;
-  margin: 3rem 0 2.9rem 0;
+  margin: 2.8rem 0 2.7rem 0;
   font-family: "Libre Caslon Text", serif;
   font-size: var(--artifact-title);
   line-height: var(--artifact-title-line-height);
   font-weight: 600;
   color: var(--thoreau-blue);
   text-transform: capitalize;
+}
+@media only screen and (min-aspect-ratio: 7/8) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
+  div.artifact .content .absolute-content-container.start .content .about-container .header .title {
+    margin: 1.5rem 0;
+  }
 }
 div.artifact .content .absolute-content-container.start .content .about-container hr {
   display: block;
@@ -494,7 +486,7 @@ div.artifact .content .absolute-content-container.start .content .about-containe
   color: var(--november-skies);
 }
 div.artifact .content .absolute-content-container.start .content .about-container .description {
-  margin: 2.5rem 0;
+  margin: 2rem 0;
   width: 100%;
   font-size: var(--artifact-description);
   line-height: var(--artifact-description-line-height);
@@ -505,6 +497,20 @@ div.artifact .content .absolute-content-container.start .content .about-containe
 div.artifact .content .absolute-content-container.start .content .about-container .description span.first-line,
 div.artifact .content .absolute-content-container.start .content .about-container .description span.bold {
   font-weight: 700;
+}
+@media only screen and (min-aspect-ratio: 7/8) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
+  div.artifact .content .absolute-content-container.start .content .about-container {
+    margin: 2.7rem 0 0 4rem;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container .header .title {
+    margin: 1.5rem 0;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container hr {
+    margin: 0.5rem 0;
+  }
+  div.artifact .content .absolute-content-container.start .content .about-container .description {
+    margin: 1.4rem 0;
+  }
 }
 div.artifact .content .absolute-content-container.start .content .image-container {
   position: relative;
@@ -697,7 +703,7 @@ div.artifact .content .absolute-content-container .author .audio.player {
   margin-left: -0.6em;
 }
 div.artifact .content .absolute-content-container .author .audio.player .playpause {
-  font-size: 2.6em;
+  font-size: 2.5em;
   pointer-events: all;
 }
 div.artifact .content .absolute-content-container .author .audio.player .playpause .play,
@@ -711,7 +717,7 @@ div.artifact .content .absolute-content-container .author .audio.player .playpau
 }
 div.artifact .content .absolute-content-container .author .audio.player .playpause .play svg,
 div.artifact .content .absolute-content-container .author .audio.player .playpause .pause svg {
-  width: 2.7rem;
+  width: 2.4rem;
   height: auto;
   vertical-align: unset;
   margin: 0;
@@ -1102,7 +1108,7 @@ div.artifact .dropdown.explore-another-object {
   }
 }
 div.artifact .dropdown.explore-another-object button {
-  padding: 0.35rem 1.5rem 0.33rem 1.5rem;
+  padding: 0.325rem 1.3rem;
   border: none;
   border-radius: 1.25rem;
   background-color: var(--navy-blue);
@@ -1123,7 +1129,7 @@ div.artifact .dropdown.explore-another-object button svg.toggler-svg {
   display: inline-block;
   margin-left: 0.7rem;
   margin-bottom: -0.2rem;
-  width: 1.5rem;
+  width: 1.4rem;
   height: auto;
   stroke-width: 1.5;
   color: white;
@@ -1135,6 +1141,18 @@ div.artifact .dropdown.explore-another-object button svg.toggler-svg {
 }
 div.artifact .dropdown.explore-another-object button::after {
   display: none;
+}
+@media only screen and (min-aspect-ratio: 7/8) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
+  div.artifact .dropdown.explore-another-object {
+    padding: 0.1rem 0;
+  }
+  div.artifact .dropdown.explore-another-object button {
+    padding: 0.25rem 1rem;
+  }
+  div.artifact .dropdown.explore-another-object button svg.toggler-svg {
+    width: 1rem;
+    stroke-width: 1.25;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (max-height: 480px) and (orientation: landscape) {
   div.artifact .dropdown.explore-another-object button {
@@ -1180,7 +1198,7 @@ div.artifact .dropdown.explore-another-object button::after {
 div.artifact .dropdown.explore-another-object ul.dropdown-menu {
   z-index: -1;
   top: 1rem;
-  padding-top: 2rem;
+  padding-top: 1.4rem;
   background-color: transparent;
   display: block;
   transform: translateZ(-10px);
@@ -1201,7 +1219,7 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show {
   width: 100%;
   opacity: 1;
   transition: opacity var(--explore-menu-timing), visibility var(--explore-menu-timing);
-  padding-top: 1.75em;
+  padding-top: 1.4em;
   border-radius: 0.5rem;
   background-color: var(--mobile-header-gray);
   border: none;
@@ -1225,7 +1243,7 @@ div.artifact .dropdown.explore-another-object ul.dropdown-menu.show li a.dropdow
   display: inline-block;
   visibility: visible;
   opacity: 1;
-  padding: 0.1rem 0.75rem;
+  padding: 0.085rem 0.62rem;
   border-radius: 0;
   color: var(--navy-blue);
   background-color: var(--mobile-header-gray);
@@ -1428,24 +1446,24 @@ div.artifact div.arrow-scroll-down .arrow svg {
   margin: 0;
   color: var(--white);
   stroke-width: 1.5px;
-  height: 1.9rem;
-  width: auto;
+  width: 2.75rem;
+  height: auto;
   animation-duration: 2.5s;
   animation-iteration-count: infinite;
   animation-name: pulse;
 }
 @keyframes pulse {
   0% {
-    height: 1.7rem;
-    margin-bottom: 0.2rem;
+    width: 2.4rem;
+    margin-bottom: 0.1rem;
   }
   50% {
-    height: 2.15rem;
+    width: 2.9rem;
     margin-bottom: 0rem;
   }
   100% {
-    height: 1.7rem;
-    margin-bottom: 0.2rem;
+    width: 2.4rem;
+    margin-bottom: 0.1rem;
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
@@ -1514,7 +1532,7 @@ div.artifact .mute-button div.on {
   display: none;
 }
 div.artifact .mute-button svg {
-  width: 1.95rem;
+  width: 1.85rem;
   height: auto;
   margin-left: 0.2rem;
 }
@@ -4750,7 +4768,7 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
   }
 }
 .dropdown.explore-another-object button {
-  padding: 0.35rem 1.5rem 0.33rem 1.5rem;
+  padding: 0.325rem 1.3rem;
   border: none;
   border-radius: 1.25rem;
   background-color: var(--navy-blue);
@@ -4771,7 +4789,7 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
   display: inline-block;
   margin-left: 0.7rem;
   margin-bottom: -0.2rem;
-  width: 1.5rem;
+  width: 1.4rem;
   height: auto;
   stroke-width: 1.5;
   color: white;
@@ -4783,6 +4801,18 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
 }
 .dropdown.explore-another-object button::after {
   display: none;
+}
+@media only screen and (min-aspect-ratio: 7/8) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
+  .dropdown.explore-another-object {
+    padding: 0.1rem 0;
+  }
+  .dropdown.explore-another-object button {
+    padding: 0.25rem 1rem;
+  }
+  .dropdown.explore-another-object button svg.toggler-svg {
+    width: 1rem;
+    stroke-width: 1.25;
+  }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait), (min-width: 320px) and (max-width: 915px) and (max-height: 480px) and (orientation: landscape) {
   .dropdown.explore-another-object button {
@@ -4828,7 +4858,7 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
 .dropdown.explore-another-object ul.dropdown-menu {
   z-index: -1;
   top: 1rem;
-  padding-top: 2rem;
+  padding-top: 1.4rem;
   background-color: transparent;
   display: block;
   transform: translateZ(-10px);
@@ -4849,7 +4879,7 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
   width: 100%;
   opacity: 1;
   transition: opacity var(--explore-menu-timing), visibility var(--explore-menu-timing);
-  padding-top: 1.75em;
+  padding-top: 1.4em;
   border-radius: 0.5rem;
   background-color: var(--mobile-header-gray);
   border: none;
@@ -4873,7 +4903,7 @@ div.artifact.snowshoes .background-image-container.snowshoes:before {
   display: inline-block;
   visibility: visible;
   opacity: 1;
-  padding: 0.1rem 0.75rem;
+  padding: 0.085rem 0.62rem;
   border-radius: 0;
   color: var(--navy-blue);
   background-color: var(--mobile-header-gray);
@@ -5039,7 +5069,6 @@ body.index {
   margin: 0;
   padding: 0;
   width: 100vw;
-  overflow: hidden;
   font-family: "Nunito Sans", sans-serif;
   font-size: 16px;
   color: black;
@@ -5054,6 +5083,7 @@ body.index {
   margin: 0;
   padding: 0;
   height: 100vh;
+  overflow: visible;
 }
 .content.index .main {
   margin: 0;
@@ -5356,9 +5386,9 @@ body.index {
     justify-content: flex-start;
   }
   .content.index .main .gallery .select .circle {
-    width: 14vw;
-    height: 14vw;
-    margin-left: -7vw;
+    width: 16vw;
+    height: 16vw;
+    margin-left: -8vw;
   }
   .content.index .main .gallery .select .circle svg {
     width: 1.6rem;
@@ -5369,7 +5399,7 @@ body.index {
     justify-content: flex-end;
   }
   .content.index .main .gallery .select.right .circle {
-    margin-right: -7vw;
+    margin-right: -8vw;
   }
   .content.index .main .gallery .select.right .circle svg {
     margin: 0 1.7rem 0 0;
@@ -5397,8 +5427,12 @@ body.index {
   .content.index .main .gallery .image-container {
     height: 100%;
   }
-  .content.index .main .select {
+  .content.index .main .gallery .select {
     justify-content: center;
+  }
+  .content.index .main .gallery .select .circle {
+    width: 16vh;
+    height: 16vh;
   }
 }
 @media only screen and (min-aspect-ratio: 7/8) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
@@ -5551,8 +5585,9 @@ body.index {
   }
 }
 
-#window-size {
-  position: absolute;
+#window-inspector {
+  position: fixed;
+  pointer-events: none;
   z-index: 200;
   top: 16vh;
   right: 1vw;
@@ -5566,46 +5601,46 @@ body.index {
   text-transform: none;
   border-radius: 6px;
 }
-#window-size.changing {
+#window-inspector.changing {
   display: flex;
   animation: fade 12s forwards;
 }
-#window-size p {
+#window-inspector p {
   margin: 4px 0;
 }
-#window-size p.media-query {
+#window-inspector p.media-query {
   color: var(--black);
 }
-#window-size p.media-query::before {
+#window-inspector p.media-query::before {
   content: "media-query: none";
 }
 @media only screen and (min-aspect-ratio: 3/2) and (max-aspect-ratio: 10/5) and (min-width: 720px) {
-  #window-size p.media-query::before {
+  #window-inspector p.media-query::before {
     content: "media-query: desktop";
   }
 }
 @media only screen and (min-aspect-ratio: 7/8) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
-  #window-size p.media-query::before {
+  #window-inspector p.media-query::before {
     content: "media-query: desktop-square";
   }
 }
 @media only screen and (max-aspect-ratio: 7/8) and (min-width: 500px) {
-  #window-size p.media-query::before {
+  #window-inspector p.media-query::before {
     content: "media-query: desktop-portrait";
   }
 }
 @media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
-  #window-size p.media-query::before {
+  #window-inspector p.media-query::before {
     content: "media-query: desktop-landscape";
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
-  #window-size p.media-query::before {
+  #window-inspector p.media-query::before {
     content: "media-query: mobile-portrait";
   }
 }
 @media only screen and (min-width: 320px) and (max-width: 915px) and (max-height: 480px) and (orientation: landscape) {
-  #window-size p.media-query::before {
+  #window-inspector p.media-query::before {
     content: "media-query: mobile-landscape";
   }
 }
@@ -5669,15 +5704,20 @@ div.viewport {
 @media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
   @supports (font-size: clamp(10px, 2.3vh, 36px)) {
     html {
-      font-size: clamp(10px, 2.3vh, 36px);
+      font-size: clamp(var(--minimum-font-size), 2.3vh, var(--maximum-font-size));
+    }
+    html.artifact {
+      font-size: clamp(var(--minimum-font-size), 1.4vh + 8px, var(--maximum-font-size));
     }
   }
 }
 @media only screen and (min-aspect-ratio: 7/8) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   @supports (font-size: clamp(var(--minimum-font-size), 1.8vw, var(--maximum-font-size))) {
     html {
-      font-size: clamp(10px, 1.8vw, 36px);
       font-size: clamp(var(--minimum-font-size), 1.8vw, var(--maximum-font-size));
+    }
+    html.artifact {
+      font-size: clamp(var(--minimum-font-size), 0.8vw + 8px, var(--maximum-font-size));
     }
   }
 }

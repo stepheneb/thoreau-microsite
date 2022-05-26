@@ -15,3 +15,11 @@ router.getHash = (hashStr) => {
   }
   return [hashpath, props];
 };
+
+router.checkForDevMode = () => {
+  const url = new URL(window.location.href);
+  let props = new URLSearchParams(url.search);
+  if (props.get('dev')) {
+    app.dev = true;
+  }
+};
