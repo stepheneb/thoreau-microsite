@@ -1,7 +1,7 @@
 export const dev = {};
 
 dev.setupWindowSizeListener = () => {
-  let windowSizeElem = document.getElementById('window-size');
+  let windowSizeElem = document.getElementById('window-inspector');
   let status = document.querySelector('p.status');
   let span = windowSizeElem.querySelector('span');
   let width = window.innerWidth;

@@ -1,4 +1,4 @@
-body {
+body.artifact {
   width: 100vw;
   font-family: "Nunito Sans", sans-serif;
 }
@@ -86,19 +86,33 @@ div.artifact {
           }
 
           .home {
-            margin: 2rem 0 0 5.5rem;
+            margin: 1.5rem 0 0 4.75rem;
             a {
               img {
-                width: 5.6rem;
-                height: 5.6rem;
+                width: 4.8rem;
+                height: 4.8rem;
                 padding: 0rem;
-                @include desktop-landscape() {
+              }
+            }
+            @include desktop-square() {
+              margin: 0.9rem 0 0 4rem;
+              a {
+                img {
+                  width: 4rem;
+                  height: 4rem;
+                }
+              }
+            }
+            @include desktop-landscape() {
+              a {
+                img {
                   width: 6rem;
                   height: 6rem;
                   padding: 0.5rem;
                 }
               }
             }
+
             @include mobile-portrait-small() {
               display: none;
             }
@@ -135,7 +149,7 @@ div.artifact {
 
           .about-container {
             width: 30vw;
-            margin: 5rem 0 0 5.5rem;
+            margin: 4.1rem 0 0 4.5rem;
             @include mobile-portrait-small() {
             }
             .header {
@@ -145,13 +159,16 @@ div.artifact {
               }
               .title {
                 width: 100%;
-                margin: 3rem 0 2.9rem 0;
+                margin: 2.8rem 0 2.7rem 0;
                 font-family: "Libre Caslon Text", serif;
                 font-size: var(--artifact-title);
                 line-height: var(--artifact-title-line-height);
                 font-weight: 600;
                 color: var(--thoreau-blue);
                 text-transform: capitalize;
+                @include desktop-square() {
+                  margin: 1.5rem 0;
+                }
               }
             }
             hr {
@@ -162,7 +179,7 @@ div.artifact {
               color: var(--november-skies);
             }
             .description {
-              margin: 2.5rem 0;
+              margin: 2rem 0;
               width: 100%;
               font-size: var(--artifact-description);
               line-height: var(--artifact-description-line-height);
@@ -181,6 +198,20 @@ div.artifact {
               //   max-width: 20rem;
               //   margin: 2vh 0;
               // }
+            }
+            @include desktop-square() {
+              margin: 2.7rem 0 0 4rem;
+              .header {
+                .title {
+                  margin: 1.5rem 0;
+                }
+              }
+              hr {
+                margin: 0.5rem 0;
+              }
+              .description {
+                margin: 1.4rem 0;
+              }
             }
           }
 

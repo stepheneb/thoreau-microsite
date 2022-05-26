@@ -20,8 +20,8 @@
   --main-description: 1.2rem;
   --main-description-line-height: 2rem;
 
-  --artifact-title: 2.1rem;
-  --artifact-title-line-height: 2.4rem;
+  --artifact-title: 1.75rem;
+  --artifact-title-line-height: 2rem;
   --artifact-description: 1.2rem;
   --artifact-description-letter-spacing: calc(
     clamp(0px, (0.4vh - 3.61px), 2px)
@@ -42,23 +42,22 @@
   --unmute-right-distance: 6vw;
 
   --zoom-button-size: 1.1rem;
-
   --zoom-button-top: 86.7vh;
 
-  --zoom-button-height: 1.9rem;
-  --zoom-button-width: 2.65rem;
+  --zoom-button-height: 1.65rem;
+  --zoom-button-width: 2.35rem;
   --zoom-icon-width: 0.9rem;
   --zoom-divide-width: 0.1rem;
 
-  --explore-button: 0.85rem;
-  --explore-content: 1.28rem;
-  --explore-content-line-height: 168%;
+  --explore-button: 0.735rem;
+  --explore-content: 1.1rem;
+  --explore-content-line-height: 165%;
   --explore-content-letter-spacing: 0.75px;
-  --explore-content-author: 0.88rem;
+  --explore-content-author: 0.77rem;
 
-  --explore-content-mute-button: 0.76rem;
+  --explore-content-mute-button: 0.675rem;
 
-  --thoreau-quote: 2.2rem;
+  --thoreau-quote: 1.9rem;
 
   --explore-content-weight: 400;
   --explore-content-heading: 2.2rem;
@@ -69,7 +68,7 @@
   --back-to-top: 0.87em;
   --next-object-footer-height: 8vh;
 
-  --unmute-footer: 0.76rem;
+  --unmute-footer: 0.7rem;
   --unmute-footer-height: 8vh;
   --unmute-footer-items: 0.9rem;
   --unmute-footer-label-right: 18rem;
@@ -234,40 +233,76 @@
 
     --main-title: 2.6rem;
     --main-title-world: 4rem;
-    --main-description: 0.8rem;
+    --main-description: max(0.8rem, var(--minimum-font-size));
     --main-description-line-height: 1.4rem;
 
-    --artifact-title: 1.9rem;
+    --artifact-title: 1.4rem;
     --artifact-title-line-height: 2rem;
-    --artifact-description: 1.2rem;
-    --artifact-description-letter-spacing: calc(clamp(0px, (0.2vh - 3px), 2px));
-    --artifact-description-line-height: calc(clamp(25px, (7.5vh - 36px), 60px));
-
-    --zoom-button-height: 1.8rem;
-    --zoom-button-width: 2.4rem;
-    --zoom-icon-width: 1rem;
-    --zoom-divide-width: 0.15rem;
-
-    --unmute-footer: 0.8rem;
-    --unmute-footer-height: 6vh;
-    --unmute-footer-items: 0.6rem;
-    --unmute-footer-label-right: 16rem;
-
-    --explore-content-mute-button: 0.8rem;
-
-    --unmute-bottom: 0vh;
-    --unmute-bottom-last-page: 5.5vh;
-
-    --next-object: 0.9rem;
-    --back-to-top: 0.8rem;
-    --next-object-footer-height: 6vh;
-
-    --zoom-button-top: calc(100vh - (var(--unmute-footer-height) + 5vh));
-    --arrow-scroll-down-bottom: calc(var(--unmute-bottom) + 2.8vh);
-    --arrow-scroll-down-bottom-first-screen: calc(
-      var(--unmute-footer-height) + 2.4vh
+    --artifact-description: 1rem;
+    --artifact-description-letter-spacing: calc(
+      clamp(0px, (0.4vh - 3.61px), 2px)
     );
-    --scroll-down-label: 0.9rem;
+    --artifact-description-line-height: calc(clamp(30px, (8vh - 26px), 60px));
+
+    // --artifact-title: 1.15rem;
+    // --artifact-title-line-height: 1.9rem;
+    // --artifact-description: 0.8rem;
+    // --artifact-description-letter-spacing: calc(
+    //   clamp(0px, (0.4vh - 3.61px), 2px)
+    // );
+    // --artifact-description-line-height: calc(clamp(30px, (8vh - 26px), 60px));
+    //
+    // --artifact-title: 1.75rem;
+    //
+    // --about-thoreau-title: 1.8rem;
+    // --about-thoreau-description: 0.9rem;
+    // --about-thoreau-description-line-height: 1.45rem;
+    // --about-thoreau-close: 2rem;
+    // --about-thoreau-close-radius: 1rem;
+    // --about-thoreau-close-svg: 1.2rem;
+    //
+    // --thoreau-quote-width: 33.5rem;
+    //
+    // --zoom-button-height: 1.8rem;
+    // --zoom-button-width: 2.4rem;
+    // --zoom-icon-width: 1rem;
+    // --zoom-divide-width: 0.15rem;
+    //
+    // --explore-button: 0.5rem;
+    // --explore-content: 0.725rem;
+    // --explore-content-line-height: 165%;
+    // --explore-content-letter-spacing: 0.75px;
+    // --explore-content-author: 0.77rem;
+    //
+    // --explore-content-mute-button: 0.675rem;
+    //
+    // --thoreau-quote: 1.9rem;
+    //
+    // --explore-content-weight: 400;
+    // --explore-content-heading: 2.2rem;
+    // --explore-content-heading-weight: 600;
+    // --back-button-size: 2em;
+    //
+    // --unmute-footer: 0.8rem;
+    // --unmute-footer-height: 6vh;
+    // --unmute-footer-items: max(0.6rem, var(--minimum-font-size));
+    // --unmute-footer-label-right: 16rem;
+    //
+    // --explore-content-mute-button: 0.8rem;
+    //
+    // --unmute-bottom: 0vh;
+    // --unmute-bottom-last-page: 5.5vh;
+    //
+    // --next-object: 0.9rem;
+    // --back-to-top: 0.8rem;
+    // --next-object-footer-height: 6vh;
+    //
+    // --zoom-button-top: calc(100vh - (var(--unmute-footer-height) + 5vh));
+    // --arrow-scroll-down-bottom: calc(var(--unmute-bottom) + 2.8vh);
+    // --arrow-scroll-down-bottom-first-screen: calc(
+    //   var(--unmute-footer-height) + 2.4vh
+    // );
+    // --scroll-down-label: 0.9rem;
   }
 
   @include desktop-portrait() {
@@ -331,12 +366,12 @@
 
     --thoreau-quote: 1.8rem;
 
-    --zoom-button-top: 85vh;
-
-    --zoom-button-height: 1.8rem;
-    --zoom-button-width: 2.6rem;
-    --zoom-icon-width: 1rem;
-    --zoom-divide-width: 0.15rem;
+    --zoom-button-top: 84vh;
+    //
+    // --zoom-button-height: 1.8rem;
+    // --zoom-button-width: 2.6rem;
+    // --zoom-icon-width: 1rem;
+    // --zoom-divide-width: 0.15rem;
 
     --about-thoreau-width: 70vw;
     --about-thoreau-max-img-width: 32rem;

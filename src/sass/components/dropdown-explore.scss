@@ -16,7 +16,7 @@
   }
 
   button {
-    padding: 0.35rem 1.5rem 0.33rem 1.5rem;
+    padding: 0.325rem 1.3rem;
     border: none;
     border-radius: 1.25rem;
     background-color: var(--navy-blue);
@@ -36,7 +36,7 @@
       display: inline-block;
       margin-left: 0.7rem;
       margin-bottom: -0.2rem;
-      width: 1.5rem;
+      width: 1.4rem;
       height: auto;
       stroke-width: 1.5;
       color: white;
@@ -47,6 +47,16 @@
 
     &::after {
       display: none;
+    }
+  }
+  @include desktop-square() {
+    padding: 0.1rem 0;
+    button {
+      padding: 0.25rem 1rem;
+      svg.toggler-svg {
+        width: 1rem;
+        stroke-width: 1.25;
+      }
     }
   }
   @include mobile() {
@@ -97,7 +107,7 @@
   ul.dropdown-menu {
     z-index: -1;
     top: 1rem;
-    padding-top: 2rem;
+    padding-top: 1.4rem;
     background-color: transparent;
     display: block;
     transform: translateZ(-10px);
@@ -122,7 +132,7 @@
       opacity: 1;
       transition: opacity var(--explore-menu-timing),
         visibility var(--explore-menu-timing);
-      padding-top: 1.75em;
+      padding-top: 1.4em;
       border-radius: 0.5rem;
       background-color: var(--mobile-header-gray);
       border: none;
@@ -145,7 +155,7 @@
           display: inline-block;
           visibility: visible;
           opacity: 1;
-          padding: 0.1rem 0.75rem;
+          padding: 0.085rem 0.62rem;
           border-radius: 0;
           color: var(--navy-blue);
           &.disabled {
@@ -164,6 +174,17 @@
           }
         }
       }
+
+      // @include desktop-square() {
+      //   margin-top: -8px;
+      //   width: 200px !important;
+      //   padding-top: 1rem;
+      //   li {
+      //     display: none;
+      //     font-size: 11px;
+      //   }
+      // }
+
       @include mobile() {
         position: absolute !important;
         top: 0;

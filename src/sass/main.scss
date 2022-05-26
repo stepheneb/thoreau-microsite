@@ -12,6 +12,7 @@
 @import "flute";
 @import "snowshoes";
 @import "index";
+@import "components/window-inspector";
 
 div.viewport {
   position: absolute;
@@ -66,7 +67,18 @@ div.viewport {
 @include desktop-landscape() {
   @supports (font-size: clamp(10px, 2.3vh, 36px)) {
     html {
-      font-size: clamp(10px, 2.3vh, 36px);
+      font-size: clamp(
+        var(--minimum-font-size),
+        2.3vh,
+        var(--maximum-font-size)
+      );
+      &.artifact {
+        font-size: clamp(
+          var(--minimum-font-size),
+          calc(1.4vh + 8px),
+          var(--maximum-font-size)
+        );
+      }
     }
   }
 }
@@ -76,12 +88,18 @@ div.viewport {
     font-size: clamp(var(--minimum-font-size), 1.8vw, var(--maximum-font-size))
   ) {
     html {
-      font-size: clamp(10px, 1.8vw, 36px);
       font-size: clamp(
         var(--minimum-font-size),
         1.8vw,
         var(--maximum-font-size)
       );
+      &.artifact {
+        font-size: clamp(
+          var(--minimum-font-size),
+          calc(0.8vw + 8px),
+          var(--maximum-font-size)
+        );
+      }
     }
   }
 }

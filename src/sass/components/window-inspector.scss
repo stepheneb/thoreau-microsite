@@ -1,0 +1,62 @@
+#window-inspector {
+  position: fixed;
+  pointer-events: none;
+  z-index: 200;
+  top: 16vh;
+  right: 1vw;
+  display: none;
+  flex-direction: column;
+  align-items: center;
+  padding: 10px 30px;
+  font-size: 14px;
+  font-weight: 500;
+  color: var(--black);
+  text-transform: none;
+  border-radius: 6px;
+  &.changing {
+    display: flex;
+    animation: fade 12s forwards;
+  }
+  p {
+    margin: 4px 0;
+    &.media-query {
+      color: var(--black);
+      &::before {
+        content: "media-query: none";
+
+        // desktop
+        @include desktop() {
+          content: "media-query: desktop";
+        }
+        @include desktop-square() {
+          content: "media-query: desktop-square";
+        }
+        @include desktop-portrait() {
+          content: "media-query: desktop-portrait";
+        }
+        @include desktop-landscape() {
+          content: "media-query: desktop-landscape";
+        }
+
+        // mobile
+        @include mobile-portrait() {
+          content: "media-query: mobile-portrait";
+        }
+        @include mobile-landscape() {
+          content: "media-query: mobile-landscape";
+        }
+      }
+    }
+  }
+}
+
+@keyframes fade {
+  from {
+    opacity: 1;
+    background-color: rgba(96, 96, 96, 0.7);
+  }
+  to {
+    opacity: 0;
+    background-color: transparent;
+  }
+}
