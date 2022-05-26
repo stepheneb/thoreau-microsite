@@ -40,5 +40,10 @@
     @include mobile-landscape() {
       width: 100%;
     }
+
+    @include desktop-landscape() {
+      height: 100%;
+      width: auto;
+    }
   }
 }

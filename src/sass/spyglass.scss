@@ -77,6 +77,13 @@ div.artifact.spyglass {
           width: 75vw;
           max-width: 80vw;
         }
+
+        @include desktop-landscape() {
+          top: 50vh;
+          left: 7vw;
+          width: 27rem;
+          max-width: 27rem;
+        }
       }
 
       &.his-experiments {
@@ -349,6 +356,7 @@ div.artifact.spyglass {
       width: 100%;
       height: auto;
     }
+
     @include desktop-square() {
       padding: 0vw 5vw 45vh 5vw;
       img {
@@ -356,11 +364,19 @@ div.artifact.spyglass {
         width: auto;
       }
     }
+
     @include mobile-portrait() {
       top: 3vh;
       padding: 0 5vw;
       img {
         width: 100%;
+      }
+    }
+
+    @include desktop-landscape() {
+      img {
+        height: 100%;
+        width: auto;
       }
     }
   }
@@ -395,6 +411,14 @@ div.artifact.spyglass {
         width: auto;
       }
     }
+
+    @include desktop-landscape() {
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+
     @include mobile-portrait() {
       top: 3vh;
       padding: 0 5vw;
@@ -440,6 +464,12 @@ div.artifact.spyglass {
         width: auto;
       }
     }
+    @include desktop-landscape() {
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
   }
 }
 
@@ -474,6 +504,13 @@ div.artifact.spyglass {
 
     @include desktop-square() {
       padding: 0vw 5vw 45vh 5vw;
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
+
+    @include desktop-landscape() {
       img {
         height: 100%;
         width: auto;

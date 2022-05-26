@@ -362,7 +362,13 @@
 
     --artifact-title: 1.8rem;
     --artifact-title-line-height: 2rem;
-    --artifact-description: 1.2rem;
+
+    --artifact-description: 1.1rem;
+    --artifact-description-letter-spacing: calc(
+      clamp(0px, (0.4vh - 3.61px), 2px)
+    );
+    --artifact-description-line-height: calc(clamp(30px, (8vh - 22px), 60px));
+    --artifact-description-line-height: 1.8rem;
 
     --thoreau-quote: 1.8rem;
 

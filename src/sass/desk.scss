@@ -319,6 +319,12 @@ div.artifact.desk {
   .animation-frame-container.desk {
     opacity: 1;
     visibility: visible;
+    @include desktop-landscape() {
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
   }
 }
 
@@ -337,6 +343,13 @@ div.artifact.desk {
   .animation-frame-container.desk {
     opacity: 1;
     visibility: visible;
+
+    @include desktop-landscape() {
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
   }
 }
 #desk[data-content-scroll="3"] {
@@ -367,6 +380,12 @@ div.artifact.desk {
   .animation-frame-container.desk {
     opacity: 1;
     visibility: visible;
+    @include desktop-landscape() {
+      img {
+        height: 100%;
+        width: auto;
+      }
+    }
   }
 }
 #desk[data-content-scroll="5"] {
