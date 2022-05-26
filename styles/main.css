@@ -288,7 +288,12 @@
     --main-menu-title-world: 6.2rem;
     --artifact-title: 1.8rem;
     --artifact-title-line-height: 2rem;
-    --artifact-description: 1.2rem;
+    --artifact-description: 1.1rem;
+    --artifact-description-letter-spacing: calc(
+      clamp(0px, (0.4vh - 3.61px), 2px)
+    );
+    --artifact-description-line-height: calc(clamp(30px, (8vh - 22px), 60px));
+    --artifact-description-line-height: 1.8rem;
     --thoreau-quote: 1.8rem;
     --zoom-button-top: 84vh;
     --about-thoreau-width: 70vw;
@@ -1015,6 +1020,12 @@ div.artifact .animation-frame-container img {
 @media only screen and (min-width: 320px) and (max-width: 915px) and (max-height: 480px) and (orientation: landscape) {
   div.artifact .animation-frame-container img {
     width: 100%;
+  }
+}
+@media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
+  div.artifact .animation-frame-container img {
+    height: 100%;
+    width: auto;
   }
 }
 div.artifact .background-image-container {
@@ -2165,6 +2176,14 @@ div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.cur
     max-width: 80vw;
   }
 }
+@media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
+  div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.curious {
+    top: 50vh;
+    left: 7vw;
+    width: 27rem;
+    max-width: 27rem;
+  }
+}
 div.artifact.spyglass .content.spyglass .absolute-content-container.spyglass.his-experiments {
   height: 200vh;
   position: -webkit-sticky;
@@ -2452,6 +2471,13 @@ div.artifact.spyglass .background-image-container.spyglass:before {
     width: auto;
   }
 }
+@media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
+  #spyglass[data-content-scroll="4"] .animation-frame-container.spyglass img,
+#spyglass[data-content-scroll="5"] .animation-frame-container.spyglass img {
+    height: 100%;
+    width: auto;
+  }
+}
 @media only screen and (min-width: 320px) and (max-width: 480px) and (orientation: portrait) {
   #spyglass[data-content-scroll="4"] .animation-frame-container.spyglass,
 #spyglass[data-content-scroll="5"] .animation-frame-container.spyglass {
@@ -2499,6 +2525,12 @@ div.artifact.spyglass .background-image-container.spyglass:before {
     width: auto;
   }
 }
+@media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
+  #spyglass[data-content-scroll="6"] .animation-frame-container.spyglass img {
+    height: 100%;
+    width: auto;
+  }
+}
 
 #spyglass[data-content-scroll="7"] .background-image-container.spyglass:before,
 #spyglass[data-content-scroll="8"] .background-image-container.spyglass:before {
@@ -2537,6 +2569,13 @@ div.artifact.spyglass .background-image-container.spyglass:before {
 #spyglass[data-content-scroll="8"] .animation-frame-container.spyglass {
     padding: 0vw 5vw 45vh 5vw;
   }
+  #spyglass[data-content-scroll="7"] .animation-frame-container.spyglass img,
+#spyglass[data-content-scroll="8"] .animation-frame-container.spyglass img {
+    height: 100%;
+    width: auto;
+  }
+}
+@media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
   #spyglass[data-content-scroll="7"] .animation-frame-container.spyglass img,
 #spyglass[data-content-scroll="8"] .animation-frame-container.spyglass img {
     height: 100%;
@@ -2900,6 +2939,12 @@ div.artifact.desk .background-image-container.desk:before {
   opacity: 1;
   visibility: visible;
 }
+@media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
+  #desk[data-content-scroll="2"] .animation-frame-container.desk img {
+    height: 100%;
+    width: auto;
+  }
+}
 
 #desk[data-content-scroll="3"] .background-image-container.desk:before,
 #desk[data-content-scroll="4"] .background-image-container.desk:before {
@@ -2915,6 +2960,13 @@ div.artifact.desk .background-image-container.desk:before {
 #desk[data-content-scroll="4"] .animation-frame-container.desk {
   opacity: 1;
   visibility: visible;
+}
+@media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
+  #desk[data-content-scroll="3"] .animation-frame-container.desk img,
+#desk[data-content-scroll="4"] .animation-frame-container.desk img {
+    height: 100%;
+    width: auto;
+  }
 }
 
 #desk[data-content-scroll="3"] .background-image-container.desk:before {
@@ -2938,6 +2990,13 @@ div.artifact.desk .background-image-container.desk:before {
 #desk[data-content-scroll="6"] .animation-frame-container.desk {
   opacity: 1;
   visibility: visible;
+}
+@media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
+  #desk[data-content-scroll="5"] .animation-frame-container.desk img,
+#desk[data-content-scroll="6"] .animation-frame-container.desk img {
+    height: 100%;
+    width: auto;
+  }
 }
 
 #desk[data-content-scroll="5"] .absolute-content-container.desk.and-once {
