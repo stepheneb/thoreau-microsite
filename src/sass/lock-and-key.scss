@@ -147,6 +147,11 @@ div.artifact.lock-and-key {
           max-width: 80vw;
         }
 
+        @include desktop-portrait() {
+          width: 50vw;
+          max-width: 50vw;
+        }
+
         @include desktop-square() {
           top: 60vh;
           left: 10vw;
@@ -266,6 +271,17 @@ div.artifact.lock-and-key {
       }
     }
     @include mobile-landscape() {
+    }
+    @include desktop-portrait() {
+      top: 40vh;
+      height: 50vh;
+      left: 0;
+      width: 100vw;
+      img {
+        height: 100%;
+        width: auto;
+        margin-left: -10vw;
+      }
     }
     @include desktop-square() {
       top: 0vh;
@@ -486,6 +502,18 @@ div.artifact.lock-and-key {
       }
     }
 
+    @include desktop-portrait() {
+      top: 35vh;
+      height: 50vh;
+      left: 0;
+      width: 100vw;
+      img {
+        height: 100%;
+        width: auto;
+        margin-left: -10vw;
+      }
+    }
+
     @include desktop-square() {
       top: 0vh;
       width: 100vw;
@@ -572,6 +600,18 @@ div.artifact.lock-and-key {
         margin: 0;
         height: 100%;
         width: auto;
+      }
+    }
+
+    @include desktop-portrait() {
+      top: 35vh;
+      height: 50vh;
+      left: 0;
+      width: 100vw;
+      img {
+        height: 100%;
+        width: auto;
+        margin-left: -10vw;
       }
     }
 
