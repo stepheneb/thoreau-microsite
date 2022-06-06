@@ -3218,6 +3218,12 @@ div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock
     max-width: 80vw;
   }
 }
+@media only screen and (max-aspect-ratio: 7/8) and (min-width: 500px) {
+  div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-wrote {
+    width: 50vw;
+    max-width: 50vw;
+  }
+}
 @media only screen and (min-aspect-ratio: 7/8) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   div.artifact.lock-and-key .content.lock-and-key .absolute-content-container.lock-and-key.he-wrote {
     top: 60vh;
@@ -3326,6 +3332,19 @@ div.artifact.lock-and-key .animation-frame-container.lock-and-key img {
     margin: 4vh 0 0 0;
     width: 100%;
     height: auto;
+  }
+}
+@media only screen and (max-aspect-ratio: 7/8) and (min-width: 500px) {
+  div.artifact.lock-and-key .animation-frame-container.lock-and-key {
+    top: 40vh;
+    height: 50vh;
+    left: 0;
+    width: 100vw;
+  }
+  div.artifact.lock-and-key .animation-frame-container.lock-and-key img {
+    height: 100%;
+    width: auto;
+    margin-left: -10vw;
   }
 }
 @media only screen and (min-aspect-ratio: 7/8) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
@@ -3506,6 +3525,19 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
     transform: scale(1);
   }
 }
+@media only screen and (max-aspect-ratio: 7/8) and (min-width: 500px) {
+  #lock-and-key[data-content-scroll="8"] .animation-frame-container.lock-and-key {
+    top: 35vh;
+    height: 50vh;
+    left: 0;
+    width: 100vw;
+  }
+  #lock-and-key[data-content-scroll="8"] .animation-frame-container.lock-and-key img {
+    height: 100%;
+    width: auto;
+    margin-left: -10vw;
+  }
+}
 @media only screen and (min-aspect-ratio: 7/8) and (max-aspect-ratio: 3/2) and (min-width: 640px) {
   #lock-and-key[data-content-scroll="8"] .animation-frame-container.lock-and-key {
     top: 0vh;
@@ -3604,6 +3636,21 @@ div.artifact.lock-and-key .background-image-container.lock-and-key:before {
     margin: 0;
     height: 100%;
     width: auto;
+  }
+}
+@media only screen and (max-aspect-ratio: 7/8) and (min-width: 500px) {
+  #lock-and-key[data-content-scroll="9"] .animation-frame-container.lock-and-key,
+#lock-and-key[data-content-scroll="10"] .animation-frame-container.lock-and-key {
+    top: 35vh;
+    height: 50vh;
+    left: 0;
+    width: 100vw;
+  }
+  #lock-and-key[data-content-scroll="9"] .animation-frame-container.lock-and-key img,
+#lock-and-key[data-content-scroll="10"] .animation-frame-container.lock-and-key img {
+    height: 100%;
+    width: auto;
+    margin-left: -10vw;
   }
 }
 @media only screen and (min-aspect-ratio: 10/5) and (min-width: 1280px) {
@@ -5525,7 +5572,7 @@ body.index {
   }
   .content.index .main .gallery .select .circle svg {
     width: 5vh;
-    stroke-width: 0.175vh;
+    stroke-width: 0.06rem;
   }
 }
 @media only screen and (max-aspect-ratio: 7/8) and (min-width: 500px) {
@@ -5594,7 +5641,7 @@ body.index {
   .content.index .main .gallery .select .circle svg {
     width: 5vw;
     margin: 0 0 0 6vw;
-    stroke-width: 0.175vh;
+    stroke-width: 0.09rem;
   }
   .content.index .main .gallery .select.right {
     justify-content: flex-end;
