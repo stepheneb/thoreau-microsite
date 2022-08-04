@@ -4,6 +4,7 @@
   "description": "Explore Thoreau Artifacts",
   "scripts": {
     "test": "jest",
+	"gulp" : "gulp",
     "build": "gulp build"
   },
   "author": {
