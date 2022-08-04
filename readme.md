@@ -19,7 +19,7 @@ $ npm install
 ```
 5. Start the development server.
 ```
-$ gulp
+$ npm run gulp
 [16:01:44] Requiring external module esm
 [16:01:46] Using gulpfile ~/dev/00-clients/rlmg/thoreau/thoreau-microsite/gulpfile.esm.js
 [16:01:46] Starting 'default'...
@@ -56,21 +56,25 @@ The build tools for the thoreau microsite use the latest active long-term-suppor
 
 ```
 $ node -v
-v16.13.2
+v16.16.0
 ```
 
 There are instructions on the Node.js home page describing how to install it.
 
 The instructions for macOS suggest using the Node Version Manager **`nvm`** to install Node.js: https://github.com/nvm-sh/nvm
 
-After installin `nvm` install the latest
+After installing `nvm` either just install the `lts/gallium` version of node manually.
 ```
 $ nvm install --lts
 ```
 
+Or see this section of the nvm documentation describing how to integrate nvm so that when you `cd thoreau-microsite` the correct version of node will automatically be used (nvm will install `lts/gallium` if it doesn't exist).
+
+[nvm#deeper-shell-integration](https://github.com/nvm-sh/nvm, deeper-shell-integration)
+
 Updating to a newer lts/Gallium version of Node.js and migrate any globally installed npm packagees.
 
-nvm install node --reinstall-packages-from=node
+nvm install lts/Gallium --reinstall-packages-from=node
 
 
 ## ffmpeg notes
